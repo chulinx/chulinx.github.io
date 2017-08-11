@@ -6,20 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>rpmbuild 打包总结 | 天涯咫尺</title>
+  <title>RPMBUILD 打包总结 | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="RPMBUILD 打包总结1.打包准备  有时候为了方便源码包的安装，和我们自己订制软件包的需求，我们会把一些源码包按照我们的需求来做成rpm包，当有了源码包就可以直接编译得到二进制安装包和其他任意包。spec file是制作rpm包最核心的部分，rpm包的制作就是根据spec file来实现的。在制作自定义rpm包的时候最好不要使用管理员进行,因为管理员权限过大，如果一个命令写错了，结果可能是灾">
+  <meta name="description" content="1.打包准备  有时候为了方便源码包的安装，和我们自己订制软件包的需求，我们会把一些源码包按照我们的需求来做成rpm包，当有了源码包就可以直接编译得到二进制安装包和其他任意包。spec file是制作rpm包最核心的部分，rpm包的制作就是根据spec file来实现的。在制作自定义rpm包的时候最好不要使用管理员进行,因为管理员权限过大，如果一个命令写错了，结果可能是灾难性的，而制件一个rpm包">
+<meta name="keywords" content="rpm打包">
 <meta property="og:type" content="article">
-<meta property="og:title" content="rpmbuild 打包总结">
-<meta property="og:url" content="http://yoursite.com/2017/08/10/RpmBuild打包总结/index.html">
+<meta property="og:title" content="RPMBUILD 打包总结">
+<meta property="og:url" content="http://yoursite.com/2017/08/11/RpmBuild打包总结/index.html">
 <meta property="og:site_name" content="天涯咫尺">
-<meta property="og:description" content="RPMBUILD 打包总结1.打包准备  有时候为了方便源码包的安装，和我们自己订制软件包的需求，我们会把一些源码包按照我们的需求来做成rpm包，当有了源码包就可以直接编译得到二进制安装包和其他任意包。spec file是制作rpm包最核心的部分，rpm包的制作就是根据spec file来实现的。在制作自定义rpm包的时候最好不要使用管理员进行,因为管理员权限过大，如果一个命令写错了，结果可能是灾">
+<meta property="og:description" content="1.打包准备  有时候为了方便源码包的安装，和我们自己订制软件包的需求，我们会把一些源码包按照我们的需求来做成rpm包，当有了源码包就可以直接编译得到二进制安装包和其他任意包。spec file是制作rpm包最核心的部分，rpm包的制作就是根据spec file来实现的。在制作自定义rpm包的时候最好不要使用管理员进行,因为管理员权限过大，如果一个命令写错了，结果可能是灾难性的，而制件一个rpm包">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3020508-8e753b4f20ec10fd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-08-10T08:49:58.891Z">
+<meta property="og:updated_time" content="2017-08-11T02:45:12.671Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="rpmbuild 打包总结">
-<meta name="twitter:description" content="RPMBUILD 打包总结1.打包准备  有时候为了方便源码包的安装，和我们自己订制软件包的需求，我们会把一些源码包按照我们的需求来做成rpm包，当有了源码包就可以直接编译得到二进制安装包和其他任意包。spec file是制作rpm包最核心的部分，rpm包的制作就是根据spec file来实现的。在制作自定义rpm包的时候最好不要使用管理员进行,因为管理员权限过大，如果一个命令写错了，结果可能是灾">
+<meta name="twitter:title" content="RPMBUILD 打包总结">
+<meta name="twitter:description" content="1.打包准备  有时候为了方便源码包的安装，和我们自己订制软件包的需求，我们会把一些源码包按照我们的需求来做成rpm包，当有了源码包就可以直接编译得到二进制安装包和其他任意包。spec file是制作rpm包最核心的部分，rpm包的制作就是根据spec file来实现的。在制作自定义rpm包的时候最好不要使用管理员进行,因为管理员权限过大，如果一个命令写错了，结果可能是灾难性的，而制件一个rpm包">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3020508-8e753b4f20ec10fd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="天涯咫尺" type="application/atom+xml">
@@ -171,20 +172,20 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      rpmbuild 打包总结
+      RPMBUILD 打包总结
     </h1>
   
 
         
-        <a href="/2017/08/10/RpmBuild打包总结/" class="archive-article-date">
-  	<time datetime="2017-08-10T08:49:58.891Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-10</time>
+        <a href="/2017/08/11/RpmBuild打包总结/" class="archive-article-date">
+  	<time datetime="2017-08-11T02:45:24.675Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="RPMBUILD-打包总结"><a href="#RPMBUILD-打包总结" class="headerlink" title="RPMBUILD 打包总结"></a>RPMBUILD 打包总结</h2><h3 id="1-打包准备"><a href="#1-打包准备" class="headerlink" title="1.打包准备"></a>1.打包准备</h3><p><img src="http://upload-images.jianshu.io/upload_images/3020508-8e753b4f20ec10fd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="制作原理图"></p>
+        <h3 id="1-打包准备"><a href="#1-打包准备" class="headerlink" title="1.打包准备"></a>1.打包准备</h3><p><img src="http://upload-images.jianshu.io/upload_images/3020508-8e753b4f20ec10fd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="制作原理图"></p>
 <blockquote>
 <p>有时候为了方便源码包的安装，和我们自己订制软件包的需求，我们会把一些源码包按照我们的需求来做成rpm包，当有了源码包就可以直接编译得到二进制安装包和其他任意包。spec file是制作rpm包最核心的部分，rpm包的制作就是根据spec file来实现的。在制作自定义rpm包的时候最好不要使用管理员进行,因为管理员权限过大，如果一个命令写错了，结果可能是灾难性的，而制件一个rpm包普通用户完全可以实现<br><a id="more"></a></p>
 <pre><code>1. 定义工作车间(可以通过rpmbuild --showrc | grep topdir查看当前的工作车间)
@@ -217,7 +218,29 @@ yum -y install rpm-build
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">rpm打包</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux运维/" class="article-tag-list-link color3">linux运维</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -267,7 +290,7 @@ yum -y install rpm-build
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/10/RpmBuild打包总结/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/11/RpmBuild打包总结/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -282,7 +305,7 @@ yum -y install rpm-build
 <nav id="article-nav">
   
   
-    <a href="/2017/08/10/python的基础环境及工具安装/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/08/11/python的基础环境及工具安装/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">python的基础环境及工具安装</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -354,7 +377,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -410,6 +433,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
