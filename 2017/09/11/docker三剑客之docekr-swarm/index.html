@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | 天涯咫尺</title>
+  <title>docker三剑客之docker-swarm | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="天涯咫尺">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="docker-swarm简介 docker-swarm 是docker的一个本地集群工具，docker-swarm要求docker版本大于等于1.12，官方推荐使用docker-mechine创建docker-swarm群集，也可以手动创建  docker-swarm的安装 docker官方推荐的安装方法，直接pull swarm镜像 优点1：能够运行最新的swarm优点2：与主机隔离不用配置环">
+<meta name="keywords" content="docker,swarm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker三剑客之docker-swarm">
+<meta property="og:url" content="http://yoursite.com/2017/09/11/docker三剑客之docekr-swarm/index.html">
 <meta property="og:site_name" content="天涯咫尺">
+<meta property="og:description" content="docker-swarm简介 docker-swarm 是docker的一个本地集群工具，docker-swarm要求docker版本大于等于1.12，官方推荐使用docker-mechine创建docker-swarm群集，也可以手动创建  docker-swarm的安装 docker官方推荐的安装方法，直接pull swarm镜像 优点1：能够运行最新的swarm优点2：与主机隔离不用配置环">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2017/09/11/59b63b1544f5a.jpg">
+<meta property="og:updated_time" content="2017-09-11T07:28:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="天涯咫尺">
+<meta name="twitter:title" content="docker三剑客之docker-swarm">
+<meta name="twitter:description" content="docker-swarm简介 docker-swarm 是docker的一个本地集群工具，docker-swarm要求docker版本大于等于1.12，官方推荐使用docker-mechine创建docker-swarm群集，也可以手动创建  docker-swarm的安装 docker官方推荐的安装方法，直接pull swarm镜像 优点1：能够运行最新的swarm优点2：与主机隔离不用配置环">
+<meta name="twitter:image" content="https://i.loli.net/2017/09/11/59b63b1544f5a.jpg">
   
     <link rel="alternative" href="/atom.xml" title="天涯咫尺" type="application/atom+xml">
   
@@ -158,36 +165,76 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-docker三剑客之docekr-swarm" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/11/docker三剑客之docekr-swarm/" class="archive-article-date">
-  	<time datetime="2017-09-11T06:35:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-11</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/11/docker三剑客之docekr-swarm/">docker三剑客之docker-swarm</a>
+    <h1 class="article-title" itemprop="name">
+      docker三剑客之docker-swarm
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/09/11/docker三剑客之docekr-swarm/" class="archive-article-date">
+  	<time datetime="2017-09-11T06:35:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://i.loli.net/2017/09/11/59b63b1544f5a.jpg" alt="dockerswarm"></p>
+<h3 id="docker-swarm简介"><a href="#docker-swarm简介" class="headerlink" title="docker-swarm简介"></a>docker-swarm简介</h3><blockquote>
+<p>docker-swarm 是docker的一个本地集群工具，docker-swarm要求docker版本大于等于1.12，官方推荐使用docker-mechine创建docker-swarm群集，也可以手动创建</p>
+</blockquote>
+<h3 id="docker-swarm的安装"><a href="#docker-swarm的安装" class="headerlink" title="docker-swarm的安装"></a>docker-swarm的安装</h3><ol>
+<li>docker官方推荐的安装方法，直接pull swarm镜像<blockquote>
+<p>优点1：能够运行最新的swarm<br>优点2：与主机隔离不用配置环境变量</p>
+</blockquote>
+</li>
+</ol>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">➜  ~ docker run swarm --help</div><div class="line">Unable to find image &apos;swarm:latest&apos; locally</div><div class="line">latest: Pulling from library/swarm</div><div class="line">ad8c679cee1a: Pull complete</div><div class="line">97186f5f56a9: Pull complete</div><div class="line">821a304aaa0d: Pull complete</div><div class="line">Digest: sha256:1a05498cfafa8ec767b0d87d11d3b4aeab54e9c99449fead2b3df82d2744d345</div><div class="line">Status: Downloaded newer image for swarm:latest</div><div class="line">Usage: swarm [OPTIONS] COMMAND [arg...]</div><div class="line"></div><div class="line">A Docker-native clustering system</div><div class="line"></div><div class="line">Version: 1.2.8 (48d86b1)</div><div class="line"></div><div class="line">Options:</div><div class="line">  --debug			debug mode [$DEBUG]</div><div class="line">  --log-level, -l &quot;info&quot;	Log level (options: debug, info, warn, error, fatal, panic)</div><div class="line">  --experimental		enable experimental features</div><div class="line">  --help, -h			show help</div><div class="line">  --version, -v			print the version</div><div class="line"></div><div class="line">Commands:</div><div class="line">  create, c	Create a cluster</div><div class="line">  list, l	List nodes in a cluster</div><div class="line">  manage, m	Manage a docker cluster</div><div class="line">  join, j	Join a docker cluster</div><div class="line">  help		Shows a list of commands or help for one command</div><div class="line"></div><div class="line">Run &apos;swarm COMMAND --help&apos; for more information on a command.</div></pre></td></tr></table></figure>
+<ol>
+<li><p>从源码编译成二进制文件<br>在此不做赘述 具体方法可以参考<a href="https://github.com/docker/swarm/blob/master/CONTRIBUTING.md" target="_blank" rel="external">github</a></p>
+</li>
+<li><p>mac os docker安装包集成了docker swarm，所以这也是一种最简便的安装方式</p>
+</li>
+</ol>
+<h3 id="了解swarm集群-从创建一个简单的swram群集开始"><a href="#了解swarm集群-从创建一个简单的swram群集开始" class="headerlink" title="了解swarm集群 从创建一个简单的swram群集开始"></a>了解swarm集群 从创建一个简单的swram群集开始</h3><ol>
+<li><p>创建一个keystory主机用于分发全球唯一的秘钥,并切换至keystory docker主机</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">➜  ~ docker-machine create -d virtualbox --engine-install-url=https://get.daocloud.io/docker/ keystory</div><div class="line">Running pre-create checks...</div><div class="line">Creating machine...</div><div class="line">(keystory) Copying /Users/zlx/.docker/machine/cache/boot2docker.iso to /Users/zlx/.docker/machine/machines/keystory/boot2docker.iso...</div><div class="line">(keystory) Creating VirtualBox VM...</div><div class="line">(keystory) Creating SSH key...</div><div class="line">(keystory) Starting the VM...</div><div class="line">(keystory) Check network to re-create if needed...</div><div class="line">(keystory) Waiting for an IP...</div><div class="line">Waiting for machine to be running, this may take a few minutes...</div><div class="line">Detecting operating system of created instance...</div><div class="line">Waiting for SSH to be available...</div><div class="line">Detecting the provisioner...</div><div class="line">Provisioning with boot2docker...</div><div class="line">Copying certs to the local machine directory...</div><div class="line">Copying certs to the remote machine...</div><div class="line">Setting Docker configuration on the remote daemon...</div><div class="line">Checking connection to Docker...</div><div class="line">Docker is up and running!</div><div class="line">To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env keystory</div><div class="line">➜  ~ eval $(docker-machine env keystory)</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建swarm秘钥</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">➜  ~ docker create swarm</div><div class="line">Unable to find image &apos;swarm:latest&apos; locally</div><div class="line">latest: Pulling from library/swarm</div><div class="line">ad8c679cee1a: Pull complete</div><div class="line">97186f5f56a9: Pull complete</div><div class="line">821a304aaa0d: Pull complete</div><div class="line">Digest: sha256:1a05498cfafa8ec767b0d87d11d3b4aeab54e9c99449fead2b3df82d2744d345</div><div class="line">Status: Downloaded newer image for swarm:latest</div><div class="line">4bed323ad0b4f17ac960c427bd38e6111e5df1e1851f6f597bcd738901631034</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>记下秘钥串：<br>（4bed323ad0b4f17ac960c427bd38e6111e5df1e1851f6f597bcd738901631034）</p>
+<ol>
+<li><p>创建swarm-msater</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">➜  ~ docker-machine create -d virtualbox \</div><div class="line">&gt; --swarm-master \</div><div class="line">&gt; --swarm \</div><div class="line">&gt; --swarm-discovery token://4bed323ad0b4f17ac960c427bd38e6111e5df1e1851f6f597bcd738901631034 \</div><div class="line">&gt; swarm-master</div><div class="line">Running pre-create checks...</div><div class="line">Creating machine...</div><div class="line">(swarm-master) Copying /Users/zlx/.docker/machine/cache/boot2docker.iso to /Users/zlx/.docker/machine/machines/swarm-master/boot2docker.iso...</div><div class="line">(swarm-master) Creating VirtualBox VM...</div><div class="line">(swarm-master) Creating SSH key...</div><div class="line">(swarm-master) Starting the VM...</div><div class="line">(swarm-master) Check network to re-create if needed...</div><div class="line">(swarm-master) Waiting for an IP...</div><div class="line">Waiting for machine to be running, this may take a few minutes...</div><div class="line">Detecting operating system of created instance...</div><div class="line">Waiting for SSH to be available...</div><div class="line">Detecting the provisioner...</div><div class="line">Provisioning with boot2docker...</div><div class="line">Copying certs to the local machine directory...</div><div class="line">Copying certs to the remote machine...</div><div class="line">Setting Docker configuration on the remote daemon...</div><div class="line">Configuring swarm...</div><div class="line">Checking connection to Docker...</div><div class="line">Docker is up and running!</div><div class="line">To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env swarm-master</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建2个node</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">➜  ~ docker-machine create -d virtualbox \</div><div class="line">--swarm \</div><div class="line">--swarm-discovery token://4bed323ad0b4f17ac960c427bd38e6111e5df1e1851f6f597bcd738901631034 \</div><div class="line">swarm-node01</div><div class="line"></div><div class="line">➜  ~ docker-machine create -d virtualbox \</div><div class="line">--swarm \</div><div class="line">--swarm-discovery token://4bed323ad0b4f17ac960c427bd38e6111e5df1e1851f6f597bcd738901631034 \</div><div class="line">swarm-node02</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看docker host列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">➜  zhichi docker-machine ls</div><div class="line">NAME           ACTIVE   DRIVER       STATE     URL                         SWARM                   DOCKER        ERRORS</div><div class="line">keystory       -        virtualbox   Running   tcp://192.168.99.100:2376                           v17.06.2-ce</div><div class="line">swarm-master   -        virtualbox   Running   tcp://192.168.99.101:2376   swarm-master (master)   v17.06.2-ce</div><div class="line">swarm-node01   -        virtualbox   Running   tcp://192.168.99.102:2376   swarm-master            v17.06.2-ce</div><div class="line">swarm-node02   -        virtualbox   Running   tcp://192.168.99.103:2376   swarm-master            v17.06.2-ce</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看集群信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">➜  zhichi eval $(docker-machine env --swarm swarm-master )</div><div class="line">➜  zhichi docker info</div><div class="line">Containers: 4</div><div class="line"> Running: 4</div><div class="line"> Paused: 0</div><div class="line"> Stopped: 0</div><div class="line">Images: 3</div><div class="line">Server Version: swarm/1.2.8</div><div class="line">Role: primary</div><div class="line">Strategy: spread</div><div class="line">Filters: health, port, containerslots, dependency, affinity, constraint, whitelist</div><div class="line">Nodes: 3</div><div class="line"> swarm-master: 192.168.99.101:2376</div><div class="line">  └ ID: J3GW:TQNR:DTPZ:OPKJ:KPLF:NPX2:W3LC:7S64:P75L:KDQX:DKJV:B6IG|192.168.99.101:2376</div><div class="line">  └ Status: Healthy</div><div class="line">  └ Containers: 2 (2 Running, 0 Paused, 0 Stopped)</div><div class="line">  └ Reserved CPUs: 0 / 1</div><div class="line">  └ Reserved Memory: 0 B / 1.021 GiB</div><div class="line">  └ Labels: kernelversion=4.4.86-boot2docker, operatingsystem=Boot2Docker 17.06.2-ce (TCL 7.2); HEAD : ff16afa - Wed Sep  6 00:17:25 UTC 2017, ostype=linux, provider=virtualbox, storagedriver=aufs</div><div class="line">  └ UpdatedAt: 2017-09-11T04:22:31Z</div><div class="line">  └ ServerVersion: 17.06.2-ce</div><div class="line"> swarm-node01: 192.168.99.102:2376</div><div class="line">  └ ID: XTQE:FRLO:WSUX:TTPG:ITGL:5USK:V2KV:2E4Y:TFWE:RT6K:ESFI:RW7S|192.168.99.102:2376</div><div class="line">  └ Status: Healthy</div><div class="line">  └ Containers: 1 (1 Running, 0 Paused, 0 Stopped)</div><div class="line">  └ Reserved CPUs: 0 / 1</div><div class="line">  └ Reserved Memory: 0 B / 1.021 GiB</div><div class="line">  └ Labels: kernelversion=4.4.86-boot2docker, operatingsystem=Boot2Docker 17.06.2-ce (TCL 7.2); HEAD : ff16afa - Wed Sep  6 00:17:25 UTC 2017, ostype=linux, provider=virtualbox, storagedriver=aufs</div><div class="line">  └ UpdatedAt: 2017-09-11T04:22:44Z</div><div class="line">  └ ServerVersion: 17.06.2-ce</div><div class="line"> swarm-node02: 192.168.99.103:2376</div><div class="line">  └ ID: 3QAJ:HBPZ:K52D:22WM:KF2F:6BMK:KEAN:BAOK:TSIK:G7Q3:MEJ5:MBGV|192.168.99.103:2376</div><div class="line">  └ Status: Healthy</div><div class="line">  └ Containers: 1 (1 Running, 0 Paused, 0 Stopped)</div><div class="line">  └ Reserved CPUs: 0 / 1</div><div class="line">  └ Reserved Memory: 0 B / 1.021 GiB</div><div class="line">  └ Labels: kernelversion=4.4.86-boot2docker, operatingsystem=Boot2Docker 17.06.2-ce (TCL 7.2); HEAD : ff16afa - Wed Sep  6 00:17:25 UTC 2017, ostype=linux, provider=virtualbox, storagedriver=aufs</div><div class="line">  └ UpdatedAt: 2017-09-11T04:22:47Z</div><div class="line">  └ ServerVersion: 17.06.2-ce</div><div class="line">Plugins:</div><div class="line"> Volume:</div><div class="line"> Network:</div><div class="line"> Log:</div><div class="line">Swarm:</div><div class="line"> NodeID:</div><div class="line"> Is Manager: false</div><div class="line"> Node Address:</div><div class="line">Kernel Version: 4.4.86-boot2docker</div><div class="line">Operating System: linux</div><div class="line">Architecture: amd64</div><div class="line">CPUs: 3</div><div class="line">Total Memory: 3.063GiB</div><div class="line">Name: e1e51c2e4f92</div><div class="line">Docker Root Dir:</div><div class="line">Debug Mode (client): false</div><div class="line">Debug Mode (server): false</div><div class="line">Experimental: false</div><div class="line">Live Restore Enabled: false</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>以上操作只是为了让我们理解swarm集群的一些基本感念，是不能直接应用于生产环境的，至于直接应用于生产环境的集群部署，是我下面要做的！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -203,7 +250,7 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -216,172 +263,111 @@ var _hmt = _hmt || [];
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/11/docker三剑客之docekr-swarm/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/11/docker三剑客之docker-machine/" class="archive-article-date">
-  	<time datetime="2017-09-11T06:35:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-11</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/11/docker三剑客之docker-machine/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">docker三剑客之docker-machine</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/11/docker三剑客之docker-machine/">docker三剑客之docker-machine</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">machine</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/docker/" class="article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/11/python的基础环境及工具安装/" class="archive-article-date">
-  	<time datetime="2017-08-11T02:45:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/11/python的基础环境及工具安装/">python的基础环境及工具安装</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">virtualenv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python学习/" class="article-tag-list-link color4">python学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/11/RpmBuild打包总结/" class="archive-article-date">
-  	<time datetime="2017-08-11T02:45:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/11/RpmBuild打包总结/">RPMBUILD 打包总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">rpm打包</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux运维/" class="article-tag-list-link color3">linux运维</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+  <div id="SOHUCS" sid="docker三剑客之docekr-swarm" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "cysX3aGWt"; 
+var conf = "prod_1dcda447175aada96edcdb7e412338fa"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+  
+
+  
 
 
           </div>
@@ -404,8 +390,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
