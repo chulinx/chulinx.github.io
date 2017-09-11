@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/ZABBIX-WEB12.png">
 <meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/ZABBIX-WEB13.png">
 <meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/ZABBIX-WEB14.png">
-<meta property="og:updated_time" content="2017-09-11T08:03:43.000Z">
+<meta property="og:updated_time" content="2017-09-11T08:06:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zabbix安装配置-基于zabbix_3.4">
 <meta name="twitter:description" content="监控工具zabbix简介 Zabbix 是一个基于 WEB界面 的提供 分布式 系统监视以及网络监视功能的企业级的开源解决方案，简单的环境有两部分构成，zabbix server与可选组件zabbix agent；分布式环境有3部分构成：zabbix-server、zabbix-proxy、zabbix-agent；可以通过SNMP，zabbix agent，ping，端口监视等方法提供对远程服">
@@ -203,6 +203,7 @@ var _hmt = _hmt || [];
 <h3 id="监控工具zabbix简介"><a href="#监控工具zabbix简介" class="headerlink" title="监控工具zabbix简介"></a>监控工具zabbix简介</h3><blockquote>
 <p>Zabbix 是一个基于 <strong>WEB界面</strong> 的提供 <strong>分布式</strong> 系统监视以及网络监视功能的企业级的开源解决方案，简单的环境有两部分构成，zabbix server与可选组件zabbix agent；分布式环境有3部分构成：zabbix-server、zabbix-proxy、zabbix-agent；可以通过SNMP，zabbix agent，ping，端口监视等方法提供对远程服务器/网络状态的监视，数据收集等功能，它可以运行在Linux，Solaris，HP-UX，AIX，Free BSD，Open BSD，OS X等平台上</p>
 </blockquote>
+<a id="more"></a>
 <h3 id="搭建分布式zabbix监控"><a href="#搭建分布式zabbix监控" class="headerlink" title="搭建分布式zabbix监控"></a>搭建分布式zabbix监控</h3><p>注：本文档基于centos7</p>
 <hr>
 <h4 id="zabbix-server安装"><a href="#zabbix-server安装" class="headerlink" title="zabbix-server安装"></a>zabbix-server安装</h4><h5 id="导入zabbix官方yum源，方便我们进行yum安装"><a href="#导入zabbix官方yum源，方便我们进行yum安装" class="headerlink" title="导入zabbix官方yum源，方便我们进行yum安装"></a>导入zabbix官方yum源，方便我们进行yum安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# rpm -ivh http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-1.el7.centos.noarch.rpm</div></pre></td></tr></table></figure>
@@ -456,11 +457,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
+                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -468,7 +465,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -477,10 +482,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
               </li>
             
             <div class="clearfix"></div>
