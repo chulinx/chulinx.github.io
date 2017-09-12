@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2017/09/12/59b7512ad4cbd.png">
 <meta property="og:image" content="https://i.loli.net/2017/09/12/59b755c69eec2.png">
-<meta property="og:updated_time" content="2017-09-12T03:35:56.000Z">
+<meta property="og:updated_time" content="2017-09-12T04:09:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes集群搭建">
 <meta name="twitter:description" content="一，基础理论 Kubernetes是开源的自动化容器操作平台，包括部署，调度和节点集群间的拓展。在kubernetes中，docker是做为一种组件存在的，k8s不仅支持docker,还支持Rocket虚拟化技术。 Kubernetes的特点：自动化容器的部署与复制随时扩展或收缩容器规模将容器组织成组，并且能够提供容器间的负载均衡对于容器的升级很方便容器的健康检查与自动修复…  Kubernete">
@@ -195,9 +195,9 @@ var _hmt = _hmt || [];
 <p>Pod :一组容器和卷的组合<br>Label:pod的标签，以键值对存储<br>作用：区分前端后台Pod/Service RC的指定应用<br>Replication Controller: 指定Pod的副本数，持续监控Pod数量，保证一定个数的Pod正常运行，创建Pod时需要指定pod模板和Label（Pod的标签）<br>Service: 是定义一系列Pod以及访问这些Pods的策略的一层抽象,通过Lable找到Pod组。<br>Node 节点，是物理机或者虚拟机，运行以下组件<br>Kubelet kube-proxy docker/Rockt<br>Master 提供Api server 用来创建Pod和RC</p>
 </blockquote>
 <a id="more"></a>
-<h3 id="二．搭建Kuberbetes-集群"><a href="#二．搭建Kuberbetes-集群" class="headerlink" title="二．搭建Kuberbetes 集群"></a>二．搭建Kuberbetes 集群</h3><h4 id="2-1-环境"><a href="#2-1-环境" class="headerlink" title="2.1　环境"></a>2.1　环境</h4><figure class="highlight plain"><figcaption><span>172.16.1.146</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Node01: 172.16.1.145</div><div class="line">Node02: 172.16.1.144</div><div class="line">System: centos 7　最小化</div><div class="line">Cores : 8</div><div class="line">Mem: 2G</div><div class="line"></div><div class="line">Kubernetes-master: 1.4</div><div class="line">Kubernetes-client: 1.4</div><div class="line">Etcd: 3.0</div><div class="line"></div><div class="line">Kubernetes-node: 1.4</div><div class="line">Docker: 1.12</div><div class="line">Flannel: 0.5.5</div></pre></td></tr></table></figure>
-<h4 id="2-2-初始环境-master-amp-node"><a href="#2-2-初始环境-master-amp-node" class="headerlink" title="2.2 初始环境(master &amp; node)"></a>2.2 初始环境(master &amp; node)</h4><h5 id="2-2-1-关闭防火墙＆selinux"><a href="#2-2-1-关闭防火墙＆selinux" class="headerlink" title="2.2.1 关闭防火墙＆selinux"></a>2.2.1 关闭防火墙＆selinux</h5><figure class="highlight plain"><figcaption><span>disable firewalld　</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">systemctl stop firewalld</div><div class="line"></div><div class="line">vi /etc/sysconfig/selinux</div><div class="line">SELINUX=disabled</div><div class="line">Setenforce 0</div></pre></td></tr></table></figure>
-<h5 id="2-2-2-安装基础软件工具-master-amp-node-添加阿里云epel"><a href="#2-2-2-安装基础软件工具-master-amp-node-添加阿里云epel" class="headerlink" title="2.2.2 安装基础软件工具(master &amp; node),添加阿里云epel"></a>2.2.2 安装基础软件工具(master &amp; node),添加阿里云epel</h5><figure class="highlight plain"><figcaption><span>install vim wget nmap net-tools</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo</div></pre></td></tr></table></figure>
+<h3 id="二．搭建Kuberbetes-集群"><a href="#二．搭建Kuberbetes-集群" class="headerlink" title="二．搭建Kuberbetes 集群"></a>二．搭建Kuberbetes 集群</h3><h4 id="2-1-环境"><a href="#2-1-环境" class="headerlink" title="2.1　环境"></a>2.1　环境</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Master: 172.16.1.146</div><div class="line">Node01: 172.16.1.145</div><div class="line">Node02: 172.16.1.144</div><div class="line">System: centos 7　最小化</div><div class="line">Cores : 8</div><div class="line">Mem: 2G</div><div class="line"></div><div class="line">Kubernetes-master: 1.4</div><div class="line">Kubernetes-client: 1.4</div><div class="line">Etcd: 3.0</div><div class="line"></div><div class="line">Kubernetes-node: 1.4</div><div class="line">Docker: 1.12</div><div class="line">Flannel: 0.5.5</div></pre></td></tr></table></figure>
+<h4 id="2-2-初始环境-master-amp-node"><a href="#2-2-初始环境-master-amp-node" class="headerlink" title="2.2 初始环境(master &amp; node)"></a>2.2 初始环境(master &amp; node)</h4><h5 id="2-2-1-关闭防火墙＆selinux"><a href="#2-2-1-关闭防火墙＆selinux" class="headerlink" title="2.2.1 关闭防火墙＆selinux"></a>2.2.1 关闭防火墙＆selinux</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">systemctl disable firewalld　</div><div class="line">systemctl stop firewalld</div><div class="line"></div><div class="line">vi /etc/sysconfig/selinux</div><div class="line">SELINUX=disabled</div><div class="line">Setenforce 0</div></pre></td></tr></table></figure>
+<h5 id="2-2-2-安装基础软件工具-master-amp-node-添加阿里云epel"><a href="#2-2-2-安装基础软件工具-master-amp-node-添加阿里云epel" class="headerlink" title="2.2.2 安装基础软件工具(master &amp; node),添加阿里云epel"></a>2.2.2 安装基础软件工具(master &amp; node),添加阿里云epel</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install vim wget nmap net-tools</div><div class="line">wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo</div></pre></td></tr></table></figure>
 <h4 id="2-3-部署etcd（master）"><a href="#2-3-部署etcd（master）" class="headerlink" title="2.3 部署etcd（master）"></a>2.3 部署etcd（master）</h4><h5 id="2-3-1-安装etcd"><a href="#2-3-1-安装etcd" class="headerlink" title="2.3.1 安装etcd"></a>2.3.1 安装etcd</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install etcd</div></pre></td></tr></table></figure>
 <h5 id="2-3-2-配置etcd"><a href="#2-3-2-配置etcd" class="headerlink" title="2.3.2 配置etcd"></a>2.3.2 配置etcd</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@master kubernetes]# grep -v &quot;^#&quot; /etc/etcd/etcd.conf</div><div class="line">ETCD_NAME=default</div><div class="line">ETCD_DATA_DIR=&quot;/var/lib/etcd/default.etcd&quot;</div><div class="line">ETCD_LISTEN_CLIENT_URLS=&quot;http://0.0.0.0:2379&quot;</div><div class="line">ETCD_ADVERTISE_CLIENT_URLS=&quot;http://172.16.1.146:2379&quot;</div></pre></td></tr></table></figure>
 <h5 id="2-3-3-设置开机启动并开启服务"><a href="#2-3-3-设置开机启动并开启服务" class="headerlink" title="2.3.3 设置开机启动并开启服务"></a>2.3.3 设置开机启动并开启服务</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">systemctl enable etcd /systemctl start etcd /netstat -nptl|greo etcd</div><div class="line">1.3.4 定义etcd 中的网络，让node 从etcd中拉去网络配置</div><div class="line">etcdctl mk /coreos.com/network/config &apos;&#123;&quot;Network&quot;:&quot;172.17.0.0/16&quot;&#125;&apos;</div></pre></td></tr></table></figure>
@@ -441,6 +441,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
@@ -453,19 +465,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
               </li>
              
               <li class="article-tag-list-item">
