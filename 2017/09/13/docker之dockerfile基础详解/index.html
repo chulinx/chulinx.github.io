@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="天涯咫尺">
 <meta property="og:description" content="FROM 指定基础镜像 对于这条指令的理解大概可以这样理解，比如，我们搭建mysql服务时会说基于centos搭建mysql服务，这个基于的centos实际上就是dockerfile中的基础镜像。    指令基本格式： 12FROM scratch... 1FROM centos  当然也有一部分应用不依赖于操作系统，那样构建dockerfile时就指定一个空镜像FROM scratch">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-13T09:07:52.000Z">
+<meta property="og:updated_time" content="2017-09-13T11:47:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker之dockerfile详解">
 <meta name="twitter:description" content="FROM 指定基础镜像 对于这条指令的理解大概可以这样理解，比如，我们搭建mysql服务时会说基于centos搭建mysql服务，这个基于的centos实际上就是dockerfile中的基础镜像。    指令基本格式： 12FROM scratch... 1FROM centos  当然也有一部分应用不依赖于操作系统，那样构建dockerfile时就指定一个空镜像FROM scratch">
@@ -234,8 +234,12 @@ var _hmt = _hmt || [];
 <li>CMD容器启动进程命令 和RUN一样也有两种格式<br>CMD &lt;命令&gt;<br>CMD [”可执行文件”，”参数1”，“”参数2”]</li>
 </ul>
 <blockquote>
-<p>1.不建议使用CMD &lt;命令&gt;这种格式，即使使用实际执行时也是包装为CMD [”可执行文件”，”参数1”，“”参数2”]这种格式的，比如<figure class="highlight cmd"><figcaption><span>ls</span><a href="/tmp/">link</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="number">2</span>.关于容器执行命令前后台的问题，容器是为了主进程而存在的，主进程退出，容器也就失去了存在的意义，所以，你在创建容器是执行service nginx <span class="built_in">start</span> 发现创建完容器自动退出，因为service nginx <span class="built_in">start</span>是希望nginx以守护进程而运行，换而言之，这里的主进程是service nginx <span class="built_in">start</span> 而启动脚本中的nginx -g是辅助进程，容器并不关心辅助进程，主进程service nginx <span class="built_in">start</span> 执行完退出，容器也就随之退出</div><div class="line"></div><div class="line">- ENTRYPOINT 和<span class="built_in">CMD</span> 一样指定容器内启动程序的参数，格式也是有两种</div><div class="line">ENTRYPOINT &lt;命令&gt;</div><div class="line">ENTRYPOINT [”可执行文件”，”参数<span class="number">1</span>”，“”参数<span class="number">2</span>”]</div><div class="line">ENTRYPOINT的使用场景，一般是搭配<span class="built_in">CMD</span>使用，及将<span class="built_in">CMD</span>作为ENTRYPOINT执行命令的参数来使用！</div><div class="line">例如下面是一个构建查询本机外网ip的dockerfile：</div><div class="line"></div><div class="line">```bash</div><div class="line">FROM hub.c.<span class="number">163</span>.com/public/centos:<span class="number">6</span>.<span class="number">7</span>-tools</div><div class="line"></div><div class="line">RUN yum install curl -y \</div><div class="line">&amp;&amp; rm -fr /var/lib/yum/*</div><div class="line"></div><div class="line"><span class="built_in">CMD</span> [ "curl","-s","http://ip.cn" ]</div></pre></td></tr></table></figure></p>
+<p>1.不建议使用CMD &lt;命令&gt;这种格式，即使使用实际执行时也是包装为CMD [”可执行文件”，”参数1”，“”参数2”]这种格式的，比如CMD ls /tmp/ ===&gt;CMD [“sh”,”-c”,”ls /tmp/“]<br>2.关于容器执行命令前后台的问题，容器是为了主进程而存在的，主进程退出，容器也就失去了存在的意义，所以，你在创建容器是执行service nginx start 发现创建完容器自动退出，因为service nginx start是希望nginx以守护进程而运行，换而言之，这里的主进程是service nginx start 而启动脚本中的nginx -g是辅助进程，容器并不关心辅助进程，主进程service nginx start 执行完退出，容器也就随之退出</p>
 </blockquote>
+<ul>
+<li>ENTRYPOINT 和CMD 一样指定容器内启动程序的参数，格式也是有两种<br>ENTRYPOINT &lt;命令&gt;<br>ENTRYPOINT [”可执行文件”，”参数1”，“”参数2”]<br>ENTRYPOINT的使用场景，一般是搭配CMD使用，及将CMD作为ENTRYPOINT执行命令的参数来使用！<br>例如下面是一个构建查询本机外网ip的dockerfile：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">FROM hub.c.163.com/public/centos:6.7-tools</div><div class="line"></div><div class="line">RUN yum install curl -y \</div><div class="line">&amp;&amp; rm -fr /var/lib/yum/*</div><div class="line"></div><div class="line">CMD [ <span class="string">"curl"</span>,<span class="string">"-s"</span>,<span class="string">"http://ip.cn"</span> ]</div></pre></td></tr></table></figure>
 <p>docker build 构建：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line">➜  localhost_wwip git:(master) ✗ docker build -t getip:v1 .</div><div class="line">Sending build context to Docker daemon  2.048kB</div><div class="line">Step 1/3 : FROM hub.c.163.com/public/centos:6.7-tools</div><div class="line"> ---&gt; b2ab0ed558bb</div><div class="line">Step 2/3 : RUN yum install curl -y &amp;&amp; rm -fr /var/lib/yum/*</div><div class="line"> ---&gt; Running in 2ab67d864461</div><div class="line">Loaded plugins: fastestmirror, ovl</div><div class="line">Setting up Install Process</div><div class="line">Determining fastest mirrors</div><div class="line"> * base: mirrors.aliyun.com</div><div class="line"> * epel: mirror.premi.st</div><div class="line"> * extras: mirrors.btte.net</div><div class="line"> * updates: mirrors.cn99.com</div><div class="line">Resolving Dependencies</div><div class="line">--&gt; Running transaction check</div><div class="line">---&gt; Package curl.x86_64 0:7.19.7-52.el6 will be updated</div><div class="line">---&gt; Package curl.x86_64 0:7.19.7-53.el6_9 will be an update</div><div class="line">--&gt; Processing Dependency: libcurl = 7.19.7-53.el6_9 for package: curl-7.19.7-53.el6_9.x86_64</div><div class="line">--&gt; Running transaction check</div><div class="line">---&gt; Package libcurl.x86_64 0:7.19.7-52.el6 will be updated</div><div class="line">---&gt; Package libcurl.x86_64 0:7.19.7-53.el6_9 will be an update</div><div class="line">--&gt; Finished Dependency Resolution</div><div class="line"></div><div class="line">Dependencies Resolved</div><div class="line"></div><div class="line">================================================================================</div><div class="line"> Package         Arch           Version                   Repository       Size</div><div class="line">================================================================================</div><div class="line">Updating:</div><div class="line"> curl            x86_64         7.19.7-53.el6_9           updates         197 k</div><div class="line">Updating for dependencies:</div><div class="line"> libcurl         x86_64         7.19.7-53.el6_9           updates         169 k</div><div class="line"></div><div class="line">Transaction Summary</div><div class="line">================================================================================</div><div class="line">Upgrade       2 Package(s)</div><div class="line"></div><div class="line">Total download size: 367 k</div><div class="line">Downloading Packages:</div><div class="line">--------------------------------------------------------------------------------</div><div class="line">Total                                           1.3 MB/s | 367 kB     00:00</div><div class="line">Running rpm_check_debug</div><div class="line">Running Transaction Test</div><div class="line"></div><div class="line"></div><div class="line">Transaction Test Succeeded</div><div class="line">Running Transaction</div><div class="line">  Updating   : libcurl-7.19.7-53.el6_9.x86_64                               1/4</div><div class="line">  Updating   : curl-7.19.7-53.el6_9.x86_64                                  2/4</div><div class="line">  Cleanup    : curl-7.19.7-52.el6.x86_64                                    3/4</div><div class="line">  Cleanup    : libcurl-7.19.7-52.el6.x86_64                                 4/4</div><div class="line"></div><div class="line"></div><div class="line">  Verifying  : libcurl-7.19.7-53.el6_9.x86_64                               1/4</div><div class="line">  Verifying  : curl-7.19.7-53.el6_9.x86_64                                  2/4</div><div class="line">  Verifying  : curl-7.19.7-52.el6.x86_64                                    3/4</div><div class="line">  Verifying  : libcurl-7.19.7-52.el6.x86_64                                 4/4</div><div class="line"></div><div class="line">Updated:</div><div class="line">  curl.x86_64 0:7.19.7-53.el6_9</div><div class="line"></div><div class="line">Dependency Updated:</div><div class="line">  libcurl.x86_64 0:7.19.7-53.el6_9</div><div class="line"></div><div class="line">Complete!</div><div class="line"> ---&gt; 891dda232e64</div><div class="line">Removing intermediate container 2ab67d864461</div><div class="line">Step 3/3 : CMD curl -s http://ip.cn</div><div class="line"> ---&gt; Running in c167b40d7d49</div><div class="line"> ---&gt; ab935aff2175</div><div class="line">Removing intermediate container c167b40d7d49</div><div class="line">Successfully built ab935aff2175</div><div class="line">Successfully tagged getip:v1</div></pre></td></tr></table></figure>
 <p>运行：</p>
@@ -518,7 +522,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
+                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,6 +534,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
@@ -538,19 +550,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
               </li>
             
             <div class="clearfix"></div>
