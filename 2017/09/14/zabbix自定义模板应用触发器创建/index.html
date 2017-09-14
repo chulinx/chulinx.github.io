@@ -6,16 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>categories | 天涯咫尺</title>
+  <title>zabbix自定义模板应用监控项创建 | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+  <meta name="description" content="1.修改zabbix-agent配置文件,开启自定义脚本功能123[root@localhost zabbix]# cd /etc/zabbix/ &amp;amp;&amp;amp; vim zabbix_agentd.confInclude=/etc/zabbix/zabbix_agentd.d/*.confUnsafeUserParameters=1">
+<meta name="keywords" content="zabbix,自定义监控,zabbix监控图界面中文乱码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="zabbix自定义模板应用监控项创建">
+<meta property="og:url" content="http://yoursite.com/2017/09/14/zabbix自定义模板应用触发器创建/index.html">
 <meta property="og:site_name" content="天涯咫尺">
+<meta property="og:description" content="1.修改zabbix-agent配置文件,开启自定义脚本功能123[root@localhost zabbix]# cd /etc/zabbix/ &amp;amp;&amp;amp; vim zabbix_agentd.confInclude=/etc/zabbix/zabbix_agentd.d/*.confUnsafeUserParameters=1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-11T02:45:32.000Z">
+<meta property="og:image" content="https://i.loli.net/2017/09/14/59ba0b372f156.png">
+<meta property="og:image" content="https://i.loli.net/2017/09/14/59b9f29432e0b.png">
+<meta property="og:image" content="https://i.loli.net/2017/09/14/59b9f36b36c13.png">
+<meta property="og:image" content="https://i.loli.net/2017/09/14/59b9f374d6435.png">
+<meta property="og:image" content="https://i.loli.net/2017/09/14/59b9f3eb164b9.png">
+<meta property="og:image" content="https://i.loli.net/2017/09/14/59b9f3df5f7e5.png">
+<meta property="og:image" content="https://i.loli.net/2017/09/14/59b9f6387e82a.png">
+<meta property="og:image" content="https://i.loli.net/2017/09/14/59b9f673375f3.png">
+<meta property="og:image" content="https://i.loli.net/2017/09/14/59b9f793ca2f5.png">
+<meta property="og:image" content="https://i.loli.net/2017/09/14/59b9f7a5641bc.png">
+<meta property="og:image" content="https://i.loli.net/2017/09/14/59ba042b11151.png">
+<meta property="og:image" content="https://i.loli.net/2017/09/14/59ba08fdc3cef.png">
+<meta property="og:updated_time" content="2017-09-14T04:59:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
+<meta name="twitter:title" content="zabbix自定义模板应用监控项创建">
+<meta name="twitter:description" content="1.修改zabbix-agent配置文件,开启自定义脚本功能123[root@localhost zabbix]# cd /etc/zabbix/ &amp;amp;&amp;amp; vim zabbix_agentd.confInclude=/etc/zabbix/zabbix_agentd.d/*.confUnsafeUserParameters=1">
+<meta name="twitter:image" content="https://i.loli.net/2017/09/14/59ba0b372f156.png">
   
     <link rel="alternative" href="/atom.xml" title="天涯咫尺" type="application/atom+xml">
   
@@ -163,27 +180,49 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-zabbix自定义模板应用触发器创建" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      categories
+      zabbix自定义模板应用监控项创建
     </h1>
   
 
         
-        <a href="/categories/index.html" class="archive-article-date">
-  	<time datetime="2017-08-11T02:41:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
+        <a href="/2017/09/14/zabbix自定义模板应用触发器创建/" class="archive-article-date">
+  	<time datetime="2017-09-14T04:48:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p><img src="https://i.loli.net/2017/09/14/59ba0b372f156.png" alt="0"></p>
+<h3 id="1-修改zabbix-agent配置文件-开启自定义脚本功能"><a href="#1-修改zabbix-agent配置文件-开启自定义脚本功能" class="headerlink" title="1.修改zabbix-agent配置文件,开启自定义脚本功能"></a>1.修改zabbix-agent配置文件,开启自定义脚本功能</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@localhost zabbix]# cd /etc/zabbix/ &amp;&amp; vim zabbix_agentd.conf</div><div class="line">Include=/etc/zabbix/zabbix_agentd.d/*.conf</div><div class="line">UnsafeUserParameters=1</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="2-新增监控脚本-并给它可执行权限"><a href="#2-新增监控脚本-并给它可执行权限" class="headerlink" title="2. 新增监控脚本,并给它可执行权限"></a>2. 新增监控脚本,并给它可执行权限</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[root@localhost zabbix]<span class="comment"># mkdir check_scripts</span></div><div class="line">[root@localhost zabbix]<span class="comment"># cat check_scripts/process_nums_check.sh</span></div><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$1</span>"</span> == <span class="string">""</span> ];<span class="keyword">then</span></div><div class="line">   ps -ef|wc -l</div><div class="line"><span class="keyword">else</span></div><div class="line">   ps -fe|grep <span class="variable">$1</span>|wc -l</div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line"></div><div class="line">chmod +x check_scripts/process_nums_check.sh</div></pre></td></tr></table></figure>
+<h3 id="3-新增监控项目配置文件"><a href="#3-新增监控项目配置文件" class="headerlink" title="3. 新增监控项目配置文件"></a>3. 新增监控项目配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost zabbix]# cat zabbix_agentd.d/userparameter_processnums.conf</div><div class="line">UserParameter=PROCESS_NUMS_CHECK[*],/etc/zabbix/check_scripts/process_nums_check.sh $1</div></pre></td></tr></table></figure>
+<h3 id="4-重启zabbix-agent服务并测试脚本是否能获取到值"><a href="#4-重启zabbix-agent服务并测试脚本是否能获取到值" class="headerlink" title="4.重启zabbix_agent服务并测试脚本是否能获取到值"></a>4.重启zabbix_agent服务并测试脚本是否能获取到值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root@localhost zabbix_agentd.d]# systemctl restart zabbix-agent</div><div class="line"></div><div class="line">使用zabbix_agentd命令测试，其格式为:</div><div class="line">zabbix_agentd [-c config-file] -t item-key</div><div class="line"></div><div class="line">[root@localhost zabbix_agentd.d]# zabbix_agentd -t PROCESS_NUMS_CHECK[http]</div><div class="line">PROCESS_NUMS_CHECK[http]                      [t|15]</div><div class="line">[root@localhost zabbix_agentd.d]# zabbix_agentd -t PROCESS_NUMS_CHECK[zabbix]</div><div class="line">PROCESS_NUMS_CHECK[zabbix]                    [t|43]</div></pre></td></tr></table></figure>
+<h3 id="5-登录web页面新加模板"><a href="#5-登录web页面新加模板" class="headerlink" title="5.登录web页面新加模板"></a>5.登录web页面新加模板</h3><p><img src="https://i.loli.net/2017/09/14/59b9f29432e0b.png" alt="zabbix-adtemplate"></p>
+<h3 id="6-创建模板应用"><a href="#6-创建模板应用" class="headerlink" title="6.创建模板应用"></a>6.创建模板应用</h3><p><img src="https://i.loli.net/2017/09/14/59b9f36b36c13.png" alt="3"><img src="https://i.loli.net/2017/09/14/59b9f374d6435.png" alt="4"></p>
+<h3 id="7-创建监控项"><a href="#7-创建监控项" class="headerlink" title="7.创建监控项"></a>7.创建监控项</h3><p><img src="https://i.loli.net/2017/09/14/59b9f3eb164b9.png" alt="5"><br><img src="https://i.loli.net/2017/09/14/59b9f3df5f7e5.png" alt="monitor"><br>ˆ<img src="https://i.loli.net/2017/09/14/59b9f6387e82a.png" alt="6"></p>
+<h3 id="8-创建图形"><a href="#8-创建图形" class="headerlink" title="8.创建图形"></a>8.创建图形</h3><p><img src="https://i.loli.net/2017/09/14/59b9f673375f3.png" alt="8"></p>
+<h3 id="9-查看效果应用到主机"><a href="#9-查看效果应用到主机" class="headerlink" title="9.查看效果应用到主机"></a>9.查看效果应用到主机</h3><p><img src="https://i.loli.net/2017/09/14/59b9f793ca2f5.png" alt="9"><br><img src="https://i.loli.net/2017/09/14/59b9f7a5641bc.png" alt="10"><br>可以看到已经出现效果了，但是发现监控图中文乱码，怎么办呢？</p>
+<h3 id="10-修复zabbix监控图中文乱码"><a href="#10-修复zabbix监控图中文乱码" class="headerlink" title="10.修复zabbix监控图中文乱码"></a>10.修复zabbix监控图中文乱码</h3><ol>
+<li>在windows 系统盘符下的windows/font/下拷贝中文字体<br><img src="https://i.loli.net/2017/09/14/59ba042b11151.png" alt="font"></li>
+<li><p>利用xftp工具把字体文件传到zabbix-server的/usr/share/zabbix/include/目录,我这里因为是mac 所以直接scp命令拷贝</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp *TTF zabbix34:/usr/share/zabbix/fronts/</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改/usr/share/zabbix/include/defines.inc.php字体配置项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">define(&apos;ZBX_FONT_NAME&apos;, &apos;SIMHEI&apos;);</div><div class="line">define(&apos;ZBX_GRAPH_FONT_NAME&apos;,           &apos;SIMHEI&apos;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>4.刷新页面</p>
+<p><img src="https://i.loli.net/2017/09/14/59ba08fdc3cef.png" alt="11"></p>
+
       
 
       
@@ -191,7 +230,37 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">zabbix</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">自定义监控</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">zabbix监控图界面中文乱码</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/zabbix监控/" class="article-tag-list-link color4">zabbix监控</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -241,7 +310,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/categories/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/14/zabbix自定义模板应用触发器创建/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -253,6 +322,16 @@ var _hmt = _hmt || [];
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/13/docker之dockerfile基础详解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">docker之dockerfile详解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -277,7 +356,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="" ></div> 
+  <div id="SOHUCS" sid="zabbix自定义模板应用触发器创建" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cysX3aGWt"; 
@@ -310,7 +389,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
