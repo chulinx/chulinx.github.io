@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>天涯咫尺</title>
+  <title>CDH Hadoop 集群安装部署 | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CDH Hadoop 安装部署环境：   Hosts Role     172.16.1.190 Hbase-Master   172.16.1.103 Hbase-slave01   172.16.1.104 Hbase-slave02     关闭防火墙和iptables 配置ssh 免密登录 Hbase-Master Hbase-slave01 Hbase-slave021234567891">
+  <meta name="description" content="CDH Hadoop 安装部署 环境：   Hosts Role     172.16.1.190 Hbase-Master   172.16.1.103 Hbase-slave01   172.16.1.104 Hbase-slave02     关闭防火墙和iptables 配置ssh 免密登录">
+<meta name="keywords" content="cdh,hadoop集群">
 <meta property="og:type" content="article">
-<meta property="og:title" content="天涯咫尺">
+<meta property="og:title" content="CDH Hadoop 集群安装部署">
 <meta property="og:url" content="http://yoursite.com/2017/11/09/CDH Hadoop部署安装/index.html">
 <meta property="og:site_name" content="天涯咫尺">
-<meta property="og:description" content="CDH Hadoop 安装部署环境：   Hosts Role     172.16.1.190 Hbase-Master   172.16.1.103 Hbase-slave01   172.16.1.104 Hbase-slave02     关闭防火墙和iptables 配置ssh 免密登录 Hbase-Master Hbase-slave01 Hbase-slave021234567891">
+<meta property="og:description" content="CDH Hadoop 安装部署 环境：   Hosts Role     172.16.1.190 Hbase-Master   172.16.1.103 Hbase-slave01   172.16.1.104 Hbase-slave02     关闭防火墙和iptables 配置ssh 免密登录">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2017/11/09/5a03ff6be381b.png">
 <meta property="og:image" content="https://i.loli.net/2017/11/09/5a03eb935a60b.jpg">
 <meta property="og:image" content="https://i.loli.net/2017/11/09/5a03ec2b24eda.jpg">
 <meta property="og:image" content="https://i.loli.net/2017/11/09/5a03ec45ee94a.jpg">
@@ -29,11 +31,11 @@
 <meta property="og:image" content="https://i.loli.net/2017/11/09/5a03f6c348214.jpg">
 <meta property="og:image" content="https://ooo.0o0.ooo/2017/11/09/5a03f847056d4.jpg">
 <meta property="og:image" content="https://i.loli.net/2017/11/09/5a03f9abc5f86.jpg">
-<meta property="og:updated_time" content="2017-11-09T06:51:10.000Z">
+<meta property="og:updated_time" content="2017-11-09T07:14:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="天涯咫尺">
-<meta name="twitter:description" content="CDH Hadoop 安装部署环境：   Hosts Role     172.16.1.190 Hbase-Master   172.16.1.103 Hbase-slave01   172.16.1.104 Hbase-slave02     关闭防火墙和iptables 配置ssh 免密登录 Hbase-Master Hbase-slave01 Hbase-slave021234567891">
-<meta name="twitter:image" content="https://i.loli.net/2017/11/09/5a03eb935a60b.jpg">
+<meta name="twitter:title" content="CDH Hadoop 集群安装部署">
+<meta name="twitter:description" content="CDH Hadoop 安装部署 环境：   Hosts Role     172.16.1.190 Hbase-Master   172.16.1.103 Hbase-slave01   172.16.1.104 Hbase-slave02     关闭防火墙和iptables 配置ssh 免密登录">
+<meta name="twitter:image" content="https://i.loli.net/2017/11/09/5a03ff6be381b.png">
   
     <link rel="alternative" href="/atom.xml" title="天涯咫尺" type="application/atom+xml">
   
@@ -184,9 +186,25 @@ var _hmt = _hmt || [];
             <article id="post-CDH Hadoop部署安装" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CDH Hadoop 集群安装部署
+    </h1>
+  
+
+        
+        <a href="/2017/11/09/CDH Hadoop部署安装/" class="archive-article-date">
+  	<time datetime="2017-11-09T07:13:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="CDH-Hadoop-安装部署"><a href="#CDH-Hadoop-安装部署" class="headerlink" title="CDH Hadoop 安装部署"></a>CDH Hadoop 安装部署</h2><h4 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h4><table>
+        <h2 id="CDH-Hadoop-安装部署"><a href="#CDH-Hadoop-安装部署" class="headerlink" title="CDH Hadoop 安装部署"></a>CDH Hadoop 安装部署</h2><p><img src="https://i.loli.net/2017/11/09/5a03ff6be381b.png" alt="552c6e260471e4823810e8811a8aa75b.png"></p>
+<h4 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h4><table>
 <thead>
 <tr>
 <th style="text-align:left">Hosts</th>
@@ -210,6 +228,7 @@ var _hmt = _hmt || [];
 </table>
 <ol>
 <li><p>关闭防火墙和iptables 配置ssh 免密登录</p>
+<a id="more"></a>
 <h5 id="Hbase-Master-Hbase-slave01-Hbase-slave02"><a href="#Hbase-Master-Hbase-slave01-Hbase-slave02" class="headerlink" title="Hbase-Master Hbase-slave01 Hbase-slave02"></a>Hbase-Master Hbase-slave01 Hbase-slave02</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[root@hbase-master latest]# getenforce</div><div class="line">Disabled</div><div class="line">[root@hbase-master latest]# /etc/init.d/iptables status</div><div class="line">iptables：未运行防火墙。</div><div class="line">[root@localhost ~]# ssh-keygen</div><div class="line">[root@localhost ~]# ssh-copy-id 172.16.1.190</div><div class="line">[root@localhost ~]# ssh-copy-id 172.16.1.103</div><div class="line">[root@localhost ~]# ssh-copy-id 172.16.1.104</div><div class="line">#配置hosts文件</div><div class="line">[root@localhost ~]# cat /etc/hosts</div><div class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</div><div class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</div><div class="line">172.16.1.190    hbase-master</div><div class="line">172.16.1.103    hbase-slave01</div><div class="line">172.16.1.104    hbase-slave02</div></pre></td></tr></table></figure>
 </li>
 <li><p>修改hostname</p>
@@ -260,7 +279,33 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cdh</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hadoop集群</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/hadoop/" class="article-tag-list-link color2">hadoop</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -325,8 +370,8 @@ var _hmt = _hmt || [];
 <nav id="article-nav">
   
   
-    <a href="/2017/09/15/zabbix触发器和微信企业号报警设置/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">zabbix触发器和微信企业号报警设置</div>
+    <a href="/2017/10/30/一文总结nginx常见用法及故障/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">一文总结nginx常见用法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -455,6 +500,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
@@ -475,7 +528,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,23 +560,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
             
             <div class="clearfix"></div>
