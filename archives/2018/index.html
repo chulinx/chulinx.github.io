@@ -6,22 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>一文总结nginx常见用法 | 天涯咫尺</title>
+  <title>Archives: 2018 | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="nginx优化–系统内核">
-<meta name="keywords" content="nginx,proxy">
-<meta property="og:type" content="article">
-<meta property="og:title" content="一文总结nginx常见用法">
-<meta property="og:url" content="http://yoursite.com/2017/10/30/一文总结nginx常见用法及故障/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="天涯咫尺">
+<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
 <meta property="og:site_name" content="天涯咫尺">
-<meta property="og:description" content="nginx优化–系统内核">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.loli.net/2017/11/09/5a03ff6be381b.png">
-<meta property="og:updated_time" content="2017-11-09T07:19:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一文总结nginx常见用法">
-<meta name="twitter:description" content="nginx优化–系统内核">
-<meta name="twitter:image" content="https://i.loli.net/2017/11/09/5a03ff6be381b.png">
+<meta name="twitter:title" content="天涯咫尺">
   
     <link rel="alternative" href="/atom.xml" title="天涯咫尺" type="application/atom+xml">
   
@@ -169,254 +162,128 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-一文总结nginx常见用法及故障" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      一文总结nginx常见用法
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/02/09/python异步编程库gevent的简单使用/" class="archive-article-date">
+  	<time datetime="2018-02-09T05:20:28.907Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-09</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/02/09/python异步编程库gevent的简单使用/">python 异步编程库gevent的简单使用</a>
     </h1>
   
 
-        
-        <a href="/2017/10/30/一文总结nginx常见用法及故障/" class="archive-article-date">
-  	<time datetime="2017-10-30T06:25:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://i.loli.net/2017/11/09/5a03ff6be381b.png" alt="552c6e260471e4823810e8811a8aa75b.png"></p>
-<ul>
-<li>nginx优化–系统内核</li>
-</ul>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div></pre></td><td class="code"><pre><div class="line">关于内核参数的优化：</div><div class="line"></div><div class="line">net.ipv4.tcp_max_tw_buckets = 6000</div><div class="line"></div><div class="line">timewait的数量，默认是180000。</div><div class="line"></div><div class="line">net.ipv4.ip_local_port_range = 1024 65000</div><div class="line"></div><div class="line">允许系统打开的端口范围。</div><div class="line"></div><div class="line">net.ipv4.tcp_tw_recycle = 1</div><div class="line"></div><div class="line">启用timewait快速回收。</div><div class="line"></div><div class="line">net.ipv4.tcp_tw_reuse = 1</div><div class="line"></div><div class="line">开启重用。允许将TIME-WAIT sockets重新用于新的TCP连接。</div><div class="line"></div><div class="line">net.ipv4.tcp_syncookies = 1</div><div class="line"></div><div class="line">开启SYN Cookies，当出现SYN 等待队列溢出时，启用cookies来处理。</div><div class="line"></div><div class="line">net.core.somaxconn = 262144</div><div class="line"></div><div class="line">web 应用中 listen 函数的 backlog 默认会给我们内核参数的 net.core.somaxconn 限制到</div><div class="line"></div><div class="line">128，而nginx定义的NGX_LISTEN_BACKLOG 默认为511，所以有必要调整这个值。</div><div class="line"></div><div class="line">net.core.netdev_max_backlog = 262144</div><div class="line"></div><div class="line">每个网络接口接收数据包的速率比内核处理这些包的速率快时，允许送到队列的数据包</div><div class="line"></div><div class="line">的最大数目。</div><div class="line"></div><div class="line">net.ipv4.tcp_max_orphans = 262144</div><div class="line"></div><div class="line">系统中最多有多少个TCP套接字不被关联到任何一个用户文件句柄上。如果超过这个数</div><div class="line"></div><div class="line">字，孤儿连接将即刻被复位并打印出警告信息。这个限制仅仅是为了防止简单的DoS攻击，</div><div class="line"></div><div class="line">不能过分依靠它或者人为地减小这个值，更应该增加这个值(如果增加了内存之后)。</div><div class="line"></div><div class="line">net.ipv4.tcp_max_syn_backlog = 262144</div><div class="line"></div><div class="line">记录的那些尚未收到客户端确认信息的连接请求的最大值。对于有128M内存的系统而</div><div class="line"></div><div class="line">言，缺省值是1024，小内存的系统则是128。</div><div class="line"></div><div class="line">net.ipv4.tcp_timestamps = 0</div><div class="line"></div><div class="line">时间戳可以避免序列号的卷绕。一个1Gbps的链路肯定会遇到以前用过的序列号。时间</div><div class="line"></div><div class="line">戳能够让内核接受这种“异常”的数据包。这里需要将其关掉。</div><div class="line"></div><div class="line">net.ipv4.tcp_synack_retries = 1</div><div class="line"></div><div class="line">为了打开对端的连接，内核需要发送一个SYN并附带一个回应前面一个SYN的ACK。也</div><div class="line"></div><div class="line">就是所谓三次握手中的第二次握手。这个设置决定了内核放弃连接之前发送 SYN+ACK 包的</div><div class="line"></div><div class="line">数量。</div><div class="line"></div><div class="line">net.ipv4.tcp_syn_retries = 1</div><div class="line"></div><div class="line">在内核放弃建立连接之前发送SYN 包的数量。</div><div class="line"></div><div class="line">net.ipv4.tcp_fin_timeout = 1</div><div class="line"></div><div class="line">如果套接字由本端要求关闭，这个参数决定了它保持在 FIN-WAIT-2 状态的时间。对端</div><div class="line"></div><div class="line">可以出错并永远不关闭连接，甚至意外当机。缺省值是60 秒。2.2 内核的通常值是180 秒，</div><div class="line"></div><div class="line">2 你可以按这个设置，但要记住的是，即使你的机器是一个轻载的 WEB 服务器，也有因为大</div><div class="line"></div><div class="line">量的死套接字而内存溢出的风险，FIN- WAIT-2 的危险性比FIN-WAIT-1 要小，因为它最多只</div><div class="line"></div><div class="line">能吃掉1.5K内存，但是它们的生存期长些。</div><div class="line"></div><div class="line">net.ipv4.tcp_keepalive_time = 30</div><div class="line"></div><div class="line">当keepalive起用的时候，TCP发送keepalive消息的频度。缺省是2 小时。</div><div class="line"></div><div class="line">net.ipv4.ip_forward = 0</div><div class="line"></div><div class="line">net.ipv4.conf.default.rp_filter =1</div><div class="line"></div><div class="line">net.ipv4.conf.default.accept_source_route = 0</div><div class="line"></div><div class="line">kernel.sysrq = 0</div><div class="line"></div><div class="line">kernel.core_uses_pid = 1</div><div class="line"></div><div class="line">net.ipv4.tcp_syncookies = 1</div><div class="line"></div><div class="line">kernel.msgmnb = 65536</div><div class="line"></div><div class="line">kernel.msgmax = 65536</div><div class="line"></div><div class="line">kernel.shmmax = 68719476736</div><div class="line"></div><div class="line">kernel.shmall = 4294967296</div><div class="line"></div><div class="line">net.ipv4.tcp_max_tw_buckets = 6000           #timewait的数量</div><div class="line"></div><div class="line">net.ipv4.tcp_sack = 1                                 #有选择的应答</div><div class="line"></div><div class="line">net.ipv4.tcp_window_scaling = 1                 #设置tcp/ip会话滑动窗口是否可变，1可变，0不可变。开启使滑动窗口大小增加数个数量级，提高数据传输能力</div><div class="line"></div><div class="line">net.ipv4.tcp_rmem = 4096       87380   4194304  #tcp接收缓冲区</div><div class="line"></div><div class="line">net.ipv4.tcp_wmem = 4096       16384   4194304  #tcp发送缓冲区</div><div class="line"></div><div class="line">net.core.wmem_default = 8388608                        #发送套接字缓冲区大小的缺省值（字节单位）</div><div class="line"></div><div class="line">net.core.rmem_default = 8388608                         #接收套接字缓冲区大小的缺省值</div><div class="line"></div><div class="line">net.core.rmem_max = 16777216                           #接收套接字缓冲区大小的最大值</div><div class="line"></div><div class="line">net.core.wmem_max = 16777216                          #发送套接字缓冲区大小的最大值</div><div class="line"></div><div class="line">net.core.netdev_max_backlog = 262144           #允许送到队列的数据包最大数目</div><div class="line"></div><div class="line">net.core.somaxconn = 262144                        #web应用中listen函数的backlog（积压）</div><div class="line"></div><div class="line">net.ipv4.tcp_max_orphans = 3276800              #最多有多少个TCP套接字不被关联到任何一个用户的句柄上</div><div class="line"></div><div class="line">net.ipv4.tcp_max_syn_backlog = 262144          #记录那些尚未收到客户端确认信息的连接请求最大值，表示SYN队列的长度，可以容纳更多等待连接的网络连接数</div><div class="line"></div><div class="line">net.ipv4.tcp_timestamps = 0                  #时间戳关闭</div><div class="line"></div><div class="line">net.ipv4.tcp_synack_retries = 1               #这个设置决定了内核放弃连接之前发送SYN+ACK包的数量</div><div class="line"></div><div class="line">net.ipv4.tcp_syn_retries = 1                    #内核放弃连接之前发送SYN包的数量</div><div class="line"></div><div class="line">net.ipv4.tcp_tw_recycle = 1                     #timewait快速回收</div><div class="line"></div><div class="line">net.ipv4.tcp_tw_reuse = 1                       #timewait 用于新的连接</div><div class="line"></div><div class="line">net.ipv4.tcp_mem =   1835008 2752512 3670016     #out of socket memory</div><div class="line"></div><div class="line">net.ipv4.tcp_fin_timeout = 15                     #保持在FIN-WAIT-2状态的时间，对端出错永不关闭甚至当机缺省值是60s</div><div class="line"></div><div class="line">net.ipv4.tcp_keepalive_time = 30                                #keepalived 发送消息的频度</div><div class="line"></div><div class="line">net.ipv4.ip_local_port_range = 1024   65000              #端口范围</div><div class="line"></div><div class="line">#以下可能需要加载ip_conntrack模块 modprobe ip_conntrack ,有文档说防火墙开启情况下此模块失效</div><div class="line"></div><div class="line">#缩短established的超時時間</div><div class="line"></div><div class="line">net.netfilter.nf_conntrack_tcp_timeout_established = 180</div><div class="line"></div><div class="line">#CONNTRACK_MAX 允许的最大跟踪连接条目，是在内核内存中netfilter可以同时处理的“任务”（连接跟踪条目）</div><div class="line"></div><div class="line">net.netfilter.nf_conntrack_max = 1048576</div><div class="line"></div><div class="line">net.nf_conntrack_max = 1048576</div></pre></td></tr></table></figure>
-<p>nginx优化–配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">worker_processes 8;</div><div class="line"></div><div class="line">nginx进程数，建议按照cpu数目来指定，一般为它的倍数。</div><div class="line"></div><div class="line">worker_cpu_affinity 00000001 00000010 00000100 00001000 00010000 00100000</div><div class="line"></div><div class="line">01000000 10000000;</div><div class="line"></div><div class="line">为每个进程分配 cpu，上例中将 8 个进程分配到 8 个 cpu，当然可以写多个，或者将一</div><div class="line"></div><div class="line">个进程分配到多个cpu。</div><div class="line"></div><div class="line">worker_rlimit_nofile 102400;</div><div class="line"></div><div class="line">这个指令是指当一个nginx进程打开的最多文件描述符数目，理论值应该是最多打开文</div><div class="line"></div><div class="line">件数（ulimit -n）与nginx进程数相除，但是nginx分配请求并不是那么均匀，所以最好与ulimit</div><div class="line"></div><div class="line">-n的值保持一致。</div><div class="line"></div><div class="line">use epoll;</div><div class="line"></div><div class="line">使用epoll的I/O模型，这个不用说了吧。</div><div class="line"></div><div class="line">worker_connections 102400;</div><div class="line"></div><div class="line">每个进程允许的最多连接数，理论上每台 nginx 服务器的最大连接数为</div><div class="line"></div><div class="line">worker_processes*worker_connections。</div><div class="line"></div><div class="line">keepalive_timeout 60;</div><div class="line"></div><div class="line">keepalive超时时间。</div><div class="line"></div><div class="line">client_header_buffer_size 4k;</div><div class="line"></div><div class="line">客户端请求头部的缓冲区大小，这个可以根据你的系统分页大小来设置，一般一个请求</div><div class="line"></div><div class="line">头的大小不会超过 1k，不过由于一般系统分页都要大于 1k，所以这里设置为分页大小。分</div><div class="line"></div><div class="line">页大小可以用命令getconf PAGESIZE取得。</div><div class="line"></div><div class="line">open_file_cache max=102400 inactive=20s;</div><div class="line"></div><div class="line">这个将为打开文件指定缓存，默认是没有启用的，max指定缓存数量，建议和打开文件</div><div class="line"></div><div class="line">数一致，inactive 是指经过多长时间文件没被请求后删除缓存。</div><div class="line"></div><div class="line">open_file_cache_valid 30s;</div><div class="line"></div><div class="line">这个是指多长时间检查一次缓存的有效信息。</div><div class="line"></div><div class="line">open_file_cache_min_uses 1;</div><div class="line"></div><div class="line">open_file_cache指令中的inactive 参数时间内文件的最少使用次数，如果超过这个数字，文</div><div class="line"></div><div class="line">件描述符一直是在缓存中打开的，如上例，如果有一个文件在inactive 时间内一次没被使用，</div><div class="line"></div><div class="line">它将被移除。</div></pre></td></tr></table></figure>
-<ul>
-<li><p>nginx做proxy代理 上传下载文件大小有限制，主要配置<figure class="highlight plain"><figcaption><span>proxy_buffer_size proxy_buffers```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**ex:**</div></pre></td></tr></table></figure></p>
-<p>  location / {</p>
-<pre><code>proxy_pass http://127.0.0.1:8080;
-proxy_redirect off;
-proxy_set_header Host $host;
-proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-proxy_connect_timeout  120s;
-proxy_read_timeout  120s;
-proxy_send_timeout  120s;
-client_max_body_size 100m;  ##配置上传下载文件大小
-proxy_buffer_size 128k;     ##配置缓存大小
-proxy_buffers 100    ;        ##配置缓存个数，缓存大小等于100*128k
-</code></pre><p>  }</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 配置nginx+php5.4的时候，配置完成后，浏览器打开php文件就提示File not found.错误。</div><div class="line">  纠结半天，终于发现错误的地方了:</div></pre></td></tr></table></figure>
-<p>fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">改成如下这句，即可</div></pre></td></tr></table></figure>
-<p>fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">**ex:**</div></pre></td></tr></table></figure>
-<p>server {<br>  listen        80;<br>  server_name   www.example.com;<br>  root          /home/nginx/vhosts/example.com/web;<br>  location / {</p>
-<pre><code>index     index.php;
-</code></pre><p>  }<br>  location ~ .php$ {</p>
-<pre><code>root /home/nginx/vhosts/example.com/web;
-fastcgi_pass   127.0.0.1:9001;            fastcgi_index index.php;
-fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-include        /etc/nginx/fastcgi_params;
-</code></pre><p>  }<br>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">  &gt; nginx 编译安装完启动出现</div><div class="line">Can&apos;t load &apos;/usr/local/lib64/perl5/auto/nginx/nginx.so&apos; for module nginx: /usr/local/lib64/perl5/auto/nginx/nginx.so: undefined symbol: ngx_http_perl_handle_request at /usr/share/perl5/XSLoader.pm line 68.</div><div class="line">nginx 启动 nginx: [alert] perl_parse() failed: 255</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>解决办法<br>./configure –with-http_perl_module –with-ld-opt=”-Wl,-E”</p>
-<p>编译时 加上后面的参数(–with-ld-opt=”-Wl,-E”)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- nginx做文件服务器配置示例</div></pre></td></tr></table></figure></p>
-<p>server {<br>        listen       80;<br>        server_name  127.0.0.1;</p>
-<pre><code>    location / {
-        root   D:\DZH;
-        charset  utf-8;
-        ## 强制下载txt|doc|pdf|rar|gz|zip|docx|exe|xlsx|ppt|pptx的文件，不在浏览器中打开
-        if ($request_filename ~* ^.*?\.(txt|doc|pdf|rar|gz|zip|docx|exe|xlsx|ppt|pptx)$){
-        add_header Content-Disposition: &apos;attachment;&apos;;
-        }
-        ## 在没有index的情况下，自动将文件列表转换为index
-        autoindex  on;
-        ## 显示大小
-        autoindex_exact_size  on;
-        ## 显示文件时间            
-        autoindex_localtime on;
-    }
-}
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- nginx https和转发最佳配置配置示例</div></pre></td></tr></table></figure>
-<h2 id="Apache-backend-for-apsec-mitake-com-cn"><a href="#Apache-backend-for-apsec-mitake-com-cn" class="headerlink" title="Apache backend for apsec.mitake.com.cn"></a>Apache backend for apsec.mitake.com.cn</h2><p>upstream apacheap  {<br>    server 172.16.1.100:22016; #ap<br>}</p>
-<h2 id="Start-apsec-mitake-com-cn"><a href="#Start-apsec-mitake-com-cn" class="headerlink" title="Start apsec.mitake.com.cn"></a>Start apsec.mitake.com.cn</h2><p>server {<br>    listen 22019;<br>    server_name  127.0.0.1;<br>    ssl on;<br>    ssl_certificate     /etc/nginx/ssl/apsec.mitake.com.cn.crt;<br>    ssl_certificate_key /etc/nginx/ssl/apsec.mitake.com.cn.key;<br>    access_log  logs/quancha.access.log  main;<br>    error_log  logs/quancha.error.log;</p>
-<pre><code>location / {
-    proxy_pass  http://apacheap;
-
-    #Proxy Settings
-    proxy_redirect     off;
-    proxy_set_header   Host             $host;
-    proxy_set_header   X-Real-IP        $remote_addr;
-    proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-    proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
-    proxy_max_temp_file_size 0;
-    proxy_connect_timeout      90;
-    proxy_send_timeout         90;
-    proxy_read_timeout         90;
-    proxy_buffer_size          4k;
-    proxy_buffers              4 32k;
-    proxy_busy_buffers_size    64k;
-    proxy_temp_file_write_size 64k;
-</code></pre><p>   }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
-<p>```</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">gevent</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">proxy</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/nginx/" class="article-tag-list-link color1">nginx</a>
+        			<a href="/categories/python/" class="article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/30/一文总结nginx常见用法及故障/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2017/11/09/CDH Hadoop部署安装/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          CDH Hadoop 集群安装部署
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/09/15/zabbix触发器和微信企业号报警设置/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">zabbix触发器和微信企业号报警设置</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/02/07/kubeadm 安装kubernetes 1.9.2全讲解/" class="archive-article-date">
+  	<time datetime="2018-02-07T01:38:14.554Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-07</time>
+</a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
+    	 
   
-  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/02/07/kubeadm 安装kubernetes 1.9.2全讲解/">kubeadm 安装kubernetes 1.9.2</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/docker/" class="article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
-  <div id="SOHUCS" sid="一文总结nginx常见用法及故障" ></div> 
-<script type="text/javascript"> 
-(function(){ 
-var appid = "cytdJGQ2j"; 
-var conf = "prod_cd2017c419228c55f615802d80286e33"; 
-var width = window.innerWidth || document.documentElement.clientWidth; 
-if (width < 960) { 
-window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+  
+    </div></section>
   
 
-  
+    
 
 
           </div>
@@ -426,7 +293,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 ChuLinx
+    		&copy; 2018 ChuLinx
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -439,8 +306,8 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
@@ -505,14 +372,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
               </li>
              
@@ -521,19 +380,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -541,7 +396,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,11 +412,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -569,11 +444,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
+                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">
