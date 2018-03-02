@@ -17,7 +17,7 @@
 <meta property="og:description" content="nginx优化–系统内核">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2017/11/09/5a03ff6be381b.png">
-<meta property="og:updated_time" content="2018-03-02T02:45:19.523Z">
+<meta property="og:updated_time" content="2018-03-02T02:49:49.892Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一文总结nginx常见用法">
 <meta name="twitter:description" content="nginx优化–系统内核">
@@ -198,74 +198,32 @@ var _hmt = _hmt || [];
 <p>nginx优化–配置文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">worker_processes 8;</div><div class="line"></div><div class="line">nginx进程数，建议按照cpu数目来指定，一般为它的倍数。</div><div class="line"></div><div class="line">worker_cpu_affinity 00000001 00000010 00000100 00001000 00010000 00100000</div><div class="line"></div><div class="line">01000000 10000000;</div><div class="line"></div><div class="line">为每个进程分配 cpu，上例中将 8 个进程分配到 8 个 cpu，当然可以写多个，或者将一</div><div class="line"></div><div class="line">个进程分配到多个cpu。</div><div class="line"></div><div class="line">worker_rlimit_nofile 102400;</div><div class="line"></div><div class="line">这个指令是指当一个nginx进程打开的最多文件描述符数目，理论值应该是最多打开文</div><div class="line"></div><div class="line">件数（ulimit -n）与nginx进程数相除，但是nginx分配请求并不是那么均匀，所以最好与ulimit</div><div class="line"></div><div class="line">-n的值保持一致。</div><div class="line"></div><div class="line">use epoll;</div><div class="line"></div><div class="line">使用epoll的I/O模型，这个不用说了吧。</div><div class="line"></div><div class="line">worker_connections 102400;</div><div class="line"></div><div class="line">每个进程允许的最多连接数，理论上每台 nginx 服务器的最大连接数为</div><div class="line"></div><div class="line">worker_processes*worker_connections。</div><div class="line"></div><div class="line">keepalive_timeout 60;</div><div class="line"></div><div class="line">keepalive超时时间。</div><div class="line"></div><div class="line">client_header_buffer_size 4k;</div><div class="line"></div><div class="line">客户端请求头部的缓冲区大小，这个可以根据你的系统分页大小来设置，一般一个请求</div><div class="line"></div><div class="line">头的大小不会超过 1k，不过由于一般系统分页都要大于 1k，所以这里设置为分页大小。分</div><div class="line"></div><div class="line">页大小可以用命令getconf PAGESIZE取得。</div><div class="line"></div><div class="line">open_file_cache max=102400 inactive=20s;</div><div class="line"></div><div class="line">这个将为打开文件指定缓存，默认是没有启用的，max指定缓存数量，建议和打开文件</div><div class="line"></div><div class="line">数一致，inactive 是指经过多长时间文件没被请求后删除缓存。</div><div class="line"></div><div class="line">open_file_cache_valid 30s;</div><div class="line"></div><div class="line">这个是指多长时间检查一次缓存的有效信息。</div><div class="line"></div><div class="line">open_file_cache_min_uses 1;</div><div class="line"></div><div class="line">open_file_cache指令中的inactive 参数时间内文件的最少使用次数，如果超过这个数字，文</div><div class="line"></div><div class="line">件描述符一直是在缓存中打开的，如上例，如果有一个文件在inactive 时间内一次没被使用，</div><div class="line"></div><div class="line">它将被移除。</div></pre></td></tr></table></figure>
 <ul>
-<li><p>nginx做proxy代理 上传下载文件大小有限制，主要配置<figure class="highlight plain"><figcaption><span>proxy_buffer_size proxy_buffers```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**ex:**</div></pre></td></tr></table></figure></p>
-<p>  location / {</p>
-<pre><code>proxy_pass http://127.0.0.1:8080;
-proxy_redirect off;
-proxy_set_header Host $host;
-proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-proxy_connect_timeout  120s;
-proxy_read_timeout  120s;
-proxy_send_timeout  120s;
-client_max_body_size 100m;  ##配置上传下载文件大小
-proxy_buffer_size 128k;     ##配置缓存大小
-proxy_buffers 100    ;        ##配置缓存个数，缓存大小等于100*128k
-</code></pre><p>  }</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 配置nginx+php5.4的时候，配置完成后，浏览器打开php文件就提示File not found.错误。</div><div class="line">  纠结半天，终于发现错误的地方了:</div></pre></td></tr></table></figure>
-<p>fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">改成如下这句，即可</div></pre></td></tr></table></figure>
-<p>fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**ex:**</div></pre></td></tr></table></figure>
-<p>server {<br>  listen        80;<br>  server_name   www.example.com;<br>  root          /home/nginx/vhosts/example.com/web;<br>  location / {</p>
-<pre><code>index     index.php;
-</code></pre><p>  }<br>  location ~ .php$ {</p>
-<pre><code>root /home/nginx/vhosts/example.com/web;
-fastcgi_pass   127.0.0.1:9001;            fastcgi_index index.php;
-fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-include        /etc/nginx/fastcgi_params;
-</code></pre><p>  }<br>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">  &gt; nginx 编译安装完启动出现</div><div class="line">Can&apos;t load &apos;/usr/local/lib64/perl5/auto/nginx/nginx.so&apos; for module nginx: /usr/local/lib64/perl5/auto/nginx/nginx.so: undefined symbol: ngx_http_perl_handle_request at /usr/share/perl5/XSLoader.pm line 68.</div><div class="line">nginx 启动 nginx: [alert] perl_parse() failed: 255</div></pre></td></tr></table></figure>
+<li><p>nginx做proxy代理 上传下载文件大小有限制，主要配置<figure class="highlight plain"><figcaption><span>proxy_buffer_size proxy_buffers```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">```nginx</div><div class="line">    location / &#123;</div><div class="line">       proxy_pass http://127.0.0.1:8080;</div><div class="line">       proxy_redirect off;</div><div class="line">       proxy_set_header Host $host;</div><div class="line">       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</div><div class="line">       proxy_connect_timeout  120s;</div><div class="line">       proxy_read_timeout  120s;</div><div class="line">       proxy_send_timeout  120s;</div><div class="line">       client_max_body_size 100m;  ##配置上传下载文件大小</div><div class="line">       proxy_buffer_size 128k;     ##配置缓存大小</div><div class="line">       proxy_buffers 100	;        ##配置缓存个数，缓存大小等于100*128k</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+</li>
+<li><p>配置nginx+php5.4的时候，配置完成后，浏览器打开php文件就提示File not found.错误。<br>纠结半天，终于发现错误的地方了:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</div></pre></td></tr></table></figure>
+<p>改成如下这句，即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;</div></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="section">server</span> &#123;</div><div class="line">  <span class="attribute">listen</span>        <span class="number">80</span>;</div><div class="line">  <span class="attribute">server_name</span>   www.example.com;</div><div class="line">  <span class="attribute">root</span>          /home/nginx/vhosts/example.com/web;</div><div class="line">  <span class="attribute">location</span> / &#123;</div><div class="line">      <span class="attribute">index</span>     index.php;</div><div class="line">  &#125;</div><div class="line">  <span class="attribute">location</span> <span class="regexp">~ \.php$</span> &#123;</div><div class="line">      <span class="attribute">root</span> /home/nginx/vhosts/example.com/web;</div><div class="line">      <span class="attribute">fastcgi_pass</span>   <span class="number">127.0.0.1:9001</span>;            <span class="attribute">fastcgi_index</span> index.php;</div><div class="line">      <span class="attribute">fastcgi_param</span>  SCRIPT_FILENAME  <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</div><div class="line">      <span class="attribute">include</span>        /etc/nginx/fastcgi_params;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>解决办法<br>./configure –with-http_perl_module –with-ld-opt=”-Wl,-E”</p>
-<p>编译时 加上后面的参数(–with-ld-opt=”-Wl,-E”)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- nginx做文件服务器配置示例</div></pre></td></tr></table></figure></p>
-<p>server {<br>        listen       80;<br>        server_name  127.0.0.1;</p>
-<pre><code>    location / {
-        root   D:\DZH;
-        charset  utf-8;
-        ## 强制下载txt|doc|pdf|rar|gz|zip|docx|exe|xlsx|ppt|pptx的文件，不在浏览器中打开
-        if ($request_filename ~* ^.*?\.(txt|doc|pdf|rar|gz|zip|docx|exe|xlsx|ppt|pptx)$){
-        add_header Content-Disposition: &apos;attachment;&apos;;
-        }
-        ## 在没有index的情况下，自动将文件列表转换为index
-        autoindex  on;
-        ## 显示大小
-        autoindex_exact_size  on;
-        ## 显示文件时间            
-        autoindex_localtime on;
-    }
-}
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- nginx https和转发最佳配置配置示例</div></pre></td></tr></table></figure>
-<h2 id="Apache-backend-for-apsec-mitake-com-cn"><a href="#Apache-backend-for-apsec-mitake-com-cn" class="headerlink" title="Apache backend for apsec.mitake.com.cn"></a>Apache backend for apsec.mitake.com.cn</h2><p>upstream apacheap  {<br>    server 172.16.1.100:22016; #ap<br>}</p>
-<h2 id="Start-apsec-mitake-com-cn"><a href="#Start-apsec-mitake-com-cn" class="headerlink" title="Start apsec.mitake.com.cn"></a>Start apsec.mitake.com.cn</h2><p>server {<br>    listen 22019;<br>    server_name  127.0.0.1;<br>    ssl on;<br>    ssl_certificate     /etc/nginx/ssl/apsec.mitake.com.cn.crt;<br>    ssl_certificate_key /etc/nginx/ssl/apsec.mitake.com.cn.key;<br>    access_log  logs/quancha.access.log  main;<br>    error_log  logs/quancha.error.log;</p>
-<pre><code>location / {
-    proxy_pass  http://apacheap;
-
-    #Proxy Settings
-    proxy_redirect     off;
-    proxy_set_header   Host             $host;
-    proxy_set_header   X-Real-IP        $remote_addr;
-    proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-    proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
-    proxy_max_temp_file_size 0;
-    proxy_connect_timeout      90;
-    proxy_send_timeout         90;
-    proxy_read_timeout         90;
-    proxy_buffer_size          4k;
-    proxy_buffers              4 32k;
-    proxy_busy_buffers_size    64k;
-    proxy_temp_file_write_size 64k;
-</code></pre><p>   }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">### Nginx基于端口，端口不能随页面跳转</div><div class="line"></div><div class="line">&gt; 利用nginx做反向代理，login页面能正常转发到，输入账号密码后，点击登陆就发现url代理少了端口，解析不到登录后的页面</div><div class="line"></div><div class="line">##### 解决办法：</div><div class="line"></div><div class="line">在 `proxy_set_header Host  $host;` 加转发的端口号`proxy_set_header Host $host:8889;`</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">```nginx</div><div class="line">[root@localhost conf.d]# cat example.conf                           </div><div class="line">server &#123;                                                             </div><div class="line">    server_name localhost;                              </div><div class="line">    access_log  /var/log/nginx/sseclond_access.log  main;            </div><div class="line">    listen 8889;                                                     </div><div class="line">    location / &#123;                                                     </div><div class="line">       proxy_pass http://172.16.1.190:7180;                          </div><div class="line">       proxy_redirect off;                                           </div><div class="line">       proxy_set_header Host $host:8889;                             </div><div class="line">       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;  </div><div class="line">       proxy_connect_timeout  120s;                                  </div><div class="line">       proxy_read_timeout  120s;                                     </div><div class="line">       proxy_send_timeout  120s;                                     </div><div class="line">    &#125;                                                                </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>nginx 编译安装完启动出现<br>Can’t load ‘/usr/local/lib64/perl5/auto/nginx/nginx.so’ for module nginx: /usr/local/lib64/perl5/auto/nginx/nginx.so: undefined symbol: ngx_http_perl_handle_request at /usr/share/perl5/XSLoader.pm line 68.<br>nginx 启动 nginx: [alert] perl_parse() failed: 255</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">解决办法</div><div class="line">./configure --with-http_perl_module --with-ld-opt=&quot;-Wl,-E&quot;</div><div class="line"></div><div class="line">编译时 加上后面的参数(--with-ld-opt=&quot;-Wl,-E&quot;)</div></pre></td></tr></table></figure>
+<ul>
+<li>nginx做文件服务器配置示例</li>
+</ul>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="section">server</span> &#123;</div><div class="line">        <span class="attribute">listen</span>       <span class="number">80</span>;</div><div class="line">        <span class="attribute">server_name</span>  <span class="number">127.0.0.1</span>;</div><div class="line"></div><div class="line">        <span class="attribute">location</span> / &#123;</div><div class="line">            <span class="attribute">root</span>   D:\DZH;</div><div class="line">            <span class="attribute">charset</span>  utf-<span class="number">8</span>;</div><div class="line">            <span class="comment">## 强制下载txt|doc|pdf|rar|gz|zip|docx|exe|xlsx|ppt|pptx的文件，不在浏览器中打开</span></div><div class="line">            <span class="attribute">if</span> (<span class="variable">$request_filename</span> <span class="regexp">~* ^.*?\.(txt|doc|pdf|rar|gz|zip|docx|exe|xlsx|ppt|pptx)$)</span>&#123;</div><div class="line">            <span class="attribute">add_header</span> Content-Disposition: <span class="string">'attachment;'</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">## 在没有index的情况下，自动将文件列表转换为index</span></div><div class="line">            <span class="attribute">autoindex</span>  <span class="literal">on</span>;</div><div class="line">            <span class="comment">## 显示大小</span></div><div class="line">            <span class="attribute">autoindex_exact_size</span>  <span class="literal">on</span>;</div><div class="line">            <span class="comment">## 显示文件时间            </span></div><div class="line">            <span class="attribute">autoindex_localtime</span> <span class="literal">on</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>nginx https和转发最佳配置配置示例</li>
+</ul>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## Apache backend for apsec.mitake.com.cn ##</span></div><div class="line"><span class="attribute">upstream</span> apacheap  &#123;</div><div class="line">    <span class="attribute">server</span> <span class="number">172.16.1.100:22016</span>; <span class="comment">#ap</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">## Start apsec.mitake.com.cn ##</span></div><div class="line"><span class="section">server</span> &#123;</div><div class="line">    <span class="attribute">listen</span> <span class="number">22019</span>;</div><div class="line">    <span class="attribute">server_name</span>  <span class="number">127.0.0.1</span>;</div><div class="line">    <span class="attribute">ssl</span> <span class="literal">on</span>;</div><div class="line">    <span class="attribute">ssl_certificate</span>     /etc/nginx/ssl/apsec.mitake.com.cn.crt;</div><div class="line">    <span class="attribute">ssl_certificate_key</span> /etc/nginx/ssl/apsec.mitake.com.cn.key;</div><div class="line">    <span class="attribute">access_log</span>  logs/quancha.access.log  main;</div><div class="line">    <span class="attribute">error_log</span>  logs/quancha.<span class="literal">error</span>.log;</div><div class="line"></div><div class="line">    <span class="attribute">location</span> / &#123;</div><div class="line">        <span class="attribute">proxy_pass</span>  http://apacheap;</div><div class="line"></div><div class="line">        <span class="comment">#Proxy Settings</span></div><div class="line">        <span class="attribute">proxy_redirect</span>     <span class="literal">off</span>;</div><div class="line">        <span class="attribute">proxy_set_header</span>   Host             <span class="variable">$host</span>;</div><div class="line">        <span class="attribute">proxy_set_header</span>   X-Real-IP        <span class="variable">$remote_addr</span>;</div><div class="line">        <span class="attribute">proxy_set_header</span>   X-Forwarded-For  <span class="variable">$proxy_add_x_forwarded_for</span>;</div><div class="line">        <span class="attribute">proxy_next_upstream</span> <span class="literal">error</span> timeout invalid_header http_500 http_502 http_503 http_504;</div><div class="line">        <span class="attribute">proxy_max_temp_file_size</span> <span class="number">0</span>;</div><div class="line">        <span class="attribute">proxy_connect_timeout</span>      <span class="number">90</span>;</div><div class="line">        <span class="attribute">proxy_send_timeout</span>         <span class="number">90</span>;</div><div class="line">        <span class="attribute">proxy_read_timeout</span>         <span class="number">90</span>;</div><div class="line">        <span class="attribute">proxy_buffer_size</span>          <span class="number">4k</span>;</div><div class="line">        <span class="attribute">proxy_buffers</span>              <span class="number">4</span> <span class="number">32k</span>;</div><div class="line">        <span class="attribute">proxy_busy_buffers_size</span>    <span class="number">64k</span>;</div><div class="line">        <span class="attribute">proxy_temp_file_write_size</span> <span class="number">64k</span>;</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Nginx基于端口，端口不能随页面跳转"><a href="#Nginx基于端口，端口不能随页面跳转" class="headerlink" title="Nginx基于端口，端口不能随页面跳转"></a>Nginx基于端口，端口不能随页面跳转</h3><blockquote>
+<p>利用nginx做反向代理，login页面能正常转发到，输入账号密码后，点击登陆就发现url代理少了端口，解析不到登录后的页面</p>
+</blockquote>
+<h5 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h5><p>在 <code>proxy_set_header Host  $host;</code> 加转发的端口号<code>proxy_set_header Host $host:8889;</code></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[root@localhost conf.d]# cat example.conf                           </div><div class="line"><span class="section">server</span> &#123;                                                             </div><div class="line">    <span class="attribute">server_name</span> localhost;                              </div><div class="line">    <span class="attribute">access_log</span>  /var/log/nginx/sseclond_access.log  main;            </div><div class="line">    <span class="attribute">listen</span> <span class="number">8889</span>;                                                     </div><div class="line">    <span class="attribute">location</span> / &#123;                                                     </div><div class="line">       <span class="attribute">proxy_pass</span> http://172.16.1.190:7180;                          </div><div class="line">       <span class="attribute">proxy_redirect</span> <span class="literal">off</span>;                                           </div><div class="line">       <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>:<span class="number">8889</span>;                             </div><div class="line">       <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;  </div><div class="line">       <span class="attribute">proxy_connect_timeout</span>  <span class="number">120s</span>;                                  </div><div class="line">       <span class="attribute">proxy_read_timeout</span>  <span class="number">120s</span>;                                     </div><div class="line">       <span class="attribute">proxy_send_timeout</span>  <span class="number">120s</span>;                                     </div><div class="line">    &#125;                                                                </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="Nginx-跨域请求配置示例"><a href="#Nginx-跨域请求配置示例" class="headerlink" title="Nginx 跨域请求配置示例"></a>Nginx 跨域请求配置示例</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="section">server</span> &#123;</div><div class="line">    <span class="attribute">listen</span>       <span class="number">80</span>;</div><div class="line">    <span class="attribute">server_name</span>  localhost;</div><div class="line"></div><div class="line">    <span class="attribute">location</span> / &#123;</div><div class="line">       <span class="attribute">root</span>   /usr/share/nginx/html;</div><div class="line">       <span class="attribute">autoindex</span>  <span class="literal">on</span>;</div><div class="line">       <span class="attribute">autoindex_exact_size</span>  <span class="literal">on</span>;</div><div class="line">       <span class="attribute">autoindex_localtime</span> <span class="literal">on</span>;</div><div class="line">       add_header 'Access-Control-Allow-Origin' 'http://h5.mitake.com.cn:8889' ; //配置请求数据域名</div><div class="line">       <span class="attribute">add_header</span> <span class="string">'Access-Control-Allow-Credentials'</span> <span class="string">'true'</span>;</div><div class="line">       <span class="attribute">add_header</span> <span class="string">'Access-Control-Allow-Methods'</span> <span class="string">'GET, POST, OPTIONS'</span>;</div><div class="line">       <span class="attribute">add_header</span> <span class="string">'Access-Control-Allow-Headers'</span> <span class="string">'hid,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type'</span>;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
@@ -505,19 +463,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">parted</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cdh</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">parted</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,11 +491,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,7 +519,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,18 +548,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">proxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
             
             <div class="clearfix"></div>
