@@ -17,7 +17,7 @@
 <meta property="og:description" content="nginx优化–系统内核">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2017/11/09/5a03ff6be381b.png">
-<meta property="og:updated_time" content="2017-11-09T07:19:19.000Z">
+<meta property="og:updated_time" content="2018-03-02T02:45:19.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一文总结nginx常见用法">
 <meta name="twitter:description" content="nginx优化–系统内核">
@@ -215,7 +215,7 @@ proxy_buffers 100    ;        ##配置缓存个数，缓存大小等于100*128k
 <p>fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">改成如下这句，即可</div></pre></td></tr></table></figure>
 <p>fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">**ex:**</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**ex:**</div></pre></td></tr></table></figure>
 <p>server {<br>  listen        80;<br>  server_name   www.example.com;<br>  root          /home/nginx/vhosts/example.com/web;<br>  location / {</p>
 <pre><code>index     index.php;
 </code></pre><p>  }<br>  location ~ .php$ {</p>
@@ -265,8 +265,8 @@ include        /etc/nginx/fastcgi_params;
     proxy_buffers              4 32k;
     proxy_busy_buffers_size    64k;
     proxy_temp_file_write_size 64k;
-</code></pre><p>   }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
-<p>```</p>
+</code></pre><p>   }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">### Nginx基于端口，端口不能随页面跳转</div><div class="line"></div><div class="line">&gt; 利用nginx做反向代理，login页面能正常转发到，输入账号密码后，点击登陆就发现url代理少了端口，解析不到登录后的页面</div><div class="line"></div><div class="line">##### 解决办法：</div><div class="line"></div><div class="line">在 `proxy_set_header Host  $host;` 加转发的端口号`proxy_set_header Host $host:8889;`</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">```nginx</div><div class="line">[root@localhost conf.d]# cat example.conf                           </div><div class="line">server &#123;                                                             </div><div class="line">    server_name localhost;                              </div><div class="line">    access_log  /var/log/nginx/sseclond_access.log  main;            </div><div class="line">    listen 8889;                                                     </div><div class="line">    location / &#123;                                                     </div><div class="line">       proxy_pass http://172.16.1.190:7180;                          </div><div class="line">       proxy_redirect off;                                           </div><div class="line">       proxy_set_header Host $host:8889;                             </div><div class="line">       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;  </div><div class="line">       proxy_connect_timeout  120s;                                  </div><div class="line">       proxy_read_timeout  120s;                                     </div><div class="line">       proxy_send_timeout  120s;                                     </div><div class="line">    &#125;                                                                </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Nginx-跨域请求配置示例"><a href="#Nginx-跨域请求配置示例" class="headerlink" title="Nginx 跨域请求配置示例"></a>Nginx 跨域请求配置示例</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="section">server</span> &#123;</div><div class="line">    <span class="attribute">listen</span>       <span class="number">80</span>;</div><div class="line">    <span class="attribute">server_name</span>  localhost;</div><div class="line"></div><div class="line">    <span class="attribute">location</span> / &#123;</div><div class="line">       <span class="attribute">root</span>   /usr/share/nginx/html;</div><div class="line">       <span class="attribute">autoindex</span>  <span class="literal">on</span>;</div><div class="line">       <span class="attribute">autoindex_exact_size</span>  <span class="literal">on</span>;</div><div class="line">       <span class="attribute">autoindex_localtime</span> <span class="literal">on</span>;</div><div class="line">       add_header 'Access-Control-Allow-Origin' 'http://h5.mitake.com.cn:8889' ; //配置请求数据域名</div><div class="line">       <span class="attribute">add_header</span> <span class="string">'Access-Control-Allow-Credentials'</span> <span class="string">'true'</span>;</div><div class="line">       <span class="attribute">add_header</span> <span class="string">'Access-Control-Allow-Methods'</span> <span class="string">'GET, POST, OPTIONS'</span>;</div><div class="line">       <span class="attribute">add_header</span> <span class="string">'Access-Control-Allow-Headers'</span> <span class="string">'hid,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type'</span>;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
 
@@ -505,19 +505,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">parted</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,23 +533,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -557,11 +545,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,6 +578,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
             
             <div class="clearfix"></div>
