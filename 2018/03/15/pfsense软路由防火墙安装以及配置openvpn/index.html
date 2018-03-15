@@ -51,7 +51,7 @@
 <meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/34.png">
 <meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/36.png">
 <meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/37.jpg">
-<meta property="og:updated_time" content="2018-03-15T03:28:37.414Z">
+<meta property="og:updated_time" content="2018-03-15T03:32:23.137Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pfsense软路由防火墙安装以及配置openvpn">
 <meta name="twitter:description" content="维基百科:pfSense是基于FreeBSD的开源 防火墙 / 路由器计算机软件发行版。[2] [3] [4]它安装在物理计算机或虚拟机上，为网络制作专用的防火墙/路由器。[5]它可以通过基于网络的界面进行配置和升级，并且不需要了解底层FreeBSD系统的管理知识。[2] [6] pfSense通常部署为外围防火墙，路由器，无线接入点，DHCP服务器，DNS服务器以及VPN端点。pfSense支">
@@ -227,51 +227,45 @@ var _hmt = _hmt || [];
 <p>维基百科:pfSense是基于FreeBSD的开源 防火墙 / 路由器计算机软件发行版。[2] [3] [4]它安装在物理计算机或虚拟机上，为网络制作专用的防火墙/路由器。[5]它可以通过基于网络的界面进行配置和升级，并且不需要了解底层FreeBSD系统的管理知识。[2] [6] pfSense通常部署为外围防火墙，路由器，无线接入点，DHCP服务器，DNS服务器以及VPN端点。pfSense支持通过其包管理器安装第三方软件包，如Snort或Squid。</p>
 </blockquote>
 <p><img src="https://upload.wikimedia.org/wikipedia/en/4/42/Pfsense_logo.png" alt="pfSense"><br><a id="more"></a></p>
-<p>##系统安装篇</p>
-<p>####开机加载镜像，默认项会加载安装系统其它选项<br><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%201.png" alt="图片 1"></p>
-<p>####选择第一项安装pfsense<br><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%202.png" alt="图片 2"></p>
-<p>####配置键盘，选择默认即可<br><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%203.png" alt="图片 3"></p>
-<p>####硬盘格式化，默认<br><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%204.png" alt="图片 4"></p>
-<p>####校验以上配置<br><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%205.png" alt="图片 5"></p>
-<p>####开始解压安装<br>![图片 6](<a href="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%206.pn" target="_blank" rel="external">http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%206.pn</a></p>
-<p>####安装完成，这里选择NO<br><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%207.png" alt="图片 7"></p>
-<p>####重启<br><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%208.png" alt="图片 8"></p>
-<p>##初始化配置</p>
-<p>####开机后第一项配置是否开启vlan，这里选择n<br><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%209.png" alt="图片 9"></p>
-<p>####为WAN口和LAN口分配网卡，根据具体情况分配<br><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%2010.png" alt="图片 10"></p>
-<p>####应用配置<br><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%2011.png" alt="图片 11"></p>
-<p>####进入系统<br><img src="http://ov69sml6u.bkt.clouddn.com/12.png" alt="12"></p>
-<p>##openvpn配置篇</p>
-<p>###登录引导</p>
-<p>####web登录默认用户名为admin密码为pfsense<br><img src="http://ov69sml6u.bkt.clouddn.com/13.png" alt="13"></p>
-<p>####Next<br><img src="http://ov69sml6u.bkt.clouddn.com/14.png" alt="14"></p>
-<p>####继续下一步<br><img src="http://ov69sml6u.bkt.clouddn.com/15.png" alt="15"></p>
-<p>####配置主机名👈🏻和域名<br><img src="http://ov69sml6u.bkt.clouddn.com/16.png" alt="16"></p>
-<p>####配置时区<br><img src="http://ov69sml6u.bkt.clouddn.com/17.png" alt="17"></p>
-<p>####WAN口配置<br><img src="http://ov69sml6u.bkt.clouddn.com/18.png" alt="18"></p>
-<p>####LAN口配置<br><img src="http://ov69sml6u.bkt.clouddn.com/19.png" alt="19"></p>
-<p>###创建根证书和服务端证书<br><img src="http://ov69sml6u.bkt.clouddn.com/20.png" alt="20"></p>
-<p>####descriptive name和common name最好写一个不容易混淆的名字，其他选项根据实际情况填写<br><img src="http://ov69sml6u.bkt.clouddn.com/21.png" alt="21"></p>
-<p>####创建服务端证书common name要和上面配置的主机名一致<br><img src="http://ov69sml6u.bkt.clouddn.com/23.png" alt="23"></p>
-<p>####创建用户<br><img src="http://ov69sml6u.bkt.clouddn.com/24.png" alt="24"></p>
-<p>####填写用户信息，创建用户证书<br><img src="http://ov69sml6u.bkt.clouddn.com/38.png" alt="38"></p>
-<p>###配置openvpn</p>
-<p>####Next下一步<br><img src="http://ov69sml6u.bkt.clouddn.com/26.png" alt="26"></p>
-<p>####选择根证书<br><img src="http://ov69sml6u.bkt.clouddn.com/27.png" alt="27"></p>
-<p>####选择服务端证书<br><img src="http://ov69sml6u.bkt.clouddn.com/28.png" alt="28"></p>
-<p>####配置VPN server info<br><img src="http://ov69sml6u.bkt.clouddn.com/29.png" alt="29"></p>
+<h2 id="系统安装篇"><a href="#系统安装篇" class="headerlink" title="系统安装篇"></a>系统安装篇</h2><h4 id="开机加载镜像，默认项会加载安装系统其它选项"><a href="#开机加载镜像，默认项会加载安装系统其它选项" class="headerlink" title="开机加载镜像，默认项会加载安装系统其它选项"></a>开机加载镜像，默认项会加载安装系统其它选项</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%201.png" alt="图片 1"></p>
+<h4 id="选择第一项安装pfsense"><a href="#选择第一项安装pfsense" class="headerlink" title="选择第一项安装pfsense"></a>选择第一项安装pfsense</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%202.png" alt="图片 2"></p>
+<h4 id="配置键盘，选择默认即可"><a href="#配置键盘，选择默认即可" class="headerlink" title="配置键盘，选择默认即可"></a>配置键盘，选择默认即可</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%203.png" alt="图片 3"></p>
+<h4 id="硬盘格式化，默认"><a href="#硬盘格式化，默认" class="headerlink" title="硬盘格式化，默认"></a>硬盘格式化，默认</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%204.png" alt="图片 4"></p>
+<h4 id="校验以上配置"><a href="#校验以上配置" class="headerlink" title="校验以上配置"></a>校验以上配置</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%205.png" alt="图片 5"></p>
+<h4 id="开始解压安装"><a href="#开始解压安装" class="headerlink" title="开始解压安装"></a>开始解压安装</h4><p>![图片 6](<a href="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%206.pn" target="_blank" rel="external">http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%206.pn</a></p>
+<h4 id="安装完成，这里选择NO"><a href="#安装完成，这里选择NO" class="headerlink" title="安装完成，这里选择NO"></a>安装完成，这里选择NO</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%207.png" alt="图片 7"></p>
+<h4 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%208.png" alt="图片 8"></p>
+<h2 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h2><h4 id="开机后第一项配置是否开启vlan，这里选择n"><a href="#开机后第一项配置是否开启vlan，这里选择n" class="headerlink" title="开机后第一项配置是否开启vlan，这里选择n"></a>开机后第一项配置是否开启vlan，这里选择n</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%209.png" alt="图片 9"></p>
+<h4 id="为WAN口和LAN口分配网卡，根据具体情况分配"><a href="#为WAN口和LAN口分配网卡，根据具体情况分配" class="headerlink" title="为WAN口和LAN口分配网卡，根据具体情况分配"></a>为WAN口和LAN口分配网卡，根据具体情况分配</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%2010.png" alt="图片 10"></p>
+<h4 id="应用配置"><a href="#应用配置" class="headerlink" title="应用配置"></a>应用配置</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%2011.png" alt="图片 11"></p>
+<h4 id="进入系统"><a href="#进入系统" class="headerlink" title="进入系统"></a>进入系统</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/12.png" alt="12"></p>
+<h2 id="openvpn配置篇"><a href="#openvpn配置篇" class="headerlink" title="openvpn配置篇"></a>openvpn配置篇</h2><h3 id="登录引导"><a href="#登录引导" class="headerlink" title="登录引导"></a>登录引导</h3><h4 id="web登录默认用户名为admin密码为pfsense"><a href="#web登录默认用户名为admin密码为pfsense" class="headerlink" title="web登录默认用户名为admin密码为pfsense"></a>web登录默认用户名为admin密码为pfsense</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/13.png" alt="13"></p>
+<h4 id="Next"><a href="#Next" class="headerlink" title="Next"></a>Next</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/14.png" alt="14"></p>
+<h4 id="继续下一步"><a href="#继续下一步" class="headerlink" title="继续下一步"></a>继续下一步</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/15.png" alt="15"></p>
+<h4 id="配置主机名👈🏻和域名"><a href="#配置主机名👈🏻和域名" class="headerlink" title="配置主机名👈🏻和域名"></a>配置主机名👈🏻和域名</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/16.png" alt="16"></p>
+<h4 id="配置时区"><a href="#配置时区" class="headerlink" title="配置时区"></a>配置时区</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/17.png" alt="17"></p>
+<h4 id="WAN口配置"><a href="#WAN口配置" class="headerlink" title="WAN口配置"></a>WAN口配置</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/18.png" alt="18"></p>
+<h4 id="LAN口配置"><a href="#LAN口配置" class="headerlink" title="LAN口配置"></a>LAN口配置</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/19.png" alt="19"></p>
+<h3 id="创建根证书和服务端证书"><a href="#创建根证书和服务端证书" class="headerlink" title="创建根证书和服务端证书"></a>创建根证书和服务端证书</h3><p><img src="http://ov69sml6u.bkt.clouddn.com/20.png" alt="20"></p>
+<h4 id="descriptive-name和common-name最好写一个不容易混淆的名字，其他选项根据实际情况填写"><a href="#descriptive-name和common-name最好写一个不容易混淆的名字，其他选项根据实际情况填写" class="headerlink" title="descriptive name和common name最好写一个不容易混淆的名字，其他选项根据实际情况填写"></a>descriptive name和common name最好写一个不容易混淆的名字，其他选项根据实际情况填写</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/21.png" alt="21"></p>
+<h4 id="创建服务端证书common-name要和上面配置的主机名一致"><a href="#创建服务端证书common-name要和上面配置的主机名一致" class="headerlink" title="创建服务端证书common name要和上面配置的主机名一致"></a>创建服务端证书common name要和上面配置的主机名一致</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/23.png" alt="23"></p>
+<h4 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/24.png" alt="24"></p>
+<h4 id="填写用户信息，创建用户证书"><a href="#填写用户信息，创建用户证书" class="headerlink" title="填写用户信息，创建用户证书"></a>填写用户信息，创建用户证书</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/38.png" alt="38"></p>
+<h3 id="配置openvpn"><a href="#配置openvpn" class="headerlink" title="配置openvpn"></a>配置openvpn</h3><h4 id="Next下一步"><a href="#Next下一步" class="headerlink" title="Next下一步"></a>Next下一步</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/26.png" alt="26"></p>
+<h4 id="选择根证书"><a href="#选择根证书" class="headerlink" title="选择根证书"></a>选择根证书</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/27.png" alt="27"></p>
+<h4 id="选择服务端证书"><a href="#选择服务端证书" class="headerlink" title="选择服务端证书"></a>选择服务端证书</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/28.png" alt="28"></p>
+<h4 id="配置VPN-server-info"><a href="#配置VPN-server-info" class="headerlink" title="配置VPN server info"></a>配置VPN server info</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/29.png" alt="29"></p>
 <h4 id="配置tunnel-network"><a href="#配置tunnel-network" class="headerlink" title="配置tunnel network"></a>配置tunnel network</h4><blockquote>
 <p>tunnel network是vpn客户端连进来为客户端分配的ip地址段，只要不和WAN LAN口ip段重复即可，local network是vpn客户端连进来可以访问的网段，一般为LAN口ip段</p>
 </blockquote>
 <p><img src="http://ov69sml6u.bkt.clouddn.com/30.png" alt="30"><br><img src="http://ov69sml6u.bkt.clouddn.com/31.png" alt="31"></p>
 <h4 id="自动添加open-vpn防火墙规则"><a href="#自动添加open-vpn防火墙规则" class="headerlink" title="自动添加open vpn防火墙规则"></a>自动添加open vpn防火墙规则</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/32.png" alt="32"></p>
 <h4 id="安装openvpn-client-export扩展包-方便导出open-vpn配置文件"><a href="#安装openvpn-client-export扩展包-方便导出open-vpn配置文件" class="headerlink" title="安装openvpn-client-export扩展包 方便导出open vpn配置文件"></a>安装openvpn-client-export扩展包 方便导出open vpn配置文件</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/33.png" alt="33"><br><img src="http://ov69sml6u.bkt.clouddn.com/34.png" alt="34"></p>
-<p>####到vpn-openvpn-client export导出配置文件</p>
-<blockquote>
+<h4 id="到vpn-openvpn-client-export导出配置文件"><a href="#到vpn-openvpn-client-export导出配置文件" class="headerlink" title="到vpn-openvpn-client export导出配置文件"></a>到vpn-openvpn-client export导出配置文件</h4><blockquote>
 <p>windows可以直接下载含有配置文件的openvpn安装包</p>
 </blockquote>
 <p><img src="http://ov69sml6u.bkt.clouddn.com/36.png" alt="36"></p>
-<p>####客户端连接测试<br><img src="http://ov69sml6u.bkt.clouddn.com/37.jpg" alt="37"></p>
+<h4 id="客户端连接测试"><a href="#客户端连接测试" class="headerlink" title="客户端连接测试"></a>客户端连接测试</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/37.jpg" alt="37"></p>
 
       
 
@@ -399,7 +393,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置tunnel-network"><span class="toc-number">1.</span> <span class="toc-text">配置tunnel network</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自动添加open-vpn防火墙规则"><span class="toc-number">2.</span> <span class="toc-text">自动添加open vpn防火墙规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装openvpn-client-export扩展包-方便导出open-vpn配置文件"><span class="toc-number">3.</span> <span class="toc-text">安装openvpn-client-export扩展包 方便导出open vpn配置文件</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#系统安装篇"><span class="toc-number">1.</span> <span class="toc-text">系统安装篇</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#开机加载镜像，默认项会加载安装系统其它选项"><span class="toc-number">1.0.1.</span> <span class="toc-text">开机加载镜像，默认项会加载安装系统其它选项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#选择第一项安装pfsense"><span class="toc-number">1.0.2.</span> <span class="toc-text">选择第一项安装pfsense</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置键盘，选择默认即可"><span class="toc-number">1.0.3.</span> <span class="toc-text">配置键盘，选择默认即可</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#硬盘格式化，默认"><span class="toc-number">1.0.4.</span> <span class="toc-text">硬盘格式化，默认</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#校验以上配置"><span class="toc-number">1.0.5.</span> <span class="toc-text">校验以上配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#开始解压安装"><span class="toc-number">1.0.6.</span> <span class="toc-text">开始解压安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装完成，这里选择NO"><span class="toc-number">1.0.7.</span> <span class="toc-text">安装完成，这里选择NO</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重启"><span class="toc-number">1.0.8.</span> <span class="toc-text">重启</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化配置"><span class="toc-number">2.</span> <span class="toc-text">初始化配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#开机后第一项配置是否开启vlan，这里选择n"><span class="toc-number">2.0.1.</span> <span class="toc-text">开机后第一项配置是否开启vlan，这里选择n</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#为WAN口和LAN口分配网卡，根据具体情况分配"><span class="toc-number">2.0.2.</span> <span class="toc-text">为WAN口和LAN口分配网卡，根据具体情况分配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应用配置"><span class="toc-number">2.0.3.</span> <span class="toc-text">应用配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#进入系统"><span class="toc-number">2.0.4.</span> <span class="toc-text">进入系统</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#openvpn配置篇"><span class="toc-number">3.</span> <span class="toc-text">openvpn配置篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#登录引导"><span class="toc-number">3.1.</span> <span class="toc-text">登录引导</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#web登录默认用户名为admin密码为pfsense"><span class="toc-number">3.1.1.</span> <span class="toc-text">web登录默认用户名为admin密码为pfsense</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Next"><span class="toc-number">3.1.2.</span> <span class="toc-text">Next</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#继续下一步"><span class="toc-number">3.1.3.</span> <span class="toc-text">继续下一步</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置主机名👈🏻和域名"><span class="toc-number">3.1.4.</span> <span class="toc-text">配置主机名👈🏻和域名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置时区"><span class="toc-number">3.1.5.</span> <span class="toc-text">配置时区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WAN口配置"><span class="toc-number">3.1.6.</span> <span class="toc-text">WAN口配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LAN口配置"><span class="toc-number">3.1.7.</span> <span class="toc-text">LAN口配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建根证书和服务端证书"><span class="toc-number">3.2.</span> <span class="toc-text">创建根证书和服务端证书</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#descriptive-name和common-name最好写一个不容易混淆的名字，其他选项根据实际情况填写"><span class="toc-number">3.2.1.</span> <span class="toc-text">descriptive name和common name最好写一个不容易混淆的名字，其他选项根据实际情况填写</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建服务端证书common-name要和上面配置的主机名一致"><span class="toc-number">3.2.2.</span> <span class="toc-text">创建服务端证书common name要和上面配置的主机名一致</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建用户"><span class="toc-number">3.2.3.</span> <span class="toc-text">创建用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#填写用户信息，创建用户证书"><span class="toc-number">3.2.4.</span> <span class="toc-text">填写用户信息，创建用户证书</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置openvpn"><span class="toc-number">3.3.</span> <span class="toc-text">配置openvpn</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Next下一步"><span class="toc-number">3.3.1.</span> <span class="toc-text">Next下一步</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#选择根证书"><span class="toc-number">3.3.2.</span> <span class="toc-text">选择根证书</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#选择服务端证书"><span class="toc-number">3.3.3.</span> <span class="toc-text">选择服务端证书</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置VPN-server-info"><span class="toc-number">3.3.4.</span> <span class="toc-text">配置VPN server info</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置tunnel-network"><span class="toc-number">3.3.5.</span> <span class="toc-text">配置tunnel network</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自动添加open-vpn防火墙规则"><span class="toc-number">3.3.6.</span> <span class="toc-text">自动添加open vpn防火墙规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装openvpn-client-export扩展包-方便导出open-vpn配置文件"><span class="toc-number">3.3.7.</span> <span class="toc-text">安装openvpn-client-export扩展包 方便导出open vpn配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#到vpn-openvpn-client-export导出配置文件"><span class="toc-number">3.3.8.</span> <span class="toc-text">到vpn-openvpn-client export导出配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端连接测试"><span class="toc-number">3.3.9.</span> <span class="toc-text">客户端连接测试</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -514,19 +508,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">parted</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cdh</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">parted</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,6 +540,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">pfsense</a>
               </li>
              
@@ -554,15 +560,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,22 +601,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">proxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
               </li>
             
             <div class="clearfix"></div>
