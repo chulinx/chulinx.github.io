@@ -165,6 +165,104 @@ var _hmt = _hmt || [];
                  
 
   
+    <article id="post-kubernetes集群搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/12/kubernetes集群搭建/">Kubernetes集群搭建</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/12/kubernetes集群搭建/" class="archive-article-date">
+  	<time datetime="2017-09-12T04:09:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一，基础理论"><a href="#一，基础理论" class="headerlink" title="一，基础理论"></a>一，基础理论</h3><blockquote>
+<p>Kubernetes是开源的自动化容器操作平台，包括部署，调度和节点集群间的拓展。在kubernetes中，docker是做为一种组件存在的，k8s不仅支持docker,<br>还支持Rocket虚拟化技术。</p>
+<p>Kubernetes的特点：<br>自动化容器的部署与复制<br>随时扩展或收缩容器规模<br>将容器组织成组，并且能够提供容器间的负载均衡<br>对于容器的升级很方便<br>容器的健康检查与自动修复<br>…</p>
+</blockquote>
+<h4 id="Kubernetes-架构图"><a href="#Kubernetes-架构图" class="headerlink" title="Kubernetes 架构图"></a>Kubernetes 架构图</h4><p><img src="https://i.loli.net/2017/09/12/59b7512ad4cbd.png" alt="kubernetes"></p>
+<h4 id="Kubernetes-各组件介绍"><a href="#Kubernetes-各组件介绍" class="headerlink" title="Kubernetes 各组件介绍"></a>Kubernetes 各组件介绍</h4><blockquote>
+<p>Pod :一组容器和卷的组合<br>Label:pod的标签，以键值对存储<br>作用：区分前端后台Pod/Service RC的指定应用<br>Replication Controller: 指定Pod的副本数，持续监控Pod数量，保证一定个数的Pod正常运行，创建Pod时需要指定pod模板和Label（Pod的标签）<br>Service: 是定义一系列Pod以及访问这些Pods的策略的一层抽象,通过Lable找到Pod组。<br>Node 节点，是物理机或者虚拟机，运行以下组件<br>Kubelet kube-proxy docker/Rockt<br>Master 提供Api server 用来创建Pod和RC</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2017/09/12/kubernetes集群搭建/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kuberneetes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/docker/" class="article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/12/kubernetes集群搭建/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-zabbix安装配置-基于zabbix_3.4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -732,19 +830,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">parted</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -764,6 +862,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pfsense</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">openvpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
@@ -773,22 +879,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -817,6 +907,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
               </li>
             
             <div class="clearfix"></div>

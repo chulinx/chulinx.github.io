@@ -6,15 +6,56 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: kuberneetes | 天涯咫尺</title>
+  <title>pfsense软路由防火墙安装以及配置openvpn | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="天涯咫尺">
-<meta property="og:url" content="http://yoursite.com/tags/kuberneetes/index.html">
+  <meta name="description" content="维基百科:pfSense是基于FreeBSD的开源 防火墙 / 路由器计算机软件发行版。[2] [3] [4]它安装在物理计算机或虚拟机上，为网络制作专用的防火墙/路由器。[5]它可以通过基于网络的界面进行配置和升级，并且不需要了解底层FreeBSD系统的管理知识。[2] [6] pfSense通常部署为外围防火墙，路由器，无线接入点，DHCP服务器，DNS服务器以及VPN端点。pfSense支">
+<meta name="keywords" content="pfsense,openvpn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pfsense软路由防火墙安装以及配置openvpn">
+<meta property="og:url" content="http://yoursite.com/2018/03/15/pfsense软路由防火墙安装以及配置openvpn/index.html">
 <meta property="og:site_name" content="天涯咫尺">
+<meta property="og:description" content="维基百科:pfSense是基于FreeBSD的开源 防火墙 / 路由器计算机软件发行版。[2] [3] [4]它安装在物理计算机或虚拟机上，为网络制作专用的防火墙/路由器。[5]它可以通过基于网络的界面进行配置和升级，并且不需要了解底层FreeBSD系统的管理知识。[2] [6] pfSense通常部署为外围防火墙，路由器，无线接入点，DHCP服务器，DNS服务器以及VPN端点。pfSense支">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/en/4/42/Pfsense_logo.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%201.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%202.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%203.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%204.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%205.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%207.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%208.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%209.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%2010.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%2011.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/12.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/13.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/14.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/15.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/16.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/17.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/18.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/19.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/20.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/21.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/23.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/24.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/38.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/26.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/27.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/28.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/29.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/30.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/31.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/32.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/33.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/34.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/36.png">
+<meta property="og:image" content="http://ov69sml6u.bkt.clouddn.com/37.jpg">
+<meta property="og:updated_time" content="2018-03-15T03:28:37.414Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="天涯咫尺">
+<meta name="twitter:title" content="pfsense软路由防火墙安装以及配置openvpn">
+<meta name="twitter:description" content="维基百科:pfSense是基于FreeBSD的开源 防火墙 / 路由器计算机软件发行版。[2] [3] [4]它安装在物理计算机或虚拟机上，为网络制作专用的防火墙/路由器。[5]它可以通过基于网络的界面进行配置和升级，并且不需要了解底层FreeBSD系统的管理知识。[2] [6] pfSense通常部署为外围防火墙，路由器，无线接入点，DHCP服务器，DNS服务器以及VPN端点。pfSense支">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/en/4/42/Pfsense_logo.png">
   
     <link rel="alternative" href="/atom.xml" title="天涯咫尺" type="application/atom+xml">
   
@@ -162,77 +203,229 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-                 
-
-  
-  
+            <article id="post-pfsense软路由防火墙安装以及配置openvpn" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/12/kubernetes集群搭建/" class="archive-article-date">
-  	<time datetime="2017-09-12T04:09:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/12/kubernetes集群搭建/">Kubernetes集群搭建</a>
+    <h1 class="article-title" itemprop="name">
+      pfsense软路由防火墙安装以及配置openvpn
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/03/15/pfsense软路由防火墙安装以及配置openvpn/" class="archive-article-date">
+  	<time datetime="2018-03-15T02:13:54.098Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>维基百科:pfSense是基于FreeBSD的开源 防火墙 / 路由器计算机软件发行版。[2] [3] [4]它安装在物理计算机或虚拟机上，为网络制作专用的防火墙/路由器。[5]它可以通过基于网络的界面进行配置和升级，并且不需要了解底层FreeBSD系统的管理知识。[2] [6] pfSense通常部署为外围防火墙，路由器，无线接入点，DHCP服务器，DNS服务器以及VPN端点。pfSense支持通过其包管理器安装第三方软件包，如Snort或Squid。</p>
+</blockquote>
+<p><img src="https://upload.wikimedia.org/wikipedia/en/4/42/Pfsense_logo.png" alt="pfSense"><br><a id="more"></a></p>
+<p>##系统安装篇</p>
+<p>####开机加载镜像，默认项会加载安装系统其它选项<br><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%201.png" alt="图片 1"></p>
+<p>####选择第一项安装pfsense<br><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%202.png" alt="图片 2"></p>
+<p>####配置键盘，选择默认即可<br><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%203.png" alt="图片 3"></p>
+<p>####硬盘格式化，默认<br><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%204.png" alt="图片 4"></p>
+<p>####校验以上配置<br><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%205.png" alt="图片 5"></p>
+<p>####开始解压安装<br>![图片 6](<a href="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%206.pn" target="_blank" rel="external">http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%206.pn</a></p>
+<p>####安装完成，这里选择NO<br><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%207.png" alt="图片 7"></p>
+<p>####重启<br><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%208.png" alt="图片 8"></p>
+<p>##初始化配置</p>
+<p>####开机后第一项配置是否开启vlan，这里选择n<br><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%209.png" alt="图片 9"></p>
+<p>####为WAN口和LAN口分配网卡，根据具体情况分配<br><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%2010.png" alt="图片 10"></p>
+<p>####应用配置<br><img src="http://ov69sml6u.bkt.clouddn.com/%E5%9B%BE%E7%89%87%2011.png" alt="图片 11"></p>
+<p>####进入系统<br><img src="http://ov69sml6u.bkt.clouddn.com/12.png" alt="12"></p>
+<p>##openvpn配置篇</p>
+<p>###登录引导</p>
+<p>####web登录默认用户名为admin密码为pfsense<br><img src="http://ov69sml6u.bkt.clouddn.com/13.png" alt="13"></p>
+<p>####Next<br><img src="http://ov69sml6u.bkt.clouddn.com/14.png" alt="14"></p>
+<p>####继续下一步<br><img src="http://ov69sml6u.bkt.clouddn.com/15.png" alt="15"></p>
+<p>####配置主机名👈🏻和域名<br><img src="http://ov69sml6u.bkt.clouddn.com/16.png" alt="16"></p>
+<p>####配置时区<br><img src="http://ov69sml6u.bkt.clouddn.com/17.png" alt="17"></p>
+<p>####WAN口配置<br><img src="http://ov69sml6u.bkt.clouddn.com/18.png" alt="18"></p>
+<p>####LAN口配置<br><img src="http://ov69sml6u.bkt.clouddn.com/19.png" alt="19"></p>
+<p>###创建根证书和服务端证书<br><img src="http://ov69sml6u.bkt.clouddn.com/20.png" alt="20"></p>
+<p>####descriptive name和common name最好写一个不容易混淆的名字，其他选项根据实际情况填写<br><img src="http://ov69sml6u.bkt.clouddn.com/21.png" alt="21"></p>
+<p>####创建服务端证书common name要和上面配置的主机名一致<br><img src="http://ov69sml6u.bkt.clouddn.com/23.png" alt="23"></p>
+<p>####创建用户<br><img src="http://ov69sml6u.bkt.clouddn.com/24.png" alt="24"></p>
+<p>####填写用户信息，创建用户证书<br><img src="http://ov69sml6u.bkt.clouddn.com/38.png" alt="38"></p>
+<p>###配置openvpn</p>
+<p>####Next下一步<br><img src="http://ov69sml6u.bkt.clouddn.com/26.png" alt="26"></p>
+<p>####选择根证书<br><img src="http://ov69sml6u.bkt.clouddn.com/27.png" alt="27"></p>
+<p>####选择服务端证书<br><img src="http://ov69sml6u.bkt.clouddn.com/28.png" alt="28"></p>
+<p>####配置VPN server info<br><img src="http://ov69sml6u.bkt.clouddn.com/29.png" alt="29"></p>
+<h4 id="配置tunnel-network"><a href="#配置tunnel-network" class="headerlink" title="配置tunnel network"></a>配置tunnel network</h4><blockquote>
+<p>tunnel network是vpn客户端连进来为客户端分配的ip地址段，只要不和WAN LAN口ip段重复即可，local network是vpn客户端连进来可以访问的网段，一般为LAN口ip段</p>
+</blockquote>
+<p><img src="http://ov69sml6u.bkt.clouddn.com/30.png" alt="30"><br><img src="http://ov69sml6u.bkt.clouddn.com/31.png" alt="31"></p>
+<h4 id="自动添加open-vpn防火墙规则"><a href="#自动添加open-vpn防火墙规则" class="headerlink" title="自动添加open vpn防火墙规则"></a>自动添加open vpn防火墙规则</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/32.png" alt="32"></p>
+<h4 id="安装openvpn-client-export扩展包-方便导出open-vpn配置文件"><a href="#安装openvpn-client-export扩展包-方便导出open-vpn配置文件" class="headerlink" title="安装openvpn-client-export扩展包 方便导出open vpn配置文件"></a>安装openvpn-client-export扩展包 方便导出open vpn配置文件</h4><p><img src="http://ov69sml6u.bkt.clouddn.com/33.png" alt="33"><br><img src="http://ov69sml6u.bkt.clouddn.com/34.png" alt="34"></p>
+<p>####到vpn-openvpn-client export导出配置文件</p>
+<blockquote>
+<p>windows可以直接下载含有配置文件的openvpn安装包</p>
+</blockquote>
+<p><img src="http://ov69sml6u.bkt.clouddn.com/36.png" alt="36"></p>
+<p>####客户端连接测试<br><img src="http://ov69sml6u.bkt.clouddn.com/37.jpg" alt="37"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pfsense</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kuberneetes</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">openvpn</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/docker/" class="article-tag-list-link color2">docker</a>
+        			<a href="/categories/pfsense/" class="article-tag-list-link color3">pfsense</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/15/pfsense软路由防火墙安装以及配置openvpn/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/03/02/docker进阶用法总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">docker进阶用法总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置tunnel-network"><span class="toc-number">1.</span> <span class="toc-text">配置tunnel network</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自动添加open-vpn防火墙规则"><span class="toc-number">2.</span> <span class="toc-text">自动添加open vpn防火墙规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装openvpn-client-export扩展包-方便导出open-vpn配置文件"><span class="toc-number">3.</span> <span class="toc-text">安装openvpn-client-export扩展包 方便导出open vpn配置文件</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+  <div id="SOHUCS" sid="pfsense软路由防火墙安装以及配置openvpn" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "cytdJGQ2j"; 
+var conf = "prod_cd2017c419228c55f615802d80286e33"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+  
 
+  
 
 
           </div>
@@ -255,9 +448,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

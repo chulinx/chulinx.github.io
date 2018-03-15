@@ -165,6 +165,100 @@ var _hmt = _hmt || [];
                  
 
   
+    <article id="post-pfsense软路由防火墙安装以及配置openvpn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/15/pfsense软路由防火墙安装以及配置openvpn/">pfsense软路由防火墙安装以及配置openvpn</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/15/pfsense软路由防火墙安装以及配置openvpn/" class="archive-article-date">
+  	<time datetime="2018-03-15T02:13:54.098Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>维基百科:pfSense是基于FreeBSD的开源 防火墙 / 路由器计算机软件发行版。[2] [3] [4]它安装在物理计算机或虚拟机上，为网络制作专用的防火墙/路由器。[5]它可以通过基于网络的界面进行配置和升级，并且不需要了解底层FreeBSD系统的管理知识。[2] [6] pfSense通常部署为外围防火墙，路由器，无线接入点，DHCP服务器，DNS服务器以及VPN端点。pfSense支持通过其包管理器安装第三方软件包，如Snort或Squid。</p>
+</blockquote>
+<p><img src="https://upload.wikimedia.org/wikipedia/en/4/42/Pfsense_logo.png" alt="pfSense"><br>
+        
+          <a class="article-more-a" href="/2018/03/15/pfsense软路由防火墙安装以及配置openvpn/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pfsense</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">openvpn</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/pfsense/" class="article-tag-list-link color3">pfsense</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/15/pfsense软路由防火墙安装以及配置openvpn/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-docker进阶用法总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -193,9 +287,10 @@ var _hmt = _hmt || [];
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@registry ~]# netstat -nplt |grep 5000</div><div class="line">tcp        0      0 :::5000                     :::*                        LISTEN      20701/docker-proxy</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="配置docker-确保从私有仓库pull镜像时不会报错"><a href="#配置docker-确保从私有仓库pull镜像时不会报错" class="headerlink" title="配置docker 确保从私有仓库pull镜像时不会报错"></a>配置docker 确保从私有仓库pull镜像时不会报错</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@k8n1 ~]<span class="comment"># cat /etc/docker/daemon.json</span></div><div class="line"><span class="comment">#172.16.1.9:5000 私有仓库地址端口</span></div><div class="line">&#123; <span class="string">"insecure-registries"</span>:[<span class="string">"172.16.1.9:5000"</span>] &#125;</div></pre></td></tr></table></figure>
-<h4 id="测试上传下载"><a href="#测试上传下载" class="headerlink" title="测试上传下载"></a>测试上传下载</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">[root@k8n1 ~]<span class="comment"># docker tag nginx:latest 172.16.1.9:5000/chulinx/nginx:latest</span></div><div class="line"><span class="comment">#上传</span></div><div class="line">[root@k8n1 ~]<span class="comment"># docker push 172.16.1.9:5000/chulinx/nginx:latest</span></div><div class="line">The push refers to a repository [172.16.1.9:5000/chulinx/nginx]</div><div class="line">a103d141fc98: Pushed</div><div class="line">73e2bd445514: Pushed</div><div class="line">2ec5c0a4cb57: Pushed</div><div class="line">latest: digest: sha256:926b086e1234b6ae9a11589c4cece66b267890d24d1da388c96dd8795b2ffcfb size: 948</div><div class="line">[root@k8n1 ~]<span class="comment"># docker rmi 172.16.1.9:5000/chulinx/nginx:latest</span></div><div class="line">Untagged: 172.16.1.9:5000/chulinx/nginx:latest</div><div class="line">Untagged: 172.16.1.9:5000/chulinx/nginx@sha256:926b086e1234b6ae9a11589c4cece66b267890d24d1da388c96dd8795b2ffcfb</div><div class="line"><span class="comment">#下载</span></div><div class="line">[root@k8n1 ~]<span class="comment"># docker pull 172.16.1.9:5000/chulinx/nginx:latest</span></div><div class="line">Trying to pull repository 172.16.1.9:5000/chulinx/nginx ...</div><div class="line">latest: Pulling from 172.16.1.9:5000/chulinx/nginx</div><div class="line">Digest: sha256:926b086e1234b6ae9a11589c4cece66b267890d24d1da388c96dd8795b2ffcfb</div><div class="line">[root@k8n1 ~]<span class="comment">#</span></div></pre></td></tr></table></figure>
-
+<h4 id="配置docker-确保从私有仓库pull镜像时不会报错"><a href="#配置docker-确保从私有仓库pull镜像时不会报错" class="headerlink" title="配置docker 确保从私有仓库pull镜像时不会报错"></a>配置docker 确保从私有仓库pull镜像时不会报错</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cat /etc/docker/daemon.json</div><div class="line">&#123; <span class="string">"insecure-registries"</span>:[<span class="string">"172.16.1.9:5000"</span>] &#125;</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/03/02/docker进阶用法总结/#more">more >></a>
+        
       
 
       
@@ -298,11 +393,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">gevent</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">gevent</a>
         		</li>
       		
 		</ul>
@@ -1072,104 +1167,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-kubernetes集群搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/12/kubernetes集群搭建/">Kubernetes集群搭建</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/12/kubernetes集群搭建/" class="archive-article-date">
-  	<time datetime="2017-09-12T04:09:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一，基础理论"><a href="#一，基础理论" class="headerlink" title="一，基础理论"></a>一，基础理论</h3><blockquote>
-<p>Kubernetes是开源的自动化容器操作平台，包括部署，调度和节点集群间的拓展。在kubernetes中，docker是做为一种组件存在的，k8s不仅支持docker,<br>还支持Rocket虚拟化技术。</p>
-<p>Kubernetes的特点：<br>自动化容器的部署与复制<br>随时扩展或收缩容器规模<br>将容器组织成组，并且能够提供容器间的负载均衡<br>对于容器的升级很方便<br>容器的健康检查与自动修复<br>…</p>
-</blockquote>
-<h4 id="Kubernetes-架构图"><a href="#Kubernetes-架构图" class="headerlink" title="Kubernetes 架构图"></a>Kubernetes 架构图</h4><p><img src="https://i.loli.net/2017/09/12/59b7512ad4cbd.png" alt="kubernetes"></p>
-<h4 id="Kubernetes-各组件介绍"><a href="#Kubernetes-各组件介绍" class="headerlink" title="Kubernetes 各组件介绍"></a>Kubernetes 各组件介绍</h4><blockquote>
-<p>Pod :一组容器和卷的组合<br>Label:pod的标签，以键值对存储<br>作用：区分前端后台Pod/Service RC的指定应用<br>Replication Controller: 指定Pod的副本数，持续监控Pod数量，保证一定个数的Pod正常运行，创建Pod时需要指定pod模板和Label（Pod的标签）<br>Service: 是定义一系列Pod以及访问这些Pods的策略的一层抽象,通过Lable找到Pod组。<br>Node 节点，是物理机或者虚拟机，运行以下组件<br>Kubelet kube-proxy docker/Rockt<br>Master 提供Api server 用来创建Pod和RC</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2017/09/12/kubernetes集群搭建/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kuberneetes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/docker/" class="article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/12/kubernetes集群搭建/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1264,19 +1261,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">parted</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1296,6 +1293,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pfsense</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">openvpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
@@ -1305,22 +1310,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1349,6 +1338,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
               </li>
             
             <div class="clearfix"></div>
