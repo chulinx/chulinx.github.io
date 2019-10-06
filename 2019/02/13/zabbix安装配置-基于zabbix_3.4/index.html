@@ -6,22 +6,36 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Centos nfs服务配置小记 | 天涯咫尺</title>
+  <title>zabbix安装配置-基于zabbix_3.4 | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概念 NFS（Network File System）即网络文件系统，是FreeBSD支持的文件系统中的一种，它允许网络中的计算机之间通过TCP/IP网络共享资源。在NFS的应用中，本地NFS的客户端应用可以透明地读写位于远端NFS服务器上的文件，就像访问本地文件一样,熟悉windows的可以把它看成windows的磁盘映射   环境   nfs服务ip 客户端网段     172.23.1.">
-<meta name="keywords" content="nfs">
+  <meta name="description" content="监控工具zabbix简介 Zabbix 是一个基于 WEB界面 的提供 分布式 系统监视以及网络监视功能的企业级的开源解决方案，简单的环境有两部分构成，zabbix server与可选组件zabbix agent；分布式环境有3部分构成：zabbix-server、zabbix-proxy、zabbix-agent；可以通过SNMP，zabbix agent，ping，端口监视等方法提供对远程服">
+<meta name="keywords" content="zabbix安装,zabbix_3.4">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Centos nfs服务配置小记">
-<meta property="og:url" content="http://yoursite.com/2019/01/22/nfs服务配置小记/index.html">
+<meta property="og:title" content="zabbix安装配置-基于zabbix_3.4">
+<meta property="og:url" content="http://yoursite.com/2019/02/13/zabbix安装配置-基于zabbix_3.4/index.html">
 <meta property="og:site_name" content="天涯咫尺">
-<meta property="og:description" content="概念 NFS（Network File System）即网络文件系统，是FreeBSD支持的文件系统中的一种，它允许网络中的计算机之间通过TCP/IP网络共享资源。在NFS的应用中，本地NFS的客户端应用可以透明地读写位于远端NFS服务器上的文件，就像访问本地文件一样,熟悉windows的可以把它看成windows的磁盘映射   环境   nfs服务ip 客户端网段     172.23.1.">
+<meta property="og:description" content="监控工具zabbix简介 Zabbix 是一个基于 WEB界面 的提供 分布式 系统监视以及网络监视功能的企业级的开源解决方案，简单的环境有两部分构成，zabbix server与可选组件zabbix agent；分布式环境有3部分构成：zabbix-server、zabbix-proxy、zabbix-agent；可以通过SNMP，zabbix agent，ping，端口监视等方法提供对远程服">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://img.chulinx.xyz/0df3d7ca7bcb0a46faeb868c6863f6246a60afbd.jpg">
+<meta property="og:image" content="https://i.loli.net/2017/09/11/59b643535276c.jpg">
+<meta property="og:image" content="http://img.chulinx.xyz/ZABBIX-WEB1.png">
+<meta property="og:image" content="http://img.chulinx.xyz/ZABBIX-WEB2.png">
+<meta property="og:image" content="http://img.chulinx.xyz/ZABBIX-WEB3.png">
+<meta property="og:image" content="http://img.chulinx.xyz/ZABBIX-WEB4.png">
+<meta property="og:image" content="http://img.chulinx.xyz/ZABBIX-WEB5.png">
+<meta property="og:image" content="http://img.chulinx.xyz/ZABBIX-WEB6.png">
+<meta property="og:image" content="http://img.chulinx.xyz/ZABBIX-WEB7.png">
+<meta property="og:image" content="http://img.chulinx.xyz/ZABBIX-WEB8.png">
+<meta property="og:image" content="http://img.chulinx.xyz/ZABBIX-WEB9.png">
+<meta property="og:image" content="http://img.chulinx.xyz/ZABBIX-WEB10.png">
+<meta property="og:image" content="http://img.chulinx.xyz/ZABBIX-WEB11.png">
+<meta property="og:image" content="http://img.chulinx.xyz/ZABBIX-WEB12.png">
+<meta property="og:image" content="http://img.chulinx.xyz/ZABBIX-WEB13.png">
+<meta property="og:image" content="http://img.chulinx.xyz/ZABBIX-WEB14.png">
 <meta property="og:updated_time" content="2019-02-13T03:19:34.646Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Centos nfs服务配置小记">
-<meta name="twitter:description" content="概念 NFS（Network File System）即网络文件系统，是FreeBSD支持的文件系统中的一种，它允许网络中的计算机之间通过TCP/IP网络共享资源。在NFS的应用中，本地NFS的客户端应用可以透明地读写位于远端NFS服务器上的文件，就像访问本地文件一样,熟悉windows的可以把它看成windows的磁盘映射   环境   nfs服务ip 客户端网段     172.23.1.">
-<meta name="twitter:image" content="http://img.chulinx.xyz/0df3d7ca7bcb0a46faeb868c6863f6246a60afbd.jpg">
+<meta name="twitter:title" content="zabbix安装配置-基于zabbix_3.4">
+<meta name="twitter:description" content="监控工具zabbix简介 Zabbix 是一个基于 WEB界面 的提供 分布式 系统监视以及网络监视功能的企业级的开源解决方案，简单的环境有两部分构成，zabbix server与可选组件zabbix agent；分布式环境有3部分构成：zabbix-server、zabbix-proxy、zabbix-agent；可以通过SNMP，zabbix agent，ping，端口监视等方法提供对远程服">
+<meta name="twitter:image" content="https://i.loli.net/2017/09/11/59b643535276c.jpg">
   
     <link rel="alternative" href="/atom.xml" title="天涯咫尺" type="application/atom+xml">
   
@@ -76,6 +90,8 @@ var _hmt = _hmt || [];
 	        
 				<li><a href="/photos">相册</a></li>
 	        
+				<li><a href="/project">开源项目</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -94,7 +110,7 @@ var _hmt = _hmt || [];
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/chulinx" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/tianyacz" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="http://weibo.com/chulinx" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -132,12 +148,14 @@ var _hmt = _hmt || [];
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/chulinx" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/tianyacz" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="http://weibo.com/chulinx" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -149,12 +167,14 @@ var _hmt = _hmt || [];
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/photos">相册</a></li>
+					<li style="width: 33.333333333333336%"><a href="/photos">相册</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/project">开源项目</a></li>
 		        
 				</ul>
 			</nav>
@@ -169,56 +189,59 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-nfs服务配置小记" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-zabbix安装配置-基于zabbix_3.4" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Centos nfs服务配置小记
+      zabbix安装配置-基于zabbix_3.4
     </h1>
   
 
         
-        <a href="/2019/01/22/nfs服务配置小记/" class="archive-article-date">
-  	<time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
+        <a href="/2019/02/13/zabbix安装配置-基于zabbix_3.4/" class="archive-article-date">
+  	<time datetime="2019-02-13T03:19:34.646Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><blockquote>
-<p>NFS（Network File System）即网络文件系统，是FreeBSD支持的文件系统中的一种，它允许网络中的计算机之间通过TCP/IP网络共享资源。在NFS的应用中，本地NFS的客户端应用可以透明地读写位于远端NFS服务器上的文件，就像访问本地文件一样,熟悉windows的可以把它看成windows的磁盘映射</p>
+        <p><img src="https://i.loli.net/2017/09/11/59b643535276c.jpg" alt="zabbix"></p>
+<h3 id="监控工具zabbix简介"><a href="#监控工具zabbix简介" class="headerlink" title="监控工具zabbix简介"></a>监控工具zabbix简介</h3><blockquote>
+<p>Zabbix 是一个基于 <strong>WEB界面</strong> 的提供 <strong>分布式</strong> 系统监视以及网络监视功能的企业级的开源解决方案，简单的环境有两部分构成，zabbix server与可选组件zabbix agent；分布式环境有3部分构成：zabbix-server、zabbix-proxy、zabbix-agent；可以通过SNMP，zabbix agent，ping，端口监视等方法提供对远程服务器/网络状态的监视，数据收集等功能，它可以运行在Linux，Solaris，HP-UX，AIX，Free BSD，Open BSD，OS X等平台上</p>
 </blockquote>
-<p><img src="http://img.chulinx.xyz/0df3d7ca7bcb0a46faeb868c6863f6246a60afbd.jpg" alt="0df3d7ca7bcb0a46faeb868c6863f6246a60afbd"></p>
-<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><table>
-<thead>
-<tr>
-<th style="text-align:left">nfs服务ip</th>
-<th style="text-align:left">客户端网段</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">172.23.1.51</td>
-<td style="text-align:left">172.23.1.0</td>
-</tr>
-</tbody>
-</table>
 <a id="more"></a>
-<h3 id="服务端安装配置"><a href="#服务端安装配置" class="headerlink" title="服务端安装配置"></a>服务端安装配置</h3><h4 id="服务端安装"><a href="#服务端安装" class="headerlink" title="服务端安装"></a>服务端安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install nfs-utils rpcbind  -y</div></pre></td></tr></table></figure>
-<h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><blockquote>
-<p>先启动rpcbind,再启动nfs服务</p>
+<h3 id="搭建分布式zabbix监控"><a href="#搭建分布式zabbix监控" class="headerlink" title="搭建分布式zabbix监控"></a>搭建分布式zabbix监控</h3><p>注：本文档基于centos7</p>
+<hr>
+<h4 id="zabbix-server安装"><a href="#zabbix-server安装" class="headerlink" title="zabbix-server安装"></a>zabbix-server安装</h4><h5 id="导入zabbix官方yum源，方便我们进行yum安装"><a href="#导入zabbix官方yum源，方便我们进行yum安装" class="headerlink" title="导入zabbix官方yum源，方便我们进行yum安装"></a>导入zabbix官方yum源，方便我们进行yum安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# rpm -ivh http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-1.el7.centos.noarch.rpm</div></pre></td></tr></table></figure>
+<h5 id="安装zabbix-server和mariadb"><a href="#安装zabbix-server和mariadb" class="headerlink" title="安装zabbix-server和mariadb"></a>安装zabbix-server和mariadb</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# yum install zabbix-server-mysql zabbix-web-mysql mariadb mariadb-server</div></pre></td></tr></table></figure>
+<h5 id="启动mariadb-初始化mariadb"><a href="#启动mariadb-初始化mariadb" class="headerlink" title="启动mariadb 初始化mariadb"></a>启动mariadb 初始化mariadb</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# systemctl start mariadb</div><div class="line">[root@localhost ~]# systemctl status mariadb</div><div class="line">● mariadb.service - MariaDB database server</div><div class="line">   Loaded: loaded (/usr/lib/systemd/system/mariadb.service; disabled; vendor preset: disabled)</div><div class="line">   Active: active (running) since 三 2017-08-23 13:32:41 CST; 8s ago</div><div class="line">  Process: 12538 ExecStartPost=/usr/libexec/mariadb-wait-ready $MAINPID (code=exited, status=0/SUCCESS)</div><div class="line">  Process: 12458 ExecStartPre=/usr/libexec/mariadb-prepare-db-dir %n (code=exited, status=0/SUCCESS)</div><div class="line"> Main PID: 12537 (mysqld_safe)</div><div class="line">   CGroup: /system.slice/mariadb.service</div><div class="line">           ├─12537 /bin/sh /usr/bin/mysqld_safe --basedir=/usr</div><div class="line">           └─12694 /usr/libexec/mysqld --basedir=/usr --datadir=/var/lib/mysql --plugin-dir=/usr/lib64/mysql/plugin --log-error=/var/log/mariadb/mariadb....</div><div class="line"></div><div class="line">8月 23 13:32:36 localhost.localdomain mariadb-prepare-db-dir[12458]: See the MariaDB Knowledgebase at http://mariadb.com/kb or the</div><div class="line">8月 23 13:32:36 localhost.localdomain mariadb-prepare-db-dir[12458]: MySQL manual for more instructions.</div><div class="line">8月 23 13:32:36 localhost.localdomain mariadb-prepare-db-dir[12458]: You can start the MariaDB daemon with:</div><div class="line">8月 23 13:32:36 localhost.localdomain mariadb-prepare-db-dir[12458]: cd &apos;/usr&apos; ; /usr/bin/mysqld_safe --datadir=&apos;/var/lib/mysql&apos;</div><div class="line">8月 23 13:32:36 localhost.localdomain mariadb-prepare-db-dir[12458]: You can test the MariaDB daemon with mysql-test-run.pl</div><div class="line">8月 23 13:32:36 localhost.localdomain mariadb-prepare-db-dir[12458]: cd &apos;/usr/mysql-test&apos; ; perl mysql-test-run.pl</div><div class="line">8月 23 13:32:36 localhost.localdomain mariadb-prepare-db-dir[12458]: Please report any problems at http://mariadb.org/jira</div><div class="line">8月 23 13:32:36 localhost.localdomain mysqld_safe[12537]: 170823 13:32:36 mysqld_safe Logging to &apos;/var/log/mariadb/mariadb.log&apos;.</div><div class="line">8月 23 13:32:36 localhost.localdomain mysqld_safe[12537]: 170823 13:32:36 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql</div><div class="line">8月 23 13:32:41 localhost.localdomain systemd[1]: Started MariaDB database server.</div><div class="line"></div><div class="line">[root@localhost ~]# mysql -uroot</div><div class="line">Welcome to the MariaDB monitor.  Commands end with ; or \g.</div><div class="line">Your MariaDB connection id is 2</div><div class="line">Server version: 5.5.52-MariaDB MariaDB Server</div><div class="line"></div><div class="line">Copyright (c) 2000, 2016, Oracle, MariaDB Corporation Ab and others.</div><div class="line"></div><div class="line">Type &apos;help;&apos; or &apos;\h&apos; for help. Type &apos;\c&apos; to clear the current input statement.</div><div class="line"></div><div class="line">MariaDB [(none)]&gt; create database zabbix character set utf8 collate utf8_bin;</div><div class="line">Query OK, 1 row affected (0.00 sec)</div><div class="line"></div><div class="line">MariaDB [(none)]&gt; grant all privileges on zabbix.* to zabbix@localhost identified by &apos;zabbix&apos;</div><div class="line">    -&gt; ;</div><div class="line">Query OK, 0 rows affected (0.00 sec)</div><div class="line"></div><div class="line">MariaDB [(none)]&gt; flush privileges;</div><div class="line">Query OK, 0 rows affected (0.00 sec)</div><div class="line"></div><div class="line">MariaDB [(none)]&gt; exit</div><div class="line">Bye</div></pre></td></tr></table></figure>
+<h5 id="导入zabbix初始化sql"><a href="#导入zabbix初始化sql" class="headerlink" title="导入zabbix初始化sql"></a>导入zabbix初始化sql</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# zcat /usr/share/doc/zabbix-server-mysql-3.4.0/create.sql.gz |mysql -uzabbix -pzabbix zabbix</div></pre></td></tr></table></figure>
+<h5 id="配置zabbix链接mysql-修改以下几项"><a href="#配置zabbix链接mysql-修改以下几项" class="headerlink" title="配置zabbix链接mysql,修改以下几项"></a>配置zabbix链接mysql,修改以下几项</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">vim /etc/zabbix/zabbix_server.conf</div><div class="line">DBHost=localhost</div><div class="line">DBName=zabbix</div><div class="line">DBUser=zabbix</div><div class="line">DBPassword=zabbix</div></pre></td></tr></table></figure>
+<h5 id="配置php参数，与下列保持一致"><a href="#配置php参数，与下列保持一致" class="headerlink" title="配置php参数，与下列保持一致"></a>配置php参数，与下列保持一致</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">vim /etc/httpd/conf.d/zabbix.conf</div><div class="line">    php_value max_execution_time 300</div><div class="line">    php_value memory_limit 128M</div><div class="line">    php_value post_max_size 16M</div><div class="line">    php_value upload_max_filesize 2M</div><div class="line">    php_value max_input_time 300</div><div class="line">    php_value always_populate_raw_post_data -1</div><div class="line">    php_value date.timezone Asia/Shanghai</div></pre></td></tr></table></figure>
+<h5 id="启动httpd-zabbix-server"><a href="#启动httpd-zabbix-server" class="headerlink" title="启动httpd zabbix-server"></a>启动httpd zabbix-server</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# systemctl status httpd</div><div class="line">[root@localhost ~]# systemctl status zabbix-server</div><div class="line">[root@localhost ~]# systemctl enable zabbix-server</div></pre></td></tr></table></figure>
+<h5 id="zabbix-web配置"><a href="#zabbix-web配置" class="headerlink" title="zabbix web配置"></a>zabbix web配置</h5><h6 id="访问zabbix-web页面"><a href="#访问zabbix-web页面" class="headerlink" title="访问zabbix web页面"></a>访问zabbix web页面</h6><p><img src="http://img.chulinx.xyz/ZABBIX-WEB1.png" alt=""></p>
+<h6 id="zabbix-会检查环境，如果有某项不能满足条件，会红色标出"><a href="#zabbix-会检查环境，如果有某项不能满足条件，会红色标出" class="headerlink" title="zabbix 会检查环境，如果有某项不能满足条件，会红色标出"></a>zabbix 会检查环境，如果有某项不能满足条件，会红色标出</h6><p><img src="http://img.chulinx.xyz/ZABBIX-WEB2.png" alt=""></p>
+<h6 id="配置mysql-host-user-passwd"><a href="#配置mysql-host-user-passwd" class="headerlink" title="配置mysql host user passwd"></a>配置mysql host user passwd</h6><p><img src="http://img.chulinx.xyz/ZABBIX-WEB3.png" alt=""></p>
+<h6 id="依次下一步-直到安装完成"><a href="#依次下一步-直到安装完成" class="headerlink" title="依次下一步 直到安装完成"></a>依次下一步 直到安装完成</h6><p><img src="http://img.chulinx.xyz/ZABBIX-WEB4.png" alt=""><br><img src="http://img.chulinx.xyz/ZABBIX-WEB5.png" alt=""><br><img src="http://img.chulinx.xyz/ZABBIX-WEB6.png" alt=""></p>
+<h6 id="登录-默认用户名密码为Admin-zabbix"><a href="#登录-默认用户名密码为Admin-zabbix" class="headerlink" title="登录,默认用户名密码为Admin zabbix"></a>登录,默认用户名密码为Admin zabbix</h6><p><img src="http://img.chulinx.xyz/ZABBIX-WEB7.png" alt=""><br><img src="http://img.chulinx.xyz/ZABBIX-WEB8.png" alt=""></p>
+<h6 id="修改界面为中文"><a href="#修改界面为中文" class="headerlink" title="修改界面为中文"></a>修改界面为中文</h6><blockquote>
+<p>为了大脑不用太费劲，我们把界面调成中文显示，3.4已经对中文显示支持的非常好了</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo /etc/init.d/rpcbind start &amp;&amp; sudo /etc/init.d/nfs start</div><div class="line">sudo chkconfig rpcbind on &amp;&amp; sudo chkconfig nfs on</div></pre></td></tr></table></figure>
-<h4 id="配置访问规则"><a href="#配置访问规则" class="headerlink" title="配置访问规则"></a>配置访问规则</h4><blockquote>
-<p>下面👇规则的意思就是 允许172.23.1.0网段的客户机挂载/mds目录，权限为读写</p>
+<p><img src="http://img.chulinx.xyz/ZABBIX-WEB9.png" alt=""><br><img src="http://img.chulinx.xyz/ZABBIX-WEB10.png" alt=""></p>
+<h6 id="保存后退出重新登录，你发现界面已经变成中文了"><a href="#保存后退出重新登录，你发现界面已经变成中文了" class="headerlink" title="保存后退出重新登录，你发现界面已经变成中文了"></a>保存后退出重新登录，你发现界面已经变成中文了</h6><p><img src="http://img.chulinx.xyz/ZABBIX-WEB11.png" alt=""></p>
+<h4 id="zabbix-agent-安装配置（zabbix-server）"><a href="#zabbix-agent-安装配置（zabbix-server）" class="headerlink" title="zabbix-agent 安装配置（zabbix-server）"></a>zabbix-agent 安装配置（zabbix-server）</h4><h5 id="安装zabbix-agent"><a href="#安装zabbix-agent" class="headerlink" title="安装zabbix-agent"></a>安装zabbix-agent</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# yum install zabbix-agent -y</div></pre></td></tr></table></figure>
+<h5 id="配置zabbix-agent-主要修改以下几项"><a href="#配置zabbix-agent-主要修改以下几项" class="headerlink" title="配置zabbix-agent,主要修改以下几项"></a>配置zabbix-agent,主要修改以下几项</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# vim /etc/zabbix/zabbix_agentd.conf</div><div class="line">PidFile=/var/run/zabbix/zabbix_agentd.pid</div><div class="line">LogFile=/var/log/zabbix/zabbix_agentd.log</div><div class="line">LogFileSize=0</div><div class="line">Server=127.0.0.1</div><div class="line">ServerActive=127.0.0.1:10051</div><div class="line">Hostname=Zabbix server</div><div class="line">Include=/etc/zabbix/zabbix_agentd.d/*.conf</div></pre></td></tr></table></figure>
+<h5 id="启动zabbix-agent"><a href="#启动zabbix-agent" class="headerlink" title="启动zabbix-agent"></a>启动zabbix-agent</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">● zabbix-agent.service - Zabbix Agent</div><div class="line">   Loaded: loaded (/usr/lib/systemd/system/zabbix-agent.service; disabled; vendor preset: disabled)</div><div class="line">   Active: active (running) since 三 2017-08-23 16:01:58 CST; 6s ago</div><div class="line">  Process: 14037 ExecStart=/usr/sbin/zabbix_agentd -c $CONFFILE (code=exited, status=0/SUCCESS)</div><div class="line"> Main PID: 14039 (zabbix_agentd)</div><div class="line">   CGroup: /system.slice/zabbix-agent.service</div><div class="line">           ├─14039 /usr/sbin/zabbix_agentd -c /etc/zabbix/zabbix_agentd.conf</div><div class="line">           ├─14040 /usr/sbin/zabbix_agentd: collector [idle 1 sec]</div><div class="line">           ├─14041 /usr/sbin/zabbix_agentd: listener #1 [waiting for connection]</div><div class="line">           ├─14042 /usr/sbin/zabbix_agentd: listener #2 [waiting for connection]</div><div class="line">           ├─14043 /usr/sbin/zabbix_agentd: listener #3 [waiting for connection]</div><div class="line">           └─14044 /usr/sbin/zabbix_agentd: active checks #1 [idle 1 sec]</div><div class="line"></div><div class="line">8月 23 16:01:58 localhost.localdomain systemd[1]: Starting Zabbix Agent...</div><div class="line">8月 23 16:01:58 localhost.localdomain systemd[1]: Started Zabbix Agent.</div></pre></td></tr></table></figure>
+<h5 id="在web页面添加主机"><a href="#在web页面添加主机" class="headerlink" title="在web页面添加主机"></a>在web页面添加主机</h5><p><img src="http://img.chulinx.xyz/ZABBIX-WEB12.png" alt=""></p>
+<h5 id="配置主机"><a href="#配置主机" class="headerlink" title="配置主机"></a>配置主机</h5><blockquote>
+<p>主机名称为 <strong>配置文件中hostname所配置的值 可见名称可取有意义的任何名字，IP地址为安装zabbix_agent的被监控主机的ip，端口默认为10050</strong> <strong><em>关于代理现在暂时未涉及，暂时忽略，保持默认</em></strong></p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vim /etc/<span class="built_in">export</span></div><div class="line">/mds   172.23.1.0/24(rw,sync)</div></pre></td></tr></table></figure>
-<h4 id="重启nfs服务"><a href="#重启nfs服务" class="headerlink" title="重启nfs服务"></a>重启nfs服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /etc/init.d/nfs reload</div></pre></td></tr></table></figure>
-<h3 id="客户端挂载"><a href="#客户端挂载" class="headerlink" title="客户端挂载"></a>客户端挂载</h3><h4 id="挂载172-23-1-51到本地-data目录"><a href="#挂载172-23-1-51到本地-data目录" class="headerlink" title="挂载172.23.1.51到本地/data目录"></a>挂载172.23.1.51到本地/data目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir /data</div><div class="line">sudo mount -t nfs 172.23.1.51:/mds /data</div></pre></td></tr></table></figure>
+<p><img src="http://img.chulinx.xyz/ZABBIX-WEB13.png" alt=""></p>
+<h5 id="为主机新增监控模板-可以输入输入关键字进行模糊搜索-最后点击更新即可"><a href="#为主机新增监控模板-可以输入输入关键字进行模糊搜索-最后点击更新即可" class="headerlink" title="为主机新增监控模板,可以输入输入关键字进行模糊搜索 最后点击更新即可"></a>为主机新增监控模板,可以输入输入关键字进行模糊搜索 最后点击更新即可</h5><p><img src="http://img.chulinx.xyz/ZABBIX-WEB14.png" alt=""></p>
 
       
 
@@ -232,7 +255,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nfs</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">zabbix安装,zabbix_3.4</a>
         		</li>
       		
 		</ul>
@@ -244,7 +267,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/system/" class="article-tag-list-link color2">system</a>
+        			<a href="/categories/zabbix监控/" class="article-tag-list-link color4">zabbix监控</a>
         		</li>
       		
 		</ul>
@@ -299,7 +322,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2019/01/22/nfs服务配置小记/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2019/02/13/zabbix安装配置-基于zabbix_3.4/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -313,18 +336,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2019/01/22/pfsense软路由防火墙安装以及配置openvpn/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/02/13/python异步编程库gevent的简单使用/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          pfsense软路由防火墙安装以及配置openvpn
+          python 异步编程库gevent的简单使用
         
       </div>
     </a>
   
   
-    <a href="/2019/01/22/python的基础环境及工具安装/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python的基础环境及工具安装</div>
+    <a href="/2019/02/13/kubeadm 安装kubernetes 1.9.2全讲解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">kubeadm 安装kubernetes 1.9.2</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -344,19 +367,6 @@ var _hmt = _hmt || [];
         </div>
         
         
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#环境"><span class="toc-number">2.</span> <span class="toc-text">环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务端安装配置"><span class="toc-number">3.</span> <span class="toc-text">服务端安装配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#服务端安装"><span class="toc-number">3.1.</span> <span class="toc-text">服务端安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动服务"><span class="toc-number">3.2.</span> <span class="toc-text">启动服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置访问规则"><span class="toc-number">3.3.</span> <span class="toc-text">配置访问规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重启nfs服务"><span class="toc-number">3.4.</span> <span class="toc-text">重启nfs服务</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端挂载"><span class="toc-number">4.</span> <span class="toc-text">客户端挂载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#挂载172-23-1-51到本地-data目录"><span class="toc-number">4.1.</span> <span class="toc-text">挂载172.23.1.51到本地/data目录</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
     </div>
 </aside>
 
@@ -367,7 +377,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="nfs服务配置小记" ></div> 
+  <div id="SOHUCS" sid="zabbix安装配置-基于zabbix_3.4" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cytdJGQ2j"; 
@@ -466,14 +476,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">centos7</a>
               </li>
              
@@ -490,6 +492,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
@@ -502,19 +512,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,7 +536,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,14 +553,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -559,6 +565,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">zabbix监控图界面中文乱码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">

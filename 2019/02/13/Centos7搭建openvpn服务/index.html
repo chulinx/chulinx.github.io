@@ -6,56 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>pfsense软路由防火墙安装以及配置openvpn | 天涯咫尺</title>
+  <title>Centos7 搭建openvpn服务 | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="维基百科:pfSense是基于FreeBSD的开源 防火墙 / 路由器计算机软件发行版。[2] [3] [4]它安装在物理计算机或虚拟机上，为网络制作专用的防火墙/路由器。[5]它可以通过基于网络的界面进行配置和升级，并且不需要了解底层FreeBSD系统的管理知识。[2] [6] pfSense通常部署为外围防火墙，路由器，无线接入点，DHCP服务器，DNS服务器以及VPN端点。pfSense支">
-<meta name="keywords" content="pfsense,openvpn">
+  <meta name="keywords" content="centos7,oprnvpn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pfsense软路由防火墙安装以及配置openvpn">
-<meta property="og:url" content="http://yoursite.com/2019/01/22/pfsense软路由防火墙安装以及配置openvpn/index.html">
+<meta property="og:title" content="Centos7 搭建openvpn服务">
+<meta property="og:url" content="http://yoursite.com/2019/02/13/Centos7搭建openvpn服务/index.html">
 <meta property="og:site_name" content="天涯咫尺">
-<meta property="og:description" content="维基百科:pfSense是基于FreeBSD的开源 防火墙 / 路由器计算机软件发行版。[2] [3] [4]它安装在物理计算机或虚拟机上，为网络制作专用的防火墙/路由器。[5]它可以通过基于网络的界面进行配置和升级，并且不需要了解底层FreeBSD系统的管理知识。[2] [6] pfSense通常部署为外围防火墙，路由器，无线接入点，DHCP服务器，DNS服务器以及VPN端点。pfSense支">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/en/4/42/Pfsense_logo.png">
-<meta property="og:image" content="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%201.png">
-<meta property="og:image" content="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%202.png">
-<meta property="og:image" content="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%203.png">
-<meta property="og:image" content="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%204.png">
-<meta property="og:image" content="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%205.png">
-<meta property="og:image" content="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%207.png">
-<meta property="og:image" content="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%208.png">
-<meta property="og:image" content="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%209.png">
-<meta property="og:image" content="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%2010.png">
-<meta property="og:image" content="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%2011.png">
-<meta property="og:image" content="http://img.chulinx.xyz/12.png">
-<meta property="og:image" content="http://img.chulinx.xyz/13.png">
-<meta property="og:image" content="http://img.chulinx.xyz/14.png">
-<meta property="og:image" content="http://img.chulinx.xyz/15.png">
-<meta property="og:image" content="http://img.chulinx.xyz/16.png">
-<meta property="og:image" content="http://img.chulinx.xyz/17.png">
-<meta property="og:image" content="http://img.chulinx.xyz/18.png">
-<meta property="og:image" content="http://img.chulinx.xyz/19.png">
-<meta property="og:image" content="http://img.chulinx.xyz/20.png">
-<meta property="og:image" content="http://img.chulinx.xyz/21.png">
-<meta property="og:image" content="http://img.chulinx.xyz/23.png">
-<meta property="og:image" content="http://img.chulinx.xyz/24.png">
-<meta property="og:image" content="http://img.chulinx.xyz/38.png">
-<meta property="og:image" content="http://img.chulinx.xyz/26.png">
-<meta property="og:image" content="http://img.chulinx.xyz/27.png">
-<meta property="og:image" content="http://img.chulinx.xyz/28.png">
-<meta property="og:image" content="http://img.chulinx.xyz/29.png">
-<meta property="og:image" content="http://img.chulinx.xyz/30.png">
-<meta property="og:image" content="http://img.chulinx.xyz/31.png">
-<meta property="og:image" content="http://img.chulinx.xyz/32.png">
-<meta property="og:image" content="http://img.chulinx.xyz/33.png">
-<meta property="og:image" content="http://img.chulinx.xyz/34.png">
-<meta property="og:image" content="http://img.chulinx.xyz/36.png">
-<meta property="og:image" content="http://img.chulinx.xyz/37.jpg">
-<meta property="og:updated_time" content="2019-02-13T03:19:34.570Z">
+<meta property="og:image" content="data:image/png;base64,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">
+<meta property="og:updated_time" content="2019-02-13T03:36:58.754Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="pfsense软路由防火墙安装以及配置openvpn">
-<meta name="twitter:description" content="维基百科:pfSense是基于FreeBSD的开源 防火墙 / 路由器计算机软件发行版。[2] [3] [4]它安装在物理计算机或虚拟机上，为网络制作专用的防火墙/路由器。[5]它可以通过基于网络的界面进行配置和升级，并且不需要了解底层FreeBSD系统的管理知识。[2] [6] pfSense通常部署为外围防火墙，路由器，无线接入点，DHCP服务器，DNS服务器以及VPN端点。pfSense支">
-<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/en/4/42/Pfsense_logo.png">
+<meta name="twitter:title" content="Centos7 搭建openvpn服务">
+<meta name="twitter:image" content="data:image/png;base64,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">
   
     <link rel="alternative" href="/atom.xml" title="天涯咫尺" type="application/atom+xml">
   
@@ -110,6 +73,8 @@ var _hmt = _hmt || [];
 	        
 				<li><a href="/photos">相册</a></li>
 	        
+				<li><a href="/project">开源项目</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -128,7 +93,7 @@ var _hmt = _hmt || [];
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/chulinx" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/tianyacz" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="http://weibo.com/chulinx" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -166,12 +131,14 @@ var _hmt = _hmt || [];
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/chulinx" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/tianyacz" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="http://weibo.com/chulinx" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -183,12 +150,14 @@ var _hmt = _hmt || [];
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/photos">相册</a></li>
+					<li style="width: 33.333333333333336%"><a href="/photos">相册</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/project">开源项目</a></li>
 		        
 				</ul>
 			</nav>
@@ -203,69 +172,33 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-pfsense软路由防火墙安装以及配置openvpn" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Centos7搭建openvpn服务" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      pfsense软路由防火墙安装以及配置openvpn
+      Centos7 搭建openvpn服务
     </h1>
   
 
         
-        <a href="/2019/01/22/pfsense软路由防火墙安装以及配置openvpn/" class="archive-article-date">
-  	<time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
+        <a href="/2019/02/13/Centos7搭建openvpn服务/" class="archive-article-date">
+  	<time datetime="2019-02-13T03:36:58.754Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>维基百科:pfSense是基于FreeBSD的开源 防火墙 / 路由器计算机软件发行版。[2] [3] [4]它安装在物理计算机或虚拟机上，为网络制作专用的防火墙/路由器。[5]它可以通过基于网络的界面进行配置和升级，并且不需要了解底层FreeBSD系统的管理知识。[2] [6] pfSense通常部署为外围防火墙，路由器，无线接入点，DHCP服务器，DNS服务器以及VPN端点。pfSense支持通过其包管理器安装第三方软件包，如Snort或Squid。</p>
-</blockquote>
-<p><img src="https://upload.wikimedia.org/wikipedia/en/4/42/Pfsense_logo.png" alt="pfSense"><br><a id="more"></a></p>
-<h2 id="系统安装篇"><a href="#系统安装篇" class="headerlink" title="系统安装篇"></a>系统安装篇</h2><h4 id="开机加载镜像，默认项会加载安装系统其它选项"><a href="#开机加载镜像，默认项会加载安装系统其它选项" class="headerlink" title="开机加载镜像，默认项会加载安装系统其它选项"></a>开机加载镜像，默认项会加载安装系统其它选项</h4><p><img src="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%201.png" alt="图片 1"></p>
-<h4 id="选择第一项安装pfsense"><a href="#选择第一项安装pfsense" class="headerlink" title="选择第一项安装pfsense"></a>选择第一项安装pfsense</h4><p><img src="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%202.png" alt="图片 2"></p>
-<h4 id="配置键盘，选择默认即可"><a href="#配置键盘，选择默认即可" class="headerlink" title="配置键盘，选择默认即可"></a>配置键盘，选择默认即可</h4><p><img src="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%203.png" alt="图片 3"></p>
-<h4 id="硬盘格式化，默认"><a href="#硬盘格式化，默认" class="headerlink" title="硬盘格式化，默认"></a>硬盘格式化，默认</h4><p><img src="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%204.png" alt="图片 4"></p>
-<h4 id="校验以上配置"><a href="#校验以上配置" class="headerlink" title="校验以上配置"></a>校验以上配置</h4><p><img src="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%205.png" alt="图片 5"></p>
-<h4 id="开始解压安装"><a href="#开始解压安装" class="headerlink" title="开始解压安装"></a>开始解压安装</h4><p>![图片 6](<a href="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%206.pn" target="_blank" rel="external">http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%206.pn</a></p>
-<h4 id="安装完成，这里选择NO"><a href="#安装完成，这里选择NO" class="headerlink" title="安装完成，这里选择NO"></a>安装完成，这里选择NO</h4><p><img src="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%207.png" alt="图片 7"></p>
-<h4 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h4><p><img src="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%208.png" alt="图片 8"></p>
-<h2 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h2><h4 id="开机后第一项配置是否开启vlan，这里选择n"><a href="#开机后第一项配置是否开启vlan，这里选择n" class="headerlink" title="开机后第一项配置是否开启vlan，这里选择n"></a>开机后第一项配置是否开启vlan，这里选择n</h4><p><img src="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%209.png" alt="图片 9"></p>
-<h4 id="为WAN口和LAN口分配网卡，根据具体情况分配"><a href="#为WAN口和LAN口分配网卡，根据具体情况分配" class="headerlink" title="为WAN口和LAN口分配网卡，根据具体情况分配"></a>为WAN口和LAN口分配网卡，根据具体情况分配</h4><p><img src="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%2010.png" alt="图片 10"></p>
-<h4 id="应用配置"><a href="#应用配置" class="headerlink" title="应用配置"></a>应用配置</h4><p><img src="http://img.chulinx.xyz/%E5%9B%BE%E7%89%87%2011.png" alt="图片 11"></p>
-<h4 id="进入系统"><a href="#进入系统" class="headerlink" title="进入系统"></a>进入系统</h4><p><img src="http://img.chulinx.xyz/12.png" alt="12"></p>
-<h2 id="openvpn配置篇"><a href="#openvpn配置篇" class="headerlink" title="openvpn配置篇"></a>openvpn配置篇</h2><h3 id="登录引导"><a href="#登录引导" class="headerlink" title="登录引导"></a>登录引导</h3><h4 id="web登录默认用户名为admin密码为pfsense"><a href="#web登录默认用户名为admin密码为pfsense" class="headerlink" title="web登录默认用户名为admin密码为pfsense"></a>web登录默认用户名为admin密码为pfsense</h4><p><img src="http://img.chulinx.xyz/13.png" alt="13"></p>
-<h4 id="Next"><a href="#Next" class="headerlink" title="Next"></a>Next</h4><p><img src="http://img.chulinx.xyz/14.png" alt="14"></p>
-<h4 id="继续下一步"><a href="#继续下一步" class="headerlink" title="继续下一步"></a>继续下一步</h4><p><img src="http://img.chulinx.xyz/15.png" alt="15"></p>
-<h4 id="配置主机名👈🏻和域名"><a href="#配置主机名👈🏻和域名" class="headerlink" title="配置主机名👈🏻和域名"></a>配置主机名👈🏻和域名</h4><p><img src="http://img.chulinx.xyz/16.png" alt="16"></p>
-<h4 id="配置时区"><a href="#配置时区" class="headerlink" title="配置时区"></a>配置时区</h4><p><img src="http://img.chulinx.xyz/17.png" alt="17"></p>
-<h4 id="WAN口配置"><a href="#WAN口配置" class="headerlink" title="WAN口配置"></a>WAN口配置</h4><p><img src="http://img.chulinx.xyz/18.png" alt="18"></p>
-<h4 id="LAN口配置"><a href="#LAN口配置" class="headerlink" title="LAN口配置"></a>LAN口配置</h4><p><img src="http://img.chulinx.xyz/19.png" alt="19"></p>
-<h3 id="创建根证书和服务端证书"><a href="#创建根证书和服务端证书" class="headerlink" title="创建根证书和服务端证书"></a>创建根证书和服务端证书</h3><p><img src="http://img.chulinx.xyz/20.png" alt="20"></p>
-<h4 id="descriptive-name和common-name最好写一个不容易混淆的名字，其他选项根据实际情况填写"><a href="#descriptive-name和common-name最好写一个不容易混淆的名字，其他选项根据实际情况填写" class="headerlink" title="descriptive name和common name最好写一个不容易混淆的名字，其他选项根据实际情况填写"></a>descriptive name和common name最好写一个不容易混淆的名字，其他选项根据实际情况填写</h4><p><img src="http://img.chulinx.xyz/21.png" alt="21"></p>
-<h4 id="创建服务端证书common-name要和上面配置的主机名一致"><a href="#创建服务端证书common-name要和上面配置的主机名一致" class="headerlink" title="创建服务端证书common name要和上面配置的主机名一致"></a>创建服务端证书common name要和上面配置的主机名一致</h4><p><img src="http://img.chulinx.xyz/23.png" alt="23"></p>
-<h4 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h4><p><img src="http://img.chulinx.xyz/24.png" alt="24"></p>
-<h4 id="填写用户信息，创建用户证书"><a href="#填写用户信息，创建用户证书" class="headerlink" title="填写用户信息，创建用户证书"></a>填写用户信息，创建用户证书</h4><p><img src="http://img.chulinx.xyz/38.png" alt="38"></p>
-<h3 id="配置openvpn"><a href="#配置openvpn" class="headerlink" title="配置openvpn"></a>配置openvpn</h3><h4 id="Next下一步"><a href="#Next下一步" class="headerlink" title="Next下一步"></a>Next下一步</h4><p><img src="http://img.chulinx.xyz/26.png" alt="26"></p>
-<h4 id="选择根证书"><a href="#选择根证书" class="headerlink" title="选择根证书"></a>选择根证书</h4><p><img src="http://img.chulinx.xyz/27.png" alt="27"></p>
-<h4 id="选择服务端证书"><a href="#选择服务端证书" class="headerlink" title="选择服务端证书"></a>选择服务端证书</h4><p><img src="http://img.chulinx.xyz/28.png" alt="28"></p>
-<h4 id="配置VPN-server-info"><a href="#配置VPN-server-info" class="headerlink" title="配置VPN server info"></a>配置VPN server info</h4><p><img src="http://img.chulinx.xyz/29.png" alt="29"></p>
-<h4 id="配置tunnel-network"><a href="#配置tunnel-network" class="headerlink" title="配置tunnel network"></a>配置tunnel network</h4><blockquote>
-<p>tunnel network是vpn客户端连进来为客户端分配的ip地址段，只要不和WAN LAN口ip段重复即可，local network是vpn客户端连进来可以访问的网段，一般为LAN口ip段</p>
-</blockquote>
-<p><img src="http://img.chulinx.xyz/30.png" alt="30"><br><img src="http://img.chulinx.xyz/31.png" alt="31"></p>
-<h4 id="自动添加open-vpn防火墙规则"><a href="#自动添加open-vpn防火墙规则" class="headerlink" title="自动添加open vpn防火墙规则"></a>自动添加open vpn防火墙规则</h4><p><img src="http://img.chulinx.xyz/32.png" alt="32"></p>
-<h4 id="安装openvpn-client-export扩展包-方便导出open-vpn配置文件"><a href="#安装openvpn-client-export扩展包-方便导出open-vpn配置文件" class="headerlink" title="安装openvpn-client-export扩展包 方便导出open vpn配置文件"></a>安装openvpn-client-export扩展包 方便导出open vpn配置文件</h4><p><img src="http://img.chulinx.xyz/33.png" alt="33"><br><img src="http://img.chulinx.xyz/34.png" alt="34"></p>
-<h4 id="到vpn-openvpn-client-export导出配置文件"><a href="#到vpn-openvpn-client-export导出配置文件" class="headerlink" title="到vpn-openvpn-client export导出配置文件"></a>到vpn-openvpn-client export导出配置文件</h4><blockquote>
-<p>windows可以直接下载含有配置文件的openvpn安装包</p>
-</blockquote>
-<p><img src="http://img.chulinx.xyz/36.png" alt="36"></p>
-<h4 id="客户端连接测试"><a href="#客户端连接测试" class="headerlink" title="客户端连接测试"></a>客户端连接测试</h4><p><img src="http://img.chulinx.xyz/37.jpg" alt="37"></p>
+        <p><img src="data:image/png;base64,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" alt="openvpn"><br><a id="more"></a></p>
+<h4 id="1-安装openvpn依赖"><a href="#1-安装openvpn依赖" class="headerlink" title="1.安装openvpn依赖"></a>1.安装openvpn依赖</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install epel-release -y &amp;&amp; yum install -y lzo lzo-devel openssl openssl-devel pam pam-devel pkcs11-helper pkcs11-helper-devel rpm-build iptables-services</div></pre></td></tr></table></figure>
+<h4 id="2-下载源码包并打包成rpm包"><a href="#2-下载源码包并打包成rpm包" class="headerlink" title="2.下载源码包并打包成rpm包"></a>2.下载源码包并打包成rpm包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://oss.aliyuncs.com/aliyunecs/openvpn-2.2.2.tar.gz &amp;&amp; rpmbuild -tb openvpn-2.2.2.tar.gz</div></pre></td></tr></table></figure>
+<h4 id="3-安装openvpn"><a href="#3-安装openvpn" class="headerlink" title="3.安装openvpn"></a>3.安装openvpn</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -ivh /root/rpmbuild/RPMS/x86_64/openvpn-2.2.2-1.x86_64.rpm</div></pre></td></tr></table></figure>
+<h4 id="4-初始化KPI"><a href="#4-初始化KPI" class="headerlink" title="4.初始化KPI"></a>4.初始化KPI</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">1.修改变量</div><div class="line">cd /usr/share/doc/openvpn-2.2.2/easy-rsa/2.0</div><div class="line">vim vars(修改以下参数)</div><div class="line">export KEY_COUNTRY=&quot;CN&quot;                                    //所在的国家</div><div class="line">export KEY_PROVINCE=&quot;SH&quot;                                   //所在的省份</div><div class="line">export KEY_CITY=&quot;SHANGHAI&quot;                                  //所在的城市</div><div class="line">export KEY_ORG=&quot;CHULINX&quot;                                   //所在的组织</div><div class="line">export KEY_EMAIL=&quot;chulinx@163.com&quot;          //邮件地址</div><div class="line">2.清除keys目录下的所有key</div><div class="line">ln -s openssl-1.0.0.cnf openssl.cnf &amp;&amp; source ./vars &amp;&amp; ./clean-all</div><div class="line">3.生成CA证书</div><div class="line">./build-ca(多次回车完成即可)</div><div class="line">4.生成服务器证书</div><div class="line">./build-key-server chulinx(一直回车，交互输入y，完成后会在keys目录下生成chulinx.key/chulinx.csr/chulinx.crt)</div><div class="line">5.创建登录用户秘钥和证书</div><div class="line">./build-key client (一直回车，交互输入y，完成后会在keys目录下生成client.key/client.csr/client.crt)</div><div class="line">6.生成Diffie Hellman参数</div><div class="line">./build-dh</div></pre></td></tr></table></figure>
+<h4 id="5-配置openvpn"><a href="#5-配置openvpn" class="headerlink" title="5.配置openvpn"></a>5.配置openvpn</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">cp -a /usr/share/doc/openvpn-2.2.2/sample-config-files/server.conf /etc/openvpn/ &amp;&amp;  cp -a /usr/share/doc/openvpn-2.2.2/easy-rsa/2.0/keys/* /etc/openvpn/</div><div class="line">[root@iZbp1gdhs7pd180uroqenlZ openvpn]# grep -vE &quot;^$|^;|^#&quot; server.conf</div><div class="line">port 1194</div><div class="line">proto udp</div><div class="line">dev tun</div><div class="line">ca ca.crt</div><div class="line">cert chulinx.crt</div><div class="line">key chulinx.key  </div><div class="line">dh dh1024.pem</div><div class="line">server 10.8.0.0 255.255.255.0  //给vpn客户端分配的ip地址池</div><div class="line">ifconfig-pool-persist ipp.txt</div><div class="line">push &quot;route 172.16.192.0 255.255.240.0&quot; //本机ip子网掩码</div><div class="line">client-to-client</div><div class="line">keepalive 10 120</div><div class="line">comp-lzo</div><div class="line">user nobody</div><div class="line">group nobody</div><div class="line">persist-key</div><div class="line">persist-tun</div><div class="line">status openvpn-status.log</div><div class="line">log         openvpn.log</div><div class="line">verb 3</div></pre></td></tr></table></figure>
+<h4 id="6-设置iptables-启动openvpn"><a href="#6-设置iptables-启动openvpn" class="headerlink" title="6.设置iptables/启动openvpn"></a>6.设置iptables/启动openvpn</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1.配置内核转发</div><div class="line">echo &quot;net.ipv4.ip_forward = 1&quot; &gt;&gt; /etc/sysctl.conf &amp;&amp; sysctl -p</div><div class="line">2. 添加iptables转发规则</div><div class="line">iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -j MASQUERADE &amp;&amp; service iptables save &amp;&amp; iptables -t nat -L</div><div class="line">3.启动vpn</div><div class="line">/etc/init.d/openvpn start &amp;&amp; netstat -nplu|grep 1194</div></pre></td></tr></table></figure>
 
       
 
@@ -279,11 +212,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pfsense</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">centos7</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">openvpn</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">oprnvpn</a>
         		</li>
       		
 		</ul>
@@ -295,7 +228,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/pfsense/" class="article-tag-list-link color3">pfsense</a>
+        			<a href="/categories/centos/" class="article-tag-list-link color2">centos</a>
         		</li>
       		
 		</ul>
@@ -350,7 +283,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2019/01/22/pfsense软路由防火墙安装以及配置openvpn/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2019/02/13/Centos7搭建openvpn服务/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -364,17 +297,17 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2019/01/22/kubeadm 安装kubernetes 1.9.2全讲解/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/04/15/bind9-DNS配置/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          kubeadm 安装kubernetes 1.9.2
+          (no title)
         
       </div>
     </a>
   
   
-    <a href="/2019/01/22/nfs服务配置小记/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/02/13/nfs服务配置小记/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Centos nfs服务配置小记</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -402,7 +335,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#系统安装篇"><span class="toc-number">1.</span> <span class="toc-text">系统安装篇</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#开机加载镜像，默认项会加载安装系统其它选项"><span class="toc-number">1.0.1.</span> <span class="toc-text">开机加载镜像，默认项会加载安装系统其它选项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#选择第一项安装pfsense"><span class="toc-number">1.0.2.</span> <span class="toc-text">选择第一项安装pfsense</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置键盘，选择默认即可"><span class="toc-number">1.0.3.</span> <span class="toc-text">配置键盘，选择默认即可</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#硬盘格式化，默认"><span class="toc-number">1.0.4.</span> <span class="toc-text">硬盘格式化，默认</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#校验以上配置"><span class="toc-number">1.0.5.</span> <span class="toc-text">校验以上配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#开始解压安装"><span class="toc-number">1.0.6.</span> <span class="toc-text">开始解压安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装完成，这里选择NO"><span class="toc-number">1.0.7.</span> <span class="toc-text">安装完成，这里选择NO</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重启"><span class="toc-number">1.0.8.</span> <span class="toc-text">重启</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化配置"><span class="toc-number">2.</span> <span class="toc-text">初始化配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#开机后第一项配置是否开启vlan，这里选择n"><span class="toc-number">2.0.1.</span> <span class="toc-text">开机后第一项配置是否开启vlan，这里选择n</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#为WAN口和LAN口分配网卡，根据具体情况分配"><span class="toc-number">2.0.2.</span> <span class="toc-text">为WAN口和LAN口分配网卡，根据具体情况分配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应用配置"><span class="toc-number">2.0.3.</span> <span class="toc-text">应用配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#进入系统"><span class="toc-number">2.0.4.</span> <span class="toc-text">进入系统</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#openvpn配置篇"><span class="toc-number">3.</span> <span class="toc-text">openvpn配置篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#登录引导"><span class="toc-number">3.1.</span> <span class="toc-text">登录引导</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#web登录默认用户名为admin密码为pfsense"><span class="toc-number">3.1.1.</span> <span class="toc-text">web登录默认用户名为admin密码为pfsense</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Next"><span class="toc-number">3.1.2.</span> <span class="toc-text">Next</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#继续下一步"><span class="toc-number">3.1.3.</span> <span class="toc-text">继续下一步</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置主机名👈🏻和域名"><span class="toc-number">3.1.4.</span> <span class="toc-text">配置主机名👈🏻和域名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置时区"><span class="toc-number">3.1.5.</span> <span class="toc-text">配置时区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WAN口配置"><span class="toc-number">3.1.6.</span> <span class="toc-text">WAN口配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LAN口配置"><span class="toc-number">3.1.7.</span> <span class="toc-text">LAN口配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建根证书和服务端证书"><span class="toc-number">3.2.</span> <span class="toc-text">创建根证书和服务端证书</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#descriptive-name和common-name最好写一个不容易混淆的名字，其他选项根据实际情况填写"><span class="toc-number">3.2.1.</span> <span class="toc-text">descriptive name和common name最好写一个不容易混淆的名字，其他选项根据实际情况填写</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建服务端证书common-name要和上面配置的主机名一致"><span class="toc-number">3.2.2.</span> <span class="toc-text">创建服务端证书common name要和上面配置的主机名一致</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建用户"><span class="toc-number">3.2.3.</span> <span class="toc-text">创建用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#填写用户信息，创建用户证书"><span class="toc-number">3.2.4.</span> <span class="toc-text">填写用户信息，创建用户证书</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置openvpn"><span class="toc-number">3.3.</span> <span class="toc-text">配置openvpn</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Next下一步"><span class="toc-number">3.3.1.</span> <span class="toc-text">Next下一步</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#选择根证书"><span class="toc-number">3.3.2.</span> <span class="toc-text">选择根证书</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#选择服务端证书"><span class="toc-number">3.3.3.</span> <span class="toc-text">选择服务端证书</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置VPN-server-info"><span class="toc-number">3.3.4.</span> <span class="toc-text">配置VPN server info</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置tunnel-network"><span class="toc-number">3.3.5.</span> <span class="toc-text">配置tunnel network</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自动添加open-vpn防火墙规则"><span class="toc-number">3.3.6.</span> <span class="toc-text">自动添加open vpn防火墙规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装openvpn-client-export扩展包-方便导出open-vpn配置文件"><span class="toc-number">3.3.7.</span> <span class="toc-text">安装openvpn-client-export扩展包 方便导出open vpn配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#到vpn-openvpn-client-export导出配置文件"><span class="toc-number">3.3.8.</span> <span class="toc-text">到vpn-openvpn-client export导出配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端连接测试"><span class="toc-number">3.3.9.</span> <span class="toc-text">客户端连接测试</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-安装openvpn依赖"><span class="toc-number">1.</span> <span class="toc-text">1.安装openvpn依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-下载源码包并打包成rpm包"><span class="toc-number">2.</span> <span class="toc-text">2.下载源码包并打包成rpm包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-安装openvpn"><span class="toc-number">3.</span> <span class="toc-text">3.安装openvpn</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-初始化KPI"><span class="toc-number">4.</span> <span class="toc-text">4.初始化KPI</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-配置openvpn"><span class="toc-number">5.</span> <span class="toc-text">5.配置openvpn</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-设置iptables-启动openvpn"><span class="toc-number">6.</span> <span class="toc-text">6.设置iptables/启动openvpn</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -418,7 +351,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="pfsense软路由防火墙安装以及配置openvpn" ></div> 
+  <div id="SOHUCS" sid="Centos7搭建openvpn服务" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cytdJGQ2j"; 
@@ -517,14 +450,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">centos7</a>
               </li>
              
@@ -541,6 +466,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
@@ -553,19 +486,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -581,7 +510,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,14 +527,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -610,6 +539,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">zabbix监控图界面中文乱码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">

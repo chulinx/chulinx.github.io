@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Centos7 搭建openvpn服务 | 天涯咫尺</title>
+  <title>Gaping --- 一个golang实现的测试远程主机端口稳定性的工具 | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="centos7,oprnvpn">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Centos7 搭建openvpn服务">
-<meta property="og:url" content="http://yoursite.com/2019/02/11/Centos7搭建openvpn服务/index.html">
+  <meta name="description" content="Gaping —  A remote host port stability test tool inspired by paping 中文  Install ↯↯↯Compile and install Golang 1.11 or Golang 1.121git clone https://github.com/tianyazc/gaping.git &amp;amp;&amp;amp; cd gaping">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gaping --- 一个golang实现的测试远程主机端口稳定性的工具">
+<meta property="og:url" content="http://yoursite.com/project/Goping.html">
 <meta property="og:site_name" content="天涯咫尺">
+<meta property="og:description" content="Gaping —  A remote host port stability test tool inspired by paping 中文  Install ↯↯↯Compile and install Golang 1.11 or Golang 1.121git clone https://github.com/tianyazc/gaping.git &amp;amp;&amp;amp; cd gaping">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="data:image/png;base64,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">
-<meta property="og:updated_time" content="2019-02-13T03:36:58.754Z">
+<meta property="og:image" content="https://travis-ci.org/tianyazc/gaping.svg?branch=master">
+<meta property="og:image" content="http://img.chulinx.xyz/termtosvg_wvabfoi8.svg">
+<meta property="og:updated_time" content="2019-10-06T08:37:33.358Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Centos7 搭建openvpn服务">
-<meta name="twitter:image" content="data:image/png;base64,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">
+<meta name="twitter:title" content="Gaping --- 一个golang实现的测试远程主机端口稳定性的工具">
+<meta name="twitter:description" content="Gaping —  A remote host port stability test tool inspired by paping 中文  Install ↯↯↯Compile and install Golang 1.11 or Golang 1.121git clone https://github.com/tianyazc/gaping.git &amp;amp;&amp;amp; cd gaping">
+<meta name="twitter:image" content="https://travis-ci.org/tianyazc/gaping.svg?branch=master">
   
     <link rel="alternative" href="/atom.xml" title="天涯咫尺" type="application/atom+xml">
   
@@ -73,6 +76,8 @@ var _hmt = _hmt || [];
 	        
 				<li><a href="/photos">相册</a></li>
 	        
+				<li><a href="/project">开源项目</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -91,7 +96,7 @@ var _hmt = _hmt || [];
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/chulinx" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/tianyacz" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="http://weibo.com/chulinx" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -129,12 +134,14 @@ var _hmt = _hmt || [];
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/chulinx" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/tianyacz" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="http://weibo.com/chulinx" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -146,12 +153,14 @@ var _hmt = _hmt || [];
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/photos">相册</a></li>
+					<li style="width: 33.333333333333336%"><a href="/photos">相册</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/project">开源项目</a></li>
 		        
 				</ul>
 			</nav>
@@ -166,33 +175,43 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Centos7搭建openvpn服务" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Centos7 搭建openvpn服务
+      Gaping --- 一个golang实现的测试远程主机端口稳定性的工具
     </h1>
   
 
         
-        <a href="/2019/02/11/Centos7搭建openvpn服务/" class="archive-article-date">
-  	<time datetime="2019-02-11T07:42:17.922Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-11</time>
+        <a href="/project/Goping.html" class="archive-article-date">
+  	<time datetime="2019-10-06T08:37:33.358Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAA1VBMVEX////1giAEyd8aOGUAxt30eQD0egD0dwD1gRz1fxb1fhIAJFoALF71fQAAKFz//fr70rjr+vz9694AIVng9/r+8+v+7+X5/v4NMWHH8PYAGVUAH1hc1uf1hyr82sX6wZ37y6384M34rHj5s4T3mlX82cP5uI76w6A/0eSw6fL2izRv2umC3uum5/H19vjT8/jY2+J73Oqlrbzp6++zusf2kUPCyNKWn7F8iJ73oGL2lk4fPWk7UXaV4+74qHGJlKhgcIxLXn9zgJnO0tpkc44qRnBQY4MSDTOZAAAMeklEQVR4nO1daVfiShAVhGxsorIpKI4bi6goLsyMOs7i//9JL2EReklXV6c7xHdyP82ZSSCXrq7lVnVma8s4GtVWf/QyHvZ6vewc/p+G45dRv1VtmP96o6i2RuNeNjdDlsbir3vjUau66QdVQbV1NefGMOMxzfauvhTNan+YleFG8cwO+1+BZcNfOyS5dZr+WiZ6azb6bezacday3U8qyVY7IrsVy3Zr02RY7F9l9dBbkMxe7W+aEoG++t4L5Zjr9TdNa4nqi3Z6S5IvSXCu+0ND/OYch5s21v22OXoLku1NcjTPb7Mcq7Hwm3PcxH5sXMXFb8bxKvYsYKQ1/ElQzI5i5XdjlF+OW2/lsjfxERyb4LesF4fDKx/j8XBIl5a5cUz8WvoXcFEJsz6zsX/Tf2kva7FcNpZ8daiZ36wwvBE7kmr/KjsjmRsa56d5B/rZ54tktFvW1YZ344vWAsIvBXGB7iZYyhdD3AJUexoJ5rJKebVfhWaNxf+WPnrZXE/ZaVRfTDkcjRYatWQYmbDUhr4sNDeMbmaA81VAVZsP3Ww5FIobTfTiCtpotLQtoElXHwEjTQRzvSToLhxoI5jQBdQVJWKtflDQRbCdVK1eF8GrTRMJgy6CidGvaWhyMrlkBkEffU0Ek+pjtAX6RKZpAfY1rWBiCTbAR18TwvjzFrN/SayJbvW4D7xi1BuPbpYDMY3qfqt/1c6yLJPrZLYE9eBsooB70/6IYpmLV6rGIDwQ5rJCeazRGq9qyRjUP1WEulGpKYKb4YJkz/yTKqIayk/SbzT6AcfkutEQL4MTIFrthNbzAbi9wVwvuX4fC+4mTLBXRIMX6nUIEJX6yQK7FQ2PGQGcSBhtAWtHl9/OOpZt560Z8rZtdc6+XR7VdD0yDqyN5tRz58rJ8dTxSXmukyHguJ7/15np5YnOZ5cDx4UqChCVnWkpb9HcSJ5W3nvdiddomRa2ogBR6Z7ZlhtObsXSX8zpeXwkbxiCSlvw5LUkRW8B13JPd3VTCQFjoipRu9uxPXl6i5W0H861s+GAFmZUqrtj1xJsPcFC5gc7+hlRYEIh3ol2vZISv9lC5gemXSudrqEJnnfU1u+To31WN0FsCUqZQZcG9TM7Er8Arn1qhNsc7Wh78DiPcJ/hsDJHRtht0UuI9aL1gaWDXyYw1VczBMklxArxXVvLAs7hdYxERyLYYzOZaV4fv0ywjF0DDNeXMNdG3VrvYCM8CPubdoLkLkTdelLSaKFLlL7rzlWH6wRR9W43eozgwevorR+ra0uIc6PHtgl+PlxPq79Zk4BxXubCFEHf35R0UlxbQpSOe6rXiVIULX0U15qhOcwmvDBJMFhFbWnqSgNGlbzG9uAnRU+Tu1kLFRgb3TFN0Hc3Az1BY6XOYGz0xDxBP2h818JQyUZr6rUuBpaO7GblZzA2+mAgk+FBR476mZJiit5vuqolEPnIMaPxOXCAiPUxeJkl3EFUhishX/6emDbhHJG34tJIMVXv95g24Rx2NGHj00gRbqarlss4PtTui8RwaaQI6amCFQ0dt2TZtu12Ok7QXCt5yPutiygMlyopoq5/RdX0jmV3psdH9WV2Uj/png5sXNlsR/Gn+EiBSma8/OCY83j17oONWEk3QmqzqH0xRzQRsd6zX0OV+vqFJ2/ttnrjZpHQIBLSHWk349qnwtqgcunK5g2OelAcopdwIPnDO/YZvHsuZJXyvHJnCl1T7Ej+7J4jZVi1M7nPczqKBOfbEDNjJ7mE1lS2sruUE+ssxUWcb0PEEh7J7UL7WP4Zdl0ZS1V1p/NoiIiFZ1LzBzjXVxvIBFjFmNhDxsJdmViI1wEfJCh6aj0p7BJeSDyKo1DRyVC0VDSbmQaFEbll8pC8Qju+0oGt3+riP3eRdstffy7h2m0lpydRcboPCp8bqPkY+elV4pcW1AHX1+H/JpHt2goC8SyjkR9cq8BLGOLU7ydvH/+axWLzx/vz5J57yTH44RYiBC3RwyVsEkZq8TLRx4+DcrG5PUOzWD74+cRbTDCjdxTMFCuwgR6P5w3utgsLdks0y4U39rpdMJng/nxCBAoGRiPtQN6A4wxu/xW2OShuPzKXgj8gPnPzgwVGf4J/ZJsJFHcHTR5BHwe/6WvBbY4P+n6wyCEGZLslaAmn9C3PhyH8gmX8Se/GC4AivsDw827MyR3QipjU8TfXQj+34w+KYgUKijZ2I77kUE17aBsyu/BNSNCn+JO64RT4DS2smOFXFoirK1BMph3B5EBM0DfUv+QdUGLvYWXFMepNByeAo3FcMjW+LkMEt7cP78jvAOprdqMDGKJGLCFH41H9hb9FmOF2mdyKx+LvQAtSPdT0E7hJyPbCLWijMzslYwYUkErICqqHeh3HFMiqbPLb/4YFQhIHZJaaEZspNvnGDTo/AHuEzLnvBZGQWMRn4jbgZ7SQbSjUdFAFaBxRfu5Ows/M0CRuuxQHfWwVjBrwqgCOhooVH3JGur1dIBLUIzHDErKAQs3o1YBYRakzkkbqmylRZtTF3+IhJ91Rh7ZAN0dkVLd7sgypxAZgqH+0doUTsf04DuFKJ7Lb0PemxNeIdzs65OtkSOb9TzLhfo5DIl6Isxr37Csy3PuzfqN4CEJFyNg8wwLBUBwQlVtQG2W4d4tgGHl8SMRQ7EudDHH1neo+BKzUJEMoWnh6fCngafRMY/IBxGJK6kPEw3fia8SZk9FoUQPWkGrISDMsPhHfAkR8U8e+AlSg8pDMS3/J5qWHhKMBdjs2a8MBEKKoL5fdiFTSBggJ2MwbB1x9uCXpTAsT4i5AsVSdV5ADssZ/k6P4g/wSwFAso4ehoQ43JWZeA2LpHHtk+wIKSXmj7wvpApo7XdncSVBs/iLvAUp8qoDRDaxeuvUOu9MmpesDeqnRxFtG86Y092uQIRkpJDRvo8FCom9Bp1S3gJ0eTKgboN5PqWuWIb73dFsWLSNDsAa176KfvRAD7h8yOdV9MZRik6wLA4DzSJZZgjI9YOY3vv4VIroV3plpBXCjG827ZwAkd76MMily8rci3XQKAPfxL00zhGcxuKO8Tz8YC33jjJvAM0Omt6HMPA0TE2d4ZxjyPh2czTUq0swhMRPl8bYKk6EecsaiTsEPNx0NA0DJd4Y7mnXPVMMFdphG4jScytAjFlKziUwD7JFxNWRdHwD207TWZQbgOEiGNyHMKot0wr1VkzjzhR5TUALsTTnH6DmCBlUV1iQGaGPwpAGU5rzZcLhdIFxNLSNB0KiQuAapQ09kZL7njCyQGduRzO9mVsBYQerIDCmd/uFUGEUypZH40Fj8zAxg5sbYE6+F0SSHTNSikCFAWkaGqeJ+88oLlIYYLCF2kiYCwDFaeoLwH4cg1ayow+PBsS2hxCJSI4r88TaypQbmpPx81xSgRaRqHH6PpkzW96BSabxuWsc5NHZCBny+vE/OmMBjEHEShM6v0YrfM1fHoHpqQFMtH8v7W1cQd8Bon8AUhwuKZA0sjBdGJzC4ECrT9PhgyBAmVSIK44VZLZ8LQe5GG2lYM7hMloiieBGvmwGfh+7whfURKVcjiBdxpdwkwt/9Qdc4YU02ukQMjRcO/iyQFkxDHogZBwmdwiyT14X2fdTOM0ZHJSTuM4U4oySGuJqw8VUtr8JSQp1/jJ5WvcOHoWlRnx8vNL3OTAncspUx0sfQ9hNVIvLjhZPZ5P+G0eVQZIw0fL6tSZ2X4flnnS+HVAHnxZCMWiQ4k0AfeuLsbPa0X8xgZGpWahD0DwtU74I9sbIpN7oG+r10jJFeCw7O7FGuhokXCSDoUySfitHdeSrUEmXK1VBys5MIgr5prbsbtjkkOlfSfKYuJuIF8u0hBnG5RpFtDnFVqCVD2tWsxwvH7PQTCuer0M82h36KJhUK1MVrE6yes9kwQWJ3+U52p0T/k/iQJaVGrcULS/sLy6OhsnjXE2uk4knhMj1tsogXjtH/5UINxzNLZY1UPGRKl4iLeOGWkuJj1rE7sHiCmHgCs/lBXV4JXn9jfd/Q/1cG4cIusXUONLtHXz913U1IFpLYHbDnO4FJaGZgoWufJXQB52D8HzuiQIIZWKh343lSbWBHFEiwAwtfDdDhJ7pE/Hr4KBSb4b6m2SyX4c9INh6fnv/+LB4cHO7tFQqF8gKFwt7e4cHhv4/nJzrkf1Vc39/+eXx8nEzu7iY+Hv/c3vJfhpUiRYoUKVKkSJEiRYoUKVKkSJEiRYoUKVKkSJEiRYoUKVKkSJEiRYoUKVL8r/EfEwoYgGtQXMUAAAAASUVORK5CYII=" alt="openvpn"><br><a id="more"></a></p>
-<h4 id="1-安装openvpn依赖"><a href="#1-安装openvpn依赖" class="headerlink" title="1.安装openvpn依赖"></a>1.安装openvpn依赖</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install epel-release -y &amp;&amp; yum install -y lzo lzo-devel openssl openssl-devel pam pam-devel pkcs11-helper pkcs11-helper-devel rpm-build iptables-services</div></pre></td></tr></table></figure>
-<h4 id="2-下载源码包并打包成rpm包"><a href="#2-下载源码包并打包成rpm包" class="headerlink" title="2.下载源码包并打包成rpm包"></a>2.下载源码包并打包成rpm包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://oss.aliyuncs.com/aliyunecs/openvpn-2.2.2.tar.gz &amp;&amp; rpmbuild -tb openvpn-2.2.2.tar.gz</div></pre></td></tr></table></figure>
-<h4 id="3-安装openvpn"><a href="#3-安装openvpn" class="headerlink" title="3.安装openvpn"></a>3.安装openvpn</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -ivh /root/rpmbuild/RPMS/x86_64/openvpn-2.2.2-1.x86_64.rpm</div></pre></td></tr></table></figure>
-<h4 id="4-初始化KPI"><a href="#4-初始化KPI" class="headerlink" title="4.初始化KPI"></a>4.初始化KPI</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">1.修改变量</div><div class="line">cd /usr/share/doc/openvpn-2.2.2/easy-rsa/2.0</div><div class="line">vim vars(修改以下参数)</div><div class="line">export KEY_COUNTRY=&quot;CN&quot;                                    //所在的国家</div><div class="line">export KEY_PROVINCE=&quot;SH&quot;                                   //所在的省份</div><div class="line">export KEY_CITY=&quot;SHANGHAI&quot;                                  //所在的城市</div><div class="line">export KEY_ORG=&quot;CHULINX&quot;                                   //所在的组织</div><div class="line">export KEY_EMAIL=&quot;chulinx@163.com&quot;          //邮件地址</div><div class="line">2.清除keys目录下的所有key</div><div class="line">ln -s openssl-1.0.0.cnf openssl.cnf &amp;&amp; source ./vars &amp;&amp; ./clean-all</div><div class="line">3.生成CA证书</div><div class="line">./build-ca(多次回车完成即可)</div><div class="line">4.生成服务器证书</div><div class="line">./build-key-server chulinx(一直回车，交互输入y，完成后会在keys目录下生成chulinx.key/chulinx.csr/chulinx.crt)</div><div class="line">5.创建登录用户秘钥和证书</div><div class="line">./build-key client (一直回车，交互输入y，完成后会在keys目录下生成client.key/client.csr/client.crt)</div><div class="line">6.生成Diffie Hellman参数</div><div class="line">./build-dh</div></pre></td></tr></table></figure>
-<h4 id="5-配置openvpn"><a href="#5-配置openvpn" class="headerlink" title="5.配置openvpn"></a>5.配置openvpn</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">cp -a /usr/share/doc/openvpn-2.2.2/sample-config-files/server.conf /etc/openvpn/ &amp;&amp;  cp -a /usr/share/doc/openvpn-2.2.2/easy-rsa/2.0/keys/* /etc/openvpn/</div><div class="line">[root@iZbp1gdhs7pd180uroqenlZ openvpn]# grep -vE &quot;^$|^;|^#&quot; server.conf</div><div class="line">port 1194</div><div class="line">proto udp</div><div class="line">dev tun</div><div class="line">ca ca.crt</div><div class="line">cert chulinx.crt</div><div class="line">key chulinx.key  </div><div class="line">dh dh1024.pem</div><div class="line">server 10.8.0.0 255.255.255.0  //给vpn客户端分配的ip地址池</div><div class="line">ifconfig-pool-persist ipp.txt</div><div class="line">push &quot;route 172.16.192.0 255.255.240.0&quot; //本机ip子网掩码</div><div class="line">client-to-client</div><div class="line">keepalive 10 120</div><div class="line">comp-lzo</div><div class="line">user nobody</div><div class="line">group nobody</div><div class="line">persist-key</div><div class="line">persist-tun</div><div class="line">status openvpn-status.log</div><div class="line">log         openvpn.log</div><div class="line">verb 3</div></pre></td></tr></table></figure>
-<h4 id="6-设置iptables-启动openvpn"><a href="#6-设置iptables-启动openvpn" class="headerlink" title="6.设置iptables/启动openvpn"></a>6.设置iptables/启动openvpn</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1.配置内核转发</div><div class="line">echo &quot;net.ipv4.ip_forward = 1&quot; &gt;&gt; /etc/sysctl.conf &amp;&amp; sysctl -p</div><div class="line">2. 添加iptables转发规则</div><div class="line">iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -j MASQUERADE &amp;&amp; service iptables save &amp;&amp; iptables -t nat -L</div><div class="line">3.启动vpn</div><div class="line">/etc/init.d/openvpn start &amp;&amp; netstat -nplu|grep 1194</div></pre></td></tr></table></figure>
+        <h1 id="Gaping-—-A-remote-host-port-stability-test-tool-inspired-by-paping"><a href="#Gaping-—-A-remote-host-port-stability-test-tool-inspired-by-paping" class="headerlink" title="Gaping —  A remote host port stability test tool inspired by paping"></a>Gaping —  A remote host port stability test tool inspired by paping</h1><p><a href="https://github.com/tianyazc/gaping" target="_blank" rel="external"><img src="https://travis-ci.org/tianyazc/gaping.svg?branch=master" alt="Build Status"></a></p>
+<p><a href="https://github.com/tianyazc/gaping/blob/master/README-CN.md" target="_blank" rel="external">中文</a></p>
+<p><img src="http://img.chulinx.xyz/termtosvg_wvabfoi8.svg" alt=""></p>
+<h2 id="Install-↯↯↯"><a href="#Install-↯↯↯" class="headerlink" title="Install ↯↯↯"></a>Install ↯↯↯</h2><h3 id="Compile-and-install"><a href="#Compile-and-install" class="headerlink" title="Compile and install"></a>Compile and install</h3><ul>
+<li>Golang 1.11 or Golang 1.12<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/tianyazc/gaping.git &amp;&amp; <span class="built_in">cd</span> gaping &amp;&amp; <span class="built_in">export</span> GO111MODULE=on go build</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Release-Download"><a href="#Release-Download" class="headerlink" title="Release Download"></a>Release Download</h3><p>Download form <a href="https://github.com/tianyazc/gaping/releases/tag/0.1" target="_blank" rel="external"><strong>Release</strong></a></p>
+<h2 id="Usage-↯↯↯"><a href="#Usage-↯↯↯" class="headerlink" title="Usage ↯↯↯"></a>Usage ↯↯↯</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$ ./gaping_darwin_amd64 -h</div><div class="line">flag needs an argument: -h</div><div class="line">Usage of ./gaping_darwin_amd64:</div><div class="line">  -V	Show Version and <span class="built_in">exit</span></div><div class="line">  -c int</div><div class="line">    	Tcp <span class="built_in">test</span> conuts (default 100000000)</div><div class="line">  -h string</div><div class="line">    	Dest host ipaddress</div><div class="line">  -<span class="built_in">help</span></div><div class="line">    	Show gaping <span class="built_in">help</span></div><div class="line">  -p string</div><div class="line">    	Dest host port</div><div class="line">  -v	Show Version and <span class="built_in">exit</span></div></pre></td></tr></table></figure>
+<h2 id="Example-↯↯↯"><a href="#Example-↯↯↯" class="headerlink" title="Example ↯↯↯"></a>Example ↯↯↯</h2><ul>
+<li>always ping</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$ ./gaping_darwin_amd64 -h 115.239.210.27 -p 80</div><div class="line">2019-03-20 17:25:00 Connected to 115.239.210.27:80: time=10.505ms protocol=TCP port=80</div><div class="line">2019-03-20 17:25:01 Connected to 115.239.210.27:80: time=11.18ms protocol=TCP port=80</div><div class="line">2019-03-20 17:25:02 Connected to 115.239.210.27:80: time=10.814ms protocol=TCP port=80</div><div class="line">2019-03-20 17:25:03 Connected to 115.239.210.27:80: time=12.213ms protocol=TCP port=80</div><div class="line">2019-03-20 17:25:04 Connected to 115.239.210.27:80: time=11.144ms protocol=TCP port=80</div><div class="line">2019-03-20 17:25:05 Connected to 115.239.210.27:80: time=11.545ms protocol=TCP port=80</div><div class="line">2019-03-20 17:25:06 Connected to 115.239.210.27:80: time=10.984ms protocol=TCP port=80</div><div class="line">2019-03-20 17:25:07 Connected to 115.239.210.27:80: time=10.63ms protocol=TCP port=80</div><div class="line">2019-03-20 17:25:08 Connected to 115.239.210.27:80: time=10.768ms protocol=TCP port=80</div><div class="line">2019-03-20 17:25:09 Connected to 115.239.210.27:80: time=11.549ms protocol=TCP port=80</div><div class="line">2019-03-20 17:25:10 Connected to 115.239.210.27:80: time=12.01ms protocol=TCP port=80</div><div class="line">2019-03-20 17:25:11 Connected to 115.239.210.27:80: time=11.086ms protocol=TCP port=80</div></pre></td></tr></table></figure>
+<ul>
+<li>ping once<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ./gaping_darwin_amd64 -h 115.239.210.27 -p 80 -c 1</div><div class="line">2019-03-20 17:27:16 Connected to 115.239.210.27:80: time=13.396ms protocol=TCP port=80</div></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
 
@@ -201,33 +220,7 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">centos7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">oprnvpn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/centos/" class="article-tag-list-link color2">centos</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -277,7 +270,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2019/02/11/Centos7搭建openvpn服务/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/project/Goping.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -289,16 +282,6 @@ var _hmt = _hmt || [];
 </article>
 
   
-<nav id="article-nav">
-  
-  
-    <a href="/2019/01/22/kubernetes集群搭建/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Kubernetes集群搭建</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -313,19 +296,6 @@ var _hmt = _hmt || [];
         </div>
         
         
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-安装openvpn依赖"><span class="toc-number">1.</span> <span class="toc-text">1.安装openvpn依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-下载源码包并打包成rpm包"><span class="toc-number">2.</span> <span class="toc-text">2.下载源码包并打包成rpm包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-安装openvpn"><span class="toc-number">3.</span> <span class="toc-text">3.安装openvpn</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-初始化KPI"><span class="toc-number">4.</span> <span class="toc-text">4.初始化KPI</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-配置openvpn"><span class="toc-number">5.</span> <span class="toc-text">5.配置openvpn</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-设置iptables-启动openvpn"><span class="toc-number">6.</span> <span class="toc-text">6.设置iptables/启动openvpn</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
     </div>
 </aside>
 
@@ -336,7 +306,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="Centos7搭建openvpn服务" ></div> 
+  <div id="SOHUCS" sid="" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cytdJGQ2j"; 
@@ -369,7 +339,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
@@ -435,14 +405,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">centos7</a>
               </li>
              
@@ -459,6 +421,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
@@ -471,19 +441,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -499,7 +465,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -508,14 +482,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -528,6 +494,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">zabbix监控图界面中文乱码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">
