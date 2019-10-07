@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>docker之dockerfile详解 | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -48,7 +48,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -200,8 +200,8 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <p>指令基本格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">FROM scratch</div><div class="line">...</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FROM centos</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FROM scratch</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FROM centos</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>当然也有一部分应用不依赖于操作系统，那样构建dockerfile时就指定一个空镜像FROM scratch<br><a id="more"></a></p>
 </blockquote>
@@ -211,28 +211,28 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">FROM centos</div><div class="line"></div><div class="line">RUN yum update \</div><div class="line">&amp;&amp; yum install nginx</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FROM centos</span><br><span class="line"></span><br><span class="line">RUN yum update \</span><br><span class="line">&amp;&amp; yum install nginx</span><br></pre></td></tr></table></figure>
 <ul>
 <li>exec 格式</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">RUN [&quot;可执行文件&quot;, &quot;参数1&quot;, &quot;参数2&quot;]，这更像是函数调用中的格式</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RUN [&quot;可执行文件&quot;, &quot;参数1&quot;, &quot;参数2&quot;]，这更像是函数调用中的格式</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>应该尽可能的把连续的命令使用&amp;&amp;符号连到一起，这样可以避免制作的镜像过大，原因是dockerfile中每条指令都会建立一层，如果多条指令不用&amp;&amp;串联，那么有几条指令就会建立几层，这样就会使镜像显得十分臃肿！</p>
 </blockquote>
 <ul>
 <li>COPY 复制文件到容器</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">COPY srcdir destdir</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COPY srcdir destdir</span><br></pre></td></tr></table></figure>
 <p>支持通配符操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">COPY *.txt /tmp/</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COPY *.txt /tmp/</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>COPY会保留文件的属性，需要更改属性就要用到ADD</p>
 </blockquote>
 <ul>
 <li>ADD 更高级的复制文件<br>ADD比COPY多了一些功能，比如源文件可以是url地址，还有如果源文件是以gzip<br>bzip2 xz压缩的tar文件，他会自动解压到目标文件，其格式为</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ADD http://nginx.org/download/nginx-1.13.5.tar.gz /tmp/</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ADD nginx-1.13.5.tar.gz /usr/local/</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ADD http://nginx.org/download/nginx-1.13.5.tar.gz /tmp/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ADD nginx-1.13.5.tar.gz /usr/local/</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>但是 ADD 从url下载的文件默认权限是600，如果想要更改权限还是要是用RUN去更改，还有自动解压并不是我们每次都希望的事，所以我们要分清什么时候用ADD 什么时候用COPY —-仅当需要自动解压压缩文件到目标目录时，我们用ADD ,需要下载url时用RUN +crul/wget 需要复制文件到容器内用COPY</p>
 </blockquote>
@@ -245,30 +245,30 @@ var _hmt = _hmt || [];
 <ul>
 <li>ENTRYPOINT 和CMD 一样指定容器内启动程序的参数，格式也是有两种<br>ENTRYPOINT &lt;命令&gt;<br>ENTRYPOINT [”可执行文件”，”参数1”，“”参数2”]<br>ENTRYPOINT的使用场景，一般是搭配CMD使用，及将CMD作为ENTRYPOINT执行命令的参数来使用！<br>例如下面是一个构建查询本机外网ip的dockerfile：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">FROM hub.c.163.com/public/centos:6.7-tools</div><div class="line"></div><div class="line">RUN yum install curl -y \</div><div class="line">&amp;&amp; rm -fr /var/lib/yum/*</div><div class="line"></div><div class="line">CMD [ <span class="string">"curl"</span>,<span class="string">"-s"</span>,<span class="string">"http://ip.cn"</span> ]</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">FROM hub.c.163.com/public/centos:6.7-tools</span><br><span class="line"></span><br><span class="line">RUN yum install curl -y \</span><br><span class="line">&amp;&amp; rm -fr /var/lib/yum/*</span><br><span class="line"></span><br><span class="line">CMD [ <span class="string">"curl"</span>,<span class="string">"-s"</span>,<span class="string">"http://ip.cn"</span> ]</span><br></pre></td></tr></table></figure>
 <p>docker build 构建：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line">➜  localhost_wwip git:(master) ✗ docker build -t getip:v1 .</div><div class="line">Sending build context to Docker daemon  2.048kB</div><div class="line">Step 1/3 : FROM hub.c.163.com/public/centos:6.7-tools</div><div class="line"> ---&gt; b2ab0ed558bb</div><div class="line">Step 2/3 : RUN yum install curl -y &amp;&amp; rm -fr /var/lib/yum/*</div><div class="line"> ---&gt; Running in 2ab67d864461</div><div class="line">Loaded plugins: fastestmirror, ovl</div><div class="line">Setting up Install Process</div><div class="line">Determining fastest mirrors</div><div class="line"> * base: mirrors.aliyun.com</div><div class="line"> * epel: mirror.premi.st</div><div class="line"> * extras: mirrors.btte.net</div><div class="line"> * updates: mirrors.cn99.com</div><div class="line">Resolving Dependencies</div><div class="line">--&gt; Running transaction check</div><div class="line">---&gt; Package curl.x86_64 0:7.19.7-52.el6 will be updated</div><div class="line">---&gt; Package curl.x86_64 0:7.19.7-53.el6_9 will be an update</div><div class="line">--&gt; Processing Dependency: libcurl = 7.19.7-53.el6_9 for package: curl-7.19.7-53.el6_9.x86_64</div><div class="line">--&gt; Running transaction check</div><div class="line">---&gt; Package libcurl.x86_64 0:7.19.7-52.el6 will be updated</div><div class="line">---&gt; Package libcurl.x86_64 0:7.19.7-53.el6_9 will be an update</div><div class="line">--&gt; Finished Dependency Resolution</div><div class="line"></div><div class="line">Dependencies Resolved</div><div class="line"></div><div class="line">================================================================================</div><div class="line"> Package         Arch           Version                   Repository       Size</div><div class="line">================================================================================</div><div class="line">Updating:</div><div class="line"> curl            x86_64         7.19.7-53.el6_9           updates         197 k</div><div class="line">Updating for dependencies:</div><div class="line"> libcurl         x86_64         7.19.7-53.el6_9           updates         169 k</div><div class="line"></div><div class="line">Transaction Summary</div><div class="line">================================================================================</div><div class="line">Upgrade       2 Package(s)</div><div class="line"></div><div class="line">Total download size: 367 k</div><div class="line">Downloading Packages:</div><div class="line">--------------------------------------------------------------------------------</div><div class="line">Total                                           1.3 MB/s | 367 kB     00:00</div><div class="line">Running rpm_check_debug</div><div class="line">Running Transaction Test</div><div class="line"></div><div class="line"></div><div class="line">Transaction Test Succeeded</div><div class="line">Running Transaction</div><div class="line">  Updating   : libcurl-7.19.7-53.el6_9.x86_64                               1/4</div><div class="line">  Updating   : curl-7.19.7-53.el6_9.x86_64                                  2/4</div><div class="line">  Cleanup    : curl-7.19.7-52.el6.x86_64                                    3/4</div><div class="line">  Cleanup    : libcurl-7.19.7-52.el6.x86_64                                 4/4</div><div class="line"></div><div class="line"></div><div class="line">  Verifying  : libcurl-7.19.7-53.el6_9.x86_64                               1/4</div><div class="line">  Verifying  : curl-7.19.7-53.el6_9.x86_64                                  2/4</div><div class="line">  Verifying  : curl-7.19.7-52.el6.x86_64                                    3/4</div><div class="line">  Verifying  : libcurl-7.19.7-52.el6.x86_64                                 4/4</div><div class="line"></div><div class="line">Updated:</div><div class="line">  curl.x86_64 0:7.19.7-53.el6_9</div><div class="line"></div><div class="line">Dependency Updated:</div><div class="line">  libcurl.x86_64 0:7.19.7-53.el6_9</div><div class="line"></div><div class="line">Complete!</div><div class="line"> ---&gt; 891dda232e64</div><div class="line">Removing intermediate container 2ab67d864461</div><div class="line">Step 3/3 : CMD curl -s http://ip.cn</div><div class="line"> ---&gt; Running in c167b40d7d49</div><div class="line"> ---&gt; ab935aff2175</div><div class="line">Removing intermediate container c167b40d7d49</div><div class="line">Successfully built ab935aff2175</div><div class="line">Successfully tagged getip:v1</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">➜  localhost_wwip git:(master) ✗ docker build -t getip:v1 .</span><br><span class="line">Sending build context to Docker daemon  2.048kB</span><br><span class="line">Step 1/3 : FROM hub.c.163.com/public/centos:6.7-tools</span><br><span class="line"> ---&gt; b2ab0ed558bb</span><br><span class="line">Step 2/3 : RUN yum install curl -y &amp;&amp; rm -fr /var/lib/yum/*</span><br><span class="line"> ---&gt; Running in 2ab67d864461</span><br><span class="line">Loaded plugins: fastestmirror, ovl</span><br><span class="line">Setting up Install Process</span><br><span class="line">Determining fastest mirrors</span><br><span class="line"> * base: mirrors.aliyun.com</span><br><span class="line"> * epel: mirror.premi.st</span><br><span class="line"> * extras: mirrors.btte.net</span><br><span class="line"> * updates: mirrors.cn99.com</span><br><span class="line">Resolving Dependencies</span><br><span class="line">--&gt; Running transaction check</span><br><span class="line">---&gt; Package curl.x86_64 0:7.19.7-52.el6 will be updated</span><br><span class="line">---&gt; Package curl.x86_64 0:7.19.7-53.el6_9 will be an update</span><br><span class="line">--&gt; Processing Dependency: libcurl = 7.19.7-53.el6_9 for package: curl-7.19.7-53.el6_9.x86_64</span><br><span class="line">--&gt; Running transaction check</span><br><span class="line">---&gt; Package libcurl.x86_64 0:7.19.7-52.el6 will be updated</span><br><span class="line">---&gt; Package libcurl.x86_64 0:7.19.7-53.el6_9 will be an update</span><br><span class="line">--&gt; Finished Dependency Resolution</span><br><span class="line"></span><br><span class="line">Dependencies Resolved</span><br><span class="line"></span><br><span class="line">================================================================================</span><br><span class="line"> Package         Arch           Version                   Repository       Size</span><br><span class="line">================================================================================</span><br><span class="line">Updating:</span><br><span class="line"> curl            x86_64         7.19.7-53.el6_9           updates         197 k</span><br><span class="line">Updating for dependencies:</span><br><span class="line"> libcurl         x86_64         7.19.7-53.el6_9           updates         169 k</span><br><span class="line"></span><br><span class="line">Transaction Summary</span><br><span class="line">================================================================================</span><br><span class="line">Upgrade       2 Package(s)</span><br><span class="line"></span><br><span class="line">Total download size: 367 k</span><br><span class="line">Downloading Packages:</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">Total                                           1.3 MB/s | 367 kB     00:00</span><br><span class="line">Running rpm_check_debug</span><br><span class="line">Running Transaction Test</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Transaction Test Succeeded</span><br><span class="line">Running Transaction</span><br><span class="line">  Updating   : libcurl-7.19.7-53.el6_9.x86_64                               1/4</span><br><span class="line">  Updating   : curl-7.19.7-53.el6_9.x86_64                                  2/4</span><br><span class="line">  Cleanup    : curl-7.19.7-52.el6.x86_64                                    3/4</span><br><span class="line">  Cleanup    : libcurl-7.19.7-52.el6.x86_64                                 4/4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  Verifying  : libcurl-7.19.7-53.el6_9.x86_64                               1/4</span><br><span class="line">  Verifying  : curl-7.19.7-53.el6_9.x86_64                                  2/4</span><br><span class="line">  Verifying  : curl-7.19.7-52.el6.x86_64                                    3/4</span><br><span class="line">  Verifying  : libcurl-7.19.7-52.el6.x86_64                                 4/4</span><br><span class="line"></span><br><span class="line">Updated:</span><br><span class="line">  curl.x86_64 0:7.19.7-53.el6_9</span><br><span class="line"></span><br><span class="line">Dependency Updated:</span><br><span class="line">  libcurl.x86_64 0:7.19.7-53.el6_9</span><br><span class="line"></span><br><span class="line">Complete!</span><br><span class="line"> ---&gt; 891dda232e64</span><br><span class="line">Removing intermediate container 2ab67d864461</span><br><span class="line">Step 3/3 : CMD curl -s http://ip.cn</span><br><span class="line"> ---&gt; Running in c167b40d7d49</span><br><span class="line"> ---&gt; ab935aff2175</span><br><span class="line">Removing intermediate container c167b40d7d49</span><br><span class="line">Successfully built ab935aff2175</span><br><span class="line">Successfully tagged getip:v1</span><br></pre></td></tr></table></figure>
 <p>运行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">➜  localhost_wwip git:(master) ✗ docker run getip:v1</div><div class="line">当前 IP：180.173.192.249 来自：上海市 电信</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  localhost_wwip git:(master) ✗ docker run getip:v1</span><br><span class="line">当前 IP：180.173.192.249 来自：上海市 电信</span><br></pre></td></tr></table></figure>
 <p>但是如果我想获取curl头部信息怎么办？</p>
 <ol>
 <li>修改dockerfile，CMD 加入-i参数</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">FROM hub.c.163.com/public/centos:6.7-tools</div><div class="line"></div><div class="line">RUN yum install curl -y \</div><div class="line">&amp;&amp; rm -fr /var/lib/yum/*</div><div class="line"></div><div class="line">CMD [ &quot;curl&quot;,&quot;-s&quot;,&quot;-i&quot;,&quot;http://ip.cn&quot; ]</div></pre></td></tr></table></figure>
-<ol>
-<li>重新构建后，执行docker命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">➜  localhost_wwip git:(master) ✗ docker build -t getip:v1.1 .</div><div class="line">Sending build context to Docker daemon  2.048kB</div><div class="line">Step 1/3 : FROM hub.c.163.com/public/centos:6.7-tools</div><div class="line"> ---&gt; b2ab0ed558bb</div><div class="line">Step 2/3 : RUN yum install curl -y &amp;&amp; rm -fr /var/lib/yum/*</div><div class="line"> ---&gt; Using cache</div><div class="line"> ---&gt; 891dda232e64</div><div class="line">Step 3/3 : CMD curl -s -i http://ip.cn</div><div class="line"> ---&gt; Running <span class="keyword">in</span> bf0d517417f0</div><div class="line"> ---&gt; 01824f12a875</div><div class="line">Removing intermediate container bf0d517417f0</div><div class="line">Successfully built 01824f12a875</div><div class="line">Successfully tagged getip:v1.1</div><div class="line">➜  localhost_wwip git:(master) ✗ docker run getip:v1.1</div><div class="line">HTTP/1.1 200 OK</div><div class="line">Server: nginx/1.11.9</div><div class="line">Date: Wed, 13 Sep 2017 05:11:05 GMT</div><div class="line">Content-Type: text/html; charset=UTF-8</div><div class="line">Transfer-Encoding: chunked</div><div class="line">Connection: keep-alive</div><div class="line"></div><div class="line">当前 IP：180.173.192.249 来自：上海市 电信</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">FROM hub.c.163.com/public/centos:6.7-tools</span><br><span class="line"></span><br><span class="line">RUN yum install curl -y \</span><br><span class="line">&amp;&amp; rm -fr /var/lib/yum/*</span><br><span class="line"></span><br><span class="line">CMD [ &quot;curl&quot;,&quot;-s&quot;,&quot;-i&quot;,&quot;http://ip.cn&quot; ]</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>重新构建后，执行docker命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">➜  localhost_wwip git:(master) ✗ docker build -t getip:v1.1 .</span><br><span class="line">Sending build context to Docker daemon  2.048kB</span><br><span class="line">Step 1/3 : FROM hub.c.163.com/public/centos:6.7-tools</span><br><span class="line"> ---&gt; b2ab0ed558bb</span><br><span class="line">Step 2/3 : RUN yum install curl -y &amp;&amp; rm -fr /var/lib/yum/*</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 891dda232e64</span><br><span class="line">Step 3/3 : CMD curl -s -i http://ip.cn</span><br><span class="line"> ---&gt; Running <span class="keyword">in</span> bf0d517417f0</span><br><span class="line"> ---&gt; 01824f12a875</span><br><span class="line">Removing intermediate container bf0d517417f0</span><br><span class="line">Successfully built 01824f12a875</span><br><span class="line">Successfully tagged getip:v1.1</span><br><span class="line">➜  localhost_wwip git:(master) ✗ docker run getip:v1.1</span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Server: nginx/1.11.9</span><br><span class="line">Date: Wed, 13 Sep 2017 05:11:05 GMT</span><br><span class="line">Content-Type: text/html; charset=UTF-8</span><br><span class="line">Transfer-Encoding: chunked</span><br><span class="line">Connection: keep-alive</span><br><span class="line"></span><br><span class="line">当前 IP：180.173.192.249 来自：上海市 电信</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>但是我们不想每次都输出头部信息，可能有那么一两次想要去查看，那怎么办？有人说，加docker run 时加-i，这显然就没有明白CMD这个命令的用法</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">➜  localhost_wwip git:(master) ✗ docker run getip:v1 -i</div><div class="line">container_linux.go:262: starting container process caused <span class="string">"exec: \"-i\": executable file not found in <span class="variable">$PATH</span>"</span></div><div class="line">docker: Error response from daemon: oci runtime error: container_linux.go:262: starting container process caused <span class="string">"exec: \"-i\": executable file not found in <span class="variable">$PATH</span>"</span>.</div><div class="line">ERRO[0001] error waiting <span class="keyword">for</span> container: context canceled</div></pre></td></tr></table></figure>
-<p>很显然报错了，因为-i 会替换 curl -s <a href="http://ip.cn" target="_blank" rel="external">http://ip.cn</a><br>那怎么办？这时ENTRYPOINT就发挥作用了,我们更改下dockerfile</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">FROM hub.c.163.com/public/centos:6.7-tools</div><div class="line"></div><div class="line">RUN yum install curl -y \</div><div class="line">&amp;&amp; rm -fr /var/lib/yum/*</div><div class="line"></div><div class="line">ENTRYPOINT [ &quot;curl&quot;,&quot;-s&quot;,&quot;http://ip.cn&quot;  ]</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">➜  localhost_wwip git:(master) ✗ docker build -t getip:v1.2 .</div><div class="line">Sending build context to Docker daemon  2.048kB</div><div class="line">Step 1/3 : FROM hub.c.163.com/public/centos:6.7-tools</div><div class="line"> ---&gt; b2ab0ed558bb</div><div class="line">Step 2/3 : RUN yum install curl -y &amp;&amp; rm -fr /var/lib/yum/*</div><div class="line"> ---&gt; Using cache</div><div class="line"> ---&gt; 891dda232e64</div><div class="line">Step 3/3 : ENTRYPOINT curl -s http://ip.cn</div><div class="line"> ---&gt; Running in a8b7e21499f9</div><div class="line"> ---&gt; bfb17d8e39d1</div><div class="line">Removing intermediate container a8b7e21499f9</div><div class="line">Successfully built bfb17d8e39d1</div><div class="line">Successfully tagged getip:v1.2</div><div class="line">➜  localhost_wwip git:(master) ✗ docker run getip:v1.2</div><div class="line">当前 IP：180.173.192.249 来自：上海市 电信</div><div class="line">➜  localhost_wwip git:(master) ✗ docker run getip:v1.2 -i</div><div class="line">HTTP/1.1 200 OK</div><div class="line">Server: nginx/1.11.9</div><div class="line">Date: Wed, 13 Sep 2017 05:20:33 GMT</div><div class="line">Content-Type: text/html; charset=UTF-8</div><div class="line">Transfer-Encoding: chunked</div><div class="line">Connection: keep-alive</div><div class="line"></div><div class="line">当前 IP：180.173.192.249 来自：上海市 电信</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  localhost_wwip git:(master) ✗ docker run getip:v1 -i</span><br><span class="line">container_linux.go:262: starting container process caused <span class="string">"exec: \"-i\": executable file not found in <span class="variable">$PATH</span>"</span></span><br><span class="line">docker: Error response from daemon: oci runtime error: container_linux.go:262: starting container process caused <span class="string">"exec: \"-i\": executable file not found in <span class="variable">$PATH</span>"</span>.</span><br><span class="line">ERRO[0001] error waiting <span class="keyword">for</span> container: context canceled</span><br></pre></td></tr></table></figure>
+<p>很显然报错了，因为-i 会替换 curl -s <a href="http://ip.cn" target="_blank" rel="noopener">http://ip.cn</a><br>那怎么办？这时ENTRYPOINT就发挥作用了,我们更改下dockerfile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">FROM hub.c.163.com/public/centos:6.7-tools</span><br><span class="line"></span><br><span class="line">RUN yum install curl -y \</span><br><span class="line">&amp;&amp; rm -fr /var/lib/yum/*</span><br><span class="line"></span><br><span class="line">ENTRYPOINT [ &quot;curl&quot;,&quot;-s&quot;,&quot;http://ip.cn&quot;  ]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">➜  localhost_wwip git:(master) ✗ docker build -t getip:v1.2 .</span><br><span class="line">Sending build context to Docker daemon  2.048kB</span><br><span class="line">Step 1/3 : FROM hub.c.163.com/public/centos:6.7-tools</span><br><span class="line"> ---&gt; b2ab0ed558bb</span><br><span class="line">Step 2/3 : RUN yum install curl -y &amp;&amp; rm -fr /var/lib/yum/*</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 891dda232e64</span><br><span class="line">Step 3/3 : ENTRYPOINT curl -s http://ip.cn</span><br><span class="line"> ---&gt; Running in a8b7e21499f9</span><br><span class="line"> ---&gt; bfb17d8e39d1</span><br><span class="line">Removing intermediate container a8b7e21499f9</span><br><span class="line">Successfully built bfb17d8e39d1</span><br><span class="line">Successfully tagged getip:v1.2</span><br><span class="line">➜  localhost_wwip git:(master) ✗ docker run getip:v1.2</span><br><span class="line">当前 IP：180.173.192.249 来自：上海市 电信</span><br><span class="line">➜  localhost_wwip git:(master) ✗ docker run getip:v1.2 -i</span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Server: nginx/1.11.9</span><br><span class="line">Date: Wed, 13 Sep 2017 05:20:33 GMT</span><br><span class="line">Content-Type: text/html; charset=UTF-8</span><br><span class="line">Transfer-Encoding: chunked</span><br><span class="line">Connection: keep-alive</span><br><span class="line"></span><br><span class="line">当前 IP：180.173.192.249 来自：上海市 电信</span><br></pre></td></tr></table></figure>
 <p>这样我们看到就可以在docker run 后添加参数来满足我们的不同需求了</p>
 <ul>
 <li>ENV 设置环境变量</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">FROM hub.c.163.com/public/centos:6.7-tools</div><div class="line"></div><div class="line">ENV SSHPORT=22 NGINXPORT=80</div><div class="line"></div><div class="line">RUN mkdir -p /etc/yum.repos.d/backup &amp;&amp; mv /etc/yum.repos.d/*.repo /etc/yum.repos.d/backup</div><div class="line"></div><div class="line">ADD *.repo /etc/yum/repos.d/</div><div class="line"></div><div class="line">RUN  yum install nginx openssh-server openssh-clients -y \</div><div class="line">&amp;&amp; rm -fr /var/lib/yum/*</div><div class="line"></div><div class="line">EXPOSE <span class="variable">$NGINXPORT</span> 443 <span class="variable">$SSHPORT</span></div><div class="line"></div><div class="line">ENTRYPOINT /etc/init.d/nginx start &amp;&amp; /usr/sbin/sshd -D</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">FROM hub.c.163.com/public/centos:6.7-tools</span><br><span class="line"></span><br><span class="line">ENV SSHPORT=22 NGINXPORT=80</span><br><span class="line"></span><br><span class="line">RUN mkdir -p /etc/yum.repos.d/backup &amp;&amp; mv /etc/yum.repos.d/*.repo /etc/yum.repos.d/backup</span><br><span class="line"></span><br><span class="line">ADD *.repo /etc/yum/repos.d/</span><br><span class="line"></span><br><span class="line">RUN  yum install nginx openssh-server openssh-clients -y \</span><br><span class="line">&amp;&amp; rm -fr /var/lib/yum/*</span><br><span class="line"></span><br><span class="line">EXPOSE <span class="variable">$NGINXPORT</span> 443 <span class="variable">$SSHPORT</span></span><br><span class="line"></span><br><span class="line">ENTRYPOINT /etc/init.d/nginx start &amp;&amp; /usr/sbin/sshd -D</span><br></pre></td></tr></table></figure>
 <p>支持变量的指令有:<br>ADD、COPY、ENV、EXPOSE、LABEL、USER、WORKDIR、VOLUME、STOPSIGNAL、ONBUILD</p>
 <ul>
 <li>ARG 构建参数</li>
@@ -279,17 +279,17 @@ var _hmt = _hmt || [];
 <ul>
 <li>VOLUME 指定匿名券</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">VOLUME /data</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VOLUME /data</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>容器运行时需要写入数据时应该写到容器外而不是容器内，这样可以防止数据丢失，也可以在docker容器迁移时不至于过大造成的不便，利用VOLUME 指定匿名券，这样容器发生写的操作时就会写到默认的匿名券中,也可以在docker run 构建容器时指定挂载名 -v 挂载名:/mydata</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">FROM hub.c.163.com/public/centos:6.7-tools</div><div class="line"></div><div class="line">RUN mkdir -p /etc/yum.repos.d/backup &amp;&amp; mv /etc/yum.repos.d/*.repo /etc/yum.repos.d/backup</div><div class="line"></div><div class="line">ADD *.repo /etc/yum/repos.d/</div><div class="line"></div><div class="line">RUN  yum install nginx openssh-server openssh-clients -y \</div><div class="line">&amp;&amp; rm -fr /var/lib/yum/*</div><div class="line"></div><div class="line">EXPOSE 80 443 22</div><div class="line"></div><div class="line">VOLUME /mydata</div><div class="line"></div><div class="line">ENTRYPOINT /etc/init.d/nginx start &amp;&amp; /usr/sbin/sshd -D</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">nginx git:(master) ✗ docker build -t nginx:v0.2 .</div><div class="line">nginx git:(master) ✗ docker run -d --name web -p8080:80 nginx:v0.2</div><div class="line">nginx git:(master) ✗ docker <span class="built_in">exec</span> -it web /bin/bash</div><div class="line">[root@1b1359c8b459 /]<span class="comment"># df -h</span></div><div class="line">Filesystem      Size  Used Avail Use% Mounted on</div><div class="line">overlay          63G  4.4G   56G   8% /</div><div class="line">tmpfs          1000M     0 1000M   0% /dev</div><div class="line">tmpfs          1000M     0 1000M   0% /sys/fs/cgroup</div><div class="line">/dev/sda1        63G  4.4G   56G   8% /mydata</div><div class="line">/dev/sda1        63G  4.4G   56G   8% /etc/resolv.conf</div><div class="line">/dev/sda1        63G  4.4G   56G   8% /etc/hostname</div><div class="line">/dev/sda1        63G  4.4G   56G   8% /etc/hosts</div><div class="line">shm              64M     0   64M   0% /dev/shm</div><div class="line">tmpfs          1000M     0 1000M   0% /proc/kcore</div><div class="line">tmpfs          1000M     0 1000M   0% /proc/timer_list</div><div class="line">tmpfs          1000M     0 1000M   0% /proc/sched_debug</div><div class="line">tmpfs          1000M     0 1000M   0% /sys/firmware</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">FROM hub.c.163.com/public/centos:6.7-tools</span><br><span class="line"></span><br><span class="line">RUN mkdir -p /etc/yum.repos.d/backup &amp;&amp; mv /etc/yum.repos.d/*.repo /etc/yum.repos.d/backup</span><br><span class="line"></span><br><span class="line">ADD *.repo /etc/yum/repos.d/</span><br><span class="line"></span><br><span class="line">RUN  yum install nginx openssh-server openssh-clients -y \</span><br><span class="line">&amp;&amp; rm -fr /var/lib/yum/*</span><br><span class="line"></span><br><span class="line">EXPOSE 80 443 22</span><br><span class="line"></span><br><span class="line">VOLUME /mydata</span><br><span class="line"></span><br><span class="line">ENTRYPOINT /etc/init.d/nginx start &amp;&amp; /usr/sbin/sshd -D</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">nginx git:(master) ✗ docker build -t nginx:v0.2 .</span><br><span class="line">nginx git:(master) ✗ docker run -d --name web -p8080:80 nginx:v0.2</span><br><span class="line">nginx git:(master) ✗ docker <span class="built_in">exec</span> -it web /bin/bash</span><br><span class="line">[root@1b1359c8b459 /]<span class="comment"># df -h</span></span><br><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">overlay          63G  4.4G   56G   8% /</span><br><span class="line">tmpfs          1000M     0 1000M   0% /dev</span><br><span class="line">tmpfs          1000M     0 1000M   0% /sys/fs/cgroup</span><br><span class="line">/dev/sda1        63G  4.4G   56G   8% /mydata</span><br><span class="line">/dev/sda1        63G  4.4G   56G   8% /etc/resolv.conf</span><br><span class="line">/dev/sda1        63G  4.4G   56G   8% /etc/hostname</span><br><span class="line">/dev/sda1        63G  4.4G   56G   8% /etc/hosts</span><br><span class="line">shm              64M     0   64M   0% /dev/shm</span><br><span class="line">tmpfs          1000M     0 1000M   0% /proc/kcore</span><br><span class="line">tmpfs          1000M     0 1000M   0% /proc/timer_list</span><br><span class="line">tmpfs          1000M     0 1000M   0% /proc/sched_debug</span><br><span class="line">tmpfs          1000M     0 1000M   0% /sys/firmware</span><br></pre></td></tr></table></figure>
 <p>可以看到容器中mydata的挂载</p>
 <ul>
 <li>EXPOSE 声明端口</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">EXPOSE PORT1 PORT2 ...</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EXPOSE PORT1 PORT2 ...</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>只是简单的声明，并不会在容器启动时自动映射声明的端口，声明端口-p 宿主端口:容器端口 -P 容器端口（随机分配宿主端口）</p>
 </blockquote>
@@ -302,7 +302,7 @@ var _hmt = _hmt || [];
 <ul>
 <li>USER 指定当前用户<br>USER和WORKDIR的作用一样，改变环境状态并影响以后的层</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">USER nginx</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">USER nginx</span><br></pre></td></tr></table></figure>
 
       
 
@@ -397,18 +397,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2019/01/22/docker进阶用法总结/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/01/22/docker三剑客之docker-machine/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          docker进阶用法总结
+          docker三剑客之docker-machine
         
       </div>
     </a>
   
   
-    <a href="/2019/01/22/kubernetes集群搭建/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Kubernetes集群搭建</div>
+    <a href="/2019/01/22/docker进阶用法总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">docker进阶用法总结</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -537,14 +537,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
               </li>
              
@@ -561,6 +553,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
@@ -573,6 +573,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
@@ -581,11 +585,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -594,26 +598,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">openvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -629,15 +613,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -646,6 +638,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
               </li>
             
             <div class="clearfix"></div>

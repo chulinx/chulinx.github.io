@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>kubeadm 安装kubernetes 1.9.2 | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -235,74 +235,74 @@ var _hmt = _hmt || [];
 <p>配置成脚本socket.sh方便开启关闭，开启socket.sh create &amp;&amp; socket.sh start,停止socket.sh stop</p>
 </blockquote>
 <a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"></div><div class="line"><span class="function"><span class="title">create</span></span>()&#123;</div><div class="line">   yum install python2-pip privoxy -y</div><div class="line">   pip install shadowsocks</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="title">checkConf</span></span>()&#123;</div><div class="line">  <span class="keyword">if</span> [ ! -f /etc/shadowsocks/shadowsocks.json ];<span class="keyword">then</span></div><div class="line">    mkdir /etc/shadowsocks</div><div class="line">    <span class="built_in">echo</span> <span class="string">'&#123;"server":"35.197.5.168","server_port":9005,"local_address": "127.0.0.1","local_port":1080,"password":"123456",timeout":300,"method":"aes-256-cfb","fast_open": false,"workers": 1&#125;'</span> &gt;/etc/shadowsocks/shadowsocks.json</div><div class="line">  <span class="keyword">else</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">"shadowsocks配置文件已存在，请确认配置文件是否正确"</span></div><div class="line">  <span class="keyword">fi</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="title">proxyenv</span></span>()&#123;</div><div class="line">  <span class="built_in">source</span> /etc/profile</div><div class="line">  env | grep -i proxy | awk -F= <span class="string">'&#123;print $1&#125;'</span> &gt;/dev/null 2&gt;&amp;1</div><div class="line">  <span class="keyword">if</span> [ $? -eq 1 ];<span class="keyword">then</span></div><div class="line">    <span class="built_in">echo</span> -e <span class="string">"PROXY_HOST=127.0.0.1\nexport all_proxy=http://<span class="variable">$PROXY_HOST</span>:8118\nexport ftp_proxy=http://<span class="variable">$PROXY_HOST</span>:8118\nexport http_proxy=http://<span class="variable">$PROXY_HOST</span>:8118\nexport https_proxy=http://<span class="variable">$PROXY_HOST</span>:8118"</span>&gt;/etc/profile</div><div class="line">  <span class="keyword">fi</span></div><div class="line">  <span class="built_in">source</span> /etc/profile</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="title">start</span></span>()&#123;</div><div class="line">   checkConf</div><div class="line">   sslocal -c /etc/shadowsocks/shadowsocks.josn &gt;/var/<span class="built_in">log</span>/shadowsocks.log 2&gt;&amp;1 &amp;</div><div class="line">   systemctl restart privoxy</div><div class="line">   proxyenv</div><div class="line">   <span class="built_in">echo</span> -e <span class="string">"\n 正在开启翻墙模式...!"</span></div><div class="line">   curl -I www.google.com|grep HTTP</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="title">stop</span></span>()&#123;</div><div class="line">    ps -fe|grep sslocal|grep -v grep|awk <span class="string">'&#123;print $2&#125;'</span>|xargs <span class="built_in">kill</span> -9</div><div class="line">    systemctl stop privoxy</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> $(env | grep -i proxy | awk -F= <span class="string">'&#123;print $1&#125;'</span>);<span class="keyword">do</span></div><div class="line">      <span class="built_in">unset</span> <span class="variable">$i</span></div><div class="line">    <span class="keyword">done</span></div><div class="line">    <span class="built_in">echo</span> -e <span class="string">"\n 正在关闭翻墙模式...!"</span></div><div class="line">    curl -I www.google.com|grep HTTP</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> [ <span class="variable">$1</span> = start ];<span class="keyword">then</span></div><div class="line">   start</div><div class="line"><span class="keyword">elif</span> [ <span class="variable">$1</span> = stop ];<span class="keyword">then</span></div><div class="line">   stop</div><div class="line"><span class="keyword">elif</span> [ <span class="variable">$1</span> = restart ];<span class="keyword">then</span></div><div class="line">   stop</div><div class="line">   sleep 3</div><div class="line">   start</div><div class="line"><span class="keyword">elif</span> [ <span class="variable">$1</span> = create  ];<span class="keyword">then</span></div><div class="line">   create</div><div class="line"><span class="keyword">else</span></div><div class="line">   <span class="built_in">echo</span> <span class="string">"请检查你的输入！"</span></div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">create</span></span>()&#123;</span><br><span class="line">   yum install python2-pip privoxy -y</span><br><span class="line">   pip install shadowsocks</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">checkConf</span></span>()&#123;</span><br><span class="line">  <span class="keyword">if</span> [ ! -f /etc/shadowsocks/shadowsocks.json ];<span class="keyword">then</span></span><br><span class="line">    mkdir /etc/shadowsocks</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'&#123;"server":"35.197.5.168","server_port":9005,"local_address": "127.0.0.1","local_port":1080,"password":"123456",timeout":300,"method":"aes-256-cfb","fast_open": false,"workers": 1&#125;'</span> &gt;/etc/shadowsocks/shadowsocks.json</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"shadowsocks配置文件已存在，请确认配置文件是否正确"</span></span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">proxyenv</span></span>()&#123;</span><br><span class="line">  <span class="built_in">source</span> /etc/profile</span><br><span class="line">  env | grep -i proxy | awk -F= <span class="string">'&#123;print $1&#125;'</span> &gt;/dev/null 2&gt;&amp;1</span><br><span class="line">  <span class="keyword">if</span> [ $? -eq 1 ];<span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">"PROXY_HOST=127.0.0.1\nexport all_proxy=http://<span class="variable">$PROXY_HOST</span>:8118\nexport ftp_proxy=http://<span class="variable">$PROXY_HOST</span>:8118\nexport http_proxy=http://<span class="variable">$PROXY_HOST</span>:8118\nexport https_proxy=http://<span class="variable">$PROXY_HOST</span>:8118"</span>&gt;/etc/profile</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">  <span class="built_in">source</span> /etc/profile</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">start</span></span>()&#123;</span><br><span class="line">   checkConf</span><br><span class="line">   sslocal -c /etc/shadowsocks/shadowsocks.josn &gt;/var/<span class="built_in">log</span>/shadowsocks.log 2&gt;&amp;1 &amp;</span><br><span class="line">   systemctl restart privoxy</span><br><span class="line">   proxyenv</span><br><span class="line">   <span class="built_in">echo</span> -e <span class="string">"\n 正在开启翻墙模式...!"</span></span><br><span class="line">   curl -I www.google.com|grep HTTP</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">stop</span></span>()&#123;</span><br><span class="line">    ps -fe|grep sslocal|grep -v grep|awk <span class="string">'&#123;print $2&#125;'</span>|xargs <span class="built_in">kill</span> -9</span><br><span class="line">    systemctl stop privoxy</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> $(env | grep -i proxy | awk -F= <span class="string">'&#123;print $1&#125;'</span>);<span class="keyword">do</span></span><br><span class="line">      <span class="built_in">unset</span> <span class="variable">$i</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">"\n 正在关闭翻墙模式...!"</span></span><br><span class="line">    curl -I www.google.com|grep HTTP</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$1</span> = start ];<span class="keyword">then</span></span><br><span class="line">   start</span><br><span class="line"><span class="keyword">elif</span> [ <span class="variable">$1</span> = stop ];<span class="keyword">then</span></span><br><span class="line">   stop</span><br><span class="line"><span class="keyword">elif</span> [ <span class="variable">$1</span> = restart ];<span class="keyword">then</span></span><br><span class="line">   stop</span><br><span class="line">   sleep 3</span><br><span class="line">   start</span><br><span class="line"><span class="keyword">elif</span> [ <span class="variable">$1</span> = create  ];<span class="keyword">then</span></span><br><span class="line">   create</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">   <span class="built_in">echo</span> <span class="string">"请检查你的输入！"</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
 <h3 id="二，基础环境配置-master和所有node节点"><a href="#二，基础环境配置-master和所有node节点" class="headerlink" title="二，基础环境配置(master和所有node节点)"></a>二，基础环境配置(master和所有node节点)</h3><ul>
 <li><p>配置yum代理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;proxy=http:127.0.0.1:8118&quot; &gt;&gt;/etc/yum.conf</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;proxy=http:127.0.0.1:8118&quot; &gt;&gt;/etc/yum.conf</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>关闭防火墙</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl disable firewalld &amp;&amp; systemctl stop firewalld</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl disable firewalld &amp;&amp; systemctl stop firewalld</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>关闭selinux</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed -i s/SELINUX=enforcing/SELINUX=disabled/ /etc/selinux/config &amp;&amp; setenforce 0</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i s/SELINUX=enforcing/SELINUX=disabled/ /etc/selinux/config &amp;&amp; setenforce 0</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>关闭swap内存</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">swapoff -a &amp;&amp; sed -i s/\/dev\/mapper/cl-swap/#\/dev\/mapper/cl-swap/ /etc/fstab</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapoff -a &amp;&amp; sed -i s/\/dev\/mapper/cl-swap/#\/dev\/mapper/cl-swap/ /etc/fstab</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>调整内核参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cat &lt;&lt;EOF &gt;  /etc/sysctl.d/k8s.conf</div><div class="line">net.bridge.bridge-nf-call-ip6tables = 1</div><div class="line">net.bridge.bridge-nf-call-iptables = 1</div><div class="line">EOF</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;EOF &gt;  /etc/sysctl.d/k8s.conf</span><br><span class="line">net.bridge.bridge-nf-call-ip6tables = 1</span><br><span class="line">net.bridge.bridge-nf-call-iptables = 1</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>重启机器</p>
 <h3 id="三-安装docker-kubelet-kubeadm-kubectl-master和所有node节点"><a href="#三-安装docker-kubelet-kubeadm-kubectl-master和所有node节点" class="headerlink" title="三. 安装docker kubelet kubeadm kubectl(master和所有node节点)"></a>三. 安装docker kubelet kubeadm kubectl(master和所有node节点)</h3></li>
 <li><p>配置阿里云yum源 安装docker</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install wget -y &amp;&amp; rm -f /etc/yum.repo.d/Cent* &amp;&amp; wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo &amp;&amp; wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo &amp;&amp; yum install vim net-tools docker -y</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install wget -y &amp;&amp; rm -f /etc/yum.repo.d/Cent* &amp;&amp; wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo &amp;&amp; wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo &amp;&amp; yum install vim net-tools docker -y</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置docker 代理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir -p /etc/systemd/system/docker.service.d/</div><div class="line">cat &lt;&lt;EFO &gt; /etc/systemd/system/docker.service.d/https-proxy.conf</div><div class="line">[Service]</div><div class="line">Environment=&quot;HTTP_PROXY=http://127.0.0.1:8118&quot; &quot;NO_PROXY=localhost,172.16.0.0/16,127.0.0.1,10.244.0.0/16&quot;</div><div class="line">EOF</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /etc/systemd/system/docker.service.d/</span><br><span class="line">cat &lt;&lt;EFO &gt; /etc/systemd/system/docker.service.d/https-proxy.conf</span><br><span class="line">[Service]</span><br><span class="line">Environment=&quot;HTTP_PROXY=http://127.0.0.1:8118&quot; &quot;NO_PROXY=localhost,172.16.0.0/16,127.0.0.1,10.244.0.0/16&quot;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>启动docker</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl restart docker</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置kubernetes源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">cat &lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo</div><div class="line">[kubernetes]</div><div class="line">name=Kubernetes</div><div class="line">baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64</div><div class="line">enabled=1</div><div class="line">gpgcheck=1</div><div class="line">repo_gpgcheck=1</div><div class="line">gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg</div><div class="line">EOF</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo</span><br><span class="line">[kubernetes]</span><br><span class="line">name=Kubernetes</span><br><span class="line">baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">repo_gpgcheck=1</span><br><span class="line">gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装kubelet kubeadm kubectl并启动kubelet</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install kubelet kubeadm kubectl -y &amp;&amp; systemctl enable kubelet &amp;&amp; systemctl start kubelet</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install kubelet kubeadm kubectl -y &amp;&amp; systemctl enable kubelet &amp;&amp; systemctl start kubelet</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="初始化k8s集群-master"><a href="#初始化k8s集群-master" class="headerlink" title="初始化k8s集群(master)"></a>初始化k8s集群(master)</h3><blockquote>
 <p>这一步非常重要，多少人部署k8s就是卡在这一步，好在我已经有了解决办法，提供给大家方便你我他</p>
 </blockquote>
 <ul>
-<li>手动下载谷歌镜像（如果你的代理给你可以省略这一步）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">K8S1.9.2对应的镜像版本</div><div class="line">gcr.io/google_containers/kube-proxy-amd64                v1.9.2              e6754bb0a529        2 weeks ago         109.1 MB</div><div class="line">gcr.io/google_containers/kube-controller-manager-amd64   v1.9.2              769d889083b6        2 weeks ago         137.8 MB</div><div class="line">gcr.io/google_containers/kube-apiserver-amd64            v1.9.2              7109112be2c7        2 weeks ago         210.4 MB</div><div class="line">gcr.io/google_containers/kube-scheduler-amd64            v1.9.2              2bf081517538        2 weeks ago         62.71 MB</div><div class="line">gcr.io/google_containers/etcd-amd64                      3.1.11              59d36f27cceb        9 weeks ago         193.9 MB</div><div class="line">gcr.io/google_containers/k8s-dns-sidecar-amd64           1.14.7              db76ee297b85        3 months ago        42.03 MB</div><div class="line">gcr.io/google_containers/k8s-dns-kube-dns-amd64          1.14.7              5d049a8c4eec        3 months ago        50.27 MB</div><div class="line">gcr.io/google_containers/k8s-dns-dnsmasq-nanny-amd64     1.14.7              5feec37454f4        3 months ago        40.95 MB</div><div class="line">gcr.io/google_containers/pause-amd64                     3.0                 99e59f495ffa        21 months ago       746.9 kB</div></pre></td></tr></table></figure>
+<li>手动下载谷歌镜像（如果你的代理给你可以省略这一步）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">K8S1.9.2对应的镜像版本</span><br><span class="line">gcr.io/google_containers/kube-proxy-amd64                v1.9.2              e6754bb0a529        2 weeks ago         109.1 MB</span><br><span class="line">gcr.io/google_containers/kube-controller-manager-amd64   v1.9.2              769d889083b6        2 weeks ago         137.8 MB</span><br><span class="line">gcr.io/google_containers/kube-apiserver-amd64            v1.9.2              7109112be2c7        2 weeks ago         210.4 MB</span><br><span class="line">gcr.io/google_containers/kube-scheduler-amd64            v1.9.2              2bf081517538        2 weeks ago         62.71 MB</span><br><span class="line">gcr.io/google_containers/etcd-amd64                      3.1.11              59d36f27cceb        9 weeks ago         193.9 MB</span><br><span class="line">gcr.io/google_containers/k8s-dns-sidecar-amd64           1.14.7              db76ee297b85        3 months ago        42.03 MB</span><br><span class="line">gcr.io/google_containers/k8s-dns-kube-dns-amd64          1.14.7              5d049a8c4eec        3 months ago        50.27 MB</span><br><span class="line">gcr.io/google_containers/k8s-dns-dnsmasq-nanny-amd64     1.14.7              5feec37454f4        3 months ago        40.95 MB</span><br><span class="line">gcr.io/google_containers/pause-amd64                     3.0                 99e59f495ffa        21 months ago       746.9 kB</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">docker仓库已经有人在同步google的镜像，所以只需要pull下来再tag为上面的名字就好了，批量脚本</div><div class="line">images=(etcd-amd64:3.1.11 kube-apiserver-amd64:v1.9.2 kube-controller-manager-amd64:v1.9.2 kube-scheduler-amd64:v1.9.2 kube-proxy-amd64:v1.9.2  k8s-dns-sidecar-amd64:1.14.7 pause-amd64:3.0 k8s-dns-kube-dns-amd64:1.14.7 k8s-dns-dnsmasq-nanny-amd64:1.14.7)</div><div class="line">#images=(kube-controller-manager-amd64:v1.9.2 kube-scheduler-amd64:v1.9.2)</div><div class="line">for imageName in $&#123;images[@]&#125; ; do</div><div class="line">&#123;</div><div class="line">  docker pull docker.io/anjia0532/$imageName</div><div class="line">  docker tag  docker.io/anjia0532/$imageName  gcr.io/google_containers/$imageName</div><div class="line">&#125; &amp;</div><div class="line">done</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker仓库已经有人在同步google的镜像，所以只需要pull下来再tag为上面的名字就好了，批量脚本</span><br><span class="line">images=(etcd-amd64:3.1.11 kube-apiserver-amd64:v1.9.2 kube-controller-manager-amd64:v1.9.2 kube-scheduler-amd64:v1.9.2 kube-proxy-amd64:v1.9.2  k8s-dns-sidecar-amd64:1.14.7 pause-amd64:3.0 k8s-dns-kube-dns-amd64:1.14.7 k8s-dns-dnsmasq-nanny-amd64:1.14.7)</span><br><span class="line">#images=(kube-controller-manager-amd64:v1.9.2 kube-scheduler-amd64:v1.9.2)</span><br><span class="line">for imageName in $&#123;images[@]&#125; ; do</span><br><span class="line">&#123;</span><br><span class="line">  docker pull docker.io/anjia0532/$imageName</span><br><span class="line">  docker tag  docker.io/anjia0532/$imageName  gcr.io/google_containers/$imageName</span><br><span class="line">&#125; &amp;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>通过kubectl init 初始化集群</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kubeadm init  --pod-network-cidr=10.244.0.0/16  --apiserver-advertise-address=172.16.1.126</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm init  --pod-network-cidr=10.244.0.0/16  --apiserver-advertise-address=172.16.1.126</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>初始化完成会显示其他node加入群集的命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kubeadm join --token c16280.dbb6f9aeb16f7b2c 172.16.1.126:6443 --discovery-token-ca-cert-hash sha256:706fece558d0e89dcffc4507aef21a35a571cb5263cd522d6505d4b887c53b61</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm join --token c16280.dbb6f9aeb16f7b2c 172.16.1.126:6443 --discovery-token-ca-cert-hash sha256:706fece558d0e89dcffc4507aef21a35a571cb5263cd522d6505d4b887c53b61</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>添加K8S 配置和配置kubectl命令补全</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">export KUBECONFIG=/etc/kubernetes/admin.conf</div><div class="line">echo &quot;export KUBECONFIG=/etc/kubernetes/admin.conf&quot; &gt;&gt; ~/.bash_profile</div><div class="line">echo &quot;source &lt;(kubectl completion bash)&quot; &gt;&gt; ~/.bashrc</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export KUBECONFIG=/etc/kubernetes/admin.conf</span><br><span class="line">echo &quot;export KUBECONFIG=/etc/kubernetes/admin.conf&quot; &gt;&gt; ~/.bash_profile</span><br><span class="line">echo &quot;source &lt;(kubectl completion bash)&quot; &gt;&gt; ~/.bashrc</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装flannel网络</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="node-节点加入集群-node"><a href="#node-节点加入集群-node" class="headerlink" title="node 节点加入集群(node)"></a>node 节点加入集群(node)</h3><ul>
 <li>node节点加入集群时也要下载谷歌镜像，为了避免网络原因造成的加入集群失败，重复上面master下载谷歌镜像的步骤</li>
-<li>加入集群<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">kubeadm join --token c16280.dbb6f9aeb16f7b2c 172.16.1.126:6443 --discovery-token-ca-cert-hash sha256:706fece558d0e89dcffc4507aef21a35a571cb5263cd522d6505d4b887c53b61</div><div class="line">顺利的话会看到下面提醒，</div><div class="line">Run &apos;kubectl get nodes&apos; on the master to see this node join the cluster.</div></pre></td></tr></table></figure>
+<li>加入集群<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubeadm join --token c16280.dbb6f9aeb16f7b2c 172.16.1.126:6443 --discovery-token-ca-cert-hash sha256:706fece558d0e89dcffc4507aef21a35a571cb5263cd522d6505d4b887c53b61</span><br><span class="line">顺利的话会看到下面提醒，</span><br><span class="line">Run &apos;kubectl get nodes&apos; on the master to see this node join the cluster.</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="验证集群-master"><a href="#验证集群-master" class="headerlink" title="验证集群(master)"></a>验证集群(master)</h3><ul>
 <li><p>验证node状态</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@k8s-master scripts]# kubectl get no</div><div class="line">NAME                    STATUS     ROLES     AGE       VERSION</div><div class="line">k8n1                    Ready      &lt;none&gt;    2d        v1.9.2</div><div class="line">k8n2                    Ready      &lt;none&gt;    2d        v1.9.2</div><div class="line">localhost.localdomain   NotReady   master    2d        v1.9.2</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-master scripts]# kubectl get no</span><br><span class="line">NAME                    STATUS     ROLES     AGE       VERSION</span><br><span class="line">k8n1                    Ready      &lt;none&gt;    2d        v1.9.2</span><br><span class="line">k8n2                    Ready      &lt;none&gt;    2d        v1.9.2</span><br><span class="line">localhost.localdomain   NotReady   master    2d        v1.9.2</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>验证整个集群组件状态</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">[root@k8s-master scripts]# kubectl --namespace=kube-system get pod</div><div class="line">NAME                                            READY     STATUS     RESTARTS   AGE</div><div class="line">etcd-localhost.localdomain                      1/1       Running    0          2d</div><div class="line">kube-apiserver-localhost.localdomain            1/1       Running    5          2d</div><div class="line">kube-controller-manager-localhost.localdomain   1/1       Running    0          2d</div><div class="line">kube-dns-6f4fd4bdf-jsw7w                        3/3       Running    0          3h</div><div class="line">kube-dns-6f4fd4bdf-xbnkq                        3/3       Running    0          2d</div><div class="line">kube-flannel-ds-d8xq5                           1/1       Running    0          2d</div><div class="line">kube-flannel-ds-lsjgq                           1/1       Running    2          2d</div><div class="line">kube-flannel-ds-wck6c                           1/1       Running   0          2d</div><div class="line">kube-proxy-8z582                                1/1       Running   0          2d</div><div class="line">kube-proxy-h58t4                                1/1       Running    0          2d</div><div class="line">kube-proxy-rh7ml                                1/1       Running    2          2d</div><div class="line">kube-scheduler-localhost.localdomain            1/1       Running    0          2d</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-master scripts]# kubectl --namespace=kube-system get pod</span><br><span class="line">NAME                                            READY     STATUS     RESTARTS   AGE</span><br><span class="line">etcd-localhost.localdomain                      1/1       Running    0          2d</span><br><span class="line">kube-apiserver-localhost.localdomain            1/1       Running    5          2d</span><br><span class="line">kube-controller-manager-localhost.localdomain   1/1       Running    0          2d</span><br><span class="line">kube-dns-6f4fd4bdf-jsw7w                        3/3       Running    0          3h</span><br><span class="line">kube-dns-6f4fd4bdf-xbnkq                        3/3       Running    0          2d</span><br><span class="line">kube-flannel-ds-d8xq5                           1/1       Running    0          2d</span><br><span class="line">kube-flannel-ds-lsjgq                           1/1       Running    2          2d</span><br><span class="line">kube-flannel-ds-wck6c                           1/1       Running   0          2d</span><br><span class="line">kube-proxy-8z582                                1/1       Running   0          2d</span><br><span class="line">kube-proxy-h58t4                                1/1       Running    0          2d</span><br><span class="line">kube-proxy-rh7ml                                1/1       Running    2          2d</span><br><span class="line">kube-scheduler-localhost.localdomain            1/1       Running    0          2d</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -543,14 +543,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
               </li>
              
@@ -567,6 +559,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
@@ -579,6 +579,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
@@ -587,11 +591,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,26 +604,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">openvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -635,15 +619,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -652,6 +644,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
               </li>
             
             <div class="clearfix"></div>

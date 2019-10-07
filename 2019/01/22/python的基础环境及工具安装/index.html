@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>python的基础环境及工具安装 | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -206,51 +206,51 @@ var _hmt = _hmt || [];
 <p><img src="http://upload-images.jianshu.io/upload_images/3020508-162b90e38a4219ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"><br><a id="more"></a></p>
 <h2 id="docker基础"><a href="#docker基础" class="headerlink" title="docker基础"></a>docker基础</h2><ul>
 <li><p>docker 安装（ubuntu）</p>
-<figure class="highlight plain"><figcaption><span>apt-get install docker-io```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">  - 启动docker</div><div class="line">``` sudo systemctl start docker</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>apt-get install docker-io```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  - 启动docker</span><br><span class="line">``` sudo systemctl start docker</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>查看docker服务启动状态</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">zlx@zlx-Inspiron-5547:~$ sudo systemctl status docker</div><div class="line"> docker.service - Docker Application Container Engine</div><div class="line">   Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor p</div><div class="line">   Active: active (running) since 二 2017-08-08 17:10:39 CST; 1h 12min a</div><div class="line">     Docs: https://docs.docker.com</div><div class="line"> Main PID: 8142 (dockerd)</div><div class="line">    Tasks: 41</div><div class="line">   Memory: 31.8M</div><div class="line">      CPU: 3.978s</div><div class="line">   CGroup: /system.slice/docker.service</div><div class="line">           ├─8142 /usr/bin/dockerd -H fd://</div><div class="line">           ├─8156 containerd -l unix:///var/run/docker/libcontainerd/doc</div><div class="line">           ├─8519 containerd-shim e7e5d6331fbf624a043ee04507fbfd0cb01a55</div><div class="line">           └─8745 containerd-shim e7e5d6331fbf624a043ee04507fbfd0cb01a55</div><div class="line"></div><div class="line">8月 08 17:10:39 zlx-Inspiron-5547 dockerd[8142]: time=&quot;2017-08-08T17:10:</div><div class="line">8月 08 17:10:39 zlx-Inspiron-5547 systemd[1]: Started Docker Application</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">zlx@zlx-Inspiron-5547:~$ sudo systemctl status docker</span><br><span class="line"> docker.service - Docker Application Container Engine</span><br><span class="line">   Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor p</span><br><span class="line">   Active: active (running) since 二 2017-08-08 17:10:39 CST; 1h 12min a</span><br><span class="line">     Docs: https://docs.docker.com</span><br><span class="line"> Main PID: 8142 (dockerd)</span><br><span class="line">    Tasks: 41</span><br><span class="line">   Memory: 31.8M</span><br><span class="line">      CPU: 3.978s</span><br><span class="line">   CGroup: /system.slice/docker.service</span><br><span class="line">           ├─8142 /usr/bin/dockerd -H fd://</span><br><span class="line">           ├─8156 containerd -l unix:///var/run/docker/libcontainerd/doc</span><br><span class="line">           ├─8519 containerd-shim e7e5d6331fbf624a043ee04507fbfd0cb01a55</span><br><span class="line">           └─8745 containerd-shim e7e5d6331fbf624a043ee04507fbfd0cb01a55</span><br><span class="line"></span><br><span class="line">8月 08 17:10:39 zlx-Inspiron-5547 dockerd[8142]: time=&quot;2017-08-08T17:10:</span><br><span class="line">8月 08 17:10:39 zlx-Inspiron-5547 systemd[1]: Started Docker Application</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="安装启动完docker，接下来就是pull镜像，创建容器"><a href="#安装启动完docker，接下来就是pull镜像，创建容器" class="headerlink" title="安装启动完docker，接下来就是pull镜像，创建容器"></a>安装启动完docker，接下来就是pull镜像，创建容器</h2><ul>
-<li><p>采用国内docker镜像源，我使用的是<a href="https://c.163.com/" target="_blank" rel="external">网易</a>，查看pull下来的images</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">zlx@zlx-Inspiron-5547:~$ sudo docker pull hub.c.163.com/public/centos:6.5-tools</div><div class="line">zlx@zlx-Inspiron-5547:~$ sudo docker images</div><div class="line">REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">hub.c.163.com/public/centos   6.5-tools           97be475c7e56        4 months ago        629.9 MB</div></pre></td></tr></table></figure>
+<li><p>采用国内docker镜像源，我使用的是<a href="https://c.163.com/" target="_blank" rel="noopener">网易</a>，查看pull下来的images</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">zlx@zlx-Inspiron-5547:~$ sudo docker pull hub.c.163.com/public/centos:6.5-tools</span><br><span class="line">zlx@zlx-Inspiron-5547:~$ sudo docker images</span><br><span class="line">REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">hub.c.163.com/public/centos   6.5-tools           97be475c7e56        4 months ago        629.9 MB</span><br></pre></td></tr></table></figure>
 <ul>
-<li>创建容器<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">zlx@zlx-Inspiron-5547:~$ sudo docker run -itd --restart=always --name python-stady hub.c.163.com/public/centos /bin/bash</div><div class="line">Unable to find image &apos;hub.c.163.com/public/centos:latest&apos; locally</div><div class="line">latest: Pulling from public/centos</div><div class="line">96057de2d572: Already exists</div><div class="line">a3ed95caeb02: Already exists</div><div class="line">8a1dcc3f76c2: Already exists</div><div class="line">8fe56c90e86a: Already exists</div><div class="line">43fc3558431f: Already exists</div><div class="line">5881bc109689: Already exists</div><div class="line">Digest: sha256:75a27ccbfdef28456d98134cf04f2f41f76b435d9e62c678c6791af467d6b1b0</div><div class="line">Status: Downloaded newer image for hub.c.163.com/public/centos:latest</div><div class="line">e7e5d6331fbf624a043ee04507fbfd0cb01a555d1a70000d65e369120ac91210</div><div class="line">zlx@zlx-Inspiron-5547:~$ sudo docker ps</div><div class="line">CONTAINER ID        IMAGE                         COMMAND             CREATED             STATUS              PORTS               NAMES</div><div class="line">e7e5d6331fbf        hub.c.163.com/public/centos   &quot;/bin/bash&quot;         27 seconds ago      Up 25 seconds       22/tcp              python-stady</div></pre></td></tr></table></figure>
+<li>创建容器<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">zlx@zlx-Inspiron-5547:~$ sudo docker run -itd --restart=always --name python-stady hub.c.163.com/public/centos /bin/bash</span><br><span class="line">Unable to find image &apos;hub.c.163.com/public/centos:latest&apos; locally</span><br><span class="line">latest: Pulling from public/centos</span><br><span class="line">96057de2d572: Already exists</span><br><span class="line">a3ed95caeb02: Already exists</span><br><span class="line">8a1dcc3f76c2: Already exists</span><br><span class="line">8fe56c90e86a: Already exists</span><br><span class="line">43fc3558431f: Already exists</span><br><span class="line">5881bc109689: Already exists</span><br><span class="line">Digest: sha256:75a27ccbfdef28456d98134cf04f2f41f76b435d9e62c678c6791af467d6b1b0</span><br><span class="line">Status: Downloaded newer image for hub.c.163.com/public/centos:latest</span><br><span class="line">e7e5d6331fbf624a043ee04507fbfd0cb01a555d1a70000d65e369120ac91210</span><br><span class="line">zlx@zlx-Inspiron-5547:~$ sudo docker ps</span><br><span class="line">CONTAINER ID        IMAGE                         COMMAND             CREATED             STATUS              PORTS               NAMES</span><br><span class="line">e7e5d6331fbf        hub.c.163.com/public/centos   &quot;/bin/bash&quot;         27 seconds ago      Up 25 seconds       22/tcp              python-stady</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p>进入容器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">zlx@zlx-Inspiron-5547:~$ sudo docker exec -it python-stady /bin/bash</div><div class="line">[root@e7e5d6331fbf /]#</div></pre></td></tr></table></figure>
-<h2 id="初始化docker容器，因为docker容器只保留，创建docker容器者认为最重要的环境组件，所以一些基础的工具都没有安装，在此，我们是用于一个虚拟的学习环境，所以，一些基础的工具还是有必要安装一下"><a href="#初始化docker容器，因为docker容器只保留，创建docker容器者认为最重要的环境组件，所以一些基础的工具都没有安装，在此，我们是用于一个虚拟的学习环境，所以，一些基础的工具还是有必要安装一下" class="headerlink" title="初始化docker容器，因为docker容器只保留，创建docker容器者认为最重要的环境组件，所以一些基础的工具都没有安装，在此，我们是用于一个虚拟的学习环境，所以，一些基础的工具还是有必要安装一下"></a>初始化docker容器，因为docker容器只保留，创建docker容器者认为最重要的环境组件，所以一些基础的工具都没有安装，在此，我们是用于一个虚拟的学习环境，所以，一些基础的工具还是有必要安装一下</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum install wget vim links -y   #安装wget vim</div><div class="line"> wget -O /etc/yum.repos.d/epel.repo  http://mirrors.aliyun.com/repo/epel-6.repo  # 使用阿里云epel源</div><div class="line">yum install python-pip  # 安装pip</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zlx@zlx-Inspiron-5547:~$ sudo docker exec -it python-stady /bin/bash</span><br><span class="line">[root@e7e5d6331fbf /]#</span><br></pre></td></tr></table></figure>
+<h2 id="初始化docker容器，因为docker容器只保留，创建docker容器者认为最重要的环境组件，所以一些基础的工具都没有安装，在此，我们是用于一个虚拟的学习环境，所以，一些基础的工具还是有必要安装一下"><a href="#初始化docker容器，因为docker容器只保留，创建docker容器者认为最重要的环境组件，所以一些基础的工具都没有安装，在此，我们是用于一个虚拟的学习环境，所以，一些基础的工具还是有必要安装一下" class="headerlink" title="初始化docker容器，因为docker容器只保留，创建docker容器者认为最重要的环境组件，所以一些基础的工具都没有安装，在此，我们是用于一个虚拟的学习环境，所以，一些基础的工具还是有必要安装一下"></a>初始化docker容器，因为docker容器只保留，创建docker容器者认为最重要的环境组件，所以一些基础的工具都没有安装，在此，我们是用于一个虚拟的学习环境，所以，一些基础的工具还是有必要安装一下</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install wget vim links -y   #安装wget vim</span><br><span class="line"> wget -O /etc/yum.repos.d/epel.repo  http://mirrors.aliyun.com/repo/epel-6.repo  # 使用阿里云epel源</span><br><span class="line">yum install python-pip  # 安装pip</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="pip加速，pip默认的下载服务器在国外，为了能流畅的安装python的模块，我们把pip的源换成国内"><a href="#pip加速，pip默认的下载服务器在国外，为了能流畅的安装python的模块，我们把pip的源换成国内" class="headerlink" title="pip加速，pip默认的下载服务器在国外，为了能流畅的安装python的模块，我们把pip的源换成国内"></a>pip加速，pip默认的下载服务器在国外，为了能流畅的安装python的模块，我们把pip的源换成国内</h2><ul>
 <li><p>第一种 参数形式，例如我们安装一个requests库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install requests -i http://mirrors.aliyun.com/pypi/simple/</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install requests -i http://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>第二种，修改配置文件（推荐使用）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@e7e5d6331fbf ~]# cat .pip/pip.conf</div><div class="line">[global]</div><div class="line">index-url = http://mirrors.aliyun.com/pypi/simple/</div><div class="line">[install]</div><div class="line">trusted-host=mirrors.aliyun.com</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@e7e5d6331fbf ~]# cat .pip/pip.conf</span><br><span class="line">[global]</span><br><span class="line">index-url = http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">[install]</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>测试，可以看到下载速度很快，所以建议大家把pip源修改成国内，避免在开发过程中，因为下载某个模块而耽误时间</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Collecting bpython</div><div class="line">  Downloading http://mirrors.aliyun.com/pypi/packages/12/11/d33d140ce18dad4c8bc7702dcfcd87280f5c549859ad9054f91df0a0c72d/bpython-0.16-py2.py3-none-any.whl (180kB)</div><div class="line">    100% |################################| 184kB 1.4MB/s</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Collecting bpython</span><br><span class="line">  Downloading http://mirrors.aliyun.com/pypi/packages/12/11/d33d140ce18dad4c8bc7702dcfcd87280f5c549859ad9054f91df0a0c72d/bpython-0.16-py2.py3-none-any.whl (180kB)</span><br><span class="line">    100% |################################| 184kB 1.4MB/s</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <blockquote>
-<p>如果使用pip安装模块时出现error: command ‘gcc’ failed with exit status 1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install gcc libffi-devel python-devel openssl-devel</div></pre></td></tr></table></figure></p>
+<p>如果使用pip安装模块时出现error: command ‘gcc’ failed with exit status 1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc libffi-devel python-devel openssl-devel</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <h2 id="virtualenv使用（其实我们已经在docker种来运行python了，就不用安装virtaulenv，但是因为实际开发过程中virtualenv会起到很大的作用）"><a href="#virtualenv使用（其实我们已经在docker种来运行python了，就不用安装virtaulenv，但是因为实际开发过程中virtualenv会起到很大的作用）" class="headerlink" title="virtualenv使用（其实我们已经在docker种来运行python了，就不用安装virtaulenv，但是因为实际开发过程中virtualenv会起到很大的作用）"></a>virtualenv使用（其实我们已经在docker种来运行python了，就不用安装virtaulenv，但是因为实际开发过程中virtualenv会起到很大的作用）</h2><ul>
 <li><p>安装virtualenv模块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@e7e5d6331fbf /]# pip install virtualenv</div><div class="line">Collecting virtualenv</div><div class="line">  Downloading http://mirrors.aliyun.com/pypi/packages/6f/86/3dc328ee7b1a6419ebfac7896d882fba83c48e3561d22ddddf38294d3e83/virtualenv-15.1.0-py2.py3-none-any.whl (1.8MB)</div><div class="line">    100% |################################| 1.8MB 3.2MB/s</div><div class="line">Installing collected packages: virtualenv</div><div class="line">Successfully installed virtualenv-15.1.0</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@e7e5d6331fbf /]# pip install virtualenv</span><br><span class="line">Collecting virtualenv</span><br><span class="line">  Downloading http://mirrors.aliyun.com/pypi/packages/6f/86/3dc328ee7b1a6419ebfac7896d882fba83c48e3561d22ddddf38294d3e83/virtualenv-15.1.0-py2.py3-none-any.whl (1.8MB)</span><br><span class="line">    100% |################################| 1.8MB 3.2MB/s</span><br><span class="line">Installing collected packages: virtualenv</span><br><span class="line">Successfully installed virtualenv-15.1.0</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>创建虚拟python环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@e7e5d6331fbf /]# virtualenv /opt/python-study --no-site-packages</div><div class="line">New python executable in /opt/python-study/bin/python</div><div class="line">Installing setuptools, pip, wheel...done.</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@e7e5d6331fbf /]# virtualenv /opt/python-study --no-site-packages</span><br><span class="line">New python executable in /opt/python-study/bin/python</span><br><span class="line">Installing setuptools, pip, wheel...done.</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <blockquote>
 <p>–no-site-packages 是创建虚拟环境时，不安装site-packages目录下的模块</p>
 <ul>
-<li>进入虚拟环境目录，激活虚拟环境<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@e7e5d6331fbf bin]# cd /opt/python-study/bin/</div><div class="line">[root@e7e5d6331fbf bin]# source activate</div><div class="line">(python-study) [root@e7e5d6331fbf bin]#</div></pre></td></tr></table></figure>
+<li>进入虚拟环境目录，激活虚拟环境<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@e7e5d6331fbf bin]# cd /opt/python-study/bin/</span><br><span class="line">[root@e7e5d6331fbf bin]# source activate</span><br><span class="line">(python-study) [root@e7e5d6331fbf bin]#</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
@@ -363,8 +363,8 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2019/01/22/zabbix自定义模板应用触发器创建/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">zabbix自定义模板应用监控项创建</div>
+    <a href="/2019/01/22/一文总结nginx常见用法及故障/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">一文总结nginx常见用法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -493,14 +493,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
               </li>
              
@@ -517,6 +509,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
@@ -529,6 +529,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
@@ -537,11 +541,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -550,26 +554,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">openvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -585,15 +569,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -602,6 +594,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
               </li>
             
             <div class="clearfix"></div>

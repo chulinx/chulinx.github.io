@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Proxmox VE虚拟化服务器添加硬盘 | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -200,12 +200,12 @@ var _hmt = _hmt || [];
 <p>公司业务需求需要在虚拟化服务器上添加4T的硬盘，特记录一下，以供备用</p>
 </blockquote>
 <a id="more"></a>
-<h4 id="因为添加硬盘大小超过2T，所以常规的fdisk工具就不能使用了，这里使用的parted工具"><a href="#因为添加硬盘大小超过2T，所以常规的fdisk工具就不能使用了，这里使用的parted工具" class="headerlink" title="因为添加硬盘大小超过2T，所以常规的fdisk工具就不能使用了，这里使用的parted工具"></a>因为添加硬盘大小超过2T，所以常规的fdisk工具就不能使用了，这里使用的parted工具</h4><h5 id="列出磁盘列表"><a href="#列出磁盘列表" class="headerlink" title="列出磁盘列表"></a>列出磁盘列表</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">root@vhpve03:~# parted -l</div><div class="line">Model: ATA WDC WD4000FYYZ-0 (scsi)</div><div class="line">Disk /dev/sda: 4001GB</div><div class="line">Sector size (logical/physical): 512B/512B</div><div class="line">Partition Table: msdos</div><div class="line">Disk Flags:</div><div class="line"></div><div class="line">Number  Start   End     Size    Type     File system  Flags</div><div class="line"> 1      1049kB  2199GB  2199GB  primary               lvm</div><div class="line"></div><div class="line"></div><div class="line">Model: DELL PERC H330 Mini (scsi)</div><div class="line">Disk /dev/sdb: 1000GB</div><div class="line">Sector size (logical/physical): 512B/512B</div><div class="line">Partition Table: gpt</div><div class="line">Disk Flags:</div><div class="line"></div><div class="line">Number  Start   End     Size    File system  Name                  Flags</div><div class="line"> 1      1049kB  2097kB  1049kB               Grub-Boot-Partition   bios_grub</div><div class="line"> 2      2097kB  136MB   134MB   fat32        EFI-System-Partition  boot, esp</div><div class="line"> 3      136MB   1000GB  1000GB               PVE-LVM2-Partition    lvm</div></pre></td></tr></table></figure>
-<h4 id="可以看出系统现在有两块磁盘，model就是磁盘对应的型号，操作前一定注意磁盘型号，以免操作错误，造成数据丢失"><a href="#可以看出系统现在有两块磁盘，model就是磁盘对应的型号，操作前一定注意磁盘型号，以免操作错误，造成数据丢失" class="headerlink" title="可以看出系统现在有两块磁盘，model就是磁盘对应的型号，操作前一定注意磁盘型号，以免操作错误，造成数据丢失"></a>可以看出系统现在有两块磁盘，model就是磁盘对应的型号，操作前一定注意磁盘型号，以免操作错误，造成数据丢失</h4><h5 id="进入硬盘，显示分区"><a href="#进入硬盘，显示分区" class="headerlink" title="进入硬盘，显示分区"></a>进入硬盘，显示分区</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">root@vhpve03:~# parted /dev/sda</div><div class="line">GNU Parted 3.2</div><div class="line">Using /dev/sda</div><div class="line">Welcome to GNU Parted! Type &apos;help&apos; to view a list of commands.</div><div class="line">(parted) p                                                                </div><div class="line">Model: ATA WDC WD4000FYYZ-0 (scsi)</div><div class="line">Disk /dev/sda: 4001GB</div><div class="line">Sector size (logical/physical): 512B/512B</div><div class="line">Partition Table: msdos</div><div class="line">Disk Flags:</div><div class="line"></div><div class="line">Number  Start   End     Size    Type     File system  Flags</div><div class="line"> 1      1049kB  2199GB  2199GB  primary               lvm</div><div class="line"></div><div class="line">(parted)</div></pre></td></tr></table></figure>
-<h4 id="创建分区，一般步骤为创建一般步骤为创建disklable—-gt-创建分区—–-gt-格式分区—–-gt-挂载分区"><a href="#创建分区，一般步骤为创建一般步骤为创建disklable—-gt-创建分区—–-gt-格式分区—–-gt-挂载分区" class="headerlink" title="创建分区，一般步骤为创建一般步骤为创建disklable—-&gt;创建分区—–&gt;格式分区—–&gt;挂载分区"></a>创建分区，一般步骤为创建一般步骤为创建disklable—-&gt;创建分区—–&gt;格式分区—–&gt;挂载分区</h4><h5 id="创建分区"><a href="#创建分区" class="headerlink" title="创建分区"></a>创建分区</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">##创建 gpt格式的disklable，warnging提示会删除硬盘中的所有数据，确定此硬盘为要操作的硬盘后yes即可</div><div class="line">(parted) mklabel gpt</div><div class="line">Warning: The existing disk label on /dev/sda will be destroyed and all data on this disk will be lost. Do you want</div><div class="line">to continue?</div><div class="line">Yes/No? yes                                                  </div><div class="line">### 创建分区  输入分区名---&gt;文件系统---&gt;起始点---&gt;结束点                 </div><div class="line">(parted) mkpart</div><div class="line">Partition name?  []? data                                                 </div><div class="line">File system type?  [ext2]? ext4                                           </div><div class="line">Start? 1                                                                  </div><div class="line">End? 4001G</div><div class="line">(parted) q</div></pre></td></tr></table></figure>
-<h5 id="格式化分区"><a href="#格式化分区" class="headerlink" title="格式化分区"></a>格式化分区</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">root@vhpve03:~# mkfs.ext4 /dev/sda1</div><div class="line">mke2fs 1.42.5 (29-Jul-2012)</div><div class="line">Filesystem label=</div><div class="line">OS type: Linux</div><div class="line">Block size=4096 (log=2)</div><div class="line">Fragment size=4096 (log=2)</div><div class="line">Stride=0 blocks, Stripe width=0 blocks</div><div class="line">244195328 inodes, 976754176 blocks</div><div class="line">48837708 blocks (5.00%) reserved for the super user</div><div class="line">First data block=0</div><div class="line">Maximum filesystem blocks=4294967296</div><div class="line">29809 block groups</div><div class="line">32768 blocks per group, 32768 fragments per group</div><div class="line">8192 inodes per group</div><div class="line">Superblock backups stored on blocks:</div><div class="line">	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,</div><div class="line">	4096000, 7962624, 11239424, 20480000, 23887872, 71663616, 78675968,</div><div class="line">	102400000, 214990848, 512000000, 550731776, 644972544</div><div class="line"></div><div class="line">Allocating group tables: done                            </div><div class="line">Writing inode tables: done                            </div><div class="line">Creating journal (32768 blocks): done</div><div class="line">Writing superblocks and filesystem accounting information: done</div></pre></td></tr></table></figure>
-<h5 id="挂载分区"><a href="#挂载分区" class="headerlink" title="挂载分区"></a>挂载分区</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">root@vhpve03:~# mkdir /datacenter</div><div class="line">root@vhpve03:~# mount /dev/sda1 /datacenter/</div><div class="line">[root@localhost CDH]# vim /etc/fstab</div><div class="line">/dev/sda1               /data                   ext4    defaults 0 0</div></pre></td></tr></table></figure>
-<h5 id="添加到promox集群"><a href="#添加到promox集群" class="headerlink" title="添加到promox集群"></a>添加到promox集群</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pvesm add datacenter  -type dir --path /datacenter</div></pre></td></tr></table></figure>
+<h4 id="因为添加硬盘大小超过2T，所以常规的fdisk工具就不能使用了，这里使用的parted工具"><a href="#因为添加硬盘大小超过2T，所以常规的fdisk工具就不能使用了，这里使用的parted工具" class="headerlink" title="因为添加硬盘大小超过2T，所以常规的fdisk工具就不能使用了，这里使用的parted工具"></a>因为添加硬盘大小超过2T，所以常规的fdisk工具就不能使用了，这里使用的parted工具</h4><h5 id="列出磁盘列表"><a href="#列出磁盘列表" class="headerlink" title="列出磁盘列表"></a>列出磁盘列表</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">root@vhpve03:~# parted -l</span><br><span class="line">Model: ATA WDC WD4000FYYZ-0 (scsi)</span><br><span class="line">Disk /dev/sda: 4001GB</span><br><span class="line">Sector size (logical/physical): 512B/512B</span><br><span class="line">Partition Table: msdos</span><br><span class="line">Disk Flags:</span><br><span class="line"></span><br><span class="line">Number  Start   End     Size    Type     File system  Flags</span><br><span class="line"> 1      1049kB  2199GB  2199GB  primary               lvm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Model: DELL PERC H330 Mini (scsi)</span><br><span class="line">Disk /dev/sdb: 1000GB</span><br><span class="line">Sector size (logical/physical): 512B/512B</span><br><span class="line">Partition Table: gpt</span><br><span class="line">Disk Flags:</span><br><span class="line"></span><br><span class="line">Number  Start   End     Size    File system  Name                  Flags</span><br><span class="line"> 1      1049kB  2097kB  1049kB               Grub-Boot-Partition   bios_grub</span><br><span class="line"> 2      2097kB  136MB   134MB   fat32        EFI-System-Partition  boot, esp</span><br><span class="line"> 3      136MB   1000GB  1000GB               PVE-LVM2-Partition    lvm</span><br></pre></td></tr></table></figure>
+<h4 id="可以看出系统现在有两块磁盘，model就是磁盘对应的型号，操作前一定注意磁盘型号，以免操作错误，造成数据丢失"><a href="#可以看出系统现在有两块磁盘，model就是磁盘对应的型号，操作前一定注意磁盘型号，以免操作错误，造成数据丢失" class="headerlink" title="可以看出系统现在有两块磁盘，model就是磁盘对应的型号，操作前一定注意磁盘型号，以免操作错误，造成数据丢失"></a>可以看出系统现在有两块磁盘，model就是磁盘对应的型号，操作前一定注意磁盘型号，以免操作错误，造成数据丢失</h4><h5 id="进入硬盘，显示分区"><a href="#进入硬盘，显示分区" class="headerlink" title="进入硬盘，显示分区"></a>进入硬盘，显示分区</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">root@vhpve03:~# parted /dev/sda</span><br><span class="line">GNU Parted 3.2</span><br><span class="line">Using /dev/sda</span><br><span class="line">Welcome to GNU Parted! Type &apos;help&apos; to view a list of commands.</span><br><span class="line">(parted) p                                                                </span><br><span class="line">Model: ATA WDC WD4000FYYZ-0 (scsi)</span><br><span class="line">Disk /dev/sda: 4001GB</span><br><span class="line">Sector size (logical/physical): 512B/512B</span><br><span class="line">Partition Table: msdos</span><br><span class="line">Disk Flags:</span><br><span class="line"></span><br><span class="line">Number  Start   End     Size    Type     File system  Flags</span><br><span class="line"> 1      1049kB  2199GB  2199GB  primary               lvm</span><br><span class="line"></span><br><span class="line">(parted)</span><br></pre></td></tr></table></figure>
+<h4 id="创建分区，一般步骤为创建一般步骤为创建disklable—-gt-创建分区—–-gt-格式分区—–-gt-挂载分区"><a href="#创建分区，一般步骤为创建一般步骤为创建disklable—-gt-创建分区—–-gt-格式分区—–-gt-挂载分区" class="headerlink" title="创建分区，一般步骤为创建一般步骤为创建disklable—-&gt;创建分区—–&gt;格式分区—–&gt;挂载分区"></a>创建分区，一般步骤为创建一般步骤为创建disklable—-&gt;创建分区—–&gt;格式分区—–&gt;挂载分区</h4><h5 id="创建分区"><a href="#创建分区" class="headerlink" title="创建分区"></a>创建分区</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">##创建 gpt格式的disklable，warnging提示会删除硬盘中的所有数据，确定此硬盘为要操作的硬盘后yes即可</span><br><span class="line">(parted) mklabel gpt</span><br><span class="line">Warning: The existing disk label on /dev/sda will be destroyed and all data on this disk will be lost. Do you want</span><br><span class="line">to continue?</span><br><span class="line">Yes/No? yes                                                  </span><br><span class="line">### 创建分区  输入分区名---&gt;文件系统---&gt;起始点---&gt;结束点                 </span><br><span class="line">(parted) mkpart</span><br><span class="line">Partition name?  []? data                                                 </span><br><span class="line">File system type?  [ext2]? ext4                                           </span><br><span class="line">Start? 1                                                                  </span><br><span class="line">End? 4001G</span><br><span class="line">(parted) q</span><br></pre></td></tr></table></figure>
+<h5 id="格式化分区"><a href="#格式化分区" class="headerlink" title="格式化分区"></a>格式化分区</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">root@vhpve03:~# mkfs.ext4 /dev/sda1</span><br><span class="line">mke2fs 1.42.5 (29-Jul-2012)</span><br><span class="line">Filesystem label=</span><br><span class="line">OS type: Linux</span><br><span class="line">Block size=4096 (log=2)</span><br><span class="line">Fragment size=4096 (log=2)</span><br><span class="line">Stride=0 blocks, Stripe width=0 blocks</span><br><span class="line">244195328 inodes, 976754176 blocks</span><br><span class="line">48837708 blocks (5.00%) reserved for the super user</span><br><span class="line">First data block=0</span><br><span class="line">Maximum filesystem blocks=4294967296</span><br><span class="line">29809 block groups</span><br><span class="line">32768 blocks per group, 32768 fragments per group</span><br><span class="line">8192 inodes per group</span><br><span class="line">Superblock backups stored on blocks:</span><br><span class="line">	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,</span><br><span class="line">	4096000, 7962624, 11239424, 20480000, 23887872, 71663616, 78675968,</span><br><span class="line">	102400000, 214990848, 512000000, 550731776, 644972544</span><br><span class="line"></span><br><span class="line">Allocating group tables: done                            </span><br><span class="line">Writing inode tables: done                            </span><br><span class="line">Creating journal (32768 blocks): done</span><br><span class="line">Writing superblocks and filesystem accounting information: done</span><br></pre></td></tr></table></figure>
+<h5 id="挂载分区"><a href="#挂载分区" class="headerlink" title="挂载分区"></a>挂载分区</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@vhpve03:~# mkdir /datacenter</span><br><span class="line">root@vhpve03:~# mount /dev/sda1 /datacenter/</span><br><span class="line">[root@localhost CDH]# vim /etc/fstab</span><br><span class="line">/dev/sda1               /data                   ext4    defaults 0 0</span><br></pre></td></tr></table></figure>
+<h5 id="添加到promox集群"><a href="#添加到promox集群" class="headerlink" title="添加到promox集群"></a>添加到promox集群</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pvesm add datacenter  -type dir --path /datacenter</span><br></pre></td></tr></table></figure>
 
       
 
@@ -444,14 +444,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
               </li>
              
@@ -468,6 +460,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
@@ -480,6 +480,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
@@ -488,11 +492,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,26 +505,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">openvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -536,15 +520,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -553,6 +545,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
               </li>
             
             <div class="clearfix"></div>

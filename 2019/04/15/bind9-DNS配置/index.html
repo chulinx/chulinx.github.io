@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -47,7 +47,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -180,15 +180,15 @@ var _hmt = _hmt || [];
         <h1 id="ubuntu-bind9-Dns配置"><a href="#ubuntu-bind9-Dns配置" class="headerlink" title="ubuntu bind9 Dns配置"></a>ubuntu bind9 Dns配置</h1><blockquote>
 <p>最近在搞kubernetes的CICD，是基于gitlab Autocicd 来做的，Autocicd 有个要求就是要配置一个dns泛解析，所以自己就搭建一个，故记录一下</p>
 </blockquote>
-<h3 id="安装bind9"><a href="#安装bind9" class="headerlink" title="安装bind9"></a>安装bind9</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install bind9</div></pre></td></tr></table></figure>
-<h3 id="配置主配置文件name-conf-local-增加以下内容"><a href="#配置主配置文件name-conf-local-增加以下内容" class="headerlink" title="配置主配置文件name.conf.local,增加以下内容"></a>配置主配置文件name.conf.local,增加以下内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zone &quot;testk8s.cn&quot;  &#123; type master; file &quot;/var/cache/bind/db.test8s.cn&quot;; &#125;;</div></pre></td></tr></table></figure>
-<h3 id="新增db-test8s-cn解析文件-var-cache-bind-db-test8s-cn"><a href="#新增db-test8s-cn解析文件-var-cache-bind-db-test8s-cn" class="headerlink" title="新增db.test8s.cn解析文件/var/cache/bind/db.test8s.cn"></a>新增db.test8s.cn解析文件/var/cache/bind/db.test8s.cn</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$TTL	86400</div><div class="line">@	IN	SOA	localhost. root.localhost. (</div><div class="line">			      1		; Serial</div><div class="line">			 604800		; Refresh</div><div class="line">			  86400		; Retry</div><div class="line">			2419200		; Expire</div><div class="line">			  86400 )	; Negative Cache TTL</div><div class="line">;</div><div class="line">@	IN	NS	localhost.</div><div class="line">*.testk8s.cn.	IN A	192.168.137.102</div></pre></td></tr></table></figure>
-<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo systemctl restart bind9</div></pre></td></tr></table></figure>
-<h4 id="本机测试"><a href="#本机测试" class="headerlink" title="本机测试"></a>本机测试</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">nslookup test.10010k8s.cn</div><div class="line">Server:		127.0.0.1</div><div class="line">Address:	127.0.0.1#53</div><div class="line"></div><div class="line">Name:	test.testk8s.cn</div><div class="line">Address: 192.168.137.102</div></pre></td></tr></table></figure>
+<h3 id="安装bind9"><a href="#安装bind9" class="headerlink" title="安装bind9"></a>安装bind9</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install bind9</span><br></pre></td></tr></table></figure>
+<h3 id="配置主配置文件name-conf-local-增加以下内容"><a href="#配置主配置文件name-conf-local-增加以下内容" class="headerlink" title="配置主配置文件name.conf.local,增加以下内容"></a>配置主配置文件name.conf.local,增加以下内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zone &quot;testk8s.cn&quot;  &#123; type master; file &quot;/var/cache/bind/db.test8s.cn&quot;; &#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="新增db-test8s-cn解析文件-var-cache-bind-db-test8s-cn"><a href="#新增db-test8s-cn解析文件-var-cache-bind-db-test8s-cn" class="headerlink" title="新增db.test8s.cn解析文件/var/cache/bind/db.test8s.cn"></a>新增db.test8s.cn解析文件/var/cache/bind/db.test8s.cn</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$TTL	86400</span><br><span class="line">@	IN	SOA	localhost. root.localhost. (</span><br><span class="line">			      1		; Serial</span><br><span class="line">			 604800		; Refresh</span><br><span class="line">			  86400		; Retry</span><br><span class="line">			2419200		; Expire</span><br><span class="line">			  86400 )	; Negative Cache TTL</span><br><span class="line">;</span><br><span class="line">@	IN	NS	localhost.</span><br><span class="line">*.testk8s.cn.	IN A	192.168.137.102</span><br></pre></td></tr></table></figure>
+<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart bind9</span><br></pre></td></tr></table></figure>
+<h4 id="本机测试"><a href="#本机测试" class="headerlink" title="本机测试"></a>本机测试</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nslookup test.10010k8s.cn</span><br><span class="line">Server:		127.0.0.1</span><br><span class="line">Address:	127.0.0.1#53</span><br><span class="line"></span><br><span class="line">Name:	test.testk8s.cn</span><br><span class="line">Address: 192.168.137.102</span><br></pre></td></tr></table></figure>
 <h3 id="更改k8s-coredns配置"><a href="#更改k8s-coredns配置" class="headerlink" title="更改k8s-coredns配置"></a>更改k8s-coredns配置</h3><blockquote>
-<p>这段配置大概意思是说，testk8s.cn 的所有域名解析 都转发到192.168.137.205<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">testk8s.cn:53 &#123;</div><div class="line">    errors</div><div class="line">    cache 30</div><div class="line">    proxy . 192.168.137.205 //dns地址</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这段配置大概意思是说，testk8s.cn 的所有域名解析 都转发到192.168.137.205<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">testk8s.cn:53 &#123;</span><br><span class="line">    errors</span><br><span class="line">    cache 30</span><br><span class="line">    proxy . 192.168.137.205 //dns地址</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h3 id="容器内测试解析"><a href="#容器内测试解析" class="headerlink" title="容器内测试解析"></a>容器内测试解析</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ [K8sDev] kubectl exec -it -n gitlab centos7 nslookup aa.10010k8s.cn</div><div class="line">Server:		10.96.0.10</div><div class="line">Address:	10.96.0.10#53</div><div class="line"></div><div class="line">Name:	aa.testk8s.cn</div><div class="line">Address: 192.168.137.102</div></pre></td></tr></table></figure>
+<h3 id="容器内测试解析"><a href="#容器内测试解析" class="headerlink" title="容器内测试解析"></a>容器内测试解析</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ [K8sDev] kubectl exec -it -n gitlab centos7 nslookup aa.10010k8s.cn</span><br><span class="line">Server:		10.96.0.10</span><br><span class="line">Address:	10.96.0.10#53</span><br><span class="line"></span><br><span class="line">Name:	aa.testk8s.cn</span><br><span class="line">Address: 192.168.137.102</span><br></pre></td></tr></table></figure>
 
       
 
@@ -392,14 +392,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
               </li>
              
@@ -416,6 +408,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
@@ -428,6 +428,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
@@ -436,11 +440,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -449,26 +453,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">openvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -484,15 +468,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,6 +493,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
               </li>
             
             <div class="clearfix"></div>

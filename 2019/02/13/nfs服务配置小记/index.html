@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Centos nfs服务配置小记 | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -214,17 +214,17 @@ var _hmt = _hmt || [];
 </tbody>
 </table>
 <a id="more"></a>
-<h3 id="服务端安装配置"><a href="#服务端安装配置" class="headerlink" title="服务端安装配置"></a>服务端安装配置</h3><h4 id="服务端安装"><a href="#服务端安装" class="headerlink" title="服务端安装"></a>服务端安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install nfs-utils rpcbind  -y</div></pre></td></tr></table></figure>
+<h3 id="服务端安装配置"><a href="#服务端安装配置" class="headerlink" title="服务端安装配置"></a>服务端安装配置</h3><h4 id="服务端安装"><a href="#服务端安装" class="headerlink" title="服务端安装"></a>服务端安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install nfs-utils rpcbind  -y</span><br></pre></td></tr></table></figure>
 <h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><blockquote>
 <p>先启动rpcbind,再启动nfs服务</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo /etc/init.d/rpcbind start &amp;&amp; sudo /etc/init.d/nfs start</div><div class="line">sudo chkconfig rpcbind on &amp;&amp; sudo chkconfig nfs on</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/rpcbind start &amp;&amp; sudo /etc/init.d/nfs start</span><br><span class="line">sudo chkconfig rpcbind on &amp;&amp; sudo chkconfig nfs on</span><br></pre></td></tr></table></figure>
 <h4 id="配置访问规则"><a href="#配置访问规则" class="headerlink" title="配置访问规则"></a>配置访问规则</h4><blockquote>
 <p>下面👇规则的意思就是 允许172.23.1.0网段的客户机挂载/mds目录，权限为读写</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vim /etc/<span class="built_in">export</span></div><div class="line">/mds   172.23.1.0/24(rw,sync)</div></pre></td></tr></table></figure>
-<h4 id="重启nfs服务"><a href="#重启nfs服务" class="headerlink" title="重启nfs服务"></a>重启nfs服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /etc/init.d/nfs reload</div></pre></td></tr></table></figure>
-<h3 id="客户端挂载"><a href="#客户端挂载" class="headerlink" title="客户端挂载"></a>客户端挂载</h3><h4 id="挂载172-23-1-51到本地-data目录"><a href="#挂载172-23-1-51到本地-data目录" class="headerlink" title="挂载172.23.1.51到本地/data目录"></a>挂载172.23.1.51到本地/data目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir /data</div><div class="line">sudo mount -t nfs 172.23.1.51:/mds /data</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/<span class="built_in">export</span></span><br><span class="line">/mds   172.23.1.0/24(rw,sync)</span><br></pre></td></tr></table></figure>
+<h4 id="重启nfs服务"><a href="#重启nfs服务" class="headerlink" title="重启nfs服务"></a>重启nfs服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/nfs reload</span><br></pre></td></tr></table></figure>
+<h3 id="客户端挂载"><a href="#客户端挂载" class="headerlink" title="客户端挂载"></a>客户端挂载</h3><h4 id="挂载172-23-1-51到本地-data目录"><a href="#挂载172-23-1-51到本地-data目录" class="headerlink" title="挂载172.23.1.51到本地/data目录"></a>挂载172.23.1.51到本地/data目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /data</span><br><span class="line">sudo mount -t nfs 172.23.1.51:/mds /data</span><br></pre></td></tr></table></figure>
 
       
 
@@ -472,14 +472,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
               </li>
              
@@ -496,6 +488,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
@@ -508,6 +508,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
@@ -516,11 +520,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,26 +533,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">openvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -564,15 +548,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -581,6 +573,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
               </li>
             
             <div class="clearfix"></div>

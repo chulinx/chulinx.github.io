@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>docker三剑客之docker-swarm | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -206,34 +206,34 @@ var _hmt = _hmt || [];
 </li>
 </ol>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">➜  ~ docker run swarm --help</div><div class="line">Unable to find image &apos;swarm:latest&apos; locally</div><div class="line">latest: Pulling from library/swarm</div><div class="line">ad8c679cee1a: Pull complete</div><div class="line">97186f5f56a9: Pull complete</div><div class="line">821a304aaa0d: Pull complete</div><div class="line">Digest: sha256:1a05498cfafa8ec767b0d87d11d3b4aeab54e9c99449fead2b3df82d2744d345</div><div class="line">Status: Downloaded newer image for swarm:latest</div><div class="line">Usage: swarm [OPTIONS] COMMAND [arg...]</div><div class="line"></div><div class="line">A Docker-native clustering system</div><div class="line"></div><div class="line">Version: 1.2.8 (48d86b1)</div><div class="line"></div><div class="line">Options:</div><div class="line">  --debug			debug mode [$DEBUG]</div><div class="line">  --log-level, -l &quot;info&quot;	Log level (options: debug, info, warn, error, fatal, panic)</div><div class="line">  --experimental		enable experimental features</div><div class="line">  --help, -h			show help</div><div class="line">  --version, -v			print the version</div><div class="line"></div><div class="line">Commands:</div><div class="line">  create, c	Create a cluster</div><div class="line">  list, l	List nodes in a cluster</div><div class="line">  manage, m	Manage a docker cluster</div><div class="line">  join, j	Join a docker cluster</div><div class="line">  help		Shows a list of commands or help for one command</div><div class="line"></div><div class="line">Run &apos;swarm COMMAND --help&apos; for more information on a command.</div></pre></td></tr></table></figure>
-<ol>
-<li><p>从源码编译成二进制文件<br>在此不做赘述 具体方法可以参考<a href="https://github.com/docker/swarm/blob/master/CONTRIBUTING.md" target="_blank" rel="external">github</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ docker run swarm --help</span><br><span class="line">Unable to find image &apos;swarm:latest&apos; locally</span><br><span class="line">latest: Pulling from library/swarm</span><br><span class="line">ad8c679cee1a: Pull complete</span><br><span class="line">97186f5f56a9: Pull complete</span><br><span class="line">821a304aaa0d: Pull complete</span><br><span class="line">Digest: sha256:1a05498cfafa8ec767b0d87d11d3b4aeab54e9c99449fead2b3df82d2744d345</span><br><span class="line">Status: Downloaded newer image for swarm:latest</span><br><span class="line">Usage: swarm [OPTIONS] COMMAND [arg...]</span><br><span class="line"></span><br><span class="line">A Docker-native clustering system</span><br><span class="line"></span><br><span class="line">Version: 1.2.8 (48d86b1)</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  --debug			debug mode [$DEBUG]</span><br><span class="line">  --log-level, -l &quot;info&quot;	Log level (options: debug, info, warn, error, fatal, panic)</span><br><span class="line">  --experimental		enable experimental features</span><br><span class="line">  --help, -h			show help</span><br><span class="line">  --version, -v			print the version</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">  create, c	Create a cluster</span><br><span class="line">  list, l	List nodes in a cluster</span><br><span class="line">  manage, m	Manage a docker cluster</span><br><span class="line">  join, j	Join a docker cluster</span><br><span class="line">  help		Shows a list of commands or help for one command</span><br><span class="line"></span><br><span class="line">Run &apos;swarm COMMAND --help&apos; for more information on a command.</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>从源码编译成二进制文件<br>在此不做赘述 具体方法可以参考<a href="https://github.com/docker/swarm/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener">github</a></p>
 </li>
 <li><p>mac os docker安装包集成了docker swarm，所以这也是一种最简便的安装方式</p>
 </li>
 </ol>
 <h3 id="了解swarm集群-从创建一个简单的swram群集开始"><a href="#了解swarm集群-从创建一个简单的swram群集开始" class="headerlink" title="了解swarm集群 从创建一个简单的swram群集开始"></a>了解swarm集群 从创建一个简单的swram群集开始</h3><ol>
 <li><p>创建一个keystory主机用于分发全球唯一的秘钥,并切换至keystory docker主机</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">➜  ~ docker-machine create -d virtualbox --engine-install-url=https://get.daocloud.io/docker/ keystory</div><div class="line">Running pre-create checks...</div><div class="line">Creating machine...</div><div class="line">(keystory) Copying /Users/zlx/.docker/machine/cache/boot2docker.iso to /Users/zlx/.docker/machine/machines/keystory/boot2docker.iso...</div><div class="line">(keystory) Creating VirtualBox VM...</div><div class="line">(keystory) Creating SSH key...</div><div class="line">(keystory) Starting the VM...</div><div class="line">(keystory) Check network to re-create if needed...</div><div class="line">(keystory) Waiting for an IP...</div><div class="line">Waiting for machine to be running, this may take a few minutes...</div><div class="line">Detecting operating system of created instance...</div><div class="line">Waiting for SSH to be available...</div><div class="line">Detecting the provisioner...</div><div class="line">Provisioning with boot2docker...</div><div class="line">Copying certs to the local machine directory...</div><div class="line">Copying certs to the remote machine...</div><div class="line">Setting Docker configuration on the remote daemon...</div><div class="line">Checking connection to Docker...</div><div class="line">Docker is up and running!</div><div class="line">To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env keystory</div><div class="line">➜  ~ eval $(docker-machine env keystory)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ docker-machine create -d virtualbox --engine-install-url=https://get.daocloud.io/docker/ keystory</span><br><span class="line">Running pre-create checks...</span><br><span class="line">Creating machine...</span><br><span class="line">(keystory) Copying /Users/zlx/.docker/machine/cache/boot2docker.iso to /Users/zlx/.docker/machine/machines/keystory/boot2docker.iso...</span><br><span class="line">(keystory) Creating VirtualBox VM...</span><br><span class="line">(keystory) Creating SSH key...</span><br><span class="line">(keystory) Starting the VM...</span><br><span class="line">(keystory) Check network to re-create if needed...</span><br><span class="line">(keystory) Waiting for an IP...</span><br><span class="line">Waiting for machine to be running, this may take a few minutes...</span><br><span class="line">Detecting operating system of created instance...</span><br><span class="line">Waiting for SSH to be available...</span><br><span class="line">Detecting the provisioner...</span><br><span class="line">Provisioning with boot2docker...</span><br><span class="line">Copying certs to the local machine directory...</span><br><span class="line">Copying certs to the remote machine...</span><br><span class="line">Setting Docker configuration on the remote daemon...</span><br><span class="line">Checking connection to Docker...</span><br><span class="line">Docker is up and running!</span><br><span class="line">To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env keystory</span><br><span class="line">➜  ~ eval $(docker-machine env keystory)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>创建swarm秘钥</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">➜  ~ docker create swarm</div><div class="line">Unable to find image &apos;swarm:latest&apos; locally</div><div class="line">latest: Pulling from library/swarm</div><div class="line">ad8c679cee1a: Pull complete</div><div class="line">97186f5f56a9: Pull complete</div><div class="line">821a304aaa0d: Pull complete</div><div class="line">Digest: sha256:1a05498cfafa8ec767b0d87d11d3b4aeab54e9c99449fead2b3df82d2744d345</div><div class="line">Status: Downloaded newer image for swarm:latest</div><div class="line">4bed323ad0b4f17ac960c427bd38e6111e5df1e1851f6f597bcd738901631034</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ docker create swarm</span><br><span class="line">Unable to find image &apos;swarm:latest&apos; locally</span><br><span class="line">latest: Pulling from library/swarm</span><br><span class="line">ad8c679cee1a: Pull complete</span><br><span class="line">97186f5f56a9: Pull complete</span><br><span class="line">821a304aaa0d: Pull complete</span><br><span class="line">Digest: sha256:1a05498cfafa8ec767b0d87d11d3b4aeab54e9c99449fead2b3df82d2744d345</span><br><span class="line">Status: Downloaded newer image for swarm:latest</span><br><span class="line">4bed323ad0b4f17ac960c427bd38e6111e5df1e1851f6f597bcd738901631034</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>记下秘钥串：<br>（4bed323ad0b4f17ac960c427bd38e6111e5df1e1851f6f597bcd738901631034）</p>
-<ol>
+<ol start="3">
 <li><p>创建swarm-msater</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">➜  ~ docker-machine create -d virtualbox \</div><div class="line">&gt; --swarm-master \</div><div class="line">&gt; --swarm \</div><div class="line">&gt; --swarm-discovery token://4bed323ad0b4f17ac960c427bd38e6111e5df1e1851f6f597bcd738901631034 \</div><div class="line">&gt; swarm-master</div><div class="line">Running pre-create checks...</div><div class="line">Creating machine...</div><div class="line">(swarm-master) Copying /Users/zlx/.docker/machine/cache/boot2docker.iso to /Users/zlx/.docker/machine/machines/swarm-master/boot2docker.iso...</div><div class="line">(swarm-master) Creating VirtualBox VM...</div><div class="line">(swarm-master) Creating SSH key...</div><div class="line">(swarm-master) Starting the VM...</div><div class="line">(swarm-master) Check network to re-create if needed...</div><div class="line">(swarm-master) Waiting for an IP...</div><div class="line">Waiting for machine to be running, this may take a few minutes...</div><div class="line">Detecting operating system of created instance...</div><div class="line">Waiting for SSH to be available...</div><div class="line">Detecting the provisioner...</div><div class="line">Provisioning with boot2docker...</div><div class="line">Copying certs to the local machine directory...</div><div class="line">Copying certs to the remote machine...</div><div class="line">Setting Docker configuration on the remote daemon...</div><div class="line">Configuring swarm...</div><div class="line">Checking connection to Docker...</div><div class="line">Docker is up and running!</div><div class="line">To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env swarm-master</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ docker-machine create -d virtualbox \</span><br><span class="line">&gt; --swarm-master \</span><br><span class="line">&gt; --swarm \</span><br><span class="line">&gt; --swarm-discovery token://4bed323ad0b4f17ac960c427bd38e6111e5df1e1851f6f597bcd738901631034 \</span><br><span class="line">&gt; swarm-master</span><br><span class="line">Running pre-create checks...</span><br><span class="line">Creating machine...</span><br><span class="line">(swarm-master) Copying /Users/zlx/.docker/machine/cache/boot2docker.iso to /Users/zlx/.docker/machine/machines/swarm-master/boot2docker.iso...</span><br><span class="line">(swarm-master) Creating VirtualBox VM...</span><br><span class="line">(swarm-master) Creating SSH key...</span><br><span class="line">(swarm-master) Starting the VM...</span><br><span class="line">(swarm-master) Check network to re-create if needed...</span><br><span class="line">(swarm-master) Waiting for an IP...</span><br><span class="line">Waiting for machine to be running, this may take a few minutes...</span><br><span class="line">Detecting operating system of created instance...</span><br><span class="line">Waiting for SSH to be available...</span><br><span class="line">Detecting the provisioner...</span><br><span class="line">Provisioning with boot2docker...</span><br><span class="line">Copying certs to the local machine directory...</span><br><span class="line">Copying certs to the remote machine...</span><br><span class="line">Setting Docker configuration on the remote daemon...</span><br><span class="line">Configuring swarm...</span><br><span class="line">Checking connection to Docker...</span><br><span class="line">Docker is up and running!</span><br><span class="line">To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env swarm-master</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>创建2个node</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">➜  ~ docker-machine create -d virtualbox \</div><div class="line">--swarm \</div><div class="line">--swarm-discovery token://4bed323ad0b4f17ac960c427bd38e6111e5df1e1851f6f597bcd738901631034 \</div><div class="line">swarm-node01</div><div class="line"></div><div class="line">➜  ~ docker-machine create -d virtualbox \</div><div class="line">--swarm \</div><div class="line">--swarm-discovery token://4bed323ad0b4f17ac960c427bd38e6111e5df1e1851f6f597bcd738901631034 \</div><div class="line">swarm-node02</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ docker-machine create -d virtualbox \</span><br><span class="line">--swarm \</span><br><span class="line">--swarm-discovery token://4bed323ad0b4f17ac960c427bd38e6111e5df1e1851f6f597bcd738901631034 \</span><br><span class="line">swarm-node01</span><br><span class="line"></span><br><span class="line">➜  ~ docker-machine create -d virtualbox \</span><br><span class="line">--swarm \</span><br><span class="line">--swarm-discovery token://4bed323ad0b4f17ac960c427bd38e6111e5df1e1851f6f597bcd738901631034 \</span><br><span class="line">swarm-node02</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>查看docker host列表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">➜  zhichi docker-machine ls</div><div class="line">NAME           ACTIVE   DRIVER       STATE     URL                         SWARM                   DOCKER        ERRORS</div><div class="line">keystory       -        virtualbox   Running   tcp://192.168.99.100:2376                           v17.06.2-ce</div><div class="line">swarm-master   -        virtualbox   Running   tcp://192.168.99.101:2376   swarm-master (master)   v17.06.2-ce</div><div class="line">swarm-node01   -        virtualbox   Running   tcp://192.168.99.102:2376   swarm-master            v17.06.2-ce</div><div class="line">swarm-node02   -        virtualbox   Running   tcp://192.168.99.103:2376   swarm-master            v17.06.2-ce</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">➜  zhichi docker-machine ls</span><br><span class="line">NAME           ACTIVE   DRIVER       STATE     URL                         SWARM                   DOCKER        ERRORS</span><br><span class="line">keystory       -        virtualbox   Running   tcp://192.168.99.100:2376                           v17.06.2-ce</span><br><span class="line">swarm-master   -        virtualbox   Running   tcp://192.168.99.101:2376   swarm-master (master)   v17.06.2-ce</span><br><span class="line">swarm-node01   -        virtualbox   Running   tcp://192.168.99.102:2376   swarm-master            v17.06.2-ce</span><br><span class="line">swarm-node02   -        virtualbox   Running   tcp://192.168.99.103:2376   swarm-master            v17.06.2-ce</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>查看集群信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">➜  zhichi eval $(docker-machine env --swarm swarm-master )</div><div class="line">➜  zhichi docker info</div><div class="line">Containers: 4</div><div class="line"> Running: 4</div><div class="line"> Paused: 0</div><div class="line"> Stopped: 0</div><div class="line">Images: 3</div><div class="line">Server Version: swarm/1.2.8</div><div class="line">Role: primary</div><div class="line">Strategy: spread</div><div class="line">Filters: health, port, containerslots, dependency, affinity, constraint, whitelist</div><div class="line">Nodes: 3</div><div class="line"> swarm-master: 192.168.99.101:2376</div><div class="line">  └ ID: J3GW:TQNR:DTPZ:OPKJ:KPLF:NPX2:W3LC:7S64:P75L:KDQX:DKJV:B6IG|192.168.99.101:2376</div><div class="line">  └ Status: Healthy</div><div class="line">  └ Containers: 2 (2 Running, 0 Paused, 0 Stopped)</div><div class="line">  └ Reserved CPUs: 0 / 1</div><div class="line">  └ Reserved Memory: 0 B / 1.021 GiB</div><div class="line">  └ Labels: kernelversion=4.4.86-boot2docker, operatingsystem=Boot2Docker 17.06.2-ce (TCL 7.2); HEAD : ff16afa - Wed Sep  6 00:17:25 UTC 2017, ostype=linux, provider=virtualbox, storagedriver=aufs</div><div class="line">  └ UpdatedAt: 2017-09-11T04:22:31Z</div><div class="line">  └ ServerVersion: 17.06.2-ce</div><div class="line"> swarm-node01: 192.168.99.102:2376</div><div class="line">  └ ID: XTQE:FRLO:WSUX:TTPG:ITGL:5USK:V2KV:2E4Y:TFWE:RT6K:ESFI:RW7S|192.168.99.102:2376</div><div class="line">  └ Status: Healthy</div><div class="line">  └ Containers: 1 (1 Running, 0 Paused, 0 Stopped)</div><div class="line">  └ Reserved CPUs: 0 / 1</div><div class="line">  └ Reserved Memory: 0 B / 1.021 GiB</div><div class="line">  └ Labels: kernelversion=4.4.86-boot2docker, operatingsystem=Boot2Docker 17.06.2-ce (TCL 7.2); HEAD : ff16afa - Wed Sep  6 00:17:25 UTC 2017, ostype=linux, provider=virtualbox, storagedriver=aufs</div><div class="line">  └ UpdatedAt: 2017-09-11T04:22:44Z</div><div class="line">  └ ServerVersion: 17.06.2-ce</div><div class="line"> swarm-node02: 192.168.99.103:2376</div><div class="line">  └ ID: 3QAJ:HBPZ:K52D:22WM:KF2F:6BMK:KEAN:BAOK:TSIK:G7Q3:MEJ5:MBGV|192.168.99.103:2376</div><div class="line">  └ Status: Healthy</div><div class="line">  └ Containers: 1 (1 Running, 0 Paused, 0 Stopped)</div><div class="line">  └ Reserved CPUs: 0 / 1</div><div class="line">  └ Reserved Memory: 0 B / 1.021 GiB</div><div class="line">  └ Labels: kernelversion=4.4.86-boot2docker, operatingsystem=Boot2Docker 17.06.2-ce (TCL 7.2); HEAD : ff16afa - Wed Sep  6 00:17:25 UTC 2017, ostype=linux, provider=virtualbox, storagedriver=aufs</div><div class="line">  └ UpdatedAt: 2017-09-11T04:22:47Z</div><div class="line">  └ ServerVersion: 17.06.2-ce</div><div class="line">Plugins:</div><div class="line"> Volume:</div><div class="line"> Network:</div><div class="line"> Log:</div><div class="line">Swarm:</div><div class="line"> NodeID:</div><div class="line"> Is Manager: false</div><div class="line"> Node Address:</div><div class="line">Kernel Version: 4.4.86-boot2docker</div><div class="line">Operating System: linux</div><div class="line">Architecture: amd64</div><div class="line">CPUs: 3</div><div class="line">Total Memory: 3.063GiB</div><div class="line">Name: e1e51c2e4f92</div><div class="line">Docker Root Dir:</div><div class="line">Debug Mode (client): false</div><div class="line">Debug Mode (server): false</div><div class="line">Experimental: false</div><div class="line">Live Restore Enabled: false</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">➜  zhichi eval $(docker-machine env --swarm swarm-master )</span><br><span class="line">➜  zhichi docker info</span><br><span class="line">Containers: 4</span><br><span class="line"> Running: 4</span><br><span class="line"> Paused: 0</span><br><span class="line"> Stopped: 0</span><br><span class="line">Images: 3</span><br><span class="line">Server Version: swarm/1.2.8</span><br><span class="line">Role: primary</span><br><span class="line">Strategy: spread</span><br><span class="line">Filters: health, port, containerslots, dependency, affinity, constraint, whitelist</span><br><span class="line">Nodes: 3</span><br><span class="line"> swarm-master: 192.168.99.101:2376</span><br><span class="line">  └ ID: J3GW:TQNR:DTPZ:OPKJ:KPLF:NPX2:W3LC:7S64:P75L:KDQX:DKJV:B6IG|192.168.99.101:2376</span><br><span class="line">  └ Status: Healthy</span><br><span class="line">  └ Containers: 2 (2 Running, 0 Paused, 0 Stopped)</span><br><span class="line">  └ Reserved CPUs: 0 / 1</span><br><span class="line">  └ Reserved Memory: 0 B / 1.021 GiB</span><br><span class="line">  └ Labels: kernelversion=4.4.86-boot2docker, operatingsystem=Boot2Docker 17.06.2-ce (TCL 7.2); HEAD : ff16afa - Wed Sep  6 00:17:25 UTC 2017, ostype=linux, provider=virtualbox, storagedriver=aufs</span><br><span class="line">  └ UpdatedAt: 2017-09-11T04:22:31Z</span><br><span class="line">  └ ServerVersion: 17.06.2-ce</span><br><span class="line"> swarm-node01: 192.168.99.102:2376</span><br><span class="line">  └ ID: XTQE:FRLO:WSUX:TTPG:ITGL:5USK:V2KV:2E4Y:TFWE:RT6K:ESFI:RW7S|192.168.99.102:2376</span><br><span class="line">  └ Status: Healthy</span><br><span class="line">  └ Containers: 1 (1 Running, 0 Paused, 0 Stopped)</span><br><span class="line">  └ Reserved CPUs: 0 / 1</span><br><span class="line">  └ Reserved Memory: 0 B / 1.021 GiB</span><br><span class="line">  └ Labels: kernelversion=4.4.86-boot2docker, operatingsystem=Boot2Docker 17.06.2-ce (TCL 7.2); HEAD : ff16afa - Wed Sep  6 00:17:25 UTC 2017, ostype=linux, provider=virtualbox, storagedriver=aufs</span><br><span class="line">  └ UpdatedAt: 2017-09-11T04:22:44Z</span><br><span class="line">  └ ServerVersion: 17.06.2-ce</span><br><span class="line"> swarm-node02: 192.168.99.103:2376</span><br><span class="line">  └ ID: 3QAJ:HBPZ:K52D:22WM:KF2F:6BMK:KEAN:BAOK:TSIK:G7Q3:MEJ5:MBGV|192.168.99.103:2376</span><br><span class="line">  └ Status: Healthy</span><br><span class="line">  └ Containers: 1 (1 Running, 0 Paused, 0 Stopped)</span><br><span class="line">  └ Reserved CPUs: 0 / 1</span><br><span class="line">  └ Reserved Memory: 0 B / 1.021 GiB</span><br><span class="line">  └ Labels: kernelversion=4.4.86-boot2docker, operatingsystem=Boot2Docker 17.06.2-ce (TCL 7.2); HEAD : ff16afa - Wed Sep  6 00:17:25 UTC 2017, ostype=linux, provider=virtualbox, storagedriver=aufs</span><br><span class="line">  └ UpdatedAt: 2017-09-11T04:22:47Z</span><br><span class="line">  └ ServerVersion: 17.06.2-ce</span><br><span class="line">Plugins:</span><br><span class="line"> Volume:</span><br><span class="line"> Network:</span><br><span class="line"> Log:</span><br><span class="line">Swarm:</span><br><span class="line"> NodeID:</span><br><span class="line"> Is Manager: false</span><br><span class="line"> Node Address:</span><br><span class="line">Kernel Version: 4.4.86-boot2docker</span><br><span class="line">Operating System: linux</span><br><span class="line">Architecture: amd64</span><br><span class="line">CPUs: 3</span><br><span class="line">Total Memory: 3.063GiB</span><br><span class="line">Name: e1e51c2e4f92</span><br><span class="line">Docker Root Dir:</span><br><span class="line">Debug Mode (client): false</span><br><span class="line">Debug Mode (server): false</span><br><span class="line">Experimental: false</span><br><span class="line">Live Restore Enabled: false</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>以上操作只是为了让我们理解swarm集群的一些基本感念，是不能直接应用于生产环境的，至于直接应用于生产环境的集群部署，是我下面要做的！</p>
@@ -345,8 +345,8 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2019/01/22/docker进阶用法总结/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">docker进阶用法总结</div>
+    <a href="/2019/01/22/docker三剑客之docker-machine/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">docker三剑客之docker-machine</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -475,14 +475,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
               </li>
              
@@ -499,6 +491,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
@@ -511,6 +511,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
@@ -519,11 +523,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,26 +536,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">openvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -567,15 +551,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -584,6 +576,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
               </li>
             
             <div class="clearfix"></div>
