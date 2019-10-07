@@ -197,24 +197,12 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Gaping-—-A-remote-host-port-stability-test-tool-inspired-by-paping"><a href="#Gaping-—-A-remote-host-port-stability-test-tool-inspired-by-paping" class="headerlink" title="Gaping —  A remote host port stability test tool inspired by paping"></a>Gaping —  A remote host port stability test tool inspired by paping</h1><p><a href="https://github.com/tianyazc/gaping" target="_blank" rel="noopener"><img src="https://travis-ci.org/tianyazc/gaping.svg?branch=master" alt="Build Status"></a></p>
+        <p><a href="https://github.com/tianyazc/gaping" target="_blank" rel="noopener"><img src="https://travis-ci.org/tianyazc/gaping.svg?branch=master" alt="Build Status"></a></p>
 <p><a href="https://github.com/tianyazc/gaping/blob/master/README-CN.md" target="_blank" rel="noopener">中文</a></p>
 <p><img src="http://img.chulinx.xyz/termtosvg_wvabfoi8.svg" alt></p>
-<h2 id="Install-↯↯↯"><a href="#Install-↯↯↯" class="headerlink" title="Install ↯↯↯"></a>Install ↯↯↯</h2><h3 id="Compile-and-install"><a href="#Compile-and-install" class="headerlink" title="Compile and install"></a>Compile and install</h3><ul>
-<li>Golang 1.11 or Golang 1.12<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/tianyazc/gaping.git &amp;&amp; <span class="built_in">cd</span> gaping &amp;&amp; <span class="built_in">export</span> GO111MODULE=on go build</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="Release-Download"><a href="#Release-Download" class="headerlink" title="Release Download"></a>Release Download</h3><p>Download form <a href="https://github.com/tianyazc/gaping/releases/tag/0.1" target="_blank" rel="noopener"><strong>Release</strong></a></p>
-<h2 id="Usage-↯↯↯"><a href="#Usage-↯↯↯" class="headerlink" title="Usage ↯↯↯"></a>Usage ↯↯↯</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ ./gaping_darwin_amd64 -h</span><br><span class="line">flag needs an argument: -h</span><br><span class="line">Usage of ./gaping_darwin_amd64:</span><br><span class="line">  -V	Show Version and <span class="built_in">exit</span></span><br><span class="line">  -c int</span><br><span class="line">    	Tcp <span class="built_in">test</span> conuts (default 100000000)</span><br><span class="line">  -h string</span><br><span class="line">    	Dest host ipaddress</span><br><span class="line">  -<span class="built_in">help</span></span><br><span class="line">    	Show gaping <span class="built_in">help</span></span><br><span class="line">  -p string</span><br><span class="line">    	Dest host port</span><br><span class="line">  -v	Show Version and <span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
-<h2 id="Example-↯↯↯"><a href="#Example-↯↯↯" class="headerlink" title="Example ↯↯↯"></a>Example ↯↯↯</h2><ul>
-<li>always ping</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ ./gaping_darwin_amd64 -h 115.239.210.27 -p 80</span><br><span class="line">2019-03-20 17:25:00 Connected to 115.239.210.27:80: time=10.505ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:01 Connected to 115.239.210.27:80: time=11.18ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:02 Connected to 115.239.210.27:80: time=10.814ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:03 Connected to 115.239.210.27:80: time=12.213ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:04 Connected to 115.239.210.27:80: time=11.144ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:05 Connected to 115.239.210.27:80: time=11.545ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:06 Connected to 115.239.210.27:80: time=10.984ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:07 Connected to 115.239.210.27:80: time=10.63ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:08 Connected to 115.239.210.27:80: time=10.768ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:09 Connected to 115.239.210.27:80: time=11.549ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:10 Connected to 115.239.210.27:80: time=12.01ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:11 Connected to 115.239.210.27:80: time=11.086ms protocol=TCP port=80</span><br></pre></td></tr></table></figure>
-<ul>
-<li>ping once<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ./gaping_darwin_amd64 -h 115.239.210.27 -p 80 -c 1</span><br><span class="line">2019-03-20 17:27:16 Connected to 115.239.210.27:80: time=13.396ms protocol=TCP port=80</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2019/10/06/Gaping-测试远程主机端口稳定性的工具/#more">more >></a>
+        
       
 
       
@@ -400,110 +388,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-nfs服务配置小记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/13/nfs服务配置小记/">Centos nfs服务配置小记</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/13/nfs服务配置小记/" class="archive-article-date">
-  	<time datetime="2019-02-13T03:19:34.646Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><blockquote>
-<p>NFS（Network File System）即网络文件系统，是FreeBSD支持的文件系统中的一种，它允许网络中的计算机之间通过TCP/IP网络共享资源。在NFS的应用中，本地NFS的客户端应用可以透明地读写位于远端NFS服务器上的文件，就像访问本地文件一样,熟悉windows的可以把它看成windows的磁盘映射</p>
-</blockquote>
-<p><img src="http://img.chulinx.xyz/0df3d7ca7bcb0a46faeb868c6863f6246a60afbd.jpg" alt="0df3d7ca7bcb0a46faeb868c6863f6246a60afbd"></p>
-<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><table>
-<thead>
-<tr>
-<th style="text-align:left">nfs服务ip</th>
-<th style="text-align:left">客户端网段</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">172.23.1.51</td>
-<td style="text-align:left">172.23.1.0</td>
-</tr>
-</tbody>
-</table>
-        
-          <a class="article-more-a" href="/2019/02/13/nfs服务配置小记/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nfs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/system/" class="article-tag-list-link color2">system</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/13/nfs服务配置小记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-python异步编程库gevent的简单使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -659,6 +543,110 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/02/13/zabbix安装配置-基于zabbix_3.4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-nfs服务配置小记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/13/nfs服务配置小记/">Centos nfs服务配置小记</a>
+    </h1>
+  
+
+        
+        <a href="/2019/02/13/nfs服务配置小记/" class="archive-article-date">
+  	<time datetime="2019-02-13T03:19:34.646Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><blockquote>
+<p>NFS（Network File System）即网络文件系统，是FreeBSD支持的文件系统中的一种，它允许网络中的计算机之间通过TCP/IP网络共享资源。在NFS的应用中，本地NFS的客户端应用可以透明地读写位于远端NFS服务器上的文件，就像访问本地文件一样,熟悉windows的可以把它看成windows的磁盘映射</p>
+</blockquote>
+<p><img src="http://img.chulinx.xyz/0df3d7ca7bcb0a46faeb868c6863f6246a60afbd.jpg" alt="0df3d7ca7bcb0a46faeb868c6863f6246a60afbd"></p>
+<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">nfs服务ip</th>
+<th style="text-align:left">客户端网段</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">172.23.1.51</td>
+<td style="text-align:left">172.23.1.0</td>
+</tr>
+</tbody>
+</table>
+        
+          <a class="article-more-a" href="/2019/02/13/nfs服务配置小记/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nfs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/system/" class="article-tag-list-link color2">system</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/02/13/nfs服务配置小记/">展开全文 >></a>
         </p>
       
 
@@ -1026,19 +1014,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-RpmBuild打包总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Proxmox VE虚拟化服务器添加硬盘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/RpmBuild打包总结/">RPMBUILD 打包总结</a>
+      <a class="article-title" href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/">Proxmox VE虚拟化服务器添加硬盘</a>
     </h1>
   
 
         
-        <a href="/2019/01/22/RpmBuild打包总结/" class="archive-article-date">
+        <a href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/" class="archive-article-date">
   	<time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
 </a>
         
@@ -1046,11 +1034,12 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-打包准备"><a href="#1-打包准备" class="headerlink" title="1.打包准备"></a>1.打包准备</h3><p><img src="http://upload-images.jianshu.io/upload_images/3020508-8e753b4f20ec10fd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="制作原理图"></p>
+        <h3 id="Proxmox-VE虚拟化服务器添加硬盘"><a href="#Proxmox-VE虚拟化服务器添加硬盘" class="headerlink" title="Proxmox VE虚拟化服务器添加硬盘"></a>Proxmox VE虚拟化服务器添加硬盘</h3><p><img src="https://i.imgur.com/KVWBIgf.png" alt="0IBJ6%ZTZ(MLK~9DGXSI8J2"></p>
 <blockquote>
-<p>有时候为了方便源码包的安装，和我们自己订制软件包的需求，我们会把一些源码包按照我们的需求来做成rpm包，当有了源码包就可以直接编译得到二进制安装包和其他任意包。spec file是制作rpm包最核心的部分，rpm包的制作就是根据spec file来实现的。在制作自定义rpm包的时候最好不要使用管理员进行,因为管理员权限过大，如果一个命令写错了，结果可能是灾难性的，而制件一个rpm包普通用户完全可以实现<br>
+<p>公司业务需求需要在虚拟化服务器上添加4T的硬盘，特记录一下，以供备用</p>
+</blockquote>
         
-          <a class="article-more-a" href="/2019/01/22/RpmBuild打包总结/#more">more >></a>
+          <a class="article-more-a" href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/#more">more >></a>
         
       
 
@@ -1064,7 +1053,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">rpm打包</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Proxmox</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">parted</a>
         		</li>
       		
 		</ul>
@@ -1076,7 +1069,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/linux运维/" class="article-tag-list-link color3">linux运维</a>
+        			<a href="/categories/Proxmox/" class="article-tag-list-link color3">Proxmox</a>
         		</li>
       		
 		</ul>
@@ -1085,7 +1078,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/22/RpmBuild打包总结/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/">展开全文 >></a>
         </p>
       
 
@@ -1225,15 +1218,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">parted</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1245,6 +1238,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
@@ -1253,19 +1250,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mongo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1290,6 +1279,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
