@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ubuntu bind9 Dns配置 最近在搞kubernetes的CICD，是基于gitlab Autocicd 来做的，Autocicd 有个要求就是要配置一个dns泛解析，所以自己就搭建一个，故记录一下  安装bind91sudo apt install bind9 配置主配置文件name.conf.local,增加以下内容1zone &amp;quot;testk8s.cn&amp;quot;  &amp;#12">
+  <meta name="description" content="ubuntu bind9 Dns配置 最近在搞kubernetes的CICD，是基于gitlab Autocicd 来做的，Autocicd 有个要求就是要配置一个dns泛解析，所以自己就搭建一个，故记录一下  安装bind91sudo apt install bind9">
 <meta property="og:type" content="article">
 <meta property="og:title" content="天涯咫尺">
 <meta property="og:url" content="http://yoursite.com/2019/04/15/bind9-DNS配置/index.html">
 <meta property="og:site_name" content="天涯咫尺">
-<meta property="og:description" content="ubuntu bind9 Dns配置 最近在搞kubernetes的CICD，是基于gitlab Autocicd 来做的，Autocicd 有个要求就是要配置一个dns泛解析，所以自己就搭建一个，故记录一下  安装bind91sudo apt install bind9 配置主配置文件name.conf.local,增加以下内容1zone &amp;quot;testk8s.cn&amp;quot;  &amp;#12">
+<meta property="og:description" content="ubuntu bind9 Dns配置 最近在搞kubernetes的CICD，是基于gitlab Autocicd 来做的，Autocicd 有个要求就是要配置一个dns泛解析，所以自己就搭建一个，故记录一下  安装bind91sudo apt install bind9">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-15T01:45:13.990Z">
+<meta property="og:updated_time" content="2019-10-07T08:18:00.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="天涯咫尺">
-<meta name="twitter:description" content="ubuntu bind9 Dns配置 最近在搞kubernetes的CICD，是基于gitlab Autocicd 来做的，Autocicd 有个要求就是要配置一个dns泛解析，所以自己就搭建一个，故记录一下  安装bind91sudo apt install bind9 配置主配置文件name.conf.local,增加以下内容1zone &amp;quot;testk8s.cn&amp;quot;  &amp;#12">
+<meta name="twitter:description" content="ubuntu bind9 Dns配置 最近在搞kubernetes的CICD，是基于gitlab Autocicd 来做的，Autocicd 有个要求就是要配置一个dns泛解析，所以自己就搭建一个，故记录一下  安装bind91sudo apt install bind9">
   
     <link rel="alternative" href="/atom.xml" title="天涯咫尺" type="application/atom+xml">
   
@@ -187,6 +187,7 @@ var _hmt = _hmt || [];
 <p>最近在搞kubernetes的CICD，是基于gitlab Autocicd 来做的，Autocicd 有个要求就是要配置一个dns泛解析，所以自己就搭建一个，故记录一下</p>
 </blockquote>
 <h3 id="安装bind9"><a href="#安装bind9" class="headerlink" title="安装bind9"></a>安装bind9</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install bind9</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="配置主配置文件name-conf-local-增加以下内容"><a href="#配置主配置文件name-conf-local-增加以下内容" class="headerlink" title="配置主配置文件name.conf.local,增加以下内容"></a>配置主配置文件name.conf.local,增加以下内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zone &quot;testk8s.cn&quot;  &#123; type master; file &quot;/var/cache/bind/db.test8s.cn&quot;; &#125;;</span><br></pre></td></tr></table></figure>
 <h3 id="新增db-test8s-cn解析文件-var-cache-bind-db-test8s-cn"><a href="#新增db-test8s-cn解析文件-var-cache-bind-db-test8s-cn" class="headerlink" title="新增db.test8s.cn解析文件/var/cache/bind/db.test8s.cn"></a>新增db.test8s.cn解析文件/var/cache/bind/db.test8s.cn</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$TTL	86400</span><br><span class="line">@	IN	SOA	localhost. root.localhost. (</span><br><span class="line">			      1		; Serial</span><br><span class="line">			 604800		; Refresh</span><br><span class="line">			  86400		; Retry</span><br><span class="line">			2419200		; Expire</span><br><span class="line">			  86400 )	; Negative Cache TTL</span><br><span class="line">;</span><br><span class="line">@	IN	NS	localhost.</span><br><span class="line">*.testk8s.cn.	IN A	192.168.137.102</span><br></pre></td></tr></table></figure>
 <h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart bind9</span><br></pre></td></tr></table></figure>
@@ -266,6 +267,15 @@ var _hmt = _hmt || [];
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/10/06/Gaping-测试远程主机端口稳定性的工具/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Gaping --- 一个golang实现的测试远程主机端口稳定性的工具
+        
+      </div>
+    </a>
   
   
     <a href="/2019/02/13/Centos7搭建openvpn服务/" id="article-nav-older" class="article-nav-link-wrap">
@@ -414,15 +424,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">parted</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -434,7 +444,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -442,11 +452,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -455,14 +473,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">openvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -475,6 +485,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -495,10 +509,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">

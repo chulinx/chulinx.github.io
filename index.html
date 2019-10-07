@@ -177,6 +177,85 @@ var _hmt = _hmt || [];
                  
 
   
+    <article id="post-Gaping-测试远程主机端口稳定性的工具" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/06/Gaping-测试远程主机端口稳定性的工具/">Gaping --- 一个golang实现的测试远程主机端口稳定性的工具</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/06/Gaping-测试远程主机端口稳定性的工具/" class="archive-article-date">
+  	<time datetime="2019-10-06T08:36:14.314Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Gaping-—-A-remote-host-port-stability-test-tool-inspired-by-paping"><a href="#Gaping-—-A-remote-host-port-stability-test-tool-inspired-by-paping" class="headerlink" title="Gaping —  A remote host port stability test tool inspired by paping"></a>Gaping —  A remote host port stability test tool inspired by paping</h1><p><a href="https://github.com/tianyazc/gaping" target="_blank" rel="noopener"><img src="https://travis-ci.org/tianyazc/gaping.svg?branch=master" alt="Build Status"></a></p>
+<p><a href="https://github.com/tianyazc/gaping/blob/master/README-CN.md" target="_blank" rel="noopener">中文</a></p>
+<p><img src="http://img.chulinx.xyz/termtosvg_wvabfoi8.svg" alt></p>
+<h2 id="Install-↯↯↯"><a href="#Install-↯↯↯" class="headerlink" title="Install ↯↯↯"></a>Install ↯↯↯</h2><h3 id="Compile-and-install"><a href="#Compile-and-install" class="headerlink" title="Compile and install"></a>Compile and install</h3><ul>
+<li>Golang 1.11 or Golang 1.12<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/tianyazc/gaping.git &amp;&amp; <span class="built_in">cd</span> gaping &amp;&amp; <span class="built_in">export</span> GO111MODULE=on go build</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Release-Download"><a href="#Release-Download" class="headerlink" title="Release Download"></a>Release Download</h3><p>Download form <a href="https://github.com/tianyazc/gaping/releases/tag/0.1" target="_blank" rel="noopener"><strong>Release</strong></a></p>
+<h2 id="Usage-↯↯↯"><a href="#Usage-↯↯↯" class="headerlink" title="Usage ↯↯↯"></a>Usage ↯↯↯</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ ./gaping_darwin_amd64 -h</span><br><span class="line">flag needs an argument: -h</span><br><span class="line">Usage of ./gaping_darwin_amd64:</span><br><span class="line">  -V	Show Version and <span class="built_in">exit</span></span><br><span class="line">  -c int</span><br><span class="line">    	Tcp <span class="built_in">test</span> conuts (default 100000000)</span><br><span class="line">  -h string</span><br><span class="line">    	Dest host ipaddress</span><br><span class="line">  -<span class="built_in">help</span></span><br><span class="line">    	Show gaping <span class="built_in">help</span></span><br><span class="line">  -p string</span><br><span class="line">    	Dest host port</span><br><span class="line">  -v	Show Version and <span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+<h2 id="Example-↯↯↯"><a href="#Example-↯↯↯" class="headerlink" title="Example ↯↯↯"></a>Example ↯↯↯</h2><ul>
+<li>always ping</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ ./gaping_darwin_amd64 -h 115.239.210.27 -p 80</span><br><span class="line">2019-03-20 17:25:00 Connected to 115.239.210.27:80: time=10.505ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:01 Connected to 115.239.210.27:80: time=11.18ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:02 Connected to 115.239.210.27:80: time=10.814ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:03 Connected to 115.239.210.27:80: time=12.213ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:04 Connected to 115.239.210.27:80: time=11.144ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:05 Connected to 115.239.210.27:80: time=11.545ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:06 Connected to 115.239.210.27:80: time=10.984ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:07 Connected to 115.239.210.27:80: time=10.63ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:08 Connected to 115.239.210.27:80: time=10.768ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:09 Connected to 115.239.210.27:80: time=11.549ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:10 Connected to 115.239.210.27:80: time=12.01ms protocol=TCP port=80</span><br><span class="line">2019-03-20 17:25:11 Connected to 115.239.210.27:80: time=11.086ms protocol=TCP port=80</span><br></pre></td></tr></table></figure>
+<ul>
+<li>ping once<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ./gaping_darwin_amd64 -h 115.239.210.27 -p 80 -c 1</span><br><span class="line">2019-03-20 17:27:16 Connected to 115.239.210.27:80: time=13.396ms protocol=TCP port=80</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/06/Gaping-测试远程主机端口稳定性的工具/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-bind9-DNS配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -186,15 +265,9 @@ var _hmt = _hmt || [];
 <p>最近在搞kubernetes的CICD，是基于gitlab Autocicd 来做的，Autocicd 有个要求就是要配置一个dns泛解析，所以自己就搭建一个，故记录一下</p>
 </blockquote>
 <h3 id="安装bind9"><a href="#安装bind9" class="headerlink" title="安装bind9"></a>安装bind9</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install bind9</span><br></pre></td></tr></table></figure>
-<h3 id="配置主配置文件name-conf-local-增加以下内容"><a href="#配置主配置文件name-conf-local-增加以下内容" class="headerlink" title="配置主配置文件name.conf.local,增加以下内容"></a>配置主配置文件name.conf.local,增加以下内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zone &quot;testk8s.cn&quot;  &#123; type master; file &quot;/var/cache/bind/db.test8s.cn&quot;; &#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="新增db-test8s-cn解析文件-var-cache-bind-db-test8s-cn"><a href="#新增db-test8s-cn解析文件-var-cache-bind-db-test8s-cn" class="headerlink" title="新增db.test8s.cn解析文件/var/cache/bind/db.test8s.cn"></a>新增db.test8s.cn解析文件/var/cache/bind/db.test8s.cn</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$TTL	86400</span><br><span class="line">@	IN	SOA	localhost. root.localhost. (</span><br><span class="line">			      1		; Serial</span><br><span class="line">			 604800		; Refresh</span><br><span class="line">			  86400		; Retry</span><br><span class="line">			2419200		; Expire</span><br><span class="line">			  86400 )	; Negative Cache TTL</span><br><span class="line">;</span><br><span class="line">@	IN	NS	localhost.</span><br><span class="line">*.testk8s.cn.	IN A	192.168.137.102</span><br></pre></td></tr></table></figure>
-<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart bind9</span><br></pre></td></tr></table></figure>
-<h4 id="本机测试"><a href="#本机测试" class="headerlink" title="本机测试"></a>本机测试</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nslookup test.10010k8s.cn</span><br><span class="line">Server:		127.0.0.1</span><br><span class="line">Address:	127.0.0.1#53</span><br><span class="line"></span><br><span class="line">Name:	test.testk8s.cn</span><br><span class="line">Address: 192.168.137.102</span><br></pre></td></tr></table></figure>
-<h3 id="更改k8s-coredns配置"><a href="#更改k8s-coredns配置" class="headerlink" title="更改k8s-coredns配置"></a>更改k8s-coredns配置</h3><blockquote>
-<p>这段配置大概意思是说，testk8s.cn 的所有域名解析 都转发到192.168.137.205<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">testk8s.cn:53 &#123;</span><br><span class="line">    errors</span><br><span class="line">    cache 30</span><br><span class="line">    proxy . 192.168.137.205 //dns地址</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="容器内测试解析"><a href="#容器内测试解析" class="headerlink" title="容器内测试解析"></a>容器内测试解析</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ [K8sDev] kubectl exec -it -n gitlab centos7 nslookup aa.10010k8s.cn</span><br><span class="line">Server:		10.96.0.10</span><br><span class="line">Address:	10.96.0.10#53</span><br><span class="line"></span><br><span class="line">Name:	aa.testk8s.cn</span><br><span class="line">Address: 192.168.137.102</span><br></pre></td></tr></table></figure>
-
+        
+          <a class="article-more-a" href="/2019/04/15/bind9-DNS配置/#more">more >></a>
+        
       
 
       
@@ -953,100 +1026,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Proxmox VE虚拟化服务器添加硬盘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/">Proxmox VE虚拟化服务器添加硬盘</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/" class="archive-article-date">
-  	<time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Proxmox-VE虚拟化服务器添加硬盘"><a href="#Proxmox-VE虚拟化服务器添加硬盘" class="headerlink" title="Proxmox VE虚拟化服务器添加硬盘"></a>Proxmox VE虚拟化服务器添加硬盘</h3><p><img src="https://i.imgur.com/KVWBIgf.png" alt="0IBJ6%ZTZ(MLK~9DGXSI8J2"></p>
-<blockquote>
-<p>公司业务需求需要在虚拟化服务器上添加4T的硬盘，特记录一下，以供备用</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Proxmox</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">parted</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Proxmox/" class="article-tag-list-link color3">Proxmox</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-RpmBuild打包总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1138,7 +1117,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1246,15 +1225,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">parted</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1266,7 +1245,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1274,11 +1253,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1287,14 +1274,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">openvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1307,6 +1286,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1327,10 +1310,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">
