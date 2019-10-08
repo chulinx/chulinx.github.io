@@ -177,6 +177,74 @@ var _hmt = _hmt || [];
                  
 
   
+    <article id="post-vttbale V语言终端table" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/07/vttbale V语言终端table/">Vttbale V语言终端Table</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/07/vttbale V语言终端table/" class="archive-article-date">
+  	<time datetime="2019-10-07T09:17:42.329Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://github.com/tianyazc/vttable/" target="_blank" rel="noopener">项目地址</a></p>
+<h3 id="How-to-install"><a href="#How-to-install" class="headerlink" title="How to install"></a>How to install</h3><h4 id="use-vpm"><a href="#use-vpm" class="headerlink" title="use vpm"></a>use vpm</h4><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v install tianyazc.vttable</span><br></pre></td></tr></table></figure>
+<h4 id="use-vpkg"><a href="#use-vpkg" class="headerlink" title="use vpkg"></a>use vpkg</h4><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vpkg get github.com/tianyazc/vttable</span><br></pre></td></tr></table></figure>
+<h3 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use"></a>How to use</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">module main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tianyazc.vttable</span><br><span class="line">fn main() &#123;</span><br><span class="line">    tdata := [</span><br><span class="line">       [<span class="string">"name"</span>,<span class="string">"source"</span>,<span class="string">"sex"</span>,<span class="string">"age"</span>],</span><br><span class="line">       [<span class="string">"Meter"</span>,<span class="string">"80"</span>,<span class="string">"man"</span>,<span class="string">""</span>],</span><br><span class="line">       [<span class="string">"Peter"</span>,<span class="string">"92"</span>,<span class="string">"man"</span>,<span class="string">"21"</span>],</span><br><span class="line">       [<span class="string">"xiaoming"</span>,<span class="string">"86"</span>,<span class="string">"woman"</span>,<span class="string">"18"</span>]</span><br><span class="line">   ]</span><br><span class="line">    t := table.Table&#123;</span><br><span class="line">                    data:tdata,</span><br><span class="line">                    position:<span class="string">"right"</span>,</span><br><span class="line">                    <span class="comment">// style: "simplicity"</span></span><br><span class="line">                    &#125;</span><br><span class="line">    t.tables()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//out</span></span><br><span class="line">$ v run table_t.v</span><br><span class="line">+---------+-------+------+----+</span><br><span class="line">|     name| source|   sex| age|</span><br><span class="line">+---------+-------+------+----+</span><br><span class="line">|    Meter|     <span class="number">80</span>|   man|    |</span><br><span class="line">+---------+-------+------+----+</span><br><span class="line">|    Peter|     <span class="number">92</span>|   man|  <span class="number">21</span>|</span><br><span class="line">+---------+-------+------+----+</span><br><span class="line">| xiaoming|     <span class="number">86</span>| woman|  <span class="number">18</span>|</span><br><span class="line">+---------+-------+------+----+</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">module main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tianyazc.vttable</span><br><span class="line">fn main() &#123;</span><br><span class="line">    tdata := [</span><br><span class="line">       [<span class="string">"name"</span>,<span class="string">"source"</span>,<span class="string">"sex"</span>,<span class="string">"age"</span>],</span><br><span class="line">       [<span class="string">"Meter"</span>,<span class="string">"80"</span>,<span class="string">"man"</span>,<span class="string">""</span>],</span><br><span class="line">       [<span class="string">"Peter"</span>,<span class="string">"92"</span>,<span class="string">"man"</span>,<span class="string">"21"</span>],</span><br><span class="line">       [<span class="string">"xiaoming"</span>,<span class="string">"86"</span>,<span class="string">"woman"</span>,<span class="string">"18"</span>]</span><br><span class="line">   ]</span><br><span class="line">    t := table.Table&#123;</span><br><span class="line">                    data:tdata,</span><br><span class="line">                    <span class="comment">// position:"right",</span></span><br><span class="line">                    style: <span class="string">"simplicity"</span></span><br><span class="line">                    &#125;</span><br><span class="line">    t.tables()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//out</span></span><br><span class="line">$ v run table_t.v</span><br><span class="line">+---------+-------+------+----+</span><br><span class="line">|name     |source |sex   |age |</span><br><span class="line">+---------+-------+------+----+</span><br><span class="line">|Meter    |<span class="number">80</span>     |man   |    |</span><br><span class="line">|Peter    |<span class="number">92</span>     |man   |<span class="number">21</span>  |</span><br><span class="line">|xiaoming |<span class="number">86</span>     |woman |<span class="number">18</span>  |</span><br><span class="line">+---------+-------+------+----+</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/07/vttbale V语言终端table/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Gaping-测试远程主机端口稳定性的工具" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -530,11 +598,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">gevent</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">gevent</a>
         		</li>
       		
 		</ul>
@@ -1013,100 +1081,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Proxmox VE虚拟化服务器添加硬盘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/">Proxmox VE虚拟化服务器添加硬盘</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/" class="archive-article-date">
-  	<time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Proxmox-VE虚拟化服务器添加硬盘"><a href="#Proxmox-VE虚拟化服务器添加硬盘" class="headerlink" title="Proxmox VE虚拟化服务器添加硬盘"></a>Proxmox VE虚拟化服务器添加硬盘</h3><p><img src="https://i.imgur.com/KVWBIgf.png" alt="0IBJ6%ZTZ(MLK~9DGXSI8J2"></p>
-<blockquote>
-<p>公司业务需求需要在虚拟化服务器上添加4T的硬盘，特记录一下，以供备用</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Proxmox</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">parted</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Proxmox/" class="article-tag-list-link color3">Proxmox</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1253,11 +1227,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1269,15 +1243,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1297,19 +1271,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
             
             <div class="clearfix"></div>
