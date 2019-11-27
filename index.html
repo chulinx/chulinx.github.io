@@ -177,6 +177,118 @@ var _hmt = _hmt || [];
                  
 
   
+    <article id="post-Kubernetes 日志收集方案部署实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/15/Kubernetes 日志收集方案部署实践/">Kubernetes 实现全方位集群内私有dns</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/15/Kubernetes 日志收集方案部署实践/" class="archive-article-date">
+  	<time datetime="2019-11-15T09:30:29.827Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、架构流程图"><a href="#一、架构流程图" class="headerlink" title="一、架构流程图"></a>一、架构流程图</h3><p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20191121173753.png" alt></p>
+<h2 id="声明"><a href="#声明" class="headerlink" title="声明:"></a>声明:</h2><p><strong><em>kafka底层存储使用的是rook-ceph，也可以指定其他存储的storageclass</em></strong></p>
+        
+          <a class="article-more-a" href="/2019/11/15/Kubernetes 日志收集方案部署实践/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">efk</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">elasticsearch</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">fluentd</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">logstash</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kafka</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/kubernetes/" class="article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/15/Kubernetes 日志收集方案部署实践/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vttbale V语言终端table" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -310,499 +422,47 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-bind9-DNS配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Kubernetes 使用Nginx-Ingress实现蓝绿发布,AB测试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/29/Kubernetes 使用Nginx-Ingress实现蓝绿发布,AB测试/">Kubernetes 使用Nginx-Ingress实现蓝绿发布,AB测试</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/29/Kubernetes 使用Nginx-Ingress实现蓝绿发布,AB测试/" class="archive-article-date">
+  	<time datetime="2019-08-29T08:28:21.360Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="ubuntu-bind9-Dns配置"><a href="#ubuntu-bind9-Dns配置" class="headerlink" title="ubuntu bind9 Dns配置"></a>ubuntu bind9 Dns配置</h1><blockquote>
-<p>最近在搞kubernetes的CICD，是基于gitlab Autocicd 来做的，Autocicd 有个要求就是要配置一个dns泛解析，所以自己就搭建一个，故记录一下</p>
+        <h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><blockquote>
+<p>某些情况下，我们在使用Kubernetes作为业务应用的云平台，想要实现应用的蓝绿部署用来迭代应用版本，用lstio太重太复杂，而且它本身定位于流控和网格治理；Ingress-Nginx在0.21版本引入了Canary功能，可以为网关入口配置多个版本的应用程序，使用annotation来控制多个后端服务的流量分配</p>
 </blockquote>
-<h3 id="安装bind9"><a href="#安装bind9" class="headerlink" title="安装bind9"></a>安装bind9</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install bind9</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/04/15/bind9-DNS配置/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/15/bind9-DNS配置/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Centos7搭建openvpn服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/13/Centos7搭建openvpn服务/">Centos7 搭建openvpn服务</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/13/Centos7搭建openvpn服务/" class="archive-article-date">
-  	<time datetime="2019-02-13T03:36:58.754Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="data:image/png;base64,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" alt="openvpn"><br>
-        
-          <a class="article-more-a" href="/2019/02/13/Centos7搭建openvpn服务/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">centos7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">oprnvpn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/centos/" class="article-tag-list-link color2">centos</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/13/Centos7搭建openvpn服务/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-nfs服务配置小记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/13/nfs服务配置小记/">Centos nfs服务配置小记</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/13/nfs服务配置小记/" class="archive-article-date">
-  	<time datetime="2019-02-13T03:19:34.646Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><blockquote>
-<p>NFS（Network File System）即网络文件系统，是FreeBSD支持的文件系统中的一种，它允许网络中的计算机之间通过TCP/IP网络共享资源。在NFS的应用中，本地NFS的客户端应用可以透明地读写位于远端NFS服务器上的文件，就像访问本地文件一样,熟悉windows的可以把它看成windows的磁盘映射</p>
+<h2 id="Ingress-Nginx-Annotation-Canary-功能介绍"><a href="#Ingress-Nginx-Annotation-Canary-功能介绍" class="headerlink" title="Ingress-Nginx-Annotation Canary 功能介绍"></a>Ingress-Nginx-Annotation Canary 功能介绍</h2><blockquote>
+<p>如果想启用Canary功能，要先设置 <strong>nginx.ingress.kubernetes.io/canary:”true”</strong>，然后可以启用以下注释来配置Canary</p>
 </blockquote>
-<p><img src="http://img.chulinx.xyz/0df3d7ca7bcb0a46faeb868c6863f6246a60afbd.jpg" alt="0df3d7ca7bcb0a46faeb868c6863f6246a60afbd"></p>
-<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><table>
-<thead>
-<tr>
-<th style="text-align:left">nfs服务ip</th>
-<th style="text-align:left">客户端网段</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">172.23.1.51</td>
-<td style="text-align:left">172.23.1.0</td>
-</tr>
-</tbody>
-</table>
-        
-          <a class="article-more-a" href="/2019/02/13/nfs服务配置小记/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nfs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/system/" class="article-tag-list-link color2">system</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/13/nfs服务配置小记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python异步编程库gevent的简单使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/13/python异步编程库gevent的简单使用/">python 异步编程库gevent的简单使用</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/13/python异步编程库gevent的简单使用/" class="archive-article-date">
-  	<time datetime="2019-02-13T03:19:34.646Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://img.chulinx.xyz/timg.jpeg" alt="timg"></p>
+<ul>
+<li><p><strong>nginx.ingress.kubernetes.io/canary-weight</strong> 请求到Canary ingress中指定的服务的请求百分比，值为0-100的整数，根据设置的值来决定大概有百分之多少的流量会分配Canary Ingress中指定的后端s服务</p>
+</li>
+<li><p><strong>nginx.ingress.kubernetes.io/canary-by-header</strong> 基于request header 的流量切分，适用于灰度发布或者A/B测试，当设定的hearder值为always是，请求流量会被一直分配到Canary入口，当hearder值被设置为never时，请求流量不会分配到Canary入口，对于其他hearder值，将忽略，并通过优先级将请求流量分配到其他规则</p>
+</li>
+<li><p><strong>nginx.ingress.kubernetes.io/canary-by-header-value</strong> 这个配置要和<strong>nginx.ingress.kubernetes.io/canary-by-header</strong> 一起使用，当请求中的hearder key和value 和<strong>nginx.ingress.kubernetes.io/canary-by-header</strong> <strong>nginx.ingress.kubernetes.io/canary-by-header-value</strong>匹配时，请求流量会被分配到Canary Ingress入口，对于其他任何hearder值，将忽略，并通过优先级将请求流量分配到其他规则</p>
+</li>
+<li><p><strong>nginx.ingress.kubernetes.io/canary-by-cookie</strong> 这个配置是基于cookie的流量切分，也适用于灰度发布或者A/B测试，当cookie值设置为always时，请求流量将被路由到Canary Ingress入口，当cookie值设置为never时，请求流量将不会路由到Canary入口，对于其他值，将忽略，并通过优先级将请求流量分配到其他规则</p>
+</li>
+</ul>
 <blockquote>
-<p>作为一个运维和一个比较懒的人，其实当时自学python的时候，想着只要会一些简单的能帮助自己工作自动化进行的就行，当时计算机是个神奇的学科，刚开始入门是时发现也就那会事，但是越发深入缺发现自己越发的缺乏职业安全感，因为技术日新月异，就发现从学校这个井口中跳出来的时候，自己所认为的那会事也就是个皮毛的皮毛，所以开始给自己规划技术之路，逼着自己去学习、坚持，刚开始的时候异常难受，逼着自己去思考新技术的应用领域，以及新技术的使用部署，但随着新技术带给自己的那份欣喜，比如，能很快很好的完成工作，能为自己以后走上高薪之路增加概率，所以自己开始主动接纳，主动去学习新技术，所以这时候接触到nodejs，凭着先天异步的优势，我分别用python和nodejs写了两个功能一样的脚本，执行下来却发现nodejs的异步使整个过程缩小了好几倍，所以开始嫌弃python是个慢悠悠的大蟒蛇，或者出于对异步的好奇和对python的情怀，所以开始开始在网上搜索python怎样实现异步，开始看到的是python3.5的async和await，但是发现压根不想nodejs的awync和await那样好用，隧再寻方法，功夫不负有心人，在网上看到了gevent这个第三方的python库，大概看下发现很好理解，就撸起袖子干起来了。</p>
+<p>金丝雀规则按优先顺序进行如下排序：canary-by-header - &gt; canary-by-cookie - &gt; canary-weight</p>
 </blockquote>
         
-          <a class="article-more-a" href="/2019/02/13/python异步编程库gevent的简单使用/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">gevent</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python/" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/13/python异步编程库gevent的简单使用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-zabbix安装配置-基于zabbix_3.4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/13/zabbix安装配置-基于zabbix_3.4/">zabbix安装配置-基于zabbix_3.4</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/13/zabbix安装配置-基于zabbix_3.4/" class="archive-article-date">
-  	<time datetime="2019-02-13T03:19:34.646Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://i.loli.net/2017/09/11/59b643535276c.jpg" alt="zabbix"></p>
-<h3 id="监控工具zabbix简介"><a href="#监控工具zabbix简介" class="headerlink" title="监控工具zabbix简介"></a>监控工具zabbix简介</h3><blockquote>
-<p>Zabbix 是一个基于 <strong>WEB界面</strong> 的提供 <strong>分布式</strong> 系统监视以及网络监视功能的企业级的开源解决方案，简单的环境有两部分构成，zabbix server与可选组件zabbix agent；分布式环境有3部分构成：zabbix-server、zabbix-proxy、zabbix-agent；可以通过SNMP，zabbix agent，ping，端口监视等方法提供对远程服务器/网络状态的监视，数据收集等功能，它可以运行在Linux，Solaris，HP-UX，AIX，Free BSD，Open BSD，OS X等平台上</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2019/02/13/zabbix安装配置-基于zabbix_3.4/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">zabbix安装,zabbix_3.4</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/zabbix监控/" class="article-tag-list-link color4">zabbix监控</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/13/zabbix安装配置-基于zabbix_3.4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-kubeadm 安装kubernetes 1.9.2全讲解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/13/kubeadm 安装kubernetes 1.9.2全讲解/">kubeadm 安装kubernetes 1.9.2</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/13/kubeadm 安装kubernetes 1.9.2全讲解/" class="archive-article-date">
-  	<time datetime="2019-02-13T03:19:34.645Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>####环境</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">system</th>
-<th style="text-align:left">cpu</th>
-<th style="text-align:left">mem</th>
-<th style="text-align:left">ip</th>
-<th style="text-align:left">role</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">centos7.3mini</td>
-<td style="text-align:left">8core</td>
-<td style="text-align:left">8G</td>
-<td style="text-align:left">172.16.1.126</td>
-<td style="text-align:left">mster</td>
-</tr>
-<tr>
-<td style="text-align:left">centos7.3mini</td>
-<td style="text-align:left">8core</td>
-<td style="text-align:left">8G</td>
-<td style="text-align:left">172.16.1.127</td>
-<td style="text-align:left">node01</td>
-</tr>
-<tr>
-<td style="text-align:left">centos7.3mini</td>
-<td style="text-align:left">8core</td>
-<td style="text-align:left">8G</td>
-<td style="text-align:left">172.16.1.128</td>
-<td style="text-align:left">node02</td>
-</tr>
-</tbody>
-</table>
-<p><img src="http://img.chulinx.xyz/kubernetes.jpeg" alt="kubernetes"></p>
-<h3 id="一-socket5代理配置"><a href="#一-socket5代理配置" class="headerlink" title="一.socket5代理配置"></a>一.socket5代理配置</h3><blockquote>
-<p>配置成脚本socket.sh方便开启关闭，开启socket.sh create &amp;&amp; socket.sh start,停止socket.sh stop</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2019/02/13/kubeadm 安装kubernetes 1.9.2全讲解/#more">more >></a>
+          <a class="article-more-a" href="/2019/08/29/Kubernetes 使用Nginx-Ingress实现蓝绿发布,AB测试/#more">more >></a>
         
       
 
@@ -822,6 +482,10 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ingress</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -832,7 +496,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/docker/" class="article-tag-list-link color2">docker</a>
+        			<a href="/categories/kubernetes/" class="article-tag-list-link color1">kubernetes</a>
         		</li>
       		
 		</ul>
@@ -841,7 +505,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/13/kubeadm 安装kubernetes 1.9.2全讲解/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/08/29/Kubernetes 使用Nginx-Ingress实现蓝绿发布,AB测试/">展开全文 >></a>
         </p>
       
 
@@ -871,20 +535,20 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-pfsense软路由防火墙安装以及配置openvpn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-GO-Promethues-Node_exporter二次开发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/13/pfsense软路由防火墙安装以及配置openvpn/">pfsense软路由防火墙安装以及配置openvpn</a>
+      <a class="article-title" href="/2019/08/21/GO-Promethues-Node_exporter二次开发/">Golang 基于Prometheus Node_Exporter 开发自定义脚本监控</a>
     </h1>
   
 
         
-        <a href="/2019/02/13/pfsense软路由防火墙安装以及配置openvpn/" class="archive-article-date">
-  	<time datetime="2019-02-13T03:19:34.570Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
+        <a href="/2019/08/21/GO-Promethues-Node_exporter二次开发/" class="archive-article-date">
+  	<time datetime="2019-08-21T05:43:40.808Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
 </a>
         
       </header>
@@ -892,11 +556,15 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>维基百科:pfSense是基于FreeBSD的开源 防火墙 / 路由器计算机软件发行版。[2] [3] [4]它安装在物理计算机或虚拟机上，为网络制作专用的防火墙/路由器。[5]它可以通过基于网络的界面进行配置和升级，并且不需要了解底层FreeBSD系统的管理知识。[2] [6] pfSense通常部署为外围防火墙，路由器，无线接入点，DHCP服务器，DNS服务器以及VPN端点。pfSense支持通过其包管理器安装第三方软件包，如Snort或Squid。</p>
+<p>公司是今年决定将一些传统应用从虚拟机上迁移到Kubernetes上的，项目多而乱，所以迁移工作进展缓慢，为了建立统一的监控平台，我们使用的是在Kubernetes集群内部署Prometheus-operator，不得不说Prometheus-operator对k8s的监控支持的非常好，helm安装后会把Prometheus、Alertmanger、Grafana、以及NodeExporter都给安装完成，打开Grafana k8s中所有监控指标和图标都已经创建好，大大降低监控部署的复杂性。但是对于我们项目迁移较慢的环境，Promethues只监控k8s集群当然是不行的，所以我们选择使用在虚拟机上部署Node_Exporter来监控虚拟机的各项指标，但是Node_Exporter只能监控系统指标，我们可能想要业务的一些监控，比如(文件状态监控，业务日志监控…都是一些传统软件留下来的坑)，这样Node_Exporter就显得力不从心了，而且每个项目监控的一些指标并不相同，所以开发统一Exporter不但耗时还会出现一些兼容性和运维复杂性的问题，所以根据原来zabbix自定义监控项的思路考虑对Node_Exporter进行二次开发，增加一个自定义脚本监控项</p>
 </blockquote>
-<p><img src="https://upload.wikimedia.org/wikipedia/en/4/42/Pfsense_logo.png" alt="pfSense"><br>
+<blockquote>
+<p>Node_Exporter源码目录结构</p>
+</blockquote>
+<p>通过collector目录下源码文件名可以看到具体监控项通过单独的代码文件去采集</p>
+<p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20190821111902.png" alt></p>
         
-          <a class="article-more-a" href="/2019/02/13/pfsense软路由防火墙安装以及配置openvpn/#more">more >></a>
+          <a class="article-more-a" href="/2019/08/21/GO-Promethues-Node_exporter二次开发/#more">more >></a>
         
       
 
@@ -910,11 +578,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pfsense</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">openvpn</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">node_exporter</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">prometheus</a>
         		</li>
       		
 		</ul>
@@ -926,7 +598,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/pfsense/" class="article-tag-list-link color3">pfsense</a>
+        			<a href="/categories/kubernetes/" class="article-tag-list-link color1">kubernetes</a>
         		</li>
       		
 		</ul>
@@ -935,7 +607,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/13/pfsense软路由防火墙安装以及配置openvpn/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/08/21/GO-Promethues-Node_exporter二次开发/">展开全文 >></a>
         </p>
       
 
@@ -965,53 +637,30 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-CDH Hadoop部署安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Kubernetes 创建用户认证授权的kubeconfig文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/CDH Hadoop部署安装/">CDH Hadoop 集群安装部署</a>
+      <a class="article-title" href="/2019/08/13/Kubernetes 创建用户认证授权的kubeconfig文件/">Kubernetes 创建用户认证授权的kubeconfig文件</a>
     </h1>
   
 
         
-        <a href="/2019/01/22/CDH Hadoop部署安装/" class="archive-article-date">
-  	<time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
+        <a href="/2019/08/13/Kubernetes 创建用户认证授权的kubeconfig文件/" class="archive-article-date">
+  	<time datetime="2019-08-13T05:47:49.180Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="CDH-Hadoop-安装部署"><a href="#CDH-Hadoop-安装部署" class="headerlink" title="CDH Hadoop 安装部署"></a>CDH Hadoop 安装部署</h2><p><img src="https://i.loli.net/2017/11/09/5a03ff6c04399.png" alt="546891eee95f6d7df33ed04630d0c7ca.png"></p>
-<h4 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h4><table>
-<thead>
-<tr>
-<th style="text-align:left">Hosts</th>
-<th style="text-align:left">Role</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">172.16.1.190</td>
-<td style="text-align:left">Hbase-Master</td>
-</tr>
-<tr>
-<td style="text-align:left">172.16.1.103</td>
-<td style="text-align:left">Hbase-slave01</td>
-</tr>
-<tr>
-<td style="text-align:left">172.16.1.104</td>
-<td style="text-align:left">Hbase-slave02</td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li><p>关闭防火墙和iptables 配置ssh 免密登录</p>
+        <h2 id="案例需求："><a href="#案例需求：" class="headerlink" title="案例需求："></a>案例需求：</h2><p>当我们安装好集群后，如果想要把 kubectl 命令交给用户使用，就不得不对用户的身份进行认证和对其权限做出限制。<br>创建一个测试用户testmonitor只能在其自己的命名空间testmonitor中拥有所有权限。</p>
+<h2 id="生成证书密钥"><a href="#生成证书密钥" class="headerlink" title="生成证书密钥"></a>生成证书密钥</h2><p>本案例没有生成新的CA证书，用的kubernetes自带的CA证书，如有需求，也可以自己生成，此处不做赘述。(或者获取到master节点上的ca.key放到本地执行也可以)<br>在kubernetes集群master节点上创建一个RBAC_testmonitor目录，目录可以自定义。用cd命令进入到该目录下，用OpenSSL创建密钥证书。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 创建一个一次性签10年的证书</span><br><span class="line">openssl genrsa -out testmonitor.key 2048</span><br><span class="line">openssl req -new -key testmonitor.key -out testmonitor.csr -subj &quot;/CN=testmonitor/O=develops&quot;</span><br><span class="line">openssl x509 -req -in testmonitor.csr -CA /etc/kubernetes/pki/ca.crt -CAkey=/etc/kubernetes/pki/ca.key -CAcreateserial -out testmonitor.crt -days 3650</span><br></pre></td></tr></table></figure></p>
         
-          <a class="article-more-a" href="/2019/01/22/CDH Hadoop部署安装/#more">more >></a>
+          <a class="article-more-a" href="/2019/08/13/Kubernetes 创建用户认证授权的kubeconfig文件/#more">more >></a>
         
       
 
@@ -1025,11 +674,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cdh</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hadoop集群</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">RBAC</a>
         		</li>
       		
 		</ul>
@@ -1041,7 +694,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/hadoop/" class="article-tag-list-link color2">hadoop</a>
+        			<a href="/categories/kubernetes/" class="article-tag-list-link color1">kubernetes</a>
         		</li>
       		
 		</ul>
@@ -1050,7 +703,417 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/22/CDH Hadoop部署安装/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/08/13/Kubernetes 创建用户认证授权的kubeconfig文件/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Kubernetes 搞懂污点和亲和性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/13/Kubernetes 搞懂污点和亲和性/">Kubernetes 节点调度之搞懂污点和亲和性</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/13/Kubernetes 搞懂污点和亲和性/" class="archive-article-date">
+  	<time datetime="2019-08-13T00:37:53.553Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>kubernetes集群在生产过程中，不同类型的应用对资源的需求是不一样的，比如数据库需要高IO缓存的节点，CPU密集型的需要cpu处理性能更强的节点，内存密集型的需要更高效的内存节点，所以我们在一个生产kubernetes集群中会包含多种与应用需求不同资源的节点类型，得以让硬件资源更充分的利用，解决这一需求，第一,我们可以给节点打label，让同类型的应用被调度到同类型的节点中去，这种方式需要再每个控制器的Pod中使用selector配置node的label，让该控制器的pod调度到匹配到的节点中；第二,为node设置污点，让应用不可调度，再给想要调度到这些污点的应用设置亲和性，允许设置亲和性的pod被调度到污点node，下面篇幅主要讲改方法的配置过程</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2019/08/13/Kubernetes 搞懂污点和亲和性/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">污点</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">亲和性</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/kubernetes/" class="article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/13/Kubernetes 搞懂污点和亲和性/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Kubernetes 实现全方位集群内私有dns" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/04/Kubernetes 实现全方位集群内私有dns/">Kubernetes 实现全方位集群内私有dns</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/04/Kubernetes 实现全方位集群内私有dns/" class="archive-article-date">
+  	<time datetime="2019-08-04T09:46:57.033Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20190804103058.png" alt></p>
+<blockquote>
+<p>k8s中的dns从skyDNS到kubeDns,再到今天的coreDNS，目的很简单，那就是为了让集群中的应用通过service和namespace来找到对应的服务，以组建更稳定更高效的应用集群；但coreDNS的能力应该远非与此，那可以还做什么呢？生产过程中，某些服务在某些场景下是需要配置域名来访问的，但因为集群很多时候是内网集群，网络可能会限制内网服务器访问外网，就算能访问外网，你访问内网服务还要走公网走一圈再回到内网，这样对内网网关的压力，以及·网络延迟增高都有很大影响，所以你需要个内网dns，让这些内网服务直接走内网解析，这篇文章会大概讲下利用k8s集群自带的coreDNS搭建一个内网dns</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2019/08/04/Kubernetes 实现全方位集群内私有dns/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">coredns</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/kubernetes/" class="article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/04/Kubernetes 实现全方位集群内私有dns/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-kubernetes_rook-ceph-rbd_搭建与扩容" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/03/kubernetes_rook-ceph-rbd_搭建与扩容/">Kubernetes rook-ceph_搭建与扩容</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/03/kubernetes_rook-ceph-rbd_搭建与扩容/" class="archive-article-date">
+  	<time datetime="2019-08-03T02:45:01.694Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>容器的持久化存储<br>容器的持久化存储是保存容器存储状态的重要手段，存储插件会在容器里挂载一个基于网络或者其他机制的远程数据卷，使得在容器里创建的文件，实际上是保存在远程存储服务器上，或者以分布式的方式保存在多个节点上，而与当前宿主机没有任何绑定关系。这样，无论你在其他哪个宿主机上启动新的容器，都可以请求挂载指定的持久化存储卷，从而访问到数据卷里保存的内容。<br>由于 Kubernetes 本身的松耦合设计，绝大多数存储项目，比如 Ceph、GlusterFS、NFS 等，都可以为 Kubernetes 提供持久化存储能力。<br>Ceph分布式存储系统<br>Ceph是一种高度可扩展的分布式存储解决方案，提供对象、文件和块存储。在每个存储节点上，您将找到Ceph存储对象的文件系统和Ceph OSD（对象存储守护程序）进程。在Ceph集群上，您还可以找到Ceph MON（监控）守护程序，它们确保Ceph集群保持高可用性。<br>Rook<br>Rook 是一个开源的cloud-native storage编排, 提供平台和框架；为各种存储解决方案提供平台、框架和支持，以便与云原生环境本地集成。<br>Rook 将存储软件转变为自我管理、自我扩展和自我修复的存储服务，它通过自动化部署、引导、配置、置备、扩展、升级、迁移、灾难恢复、监控和资源管理来实现此目的。<br>Rook 使用底层云本机容器管理、调度和编排平台提供的工具来实现它自身的功能。<br>Rook 目前支持Ceph、NFS、Minio Object Store和CockroachDB。<br>Rook使用Kubernetes原语使Ceph存储系统能够在Kubernetes上运行。下图说明了Ceph Rook如何与Kubernetes集成</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/05/14/5cda23b54247c38162.png" alt></p>
+<blockquote>
+<p>随着Rook在Kubernetes集群中运行，Kubernetes应用程序可以挂载由Rook管理的块设备和文件系统，或者可以使用S3 / Swift API提供对象存储。Rook oprerator自动配置存储组件并监控群集，以确保存储处于可用和健康状态。<br>Rook oprerator是一个简单的容器，具有引导和监视存储集群所需的全部功能。oprerator将启动并监控ceph monitor pods和OSDs的守护进程，它提供基本的RADOS存储。oprerator通过初始化运行服务所需的pod和其他组件来管理池，对象存储（S3 / Swift）和文件系统的CRD。<br>oprerator将监视存储后台驻留程序以确保群集正常运行。Ceph mons将在必要时启动或故障转移，并在群集增长或缩小时进行其他调整。oprerator还将监视api服务请求的所需状态更改并应用更改。<br>Rook oprerator还创建了Rook agent。这些agent是在每个Kubernetes节点上部署的pod。每个agent都配置一个Flexvolume插件，该插件与Kubernetes的volume controller集成在一起。处理节点上所需的所有存储操作，例如附加网络存储设备，安装卷和格式化文件系统。</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/05/14/5cda23d9e011691005.png" alt></p>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><h4 id="部署环境"><a href="#部署环境" class="headerlink" title="部署环境"></a>部署环境</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">172.16.1.198 master</span><br><span class="line">172.16.1.199 node1</span><br><span class="line">172.16.1.200 node2</span><br><span class="line"></span><br><span class="line">Rook version 1.0</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/08/03/kubernetes_rook-ceph-rbd_搭建与扩容/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pvc</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pv</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">rook</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ceph</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/kubernetes/" class="article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/03/kubernetes_rook-ceph-rbd_搭建与扩容/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-kubernetes Prometheus 监控Ingress-controller" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/01/kubernetes Prometheus 监控Ingress-controller/">kubernetes Prometheus 监控Ingress-controller</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/01/kubernetes Prometheus 监控Ingress-controller/" class="archive-article-date">
+  	<time datetime="2019-08-01T02:59:03.173Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="kubernetes-Prometheus-监控Ingress-controller"><a href="#kubernetes-Prometheus-监控Ingress-controller" class="headerlink" title="kubernetes Prometheus 监控Ingress-controller"></a>kubernetes Prometheus 监控Ingress-controller</h1><h2 id="本文目录"><a href="#本文目录" class="headerlink" title="本文目录"></a>本文目录</h2><p>[TOC]</p>
+<p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20190730111502.png" alt><br>
+        
+          <a class="article-more-a" href="/2019/08/01/kubernetes Prometheus 监控Ingress-controller/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ingress</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/kubernetes/" class="article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/01/kubernetes Prometheus 监控Ingress-controller/">展开全文 >></a>
         </p>
       
 
@@ -1082,7 +1145,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1174,11 +1237,43 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ingress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">coredns</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">污点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">node_exporter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">prometheus</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1187,6 +1282,34 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">efk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">fluentd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logstash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1202,15 +1325,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">swarm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1218,15 +1333,51 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dns</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">bind9</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pod</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">metric</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shard</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">replicas</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1242,15 +1393,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pvc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">rook</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ceph</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
               </li>
              
               <li class="article-tag-list-item">
