@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="天涯咫尺">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/20191129203622.png">
-<meta property="og:updated_time" content="2019-11-29T12:44:54.718Z">
+<meta property="og:updated_time" content="2019-11-29T12:49:01.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go语言复习笔记——基本语法（一）">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/20191129203622.png">
@@ -230,8 +230,9 @@ var _hmt = _hmt || [];
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name := <span class="string">"lisong"</span></span><br><span class="line">age := <span class="number">28</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>注意<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">### 三、多个变量同时赋值</span><br><span class="line"></span><br><span class="line">```go</span><br><span class="line">var name,age = &quot;lisong&quot;,28</span><br><span class="line">name,age := &quot;lisong&quot;,28</span><br></pre></td></tr></table></figure></p>
+<p>注意:=和=的区别, := 表示身边并初始化，= 只表示赋值</p>
 </blockquote>
+<h3 id="三、多个变量同时赋值"><a href="#三、多个变量同时赋值" class="headerlink" title="三、多个变量同时赋值"></a>三、多个变量同时赋值</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name,age = <span class="string">"lisong"</span>,<span class="number">28</span></span><br><span class="line">name,age := <span class="string">"lisong"</span>,<span class="number">28</span></span><br></pre></td></tr></table></figure>
 <h3 id="四、匿名变量"><a href="#四、匿名变量" class="headerlink" title="四、匿名变量"></a>四、匿名变量</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">GetData</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">100</span>,<span class="number">200</span></span><br><span class="line">&#125;</span><br><span class="line">a,_ := GetData <span class="comment">// _表示匿名变量</span></span><br></pre></td></tr></table></figure>
 <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><blockquote>
 <p>Go语言的数据类型包含基本的整型，浮点型，布尔型，字符串，还有切片，结构体，函数，map，通道(channel)，切片有着比指针的便利性，但比指针安全，切片可以进行安全切高效的内存操作。</p>
@@ -442,7 +443,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量"><span class="toc-number">1.</span> <span class="toc-text">变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、声明变量"><span class="toc-number">1.1.</span> <span class="toc-text">一、声明变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、变量初始化"><span class="toc-number">1.2.</span> <span class="toc-text">二、变量初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、匿名变量"><span class="toc-number">1.3.</span> <span class="toc-text">四、匿名变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-number">2.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-整型-int"><span class="toc-number">2.1.</span> <span class="toc-text">1. 整型(int)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#整型分类"><span class="toc-number">2.1.1.</span> <span class="toc-text">整型分类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-浮点型-float"><span class="toc-number">2.2.</span> <span class="toc-text">2. 浮点型(float)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-布尔型-bool"><span class="toc-number">2.3.</span> <span class="toc-text">3. 布尔型(bool)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-字符串-string"><span class="toc-number">2.4.</span> <span class="toc-text">4. 字符串(string)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-字符-byte"><span class="toc-number">2.5.</span> <span class="toc-text">5. 字符(byte)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-切片"><span class="toc-number">2.6.</span> <span class="toc-text">6. 切片</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量"><span class="toc-number">1.</span> <span class="toc-text">变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、声明变量"><span class="toc-number">1.1.</span> <span class="toc-text">一、声明变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、变量初始化"><span class="toc-number">1.2.</span> <span class="toc-text">二、变量初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、多个变量同时赋值"><span class="toc-number">1.3.</span> <span class="toc-text">三、多个变量同时赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、匿名变量"><span class="toc-number">1.4.</span> <span class="toc-text">四、匿名变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-number">2.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-整型-int"><span class="toc-number">2.1.</span> <span class="toc-text">1. 整型(int)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#整型分类"><span class="toc-number">2.1.1.</span> <span class="toc-text">整型分类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-浮点型-float"><span class="toc-number">2.2.</span> <span class="toc-text">2. 浮点型(float)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-布尔型-bool"><span class="toc-number">2.3.</span> <span class="toc-text">3. 布尔型(bool)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-字符串-string"><span class="toc-number">2.4.</span> <span class="toc-text">4. 字符串(string)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-字符-byte"><span class="toc-number">2.5.</span> <span class="toc-text">5. 字符(byte)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-切片"><span class="toc-number">2.6.</span> <span class="toc-text">6. 切片</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -548,6 +549,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cdh</a>
               </li>
              
@@ -565,14 +574,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">prometheus</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,19 +637,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">parted</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -664,6 +661,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">machine</a>
               </li>
              
@@ -672,15 +673,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pod</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -688,7 +681,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -705,10 +710,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ceph</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
               </li>
              
               <li class="article-tag-list-item">
