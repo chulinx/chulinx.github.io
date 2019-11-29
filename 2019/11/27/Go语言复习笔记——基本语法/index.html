@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Go语言复习笔记——基本语法（一） | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="变量一、声明变量 var 标准格式声明  var 变量名 变量类型 123var name stringvar age  int`   批量格式 1234var (  name string  age  int)   二、变量初始化 golang 变量初始化具有默认值，整数 浮点默认值是0；字符串默认值是空字符串；布尔默认值true；切片、函数、指针默认值为nil   标准格式 var 变量名 类">
+  <meta name="description" content="变量一、声明变量 var 标准格式声明 var 变量名 变量类型    123var name stringvar age  int`  批量格式  1234var (  name string  age  int) 二、变量初始化 golang 变量初始化具有默认值，整数 浮点默认值是0；字符串默认值是空字符串；布尔默认值true；切片、函数、指针默认值为nil   标准格式   var 变量名">
 <meta name="keywords" content="go,变量,数据类型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go语言复习笔记——基本语法（一）">
 <meta property="og:url" content="http://yoursite.com/2019/11/27/Go语言复习笔记——基本语法/index.html">
 <meta property="og:site_name" content="天涯咫尺">
-<meta property="og:description" content="变量一、声明变量 var 标准格式声明  var 变量名 变量类型 123var name stringvar age  int`   批量格式 1234var (  name string  age  int)   二、变量初始化 golang 变量初始化具有默认值，整数 浮点默认值是0；字符串默认值是空字符串；布尔默认值true；切片、函数、指针默认值为nil   标准格式 var 变量名 类">
+<meta property="og:description" content="变量一、声明变量 var 标准格式声明 var 变量名 变量类型    123var name stringvar age  int`  批量格式  1234var (  name string  age  int) 二、变量初始化 golang 变量初始化具有默认值，整数 浮点默认值是0；字符串默认值是空字符串；布尔默认值true；切片、函数、指针默认值为nil   标准格式   var 变量名">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-29T12:32:10.409Z">
+<meta property="og:updated_time" content="2019-11-29T12:35:26.243Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go语言复习笔记——基本语法（一）">
-<meta name="twitter:description" content="变量一、声明变量 var 标准格式声明  var 变量名 变量类型 123var name stringvar age  int`   批量格式 1234var (  name string  age  int)   二、变量初始化 golang 变量初始化具有默认值，整数 浮点默认值是0；字符串默认值是空字符串；布尔默认值true；切片、函数、指针默认值为nil   标准格式 var 变量名 类">
+<meta name="twitter:description" content="变量一、声明变量 var 标准格式声明 var 变量名 变量类型    123var name stringvar age  int`  批量格式  1234var (  name string  age  int) 二、变量初始化 golang 变量初始化具有默认值，整数 浮点默认值是0；字符串默认值是空字符串；布尔默认值true；切片、函数、指针默认值为nil   标准格式   var 变量名">
   
     <link rel="alternative" href="/atom.xml" title="天涯咫尺" type="application/atom+xml">
   
@@ -200,25 +200,25 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="一、声明变量"><a href="#一、声明变量" class="headerlink" title="一、声明变量"></a>一、声明变量</h3><ol>
-<li><p>var 标准格式声明</p>
-<blockquote>
+<li>var 标准格式声明<blockquote>
 <p>var 变量名 变量类型</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name <span class="keyword">string</span></span><br><span class="line"><span class="keyword">var</span> age  <span class="keyword">int</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
-<li><p>批量格式</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> (</span><br><span class="line">  name <span class="keyword">string</span></span><br><span class="line">  age  <span class="keyword">int</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-</li>
 </ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name <span class="keyword">string</span></span><br><span class="line"><span class="keyword">var</span> age  <span class="keyword">int</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>批量格式</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> (</span><br><span class="line">  name <span class="keyword">string</span></span><br><span class="line">  age  <span class="keyword">int</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <h3 id="二、变量初始化"><a href="#二、变量初始化" class="headerlink" title="二、变量初始化"></a>二、变量初始化</h3><blockquote>
 <p>golang 变量初始化具有默认值，整数 浮点默认值是0；字符串默认值是空字符串；布尔默认值true；切片、函数、指针默认值为nil</p>
 </blockquote>
 <ol>
-<li>标准格式<blockquote>
+<li>标准格式</li>
+</ol>
+<blockquote>
 <p>var 变量名 类型 = 表达式</p>
 </blockquote>
-</li>
-</ol>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name <span class="keyword">string</span> = <span class="string">"lisong"</span></span><br><span class="line"><span class="keyword">var</span> age  <span class="keyword">int</span>    = <span class="number">28</span></span><br></pre></td></tr></table></figure>
 <ol start="2">
 <li>编译器推导</li>
@@ -229,7 +229,7 @@ var _hmt = _hmt || [];
 </li>
 </ol>
 <blockquote>
-<p>注意<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 三、多个变量同时赋值</span><br><span class="line">```go</span><br><span class="line">var name,age = &quot;lisong&quot;,28</span><br><span class="line">name,age := &quot;lisong&quot;,28</span><br></pre></td></tr></table></figure></p>
+<p>注意<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 三、多个变量同时赋值</span><br><span class="line"></span><br><span class="line">```go</span><br><span class="line">var name,age = &quot;lisong&quot;,28</span><br><span class="line">name,age := &quot;lisong&quot;,28</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <h3 id="四、匿名变量"><a href="#四、匿名变量" class="headerlink" title="四、匿名变量"></a>四、匿名变量</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">GetData</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">100</span>,<span class="number">200</span></span><br><span class="line">&#125;</span><br><span class="line">a,_ := GetData <span class="comment">// _表示匿名变量</span></span><br></pre></td></tr></table></figure>
 <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><blockquote>
@@ -306,9 +306,9 @@ var _hmt = _hmt || [];
 <ul>
 <li>一种是uint8类型，或者叫做byte型，代表ASCII码的一个字符</li>
 <li>另一种是rune类型，代表一个UTF-8字符，当处理中文或者日文的时候需要用到rune类型，rune类型实际上是一个int32</li>
-<li>示例:<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a <span class="keyword">byte</span> = <span class="string">'a'</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>示例:</li>
 </ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a <span class="keyword">byte</span> = <span class="string">'a'</span></span><br></pre></td></tr></table></figure>
 <h3 id="6-切片"><a href="#6-切片" class="headerlink" title="6. 切片"></a>6. 切片</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">slice := <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">3</span>) <span class="comment">// 创建切片</span></span><br><span class="line">slice[<span class="number">0</span>]=<span class="number">1</span>              <span class="comment">// 切片赋值</span></span><br><span class="line">slice[<span class="number">1</span>]=<span class="number">2</span></span><br><span class="line">slice[<span class="number">2</span>]=<span class="number">3</span></span><br></pre></td></tr></table></figure>
 
       
@@ -555,14 +555,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">go</a>
               </li>
              
@@ -575,15 +567,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">golang</a>
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">node_exporter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">prometheus</a>
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -599,19 +587,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ingress</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">coredns</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">污点</a>
+                <a href="javascript:void(0)" class="js-tag color3">ingress</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
+                <a href="javascript:void(0)" class="js-tag color2">golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">node_exporter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">prometheus</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -620,6 +612,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">parted</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">污点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -635,7 +639,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
+                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -659,15 +667,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -687,23 +691,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pfsense</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">openvpn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -716,6 +704,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">replicas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pfsense</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">openvpn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -735,11 +731,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -755,19 +759,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">
