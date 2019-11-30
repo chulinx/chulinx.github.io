@@ -9,7 +9,7 @@
   <title>kubernetes 监控系统prometheus-operator部署使用 | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Kubernetes1.14 监控系统 Prometheus-operator 部署实战Operator Operator是由CoreOS公司开发的，用来扩展 Kubernetes API，特定的应用程序控制器，它用来创建、配置和管理复杂的有状态应用，如数据库、缓存和监控系统。Operator基于 Kubernetes 的资源和控制器概念之上构建，但同时又包含了应用程序特定的一些专业知识，比如创">
-<meta name="keywords" content="docker,kubernetes,prometheus">
+<meta name="keywords" content="prometheus,docker,kubernetes">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kubernetes 监控系统prometheus-operator部署使用">
 <meta property="og:url" content="http://yoursite.com/2019/07/05/kubernetes 监控系统prometheus-operator部署使用/index.html">
@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/20191127092711.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/20191127092730.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/20191127092746.png">
-<meta property="og:updated_time" content="2019-11-27T01:29:08.415Z">
+<meta property="og:updated_time" content="2019-11-30T12:04:45.867Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kubernetes 监控系统prometheus-operator部署使用">
 <meta name="twitter:description" content="Kubernetes1.14 监控系统 Prometheus-operator 部署实战Operator Operator是由CoreOS公司开发的，用来扩展 Kubernetes API，特定的应用程序控制器，它用来创建、配置和管理复杂的有状态应用，如数据库、缓存和监控系统。Operator基于 Kubernetes 的资源和控制器概念之上构建，但同时又包含了应用程序特定的一些专业知识，比如创">
@@ -318,15 +318,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">prometheus</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">prometheus</a>
         		</li>
       		
 		</ul>
@@ -438,6 +438,19 @@ var _hmt = _hmt || [];
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Kubernetes1-14-监控系统-Prometheus-operator-部署实战"><span class="toc-number">1.</span> <span class="toc-text">Kubernetes1.14 监控系统 Prometheus-operator 部署实战</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Operator"><span class="toc-number">1.1.</span> <span class="toc-text">Operator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prometheus-Operator-架构图"><span class="toc-number">1.2.</span> <span class="toc-text">Prometheus-Operator 架构图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于-Prometheus-Operator-四种资源对象的解释"><span class="toc-number">1.2.1.</span> <span class="toc-text">关于 Prometheus-Operator 四种资源对象的解释</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.3.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建ingress-tls"><span class="toc-number">1.3.1.</span> <span class="toc-text">创建ingress tls</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改-Prometheus-chart-value-yaml"><span class="toc-number">1.3.2.</span> <span class="toc-text">修改 Prometheus chart value.yaml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署"><span class="toc-number">1.3.3.</span> <span class="toc-text">部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hosts-绑定"><span class="toc-number">1.3.4.</span> <span class="toc-text">Hosts 绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问测试"><span class="toc-number">1.3.5.</span> <span class="toc-text">访问测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ServiceMonitor"><span class="toc-number">1.4.</span> <span class="toc-text">ServiceMonitor</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#监控etcd"><span class="toc-number">1.4.1.</span> <span class="toc-text">监控etcd</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#修改ectd启动参数"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">修改ectd启动参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建serviceMonitor"><span class="toc-number">1.4.1.2.</span> <span class="toc-text">创建serviceMonitor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建service-endpoints"><span class="toc-number">1.4.1.3.</span> <span class="toc-text">创建service/endpoints</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查看prometheus—-gt-targets-页面-发现etcd状态已经是UP了"><span class="toc-number">1.4.1.4.</span> <span class="toc-text">查看prometheus—&gt;targets 页面 发现etcd状态已经是UP了</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查看grafana-就可以看到etcd的监控数据了"><span class="toc-number">1.4.1.5.</span> <span class="toc-text">查看grafana 就可以看到etcd的监控数据了</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Grafana-配置"><span class="toc-number">1.5.</span> <span class="toc-text">Grafana 配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置监控报警接收"><span class="toc-number">1.6.</span> <span class="toc-text">配置监控报警接收</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看secret"><span class="toc-number">1.6.0.1.</span> <span class="toc-text">查看secret</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改secret"><span class="toc-number">1.6.0.2.</span> <span class="toc-text">修改secret</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查看报警"><span class="toc-number">1.6.0.3.</span> <span class="toc-text">查看报警</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rook-ceph监控"><span class="toc-number">1.7.</span> <span class="toc-text">rook-ceph监控</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建service、endpoints"><span class="toc-number">1.7.1.</span> <span class="toc-text">创建service、endpoints</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建serviceMonitor-1"><span class="toc-number">1.7.2.</span> <span class="toc-text">创建serviceMonitor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看endpoint"><span class="toc-number">1.7.3.</span> <span class="toc-text">查看endpoint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导入rook-监控模板"><span class="toc-number">1.7.4.</span> <span class="toc-text">导入rook 监控模板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PrometheusRule"><span class="toc-number">1.8.</span> <span class="toc-text">PrometheusRule</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义rook-ceph-磁盘使用率报警"><span class="toc-number">1.8.1.</span> <span class="toc-text">自定义rook-ceph 磁盘使用率报警</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟故障发送报警邮件"><span class="toc-number">1.8.2.</span> <span class="toc-text">模拟故障发送报警邮件</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -538,6 +551,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">centos7</a>
               </li>
              
@@ -546,11 +567,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+                <a href="javascript:void(0)" class="js-tag color2">golang</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+                <a href="javascript:void(0)" class="js-tag color4">node_exporter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">prometheus</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,67 +603,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">golang</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">node_exporter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">prometheus</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">污点</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">parted</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dns</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bind9</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">coredns</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -662,6 +631,50 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">污点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dns</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">bind9</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">parted</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pod</a>
               </li>
              
@@ -670,7 +683,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -690,19 +711,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shard</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">replicas</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -722,22 +747,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shard</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">replicas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
@@ -747,6 +756,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">

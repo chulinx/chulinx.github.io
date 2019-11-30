@@ -8,23 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>kubernetes Prometheus 监控Ingress-controller | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="kubernetes Prometheus 监控Ingress-controller本文目录[TOC]">
-<meta name="keywords" content="docker,kubernetes,ingress">
+  <meta name="keywords" content="docker,kubernetes,ingress">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kubernetes Prometheus 监控Ingress-controller">
 <meta property="og:url" content="http://yoursite.com/2019/08/01/kubernetes Prometheus 监控Ingress-controller/index.html">
 <meta property="og:site_name" content="天涯咫尺">
-<meta property="og:description" content="kubernetes Prometheus 监控Ingress-controller本文目录[TOC]">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/20190730111502.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/20190730140548.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/20190730140721.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/20190730141514.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/20190730111502.png">
-<meta property="og:updated_time" content="2019-11-20T03:38:25.785Z">
+<meta property="og:updated_time" content="2019-11-30T12:03:04.009Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kubernetes Prometheus 监控Ingress-controller">
-<meta name="twitter:description" content="kubernetes Prometheus 监控Ingress-controller本文目录[TOC]">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/20190730111502.png">
   
     <link rel="alternative" href="/atom.xml" title="天涯咫尺" type="application/atom+xml">
@@ -205,8 +202,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="kubernetes-Prometheus-监控Ingress-controller"><a href="#kubernetes-Prometheus-监控Ingress-controller" class="headerlink" title="kubernetes Prometheus 监控Ingress-controller"></a>kubernetes Prometheus 监控Ingress-controller</h1><h2 id="本文目录"><a href="#本文目录" class="headerlink" title="本文目录"></a>本文目录</h2><p>[TOC]</p>
-<p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20190730111502.png" alt><br><a id="more"></a></p>
+        <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20190730111502.png" alt><br><a id="more"></a></p>
 <h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><ul>
 <li>kubernetes 集群中已经安装Prometheus-operator</li>
 <li>了解Prometheus-operator serviceMonitor的感念</li>
@@ -367,6 +363,19 @@ var _hmt = _hmt || [];
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#先决条件"><span class="toc-number">1.</span> <span class="toc-text">先决条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#本文档不涉及helm以及ingress，promethues-安装部署-可查看以下链接查询相关文档"><span class="toc-number">2.</span> <span class="toc-text">本文档不涉及helm以及ingress，promethues 安装部署,可查看以下链接查询相关文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检查ingress是否存在controller-metrics-Service"><span class="toc-number">3.</span> <span class="toc-text">检查ingress是否存在controller-metrics Service</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#helm-升级ingress"><span class="toc-number">4.</span> <span class="toc-text">helm 升级ingress</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看已安装的helm-ingress"><span class="toc-number">4.1.</span> <span class="toc-text">查看已安装的helm ingress</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载-fetch-helm-charts"><span class="toc-number">4.2.</span> <span class="toc-text">下载 fetch helm charts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看metrics-Service-模板"><span class="toc-number">4.3.</span> <span class="toc-text">查看metrics Service 模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#升级nginx-ingress"><span class="toc-number">4.4.</span> <span class="toc-text">升级nginx-ingress</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为Ingress添加Prometheus-ServiceMonitor"><span class="toc-number">5.</span> <span class="toc-text">为Ingress添加Prometheus ServiceMonitor</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Promethues-查看ingress-的metrics-数据"><span class="toc-number">5.1.</span> <span class="toc-text">Promethues 查看ingress 的metrics 数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#打开页面Status-–-Targets-查看是否添加成功"><span class="toc-number">5.1.1.</span> <span class="toc-text">打开页面Status – Targets 查看是否添加成功</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查询nginx-ingress监控数据"><span class="toc-number">5.1.2.</span> <span class="toc-text">查询nginx-ingress监控数据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#grafana-导入nginx-ingress-Dashboard"><span class="toc-number">6.</span> <span class="toc-text">grafana 导入nginx-ingress Dashboard</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看监控面板"><span class="toc-number">7.</span> <span class="toc-text">查看监控面板</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -467,6 +476,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">centos7</a>
               </li>
              
@@ -475,11 +492,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+                <a href="javascript:void(0)" class="js-tag color2">golang</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+                <a href="javascript:void(0)" class="js-tag color4">node_exporter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">prometheus</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,67 +528,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">golang</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">node_exporter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">prometheus</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">污点</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">parted</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dns</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bind9</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">coredns</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,6 +556,50 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">污点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dns</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">bind9</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">parted</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pod</a>
               </li>
              
@@ -599,7 +608,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -619,19 +636,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shard</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">replicas</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -651,22 +672,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shard</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">replicas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
@@ -676,6 +681,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">

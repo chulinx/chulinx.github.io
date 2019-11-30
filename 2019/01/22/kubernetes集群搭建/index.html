@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2017/09/12/59b7512ad4cbd.png">
 <meta property="og:image" content="https://i.loli.net/2017/09/12/59b755c69eec2.png">
-<meta property="og:updated_time" content="2019-01-22T01:59:18.000Z">
+<meta property="og:updated_time" content="2019-11-30T12:05:45.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes集群搭建">
 <meta name="twitter:description" content="一，基础理论 Kubernetes是开源的自动化容器操作平台，包括部署，调度和节点集群间的拓展。在kubernetes中，docker是做为一种组件存在的，k8s不仅支持docker,还支持Rocket虚拟化技术。   Kubernetes的特点：自动化容器的部署与复制随时扩展或收缩容器规模将容器组织成组，并且能够提供容器间的负载均衡对于容器的升级很方便容器的健康检查与自动修复…  Kuberne">
@@ -359,6 +359,19 @@ var _hmt = _hmt || [];
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一，基础理论"><span class="toc-number">1.</span> <span class="toc-text">一，基础理论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Kubernetes-架构图"><span class="toc-number">1.1.</span> <span class="toc-text">Kubernetes 架构图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Kubernetes-各组件介绍"><span class="toc-number">1.2.</span> <span class="toc-text">Kubernetes 各组件介绍</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二．搭建Kuberbetes-集群"><span class="toc-number">2.</span> <span class="toc-text">二．搭建Kuberbetes 集群</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-环境"><span class="toc-number">2.1.</span> <span class="toc-text">2.1　环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-初始环境-master-amp-node"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 初始环境(master &amp; node)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-1-关闭防火墙＆selinux"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.2.1 关闭防火墙＆selinux</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-2-安装基础软件工具-master-amp-node-添加阿里云epel"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2.2 安装基础软件工具(master &amp; node),添加阿里云epel</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-部署etcd（master）"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 部署etcd（master）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-1-安装etcd"><span class="toc-number">2.3.1.</span> <span class="toc-text">2.3.1 安装etcd</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-2-配置etcd"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.3.2 配置etcd</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-3-设置开机启动并开启服务"><span class="toc-number">2.3.3.</span> <span class="toc-text">2.3.3 设置开机启动并开启服务</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-部署kunernetes-master-（master）"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 部署kunernetes-master （master）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-4-1-安装kubernetes"><span class="toc-number">2.4.1.</span> <span class="toc-text">2.4.1 安装kubernetes</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-4-2-配置apiserver"><span class="toc-number">2.4.2.</span> <span class="toc-text">2.4.2 配置apiserver</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-4-3-配置config"><span class="toc-number">2.4.3.</span> <span class="toc-text">2.4.3 配置config</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-配置kubernetes-node-node01-amp-node02"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 配置kubernetes-node(node01 &amp; node02)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-5-1-安装kubernetes-node"><span class="toc-number">2.5.1.</span> <span class="toc-text">1.5.1 安装kubernetes-node</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-5-3-配置kublet"><span class="toc-number">2.5.2.</span> <span class="toc-text">2.5.3 配置kublet</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-5-4-设置restart-kubelet-kube-proxy-docker-开机启动并开启服务"><span class="toc-number">2.5.3.</span> <span class="toc-text">2.5.4 设置restart kubelet kube-proxy docker　开机启动并开启服务</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-部署flannel-node01-amp-node02"><span class="toc-number">2.6.</span> <span class="toc-text">1.6 部署flannel(node01 &amp; node02)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-6-1-安装flannel"><span class="toc-number">2.6.1.</span> <span class="toc-text">1.6.1 安装flannel</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-6-2-配置flannel"><span class="toc-number">2.6.2.</span> <span class="toc-text">2.6.2 配置flannel</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-6-3-重启docker-和flannel"><span class="toc-number">2.6.3.</span> <span class="toc-text">2.6.3 重启docker 和flannel</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-7-验证"><span class="toc-number">2.7.</span> <span class="toc-text">2.7 验证</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -459,6 +472,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">centos7</a>
               </li>
              
@@ -467,11 +488,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+                <a href="javascript:void(0)" class="js-tag color2">golang</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+                <a href="javascript:void(0)" class="js-tag color4">node_exporter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">prometheus</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -499,67 +524,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">golang</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">node_exporter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">prometheus</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">污点</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">parted</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dns</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bind9</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">coredns</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -583,6 +552,50 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">污点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dns</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">bind9</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">parted</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pod</a>
               </li>
              
@@ -591,7 +604,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,19 +632,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shard</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">replicas</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -643,22 +668,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shard</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">replicas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
@@ -668,6 +677,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">
