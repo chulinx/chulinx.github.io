@@ -8,18 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Kubernetes 使用Nginx-Ingress实现蓝绿发布,AB测试 | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景介绍 某些情况下，我们在使用Kubernetes作为业务应用的云平台，想要实现应用的蓝绿部署用来迭代应用版本，用lstio太重太复杂，而且它本身定位于流控和网格治理；Ingress-Nginx在0.21版本引入了Canary功能，可以为网关入口配置多个版本的应用程序，使用annotation来控制多个后端服务的流量分配  Ingress-Nginx-Annotation Canary 功能介绍">
+  <meta name="description" content="背景介绍 某些情况下，我们在使用Kubernetes作为业务应用的云平台，想要实现应用的蓝绿部署用来迭代应用版本，用lstio太重太复杂，而且它本身定位于流控和网格治理；Ingress-Nginx在0.21版本引入了Canary功能，可以为网关入口配置多个版本的应用程序，使用annotation来控制多个后端服务的流量分配">
 <meta name="keywords" content="docker,kubernetes,ingress">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kubernetes 使用Nginx-Ingress实现蓝绿发布,AB测试">
 <meta property="og:url" content="http://yoursite.com/2019/08/29/Kubernetes 使用Nginx-Ingress实现蓝绿发布,AB测试/index.html">
 <meta property="og:site_name" content="天涯咫尺">
-<meta property="og:description" content="背景介绍 某些情况下，我们在使用Kubernetes作为业务应用的云平台，想要实现应用的蓝绿部署用来迭代应用版本，用lstio太重太复杂，而且它本身定位于流控和网格治理；Ingress-Nginx在0.21版本引入了Canary功能，可以为网关入口配置多个版本的应用程序，使用annotation来控制多个后端服务的流量分配  Ingress-Nginx-Annotation Canary 功能介绍">
+<meta property="og:description" content="背景介绍 某些情况下，我们在使用Kubernetes作为业务应用的云平台，想要实现应用的蓝绿部署用来迭代应用版本，用lstio太重太复杂，而且它本身定位于流控和网格治理；Ingress-Nginx在0.21版本引入了Canary功能，可以为网关入口配置多个版本的应用程序，使用annotation来控制多个后端服务的流量分配">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-27T01:18:31.196Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/20191130194311.png">
+<meta property="og:updated_time" content="2019-11-30T11:43:58.571Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes 使用Nginx-Ingress实现蓝绿发布,AB测试">
-<meta name="twitter:description" content="背景介绍 某些情况下，我们在使用Kubernetes作为业务应用的云平台，想要实现应用的蓝绿部署用来迭代应用版本，用lstio太重太复杂，而且它本身定位于流控和网格治理；Ingress-Nginx在0.21版本引入了Canary功能，可以为网关入口配置多个版本的应用程序，使用annotation来控制多个后端服务的流量分配  Ingress-Nginx-Annotation Canary 功能介绍">
+<meta name="twitter:description" content="背景介绍 某些情况下，我们在使用Kubernetes作为业务应用的云平台，想要实现应用的蓝绿部署用来迭代应用版本，用lstio太重太复杂，而且它本身定位于流控和网格治理；Ingress-Nginx在0.21版本引入了Canary功能，可以为网关入口配置多个版本的应用程序，使用annotation来控制多个后端服务的流量分配">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/20191130194311.png">
   
     <link rel="alternative" href="/atom.xml" title="天涯咫尺" type="application/atom+xml">
   
@@ -199,9 +201,11 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><blockquote>
+        <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20191130194311.png" alt></p>
+<h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><blockquote>
 <p>某些情况下，我们在使用Kubernetes作为业务应用的云平台，想要实现应用的蓝绿部署用来迭代应用版本，用lstio太重太复杂，而且它本身定位于流控和网格治理；Ingress-Nginx在0.21版本引入了Canary功能，可以为网关入口配置多个版本的应用程序，使用annotation来控制多个后端服务的流量分配</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="Ingress-Nginx-Annotation-Canary-功能介绍"><a href="#Ingress-Nginx-Annotation-Canary-功能介绍" class="headerlink" title="Ingress-Nginx-Annotation Canary 功能介绍"></a>Ingress-Nginx-Annotation Canary 功能介绍</h2><blockquote>
 <p>如果想启用Canary功能，要先设置 <strong>nginx.ingress.kubernetes.io/canary:”true”</strong>，然后可以启用以下注释来配置Canary</p>
 </blockquote>
@@ -218,7 +222,6 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>金丝雀规则按优先顺序进行如下排序：canary-by-header - &gt; canary-by-cookie - &gt; canary-weight</p>
 </blockquote>
-<a id="more"></a>
 <h3 id="1-基于权重的小规模版本测试"><a href="#1-基于权重的小规模版本测试" class="headerlink" title="1.基于权重的小规模版本测试"></a>1.基于权重的小规模版本测试</h3><ul>
 <li>v1版本编排文件</li>
 </ul>
@@ -541,11 +544,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">变量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据类型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">centos7</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -561,26 +584,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">变量</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据类型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
@@ -589,15 +592,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">污点</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
+                <a href="javascript:void(0)" class="js-tag color3">ingress</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">coredns</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -606,22 +609,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">parted</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ingress</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dns</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bind9</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -645,7 +632,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">coredns</a>
+                <a href="javascript:void(0)" class="js-tag color3">污点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dns</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">bind9</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -661,10 +664,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pod</a>
               </li>
              
@@ -673,11 +672,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
+                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -685,11 +680,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
+                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
+                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shard</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">replicas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -709,14 +724,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">pfsense</a>
               </li>
              
@@ -725,19 +732,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shard</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">replicas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -753,15 +756,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">
