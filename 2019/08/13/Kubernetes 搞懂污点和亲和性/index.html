@@ -8,18 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Kubernetes 节点调度之搞懂污点和亲和性 | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="kubernetes集群在生产过程中，不同类型的应用对资源的需求是不一样的，比如数据库需要高IO缓存的节点，CPU密集型的需要cpu处理性能更强的节点，内存密集型的需要更高效的内存节点，所以我们在一个生产kubernetes集群中会包含多种与应用需求不同资源的节点类型，得以让硬件资源更充分的利用，解决这一需求，第一,我们可以给节点打label，让同类型的应用被调度到同类型的节点中去，这种方式需要">
+  <meta name="description" content="kubernetes集群在生产过程中，不同类型的应用对资源的需求是不一样的，比如数据库需要高IO缓存的节点，CPU密集型的需要cpu处理性能更强的节点，内存密集型的需要更高效的内存节点，所以我们在一个生产kubernetes集群中会包含多种与应用需求不同资源的节点类型，得以让硬件资源更充分的利用，解决这一需求，">
 <meta name="keywords" content="docker,kubernetes,污点,亲和性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kubernetes 节点调度之搞懂污点和亲和性">
 <meta property="og:url" content="http://yoursite.com/2019/08/13/Kubernetes 搞懂污点和亲和性/index.html">
 <meta property="og:site_name" content="天涯咫尺">
-<meta property="og:description" content="kubernetes集群在生产过程中，不同类型的应用对资源的需求是不一样的，比如数据库需要高IO缓存的节点，CPU密集型的需要cpu处理性能更强的节点，内存密集型的需要更高效的内存节点，所以我们在一个生产kubernetes集群中会包含多种与应用需求不同资源的节点类型，得以让硬件资源更充分的利用，解决这一需求，第一,我们可以给节点打label，让同类型的应用被调度到同类型的节点中去，这种方式需要">
+<meta property="og:description" content="kubernetes集群在生产过程中，不同类型的应用对资源的需求是不一样的，比如数据库需要高IO缓存的节点，CPU密集型的需要cpu处理性能更强的节点，内存密集型的需要更高效的内存节点，所以我们在一个生产kubernetes集群中会包含多种与应用需求不同资源的节点类型，得以让硬件资源更充分的利用，解决这一需求，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-27T01:19:38.354Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/20191130195700.png">
+<meta property="og:updated_time" content="2019-11-30T12:00:08.817Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes 节点调度之搞懂污点和亲和性">
-<meta name="twitter:description" content="kubernetes集群在生产过程中，不同类型的应用对资源的需求是不一样的，比如数据库需要高IO缓存的节点，CPU密集型的需要cpu处理性能更强的节点，内存密集型的需要更高效的内存节点，所以我们在一个生产kubernetes集群中会包含多种与应用需求不同资源的节点类型，得以让硬件资源更充分的利用，解决这一需求，第一,我们可以给节点打label，让同类型的应用被调度到同类型的节点中去，这种方式需要">
+<meta name="twitter:description" content="kubernetes集群在生产过程中，不同类型的应用对资源的需求是不一样的，比如数据库需要高IO缓存的节点，CPU密集型的需要cpu处理性能更强的节点，内存密集型的需要更高效的内存节点，所以我们在一个生产kubernetes集群中会包含多种与应用需求不同资源的节点类型，得以让硬件资源更充分的利用，解决这一需求，">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/20191130195700.png">
   
     <link rel="alternative" href="/atom.xml" title="天涯咫尺" type="application/atom+xml">
   
@@ -199,7 +201,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
+        <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20191130195700.png" alt>                                          </p>
+<blockquote>
 <p>kubernetes集群在生产过程中，不同类型的应用对资源的需求是不一样的，比如数据库需要高IO缓存的节点，CPU密集型的需要cpu处理性能更强的节点，内存密集型的需要更高效的内存节点，所以我们在一个生产kubernetes集群中会包含多种与应用需求不同资源的节点类型，得以让硬件资源更充分的利用，解决这一需求，第一,我们可以给节点打label，让同类型的应用被调度到同类型的节点中去，这种方式需要再每个控制器的Pod中使用selector配置node的label，让该控制器的pod调度到匹配到的节点中；第二,为node设置污点，让应用不可调度，再给想要调度到这些污点的应用设置亲和性，允许设置亲和性的pod被调度到污点node，下面篇幅主要讲改方法的配置过程</p>
 </blockquote>
 <a id="more"></a>
@@ -456,6 +459,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">go</a>
               </li>
              
@@ -465,26 +476,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据类型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">golang</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">node_exporter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">prometheus</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,15 +491,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">node_exporter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">prometheus</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">污点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">coredns</a>
+                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
+                <a href="javascript:void(0)" class="js-tag color2">parted</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -524,23 +535,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
+                <a href="javascript:void(0)" class="js-tag color3">coredns</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">parted</a>
+                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">污点</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
+                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -564,19 +575,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pod</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">metric</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,7 +603,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pfsense</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">openvpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -616,27 +647,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pfsense</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">openvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -652,31 +675,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">proxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
             
             <div class="clearfix"></div>
