@@ -177,19 +177,242 @@ var _hmt = _hmt || [];
                  
 
   
-    <article id="post-Go语言复习笔记——基本语法二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-浅谈利用Golang的Builder&amp;Option设计模式来传递初始化参数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/30/Go语言复习笔记——基本语法二/">Go语言复习笔记——基本语法（二）</a>
+      <a class="article-title" href="/2019/12/09/浅谈利用Golang的Builder&Option设计模式来传递初始化参数/">实例浅谈利用Golang的Builder&amp;Option设计模式来传递初始化参数</a>
     </h1>
   
 
         
-        <a href="/2019/11/30/Go语言复习笔记——基本语法二/" class="archive-article-date">
+        <a href="/2019/12/09/浅谈利用Golang的Builder&Option设计模式来传递初始化参数/" class="archive-article-date">
+  	<time datetime="2019-12-09T01:37:21.483Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/golangBuilder&amp;Option设计模式.png" alt></p>
+        
+          <a class="article-more-a" href="/2019/12/09/浅谈利用Golang的Builder&Option设计模式来传递初始化参数/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Builder</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Option</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Go语言/" class="article-tag-list-link color1">Go 语言</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/09/浅谈利用Golang的Builder&Option设计模式来传递初始化参数/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Go语言复习笔记——基本语法三之堆栈与字符串应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/03/Go语言复习笔记——基本语法三之堆栈与字符串应用/">Go语言复习笔记——基本语法（二）之堆栈与字符串应用</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/03/Go语言复习笔记——基本语法三之堆栈与字符串应用/" class="archive-article-date">
+  	<time datetime="2019-12-03T02:11:14.066Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/golang堆栈与字符串应用.png" alt></p>
+<h2 id="堆栈与变量逃逸"><a href="#堆栈与变量逃逸" class="headerlink" title="堆栈与变量逃逸"></a>堆栈与变量逃逸</h2><h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><ol>
+<li>概念</li>
+</ol>
+<ul>
+<li>栈是一张拥有特殊规则的线性表数据结构</li>
+<li>栈只允许往线性表的一端放入数据，之后再这一端取出数据，数据遵循后进先出(LIFO)的顺序。</li>
+</ul>
+<ol start="2">
+<li>栈和变量的关系</li>
+</ol>
+<ul>
+<li>栈的分配和回收非常快，在函数内定义变量会将变量分配到栈上，函数执行结束会将执行结果保存到栈并释放变量内存。</li>
+</ul>
+<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><ol>
+<li>概念</li>
+</ol>
+<ul>
+<li>堆栈都是数据结构分配的内存， 堆相较于栈来说，栈分配的内存是可预知大小的，一般用于函数内的局部变量，堆是不可预知数据大小的，适合全局变量和结构体，堆分配速度相较于栈比较慢，容易形成内存碎片。</li>
+</ul>
+<h3 id="Go语言的变量逃逸"><a href="#Go语言的变量逃逸" class="headerlink" title="Go语言的变量逃逸"></a>Go语言的变量逃逸</h3><ul>
+<li>C/C++语言中，开发者需要自己决定如何根据算法选择选用怎样的方式分配内存， 相较与C/C++语言而言，GO语言将堆栈的分配整合到编译器中，通过分析代码特征和生命周期，来决定如何进行对或者栈的内存分配。</li>
+<li>编译器决定变量应该分配到堆上还是栈上的原则有: 1.变量是否被取值、2.变量是否发生逃逸</li>
+</ul>
+<h2 id="字符串应用"><a href="#字符串应用" class="headerlink" title="字符串应用"></a>字符串应用</h2><h3 id="字符串长度与遍历"><a href="#字符串长度与遍历" class="headerlink" title="字符串长度与遍历"></a>字符串长度与遍历</h3><ul>
+<li><p>获取字符串长度内建函数len()，返回字符串的ASCII字符长度或者字节长度，如果希望获取习惯上的字符数要使用    “unicode/utf8” 包的RuneCountInString()函数</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"unicode/utf8"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	s := <span class="string">"I LOVE GO"</span></span><br><span class="line">	z := <span class="string">"我爱go语言"</span></span><br><span class="line">	fmt.Printf(<span class="string">"s len长度：%d"</span>, <span class="built_in">len</span>(s))</span><br><span class="line">	fmt.Printf(<span class="string">"z len长度：%d"</span>, <span class="built_in">len</span>(z))</span><br><span class="line">	fmt.Printf(<span class="string">"z RuneCountInString长度%d\n"</span>, utf8.RuneCountInString(z))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出：</span></span><br><span class="line">$ <span class="keyword">go</span> run <span class="string">"./字符串长度获取.go"</span></span><br><span class="line">s <span class="built_in">len</span>长度：<span class="number">9</span>z <span class="built_in">len</span>长度：<span class="number">14</span>z RuneCountInString长度<span class="number">6</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>遍历字符串</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	s1 := <span class="string">"我爱GO语言"</span></span><br><span class="line">	<span class="keyword">for</span> _, i := <span class="keyword">range</span> s1 &#123;</span><br><span class="line">		fmt.Printf(<span class="string">"%c\n"</span>, i)</span><br><span class="line">	&#125; <span class="comment">// unicode for range 用value</span></span><br><span class="line">	s2 := <span class="string">"I LOVE GO"</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="keyword">range</span> s2 &#123;</span><br><span class="line">		fmt.Printf(<span class="string">"%c\n"</span>, s2[i])</span><br><span class="line">	&#125; <span class="comment">// ASCII码用下标</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出：</span></span><br><span class="line">$ <span class="keyword">go</span> run <span class="string">"./遍历字符串.go"</span></span><br><span class="line">我</span><br><span class="line">爱</span><br><span class="line">G</span><br><span class="line">O</span><br><span class="line">语</span><br><span class="line">言</span><br><span class="line">I</span><br><span class="line"></span><br><span class="line">L</span><br><span class="line">O</span><br><span class="line">V</span><br><span class="line">E</span><br><span class="line"></span><br><span class="line">G</span><br><span class="line">O</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="获取一段字符串和修改字符串"><a href="#获取一段字符串和修改字符串" class="headerlink" title="获取一段字符串和修改字符串"></a>获取一段字符串和修改字符串</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">堆栈</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Go语言/" class="article-tag-list-link color1">Go 语言</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/03/Go语言复习笔记——基本语法三之堆栈与字符串应用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Go语言复习笔记——基本语法二之常量指针与类型别名" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/30/Go语言复习笔记——基本语法二之常量指针与类型别名/">Go语言复习笔记——基本语法（二）之常量指针与类型别名</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/30/Go语言复习笔记——基本语法二之常量指针与类型别名/" class="archive-article-date">
   	<time datetime="2019-11-30T12:18:33.502Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
 </a>
         
@@ -199,7 +422,7 @@ var _hmt = _hmt || [];
       
         <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/golang指针常量类型别名.png" alt></p>
         
-          <a class="article-more-a" href="/2019/11/30/Go语言复习笔记——基本语法二/#more">more >></a>
+          <a class="article-more-a" href="/2019/11/30/Go语言复习笔记——基本语法二之常量指针与类型别名/#more">more >></a>
         
       
 
@@ -242,7 +465,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/30/Go语言复习笔记——基本语法二/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/30/Go语言复习笔记——基本语法二之常量指针与类型别名/">展开全文 >></a>
         </p>
       
 
@@ -272,19 +495,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Go语言复习笔记——基本语法一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Go语言复习笔记——基本语法一之变量数据类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/27/Go语言复习笔记——基本语法一/">Go语言复习笔记——基本语法（一）</a>
+      <a class="article-title" href="/2019/11/27/Go语言复习笔记——基本语法一之变量数据类型/">Go语言复习笔记——基本语法（一）之变量数据类型</a>
     </h1>
   
 
         
-        <a href="/2019/11/27/Go语言复习笔记——基本语法一/" class="archive-article-date">
+        <a href="/2019/11/27/Go语言复习笔记——基本语法一之变量数据类型/" class="archive-article-date">
   	<time datetime="2019-11-27T06:01:00.451Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-27</time>
 </a>
         
@@ -294,7 +517,7 @@ var _hmt = _hmt || [];
       
         <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/golang变量与数据类型.png" alt></p>
         
-          <a class="article-more-a" href="/2019/11/27/Go语言复习笔记——基本语法一/#more">more >></a>
+          <a class="article-more-a" href="/2019/11/27/Go语言复习笔记——基本语法一之变量数据类型/#more">more >></a>
         
       
 
@@ -337,7 +560,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/27/Go语言复习笔记——基本语法一/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/27/Go语言复习笔记——基本语法一之变量数据类型/">展开全文 >></a>
         </p>
       
 
@@ -908,206 +1131,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Kubernetes 搞懂污点和亲和性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/13/Kubernetes 搞懂污点和亲和性/">Kubernetes 节点调度之搞懂污点和亲和性</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/13/Kubernetes 搞懂污点和亲和性/" class="archive-article-date">
-  	<time datetime="2019-08-13T00:37:53.553Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20191130195700.png" alt>                                          </p>
-<blockquote>
-<p>kubernetes集群在生产过程中，不同类型的应用对资源的需求是不一样的，比如数据库需要高IO缓存的节点，CPU密集型的需要cpu处理性能更强的节点，内存密集型的需要更高效的内存节点，所以我们在一个生产kubernetes集群中会包含多种与应用需求不同资源的节点类型，得以让硬件资源更充分的利用，解决这一需求，第一,我们可以给节点打label，让同类型的应用被调度到同类型的节点中去，这种方式需要再每个控制器的Pod中使用selector配置node的label，让该控制器的pod调度到匹配到的节点中；第二,为node设置污点，让应用不可调度，再给想要调度到这些污点的应用设置亲和性，允许设置亲和性的pod被调度到污点node，下面篇幅主要讲改方法的配置过程</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2019/08/13/Kubernetes 搞懂污点和亲和性/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">污点</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">亲和性</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/kubernetes/" class="article-tag-list-link color1">kubernetes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/13/Kubernetes 搞懂污点和亲和性/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Kubernetes 实现全方位集群内私有dns" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/04/Kubernetes 实现全方位集群内私有dns/">Kubernetes 实现全方位集群内私有dns</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/04/Kubernetes 实现全方位集群内私有dns/" class="archive-article-date">
-  	<time datetime="2019-08-04T09:46:57.033Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20190804103058.png" alt></p>
-<blockquote>
-<p>k8s中的dns从skyDNS到kubeDns,再到今天的coreDNS，目的很简单，那就是为了让集群中的应用通过service和namespace来找到对应的服务，以组建更稳定更高效的应用集群；但coreDNS的能力应该远非与此，那可以还做什么呢？生产过程中，某些服务在某些场景下是需要配置域名来访问的，但因为集群很多时候是内网集群，网络可能会限制内网服务器访问外网，就算能访问外网，你访问内网服务还要走公网走一圈再回到内网，这样对内网网关的压力，以及·网络延迟增高都有很大影响，所以你需要个内网dns，让这些内网服务直接走内网解析，这篇文章会大概讲下利用k8s集群自带的coreDNS搭建一个内网dns</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2019/08/04/Kubernetes 实现全方位集群内私有dns/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">coredns</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/kubernetes/" class="article-tag-list-link color1">kubernetes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/04/Kubernetes 实现全方位集群内私有dns/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1202,14 +1225,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">centos7</a>
               </li>
              
@@ -1222,6 +1237,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">常量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">指针，类型别名</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">变量</a>
               </li>
              
@@ -1230,11 +1261,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">常量</a>
+                <a href="javascript:void(0)" class="js-tag color3">堆栈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">指针，类型别名</a>
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1258,55 +1289,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ingress</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">coredns</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">parted</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">污点</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dns</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bind9</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1330,11 +1321,47 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">parted</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">污点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dns</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">bind9</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1346,35 +1373,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
+                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pvc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rook</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ceph</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1387,6 +1394,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">replicas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1406,6 +1421,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pvc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">rook</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ceph</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
@@ -1418,7 +1449,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Builder</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Option</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1431,6 +1470,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">zabbix监控图界面中文乱码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">
