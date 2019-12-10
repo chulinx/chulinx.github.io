@@ -181,19 +181,19 @@ var _hmt = _hmt || [];
                  
 
   
-    <article id="post-docker三剑客之docker-machine" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-docker三剑客之docekr-swarm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/docker三剑客之docker-machine/">docker三剑客之docker-machine</a>
+      <a class="article-title" href="/2019/01/22/docker三剑客之docekr-swarm/">docker三剑客之docker-swarm</a>
     </h1>
   
 
         
-        <a href="/2019/01/22/docker三剑客之docker-machine/" class="archive-article-date">
+        <a href="/2019/01/22/docker三剑客之docekr-swarm/" class="archive-article-date">
   	<time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
 </a>
         
@@ -201,13 +201,18 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://i.loli.net/2017/09/11/59b63b5247ca0.jpg" alt="dockermachine"></p>
-<h3 id="docker-machine-介绍"><a href="#docker-machine-介绍" class="headerlink" title="docker-machine 介绍"></a>docker-machine 介绍</h3><blockquote>
-<p>Docker Machine is a tool that lets you install Docker Engine on virtual hosts, and manage the hosts with docker-machine commands. You can use Machine to create Docker hosts on your local Mac or Windows box, on your company network, in your data center, or on cloud providers like Azure, AWS, or Digital Ocean.</p>
+        <p><img src="https://i.loli.net/2017/09/11/59b63b1544f5a.jpg" alt="dockerswarm"></p>
+<h3 id="docker-swarm简介"><a href="#docker-swarm简介" class="headerlink" title="docker-swarm简介"></a>docker-swarm简介</h3><blockquote>
+<p>docker-swarm 是docker的一个本地集群工具，docker-swarm要求docker版本大于等于1.12，官方推荐使用docker-mechine创建docker-swarm群集，也可以手动创建</p>
 </blockquote>
-<p>上面引用docker官方文档来对docker-machine做了大概介绍。大致意思：docker-machine是一个可以让你管理已经安装docker引擎机器的虚拟主机工具，你可以利用docker-machine在本机、局域网、数据中心、甚至公有云上创建docker主机！<br>
+<h3 id="docker-swarm的安装"><a href="#docker-swarm的安装" class="headerlink" title="docker-swarm的安装"></a>docker-swarm的安装</h3><ol>
+<li>docker官方推荐的安装方法，直接pull swarm镜像<blockquote>
+<p>优点1：能够运行最新的swarm<br>优点2：与主机隔离不用配置环境变量</p>
+</blockquote>
+</li>
+</ol>
         
-          <a class="article-more-a" href="/2019/01/22/docker三剑客之docker-machine/#more">more >></a>
+          <a class="article-more-a" href="/2019/01/22/docker三剑客之docekr-swarm/#more">more >></a>
         
       
 
@@ -225,7 +230,7 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">machine</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">swarm</a>
         		</li>
       		
 		</ul>
@@ -246,96 +251,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/22/docker三剑客之docker-machine/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-RpmBuild打包总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/RpmBuild打包总结/">RPMBUILD 打包总结</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/22/RpmBuild打包总结/" class="archive-article-date">
-  	<time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-打包准备"><a href="#1-打包准备" class="headerlink" title="1.打包准备"></a>1.打包准备</h3><p><img src="http://upload-images.jianshu.io/upload_images/3020508-8e753b4f20ec10fd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="制作原理图"></p>
-<blockquote>
-<p>有时候为了方便源码包的安装，和我们自己订制软件包的需求，我们会把一些源码包按照我们的需求来做成rpm包，当有了源码包就可以直接编译得到二进制安装包和其他任意包。spec file是制作rpm包最核心的部分，rpm包的制作就是根据spec file来实现的。在制作自定义rpm包的时候最好不要使用管理员进行,因为管理员权限过大，如果一个命令写错了，结果可能是灾难性的，而制件一个rpm包普通用户完全可以实现<br>
-        
-          <a class="article-more-a" href="/2019/01/22/RpmBuild打包总结/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">rpm打包</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux运维/" class="article-tag-list-link color3">linux运维</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/22/RpmBuild打包总结/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/01/22/docker三剑客之docekr-swarm/">展开全文 >></a>
         </p>
       
 
@@ -433,6 +349,101 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/01/22/docker之dockerfile基础详解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-docker三剑客之docker-machine" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/22/docker三剑客之docker-machine/">docker三剑客之docker-machine</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/22/docker三剑客之docker-machine/" class="archive-article-date">
+  	<time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://i.loli.net/2017/09/11/59b63b5247ca0.jpg" alt="dockermachine"></p>
+<h3 id="docker-machine-介绍"><a href="#docker-machine-介绍" class="headerlink" title="docker-machine 介绍"></a>docker-machine 介绍</h3><blockquote>
+<p>Docker Machine is a tool that lets you install Docker Engine on virtual hosts, and manage the hosts with docker-machine commands. You can use Machine to create Docker hosts on your local Mac or Windows box, on your company network, in your data center, or on cloud providers like Azure, AWS, or Digital Ocean.</p>
+</blockquote>
+<p>上面引用docker官方文档来对docker-machine做了大概介绍。大致意思：docker-machine是一个可以让你管理已经安装docker引擎机器的虚拟主机工具，你可以利用docker-machine在本机、局域网、数据中心、甚至公有云上创建docker主机！<br>
+        
+          <a class="article-more-a" href="/2019/01/22/docker三剑客之docker-machine/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">machine</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/docker/" class="article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/22/docker三剑客之docker-machine/">展开全文 >></a>
         </p>
       
 
@@ -1312,6 +1323,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">node_exporter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">prometheus</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">go</a>
               </li>
              
@@ -1328,43 +1351,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">golang</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">node_exporter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">prometheus</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">切片</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">堆栈</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1376,6 +1367,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">切片</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ingress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">污点</a>
               </li>
              
@@ -1384,31 +1399,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">parted</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">coredns</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ingress</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dns</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bind9</a>
+                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1432,19 +1427,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">parted</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dns</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">bind9</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">swarm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1456,10 +1467,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
               </li>
              
@@ -1468,7 +1475,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
+                <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1488,7 +1499,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1504,6 +1515,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">pfsense</a>
               </li>
              
@@ -1512,15 +1531,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gevent</a>
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1536,18 +1551,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
@@ -1557,6 +1560,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Option</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
               </li>
              
               <li class="article-tag-list-item">
