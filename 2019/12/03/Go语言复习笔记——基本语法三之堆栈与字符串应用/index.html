@@ -8,14 +8,14 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Go语言复习笔记——基本语法（三）之堆栈与字符串应用 | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="go,堆栈,字符串">
+  <meta name="keywords" content="go,Go语言复习笔记,堆栈,字符串">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go语言复习笔记——基本语法（三）之堆栈与字符串应用">
 <meta property="og:url" content="http://yoursite.com/2019/12/03/Go语言复习笔记——基本语法三之堆栈与字符串应用/index.html">
 <meta property="og:site_name" content="天涯咫尺">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/golang堆栈与字符串应用.png">
-<meta property="og:updated_time" content="2019-12-09T05:00:06.317Z">
+<meta property="og:updated_time" content="2019-12-10T05:33:03.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go语言复习笔记——基本语法（三）之堆栈与字符串应用">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/golang堆栈与字符串应用.png">
@@ -101,6 +101,8 @@ var _hmt = _hmt || [];
 		        
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
+					<a class="juejin" target="_blank" href="https://juejin.im/user/5c63e883f265da2db5421bee" title="juejin"><i class="icon-juejin"></i></a>
+		        
 					<a class="mail" target="_blank" href="/chulinx@163.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
@@ -147,6 +149,8 @@ var _hmt = _hmt || [];
 						<a class="weibo" target="_blank" href="https://weibo.com/3057520441/profile" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
+			        
+						<a class="juejin" target="_blank" href="https://juejin.im/user/5c63e883f265da2db5421bee" title="juejin"><i class="icon-juejin"></i></a>
 			        
 						<a class="mail" target="_blank" href="/chulinx@163.com" title="mail"><i class="icon-mail"></i></a>
 			        
@@ -231,7 +235,70 @@ var _hmt = _hmt || [];
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	s1 := <span class="string">"我爱GO语言"</span></span><br><span class="line">	<span class="keyword">for</span> _, i := <span class="keyword">range</span> s1 &#123;</span><br><span class="line">		fmt.Printf(<span class="string">"%c\n"</span>, i)</span><br><span class="line">	&#125; <span class="comment">// unicode for range 用value</span></span><br><span class="line">	s2 := <span class="string">"I LOVE GO"</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="keyword">range</span> s2 &#123;</span><br><span class="line">		fmt.Printf(<span class="string">"%c\n"</span>, s2[i])</span><br><span class="line">	&#125; <span class="comment">// ASCII码用下标</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出：</span></span><br><span class="line">$ <span class="keyword">go</span> run <span class="string">"./遍历字符串.go"</span></span><br><span class="line">我</span><br><span class="line">爱</span><br><span class="line">G</span><br><span class="line">O</span><br><span class="line">语</span><br><span class="line">言</span><br><span class="line">I</span><br><span class="line"></span><br><span class="line">L</span><br><span class="line">O</span><br><span class="line">V</span><br><span class="line">E</span><br><span class="line"></span><br><span class="line">G</span><br><span class="line">O</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="获取一段字符串和修改字符串"><a href="#获取一段字符串和修改字符串" class="headerlink" title="获取一段字符串和修改字符串"></a>获取一段字符串和修改字符串</h3>
+<h3 id="获取一段字符串和修改字符串"><a href="#获取一段字符串和修改字符串" class="headerlink" title="获取一段字符串和修改字符串"></a>获取一段字符串和修改字符串</h3><ul>
+<li>获取字符串中的一段是利用了切片</li>
+<li>修改字符串，是先将字符串转换为[]byte,然后遍历byte，根据下标修改其值</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// 获取字符串</span></span><br><span class="line">	s := <span class="string">"I love Golang"</span></span><br><span class="line">	fmt.Println(s[<span class="number">0</span>:<span class="number">9</span>])</span><br><span class="line">	<span class="comment">// 修改字符串</span></span><br><span class="line">	sb := []<span class="keyword">byte</span>(s)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">9</span>; i &lt; <span class="built_in">len</span>(sb); i++ &#123;</span><br><span class="line">		sb[i] = <span class="string">' '</span></span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(sb))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line">$ <span class="keyword">go</span> run <span class="string">"./字符串修改.go"</span></span><br><span class="line">I love Go</span><br><span class="line">I love Go</span><br></pre></td></tr></table></figure>
+<h3 id="多种方法连接字符串"><a href="#多种方法连接字符串" class="headerlink" title="多种方法连接字符串"></a>多种方法连接字符串</h3><ul>
+<li>+ 连接字符串</li>
+<li>fmt.Printf 格式化字符串</li>
+<li>高效的连接字符串方法bytes.Buffer</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"bytes"</span></span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	s0 := <span class="string">"I love"</span></span><br><span class="line">	s1 := <span class="string">"Golang"</span></span><br><span class="line">	<span class="comment">// + 连接字符串</span></span><br><span class="line">	fmt.Println(s0 + <span class="string">" "</span> + s1)</span><br><span class="line">	<span class="comment">// fmt.Printf</span></span><br><span class="line">	fmt.Printf(<span class="string">"%s %s\n"</span>, s0, s1)</span><br><span class="line">	<span class="comment">// 更高效的bytes.Buffer</span></span><br><span class="line">	<span class="keyword">var</span> stringBuilder bytes.Buffer</span><br><span class="line">	stringBuilder.WriteString(s0)</span><br><span class="line">	stringBuilder.WriteString(<span class="string">" "</span>)</span><br><span class="line">	stringBuilder.WriteString(s1)</span><br><span class="line">	fmt.Println(stringBuilder.String())</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line">$ <span class="keyword">go</span> run <span class="string">"./连接字符串.go"</span></span><br><span class="line">I love Golang</span><br><span class="line">I love Golang</span><br><span class="line">I love Golang</span><br></pre></td></tr></table></figure>
+<h3 id="字符串格式化与文件读取"><a href="#字符串格式化与文件读取" class="headerlink" title="字符串格式化与文件读取"></a>字符串格式化与文件读取</h3><ul>
+<li>字符串格式化</li>
+</ul>
+<ol>
+<li><p>示例</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Printf(<span class="string">"总结%s,整理复习笔记，今天已经学习%d小时\n"</span>, <span class="string">"Go语言"</span>, <span class="number">1</span>)</span><br><span class="line">	s := fmt.Sprintf(<span class="string">"总结%s,整理复习笔记，今天已经学习%d小时\n"</span>, <span class="string">"Go语言"</span>, <span class="number">1</span>)</span><br><span class="line">	fmt.Println(s)</span><br><span class="line">	fmt.Printf(<span class="string">"%v\n"</span>, s)</span><br><span class="line">	fmt.Printf(<span class="string">"%T"</span>, s)</span><br><span class="line">	t := <span class="number">1.5</span></span><br><span class="line">	fmt.Printf(<span class="string">"总结%s,整理复习笔记，今天已经学习%f小时\n"</span>, <span class="string">"Go语言"</span>, t)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line">$ <span class="keyword">go</span> run <span class="string">"./字符串格式化.go"</span></span><br><span class="line">总结Go语言,整理复习笔记，今天已经学习<span class="number">1</span>小时</span><br><span class="line">总结Go语言,整理复习笔记，今天已经学习<span class="number">1</span>小时</span><br><span class="line"></span><br><span class="line">总结Go语言,整理复习笔记，今天已经学习<span class="number">1</span>小时</span><br><span class="line"></span><br><span class="line"><span class="keyword">string</span>总结Go语言,整理复习笔记，今天已经学习<span class="number">1.500000</span>小时</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>常用的格式化样式动词及功能</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">动词</th>
+<th style="text-align:left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">%s</td>
+<td style="text-align:left">字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">%d</td>
+<td style="text-align:left">整型十进制显示</td>
+</tr>
+<tr>
+<td style="text-align:left">%f</td>
+<td style="text-align:left">浮点显示</td>
+</tr>
+<tr>
+<td style="text-align:left">%p</td>
+<td style="text-align:left">指针，十六进制显示</td>
+</tr>
+<tr>
+<td style="text-align:left">%T</td>
+<td style="text-align:left">显示数据类型</td>
+</tr>
+<tr>
+<td style="text-align:left">%v</td>
+<td style="text-align:left">按值的本身来输出</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>文件读取与逐行读取</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"bufio"</span></span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"io/ioutil"</span></span><br><span class="line">	<span class="string">"os"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"读取文件"</span>)</span><br><span class="line">	fb, _ := ioutil.ReadFile(<span class="string">"./file.txt"</span>)</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(fb))</span><br><span class="line">	f, _ := os.Open(<span class="string">"./file.txt"</span>)</span><br><span class="line">	reader := bufio.NewReader(f)</span><br><span class="line">	fmt.Println(<span class="string">"逐行读取"</span>)</span><br><span class="line">	i := <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> &#123;</span><br><span class="line">		s, _, err := reader.ReadLine()</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		&#125;</span><br><span class="line">		i++</span><br><span class="line">		fmt.Printf(<span class="string">"第%d行\n"</span>, i)</span><br><span class="line">		fmt.Println(<span class="keyword">string</span>(s))</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> f.Close()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line">$ <span class="keyword">go</span> run <span class="string">"./读取文件.go"</span></span><br><span class="line">读取文件</span><br><span class="line">开源对于一个产品的长期发展极为重要。在四款编辑器中，Sublime 是闭源的，VS Code、Vim 和 Atom 都是开源的，而 VS Code 可以说是开源做的最好的。</span><br><span class="line">VS Code 不仅仅是把代码开源出来。而是把整个产品的开发过程建立于开源之上，与整个社区深入合作，倾听用户在 GitHub 上的反馈，使 VS Code 越做越好：</span><br><span class="line">每一年，VS Code 团队都会在 GitHub Wiki 发布 Roadmap ，列出一整年的规划图。</span><br><span class="line">逐行读取</span><br><span class="line">第<span class="number">1</span>行</span><br><span class="line">开源对于一个产品的长期发展极为重要。在四款编辑器中，Sublime 是闭源的，VS Code、Vim 和 Atom 都是开源的，而 VS Code 可以说是开源做的最好的。</span><br><span class="line">第<span class="number">2</span>行</span><br><span class="line">VS Code 不仅仅是把代码开源出来。而是把整个产品的开发过程建立于开源之上，与整个社区深入合作，倾听用户在 GitHub 上的反馈，使 VS Code 越做越好：</span><br><span class="line">第<span class="number">3</span>行</span><br><span class="line">每一年，VS Code 团队都会在 GitHub Wiki 发布 Roadmap ，列出一整年的规划图。</span><br></pre></td></tr></table></figure>
+<h3 id="strings包的常用方法"><a href="#strings包的常用方法" class="headerlink" title="strings包的常用方法"></a>strings包的常用方法</h3><blockquote>
+<p>对于字符串处理， golang标准库中的strings包是一个非常强大的字符串处理包，这里列举strings包中在日常开发过程中常用的方法</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"strings"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	a := <span class="string">"github"</span></span><br><span class="line">	b := <span class="string">"gitlab"</span></span><br><span class="line">	<span class="comment">// Contains 判断a是否包含b</span></span><br><span class="line">	c := strings.Contains(a, b)</span><br><span class="line">	d := strings.Contains(a, <span class="string">"g"</span>)</span><br><span class="line">	fmt.Println(c, d)</span><br><span class="line">	<span class="comment">// Count 返回 a 中包含几个"g"的个数</span></span><br><span class="line">	e := strings.Count(a, <span class="string">"g"</span>)</span><br><span class="line">	fmt.Println(e)</span><br><span class="line">	<span class="comment">// Fields 以换行符为分割，返回分割后字符串的数组,一般也用于逐行读取文件</span></span><br><span class="line">	f := strings.Fields(<span class="string">"a\nb\n"</span>)</span><br><span class="line">	fmt.Println(f)</span><br><span class="line">	<span class="comment">// HasPrefix HasSuffix 判断字符串是否以xx前缀开头或者后缀结尾</span></span><br><span class="line">	fmt.Println(strings.HasPrefix(a, <span class="string">"g"</span>), strings.HasSuffix(b, <span class="string">"b"</span>))</span><br><span class="line">	<span class="comment">// Index 返回字符下标,如果不存在返回-1</span></span><br><span class="line">	fmt.Println(strings.Index(a, <span class="string">"h"</span>), strings.Index(a, <span class="string">"l"</span>))</span><br><span class="line">	<span class="comment">// Join 一般用于字符串数组转字符串</span></span><br><span class="line">	fmt.Println(strings.Join([]<span class="keyword">string</span>&#123;<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>&#125;, <span class="string">"-"</span>))</span><br><span class="line">	<span class="comment">// Repeat 复制字符串</span></span><br><span class="line">	fmt.Println(strings.Repeat(<span class="string">"a"</span>, <span class="number">6</span>))</span><br><span class="line">	<span class="comment">// Replace 替换字符串，第二个参数为替换次数，-1为全部替换和ReplaceAll同样</span></span><br><span class="line">	fmt.Println(strings.Replace(<span class="string">"I love Python"</span>, <span class="string">"Python"</span>, <span class="string">"Go"</span>, <span class="number">1</span>))</span><br><span class="line">	fmt.Println(strings.Replace(<span class="string">"I love Python Python"</span>, <span class="string">"Python"</span>, <span class="string">"Go"</span>, <span class="number">-1</span>))</span><br><span class="line">	fmt.Println(strings.ReplaceAll(<span class="string">"I love Python Python"</span>, <span class="string">"Python"</span>, <span class="string">"Go"</span>))</span><br><span class="line">	<span class="comment">// Split 分割字符串，返回字符串数组</span></span><br><span class="line">	fmt.Println(strings.Split(<span class="string">"a-b-c"</span>, <span class="string">"-"</span>))</span><br><span class="line">	<span class="comment">// ToLower 转小写 ToUpper 转大写</span></span><br><span class="line">	fmt.Println(strings.ToLower(<span class="string">"GOLANG"</span>), strings.ToUpper(<span class="string">"golang"</span>))</span><br><span class="line">	<span class="comment">// 去除一段字符串 Trimleft TrimRight TrimPrefix</span></span><br><span class="line">	fmt.Println(strings.Trim(<span class="string">"ç√Golang ç√"</span>, <span class="string">"ç√"</span>))</span><br><span class="line">	fmt.Println(strings.TrimLeft(<span class="string">"ç√Golang ç√"</span>, <span class="string">"ç√"</span>))</span><br><span class="line">	fmt.Println(strings.TrimRight(<span class="string">"ç√!Golang ç√"</span>, <span class="string">"ç√"</span>))</span><br><span class="line">	fmt.Println(strings.TrimPrefix(<span class="string">"ç√!Golang ç√"</span>, <span class="string">"ç√!"</span>))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line">$ <span class="keyword">go</span> run <span class="string">"./strings包的常用方法.go"</span></span><br><span class="line"><span class="literal">false</span> <span class="literal">true</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line">[a b]</span><br><span class="line"><span class="literal">true</span> <span class="literal">true</span></span><br><span class="line"><span class="number">3</span> <span class="number">-1</span></span><br><span class="line">a-b-c</span><br><span class="line">aaaaaa</span><br><span class="line">I love Go</span><br><span class="line">I love Go Go</span><br><span class="line">I love Go Go</span><br><span class="line">[a b c]</span><br><span class="line">golang GOLANG</span><br><span class="line">Golang</span><br><span class="line">Golang ç√</span><br><span class="line">ç√!Golang</span><br><span class="line">Golang ç√</span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -245,6 +312,10 @@ var _hmt = _hmt || [];
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Go语言复习笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -371,7 +442,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#堆栈与变量逃逸"><span class="toc-number">1.</span> <span class="toc-text">堆栈与变量逃逸</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#栈"><span class="toc-number">1.1.</span> <span class="toc-text">栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#堆"><span class="toc-number">1.2.</span> <span class="toc-text">堆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go语言的变量逃逸"><span class="toc-number">1.3.</span> <span class="toc-text">Go语言的变量逃逸</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串应用"><span class="toc-number">2.</span> <span class="toc-text">字符串应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串长度与遍历"><span class="toc-number">2.1.</span> <span class="toc-text">字符串长度与遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取一段字符串和修改字符串"><span class="toc-number">2.2.</span> <span class="toc-text">获取一段字符串和修改字符串</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#堆栈与变量逃逸"><span class="toc-number">1.</span> <span class="toc-text">堆栈与变量逃逸</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#栈"><span class="toc-number">1.1.</span> <span class="toc-text">栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#堆"><span class="toc-number">1.2.</span> <span class="toc-text">堆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go语言的变量逃逸"><span class="toc-number">1.3.</span> <span class="toc-text">Go语言的变量逃逸</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串应用"><span class="toc-number">2.</span> <span class="toc-text">字符串应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串长度与遍历"><span class="toc-number">2.1.</span> <span class="toc-text">字符串长度与遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取一段字符串和修改字符串"><span class="toc-number">2.2.</span> <span class="toc-text">获取一段字符串和修改字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多种方法连接字符串"><span class="toc-number">2.3.</span> <span class="toc-text">多种方法连接字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串格式化与文件读取"><span class="toc-number">2.4.</span> <span class="toc-text">字符串格式化与文件读取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strings包的常用方法"><span class="toc-number">2.5.</span> <span class="toc-text">strings包的常用方法</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -477,26 +548,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">golang</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">node_exporter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">prometheus</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">centos7</a>
               </li>
              
@@ -517,11 +568,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Go语言复习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">堆栈</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,6 +596,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">node_exporter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">prometheus</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
@@ -541,7 +616,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
+                <a href="javascript:void(0)" class="js-tag color3">污点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -553,11 +632,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">污点</a>
+                <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
+                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">parted</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dns</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">bind9</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -581,30 +680,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">parted</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dns</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bind9</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">swarm</a>
               </li>
              
@@ -625,14 +700,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
               </li>
              
@@ -650,6 +717,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ceph</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -677,10 +756,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">gevent</a>
               </li>
              
@@ -693,7 +768,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
+                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -709,11 +788,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">
