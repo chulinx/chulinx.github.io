@@ -1108,19 +1108,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-RpmBuild打包总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Proxmox VE虚拟化服务器添加硬盘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/RpmBuild打包总结/">RPMBUILD 打包总结</a>
+      <a class="article-title" href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/">Proxmox VE虚拟化服务器添加硬盘</a>
     </h1>
   
 
         
-        <a href="/2019/01/22/RpmBuild打包总结/" class="archive-article-date">
+        <a href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/" class="archive-article-date">
   	<time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
 </a>
         
@@ -1128,11 +1128,12 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-打包准备"><a href="#1-打包准备" class="headerlink" title="1.打包准备"></a>1.打包准备</h3><p><img src="http://upload-images.jianshu.io/upload_images/3020508-8e753b4f20ec10fd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="制作原理图"></p>
+        <h3 id="Proxmox-VE虚拟化服务器添加硬盘"><a href="#Proxmox-VE虚拟化服务器添加硬盘" class="headerlink" title="Proxmox VE虚拟化服务器添加硬盘"></a>Proxmox VE虚拟化服务器添加硬盘</h3><p><img src="https://i.imgur.com/KVWBIgf.png" alt="0IBJ6%ZTZ(MLK~9DGXSI8J2"></p>
 <blockquote>
-<p>有时候为了方便源码包的安装，和我们自己订制软件包的需求，我们会把一些源码包按照我们的需求来做成rpm包，当有了源码包就可以直接编译得到二进制安装包和其他任意包。spec file是制作rpm包最核心的部分，rpm包的制作就是根据spec file来实现的。在制作自定义rpm包的时候最好不要使用管理员进行,因为管理员权限过大，如果一个命令写错了，结果可能是灾难性的，而制件一个rpm包普通用户完全可以实现<br>
+<p>公司业务需求需要在虚拟化服务器上添加4T的硬盘，特记录一下，以供备用</p>
+</blockquote>
         
-          <a class="article-more-a" href="/2019/01/22/RpmBuild打包总结/#more">more >></a>
+          <a class="article-more-a" href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/#more">more >></a>
         
       
 
@@ -1146,7 +1147,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">rpm打包</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Proxmox</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">parted</a>
         		</li>
       		
 		</ul>
@@ -1158,7 +1163,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/linux运维/" class="article-tag-list-link color3">linux运维</a>
+        			<a href="/categories/Proxmox/" class="article-tag-list-link color3">Proxmox</a>
         		</li>
       		
 		</ul>
@@ -1167,7 +1172,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/22/RpmBuild打包总结/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/">展开全文 >></a>
         </p>
       
 
@@ -1291,19 +1296,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cdh</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1367,31 +1372,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">污点</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">coredns</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Node Allocatable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">kubelet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ingress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1415,7 +1404,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
+                <a href="javascript:void(0)" class="js-tag color3">污点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Node Allocatable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">kubelet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1424,6 +1425,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">parted</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1443,15 +1448,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">machine</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
+                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1463,11 +1464,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
+                <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
+                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1491,10 +1496,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mongo</a>
               </li>
              
@@ -1507,11 +1508,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pfsense</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">openvpn</a>
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1523,19 +1520,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pfsense</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">openvpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">zabbix</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">自定义监控</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">zabbix监控图界面中文乱码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1548,6 +1541,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">zabbix</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">自定义监控</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">zabbix监控图界面中文乱码</a>
               </li>
              
               <li class="article-tag-list-item">

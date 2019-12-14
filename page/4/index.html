@@ -181,19 +181,19 @@ var _hmt = _hmt || [];
                  
 
   
-    <article id="post-Proxmox VE虚拟化服务器添加硬盘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-RpmBuild打包总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/">Proxmox VE虚拟化服务器添加硬盘</a>
+      <a class="article-title" href="/2019/01/22/RpmBuild打包总结/">RPMBUILD 打包总结</a>
     </h1>
   
 
         
-        <a href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/" class="archive-article-date">
+        <a href="/2019/01/22/RpmBuild打包总结/" class="archive-article-date">
   	<time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
 </a>
         
@@ -201,12 +201,11 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Proxmox-VE虚拟化服务器添加硬盘"><a href="#Proxmox-VE虚拟化服务器添加硬盘" class="headerlink" title="Proxmox VE虚拟化服务器添加硬盘"></a>Proxmox VE虚拟化服务器添加硬盘</h3><p><img src="https://i.imgur.com/KVWBIgf.png" alt="0IBJ6%ZTZ(MLK~9DGXSI8J2"></p>
+        <h3 id="1-打包准备"><a href="#1-打包准备" class="headerlink" title="1.打包准备"></a>1.打包准备</h3><p><img src="http://upload-images.jianshu.io/upload_images/3020508-8e753b4f20ec10fd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="制作原理图"></p>
 <blockquote>
-<p>公司业务需求需要在虚拟化服务器上添加4T的硬盘，特记录一下，以供备用</p>
-</blockquote>
+<p>有时候为了方便源码包的安装，和我们自己订制软件包的需求，我们会把一些源码包按照我们的需求来做成rpm包，当有了源码包就可以直接编译得到二进制安装包和其他任意包。spec file是制作rpm包最核心的部分，rpm包的制作就是根据spec file来实现的。在制作自定义rpm包的时候最好不要使用管理员进行,因为管理员权限过大，如果一个命令写错了，结果可能是灾难性的，而制件一个rpm包普通用户完全可以实现<br>
         
-          <a class="article-more-a" href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/#more">more >></a>
+          <a class="article-more-a" href="/2019/01/22/RpmBuild打包总结/#more">more >></a>
         
       
 
@@ -220,11 +219,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Proxmox</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">parted</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">rpm打包</a>
         		</li>
       		
 		</ul>
@@ -236,7 +231,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Proxmox/" class="article-tag-list-link color3">Proxmox</a>
+        			<a href="/categories/linux运维/" class="article-tag-list-link color3">linux运维</a>
         		</li>
       		
 		</ul>
@@ -245,7 +240,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/01/22/RpmBuild打包总结/">展开全文 >></a>
         </p>
       
 
@@ -375,19 +370,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-docker进阶用法总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-docker三剑客之docker-machine" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/docker进阶用法总结/">docker进阶用法总结</a>
+      <a class="article-title" href="/2019/01/22/docker三剑客之docker-machine/">docker三剑客之docker-machine</a>
     </h1>
   
 
         
-        <a href="/2019/01/22/docker进阶用法总结/" class="archive-article-date">
+        <a href="/2019/01/22/docker三剑客之docker-machine/" class="archive-article-date">
   	<time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
 </a>
         
@@ -395,17 +390,13 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="docker-搭建私有仓库"><a href="#docker-搭建私有仓库" class="headerlink" title="docker 搭建私有仓库"></a>docker 搭建私有仓库</h3><h4 id="搭建私有仓库"><a href="#搭建私有仓库" class="headerlink" title="搭建私有仓库"></a>搭建私有仓库</h4><ul>
-<li><p>创建registry容器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 5000:5000 -v /data/docker/image/:/var/lib/registry --restart=always registry:2</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看registry端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@registry ~]# netstat -nplt |grep 5000</span><br><span class="line">tcp        0      0 :::5000                     :::*                        LISTEN      20701/docker-proxy</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="配置docker-确保从私有仓库pull镜像时不会报错"><a href="#配置docker-确保从私有仓库pull镜像时不会报错" class="headerlink" title="配置docker 确保从私有仓库pull镜像时不会报错"></a>配置docker 确保从私有仓库pull镜像时不会报错</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/docker/daemon.json</span><br><span class="line">&#123; <span class="string">"insecure-registries"</span>:[<span class="string">"172.16.1.9:5000"</span>] &#125;</span><br></pre></td></tr></table></figure>
+        <p><img src="https://i.loli.net/2017/09/11/59b63b5247ca0.jpg" alt="dockermachine"></p>
+<h3 id="docker-machine-介绍"><a href="#docker-machine-介绍" class="headerlink" title="docker-machine 介绍"></a>docker-machine 介绍</h3><blockquote>
+<p>Docker Machine is a tool that lets you install Docker Engine on virtual hosts, and manage the hosts with docker-machine commands. You can use Machine to create Docker hosts on your local Mac or Windows box, on your company network, in your data center, or on cloud providers like Azure, AWS, or Digital Ocean.</p>
+</blockquote>
+<p>上面引用docker官方文档来对docker-machine做了大概介绍。大致意思：docker-machine是一个可以让你管理已经安装docker引擎机器的虚拟主机工具，你可以利用docker-machine在本机、局域网、数据中心、甚至公有云上创建docker主机！<br>
         
-          <a class="article-more-a" href="/2019/01/22/docker进阶用法总结/#more">more >></a>
+          <a class="article-more-a" href="/2019/01/22/docker三剑客之docker-machine/#more">more >></a>
         
       
 
@@ -420,6 +411,10 @@ var _hmt = _hmt || [];
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">machine</a>
         		</li>
       		
 		</ul>
@@ -440,7 +435,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/22/docker进阶用法总结/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/01/22/docker三剑客之docker-machine/">展开全文 >></a>
         </p>
       
 
@@ -567,19 +562,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-docker三剑客之docker-machine" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-docker进阶用法总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/docker三剑客之docker-machine/">docker三剑客之docker-machine</a>
+      <a class="article-title" href="/2019/01/22/docker进阶用法总结/">docker进阶用法总结</a>
     </h1>
   
 
         
-        <a href="/2019/01/22/docker三剑客之docker-machine/" class="archive-article-date">
+        <a href="/2019/01/22/docker进阶用法总结/" class="archive-article-date">
   	<time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
 </a>
         
@@ -587,13 +582,17 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://i.loli.net/2017/09/11/59b63b5247ca0.jpg" alt="dockermachine"></p>
-<h3 id="docker-machine-介绍"><a href="#docker-machine-介绍" class="headerlink" title="docker-machine 介绍"></a>docker-machine 介绍</h3><blockquote>
-<p>Docker Machine is a tool that lets you install Docker Engine on virtual hosts, and manage the hosts with docker-machine commands. You can use Machine to create Docker hosts on your local Mac or Windows box, on your company network, in your data center, or on cloud providers like Azure, AWS, or Digital Ocean.</p>
-</blockquote>
-<p>上面引用docker官方文档来对docker-machine做了大概介绍。大致意思：docker-machine是一个可以让你管理已经安装docker引擎机器的虚拟主机工具，你可以利用docker-machine在本机、局域网、数据中心、甚至公有云上创建docker主机！<br>
+        <h3 id="docker-搭建私有仓库"><a href="#docker-搭建私有仓库" class="headerlink" title="docker 搭建私有仓库"></a>docker 搭建私有仓库</h3><h4 id="搭建私有仓库"><a href="#搭建私有仓库" class="headerlink" title="搭建私有仓库"></a>搭建私有仓库</h4><ul>
+<li><p>创建registry容器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 5000:5000 -v /data/docker/image/:/var/lib/registry --restart=always registry:2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看registry端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@registry ~]# netstat -nplt |grep 5000</span><br><span class="line">tcp        0      0 :::5000                     :::*                        LISTEN      20701/docker-proxy</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="配置docker-确保从私有仓库pull镜像时不会报错"><a href="#配置docker-确保从私有仓库pull镜像时不会报错" class="headerlink" title="配置docker 确保从私有仓库pull镜像时不会报错"></a>配置docker 确保从私有仓库pull镜像时不会报错</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/docker/daemon.json</span><br><span class="line">&#123; <span class="string">"insecure-registries"</span>:[<span class="string">"172.16.1.9:5000"</span>] &#125;</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2019/01/22/docker三剑客之docker-machine/#more">more >></a>
+          <a class="article-more-a" href="/2019/01/22/docker进阶用法总结/#more">more >></a>
         
       
 
@@ -608,10 +607,6 @@ var _hmt = _hmt || [];
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">machine</a>
         		</li>
       		
 		</ul>
@@ -632,7 +627,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/22/docker三剑客之docker-machine/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/01/22/docker进阶用法总结/">展开全文 >></a>
         </p>
       
 
@@ -1023,6 +1018,100 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-zabbix触发器和微信企业号报警设置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/22/zabbix触发器和微信企业号报警设置/">zabbix触发器和微信企业号报警设置</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/22/zabbix触发器和微信企业号报警设置/" class="archive-article-date">
+  	<time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一-添加触发器"><a href="#一-添加触发器" class="headerlink" title="一. 添加触发器"></a>一. 添加触发器</h3><ol>
+<li>点击触发器打开新增触发器页<br><img src="https://i.loli.net/2017/09/15/59bb9ba8ccbfe.png" alt="CFQ1"></li>
+<li>新建触发器<br><img src="https://i.loli.net/2017/09/15/59bb9bc3937c0.png" alt="CFQ2"></li>
+<li>配置触发器<br><img src="https://i.loli.net/2017/09/15/59bb9bd8620df.png" alt="CFQ3">
+        
+          <a class="article-more-a" href="/2019/01/22/zabbix触发器和微信企业号报警设置/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">zabbix触发器创建</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">微信报警</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/zabbix监控/" class="article-tag-list-link color4">zabbix监控</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/22/zabbix触发器和微信企业号报警设置/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-zabbix自定义模板应用触发器创建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1090,100 +1179,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/01/22/zabbix自定义模板应用触发器创建/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-zabbix触发器和微信企业号报警设置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/zabbix触发器和微信企业号报警设置/">zabbix触发器和微信企业号报警设置</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/22/zabbix触发器和微信企业号报警设置/" class="archive-article-date">
-  	<time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一-添加触发器"><a href="#一-添加触发器" class="headerlink" title="一. 添加触发器"></a>一. 添加触发器</h3><ol>
-<li>点击触发器打开新增触发器页<br><img src="https://i.loli.net/2017/09/15/59bb9ba8ccbfe.png" alt="CFQ1"></li>
-<li>新建触发器<br><img src="https://i.loli.net/2017/09/15/59bb9bc3937c0.png" alt="CFQ2"></li>
-<li>配置触发器<br><img src="https://i.loli.net/2017/09/15/59bb9bd8620df.png" alt="CFQ3">
-        
-          <a class="article-more-a" href="/2019/01/22/zabbix触发器和微信企业号报警设置/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">zabbix触发器创建</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">微信报警</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/zabbix监控/" class="article-tag-list-link color4">zabbix监控</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/22/zabbix触发器和微信企业号报警设置/">展开全文 >></a>
         </p>
       
 
@@ -1307,19 +1302,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cdh</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1383,31 +1378,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">污点</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">coredns</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Node Allocatable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">kubelet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ingress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1431,7 +1410,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
+                <a href="javascript:void(0)" class="js-tag color3">污点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Node Allocatable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">kubelet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1440,6 +1431,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">parted</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1459,15 +1454,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">machine</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
+                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1479,11 +1470,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
+                <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
+                <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1507,10 +1502,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mongo</a>
               </li>
              
@@ -1523,11 +1514,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pfsense</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">openvpn</a>
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1539,19 +1526,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pfsense</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">openvpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">zabbix</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">自定义监控</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">zabbix监控图界面中文乱码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1564,6 +1547,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">zabbix</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">自定义监控</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">zabbix监控图界面中文乱码</a>
               </li>
              
               <li class="article-tag-list-item">
