@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Go语言复习笔记——容器之数组和切片 | 天涯咫尺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="数据结构——容器数组 数组声明:  1var 变量名 [元素个数]">
+  <meta name="description" content="数据结构——容器一、数组 数组声明:  1var 变量名 [元素个数]Type  初始化数组   声明时初始化元素个数进行元素设置(需要保证元素个数和数组大小一致)  12var nums = [6]int&amp;#123;1,2,3,4,5,6&amp;#125;var books = [3]string&amp;#123;&quot;apple&quot;,&quot;xiaomi&quot;,&quot;dell&quot;&amp;#125;  编译器元素个数 (…代替元素个数">
 <meta name="keywords" content="go,Go语言复习笔记,数组,切片">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go语言复习笔记——容器之数组和切片">
 <meta property="og:url" content="http://yoursite.com/2019/12/10/Go语言复习笔记——容器之数组和切片/index.html">
 <meta property="og:site_name" content="天涯咫尺">
-<meta property="og:description" content="数据结构——容器数组 数组声明:  1var 变量名 [元素个数]">
+<meta property="og:description" content="数据结构——容器一、数组 数组声明:  1var 变量名 [元素个数]Type  初始化数组   声明时初始化元素个数进行元素设置(需要保证元素个数和数组大小一致)  12var nums = [6]int&amp;#123;1,2,3,4,5,6&amp;#125;var books = [3]string&amp;#123;&quot;apple&quot;,&quot;xiaomi&quot;,&quot;dell&quot;&amp;#125;  编译器元素个数 (…代替元素个数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-10T07:44:28.878Z">
+<meta property="og:updated_time" content="2019-12-19T06:05:24.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go语言复习笔记——容器之数组和切片">
-<meta name="twitter:description" content="数据结构——容器数组 数组声明:  1var 变量名 [元素个数]">
+<meta name="twitter:description" content="数据结构——容器一、数组 数组声明:  1var 变量名 [元素个数]Type  初始化数组   声明时初始化元素个数进行元素设置(需要保证元素个数和数组大小一致)  12var nums = [6]int&amp;#123;1,2,3,4,5,6&amp;#125;var books = [3]string&amp;#123;&quot;apple&quot;,&quot;xiaomi&quot;,&quot;dell&quot;&amp;#125;  编译器元素个数 (…代替元素个数">
   
     <link rel="alternative" href="/atom.xml" title="天涯咫尺" type="application/atom+xml">
   
@@ -203,10 +203,31 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="数据结构——容器"><a href="#数据结构——容器" class="headerlink" title="数据结构——容器"></a>数据结构——容器</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><ul>
+        <h1 id="数据结构——容器"><a href="#数据结构——容器" class="headerlink" title="数据结构——容器"></a>数据结构——容器</h1><h2 id="一、数组"><a href="#一、数组" class="headerlink" title="一、数组"></a>一、数组</h2><ul>
 <li>数组声明:</li>
 </ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 变量名 [元素个数]</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 变量名 [元素个数]Type</span><br></pre></td></tr></table></figure>
+<ul>
+<li>初始化数组</li>
+</ul>
+<ol>
+<li>声明时初始化元素个数进行元素设置(需要保证元素个数和数组大小一致)</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nums = [<span class="number">6</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;</span><br><span class="line"><span class="keyword">var</span> books = [<span class="number">3</span>]<span class="keyword">string</span>&#123;<span class="string">"apple"</span>,<span class="string">"xiaomi"</span>,<span class="string">"dell"</span>&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>编译器元素个数 (…代替元素个数，编译器自动确定数组大小)<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> books = [...]<span class="keyword">string</span>&#123;<span class="string">"apple"</span>,<span class="string">"xiaomi"</span>,<span class="string">"dell"</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>遍历数组<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> book [<span class="number">3</span>]<span class="keyword">string</span></span><br><span class="line">	book[<span class="number">0</span>] = <span class="string">"apple"</span></span><br><span class="line">	book[<span class="number">1</span>] = <span class="string">"xiaomi"</span></span><br><span class="line">	book[<span class="number">2</span>] = <span class="string">"dell"</span></span><br><span class="line">	<span class="keyword">for</span> k, v := <span class="keyword">range</span> book &#123;</span><br><span class="line">		fmt.Printf(<span class="string">"book%d v==&gt;%s\n"</span>, k, v)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line">$ <span class="keyword">go</span> run <span class="string">"./遍历数组.go"</span></span><br><span class="line">book0 v==&gt;apple</span><br><span class="line">book1 v==&gt;xiaomi</span><br><span class="line">book2 v==&gt;dell</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="二、切片"><a href="#二、切片" class="headerlink" title="二、切片"></a>二、切片</h2><blockquote>
+<p>数组是声明时分配一段固定长度的内存区域，而切片是动态分配大小的连续空间，切片内部结构包含地址，大小，容量。</p>
+</blockquote>
+<ul>
+<li>从数组或者切片生成新的切片</li>
+</ul>
 
       
 
@@ -357,7 +378,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据结构——容器"><span class="toc-number">1.</span> <span class="toc-text">数据结构——容器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组"><span class="toc-number">1.1.</span> <span class="toc-text">数组</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据结构——容器"><span class="toc-number">1.</span> <span class="toc-text">数据结构——容器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、数组"><span class="toc-number">1.1.</span> <span class="toc-text">一、数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、切片"><span class="toc-number">1.2.</span> <span class="toc-text">二、切片</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -384,7 +405,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 ChuLinx
+    		&copy; 2020 ChuLinx
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -471,26 +492,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">golang</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">node_exporter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">prometheus</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">go</a>
               </li>
              
@@ -507,23 +508,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color2">golang</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color4">node_exporter</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ingress</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">堆栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+                <a href="javascript:void(0)" class="js-tag color1">prometheus</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -543,11 +536,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
+                <a href="javascript:void(0)" class="js-tag color3">堆栈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">coredns</a>
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ingress</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -559,11 +572,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Node Allocatable</a>
+                <a href="javascript:void(0)" class="js-tag color3">coredns</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">kubelet</a>
+                <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,14 +600,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">parted</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
@@ -608,6 +613,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">bind9</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">parted</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Node Allocatable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">kubelet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -647,6 +668,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pvc</a>
               </li>
              
@@ -660,10 +685,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ceph</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -699,10 +720,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">zabbix</a>
               </li>
              
@@ -712,6 +729,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">zabbix监控图界面中文乱码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">service</a>
               </li>
              
               <li class="article-tag-list-item">
