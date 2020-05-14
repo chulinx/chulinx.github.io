@@ -303,45 +303,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一、ingress最常见的用法-基于域名的虚拟主机"><a href="#一、ingress最常见的用法-基于域名的虚拟主机" class="headerlink" title="一、ingress最常见的用法(基于域名的虚拟主机)"></a>一、ingress最常见的用法(基于域名的虚拟主机)</h3><ol>
-<li>部署v2测试应用<blockquote>
-<p>和nginx一样，nginx-ingress也同样支持基于域名的虚拟主机，所谓基于域名的虚拟主机，就是配置不通的域名访问不通的服务。</p>
-</blockquote>
-</li>
-</ol>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">echo</span> <span class="string">'</span></span><br><span class="line"><span class="string">apiVersion: extensions/v1beta1</span></span><br><span class="line"><span class="string">kind: Ingress</span></span><br><span class="line"><span class="string">metadata:</span></span><br><span class="line"><span class="string">  name: todo-v2-ingress</span></span><br><span class="line"><span class="string">  namespace: zlx</span></span><br><span class="line"><span class="string">  annotations:</span></span><br><span class="line"><span class="string">    kubernetes.io/ingress.class: "public-nginx"</span></span><br><span class="line"><span class="string">spec:</span></span><br><span class="line"><span class="string">  rules:</span></span><br><span class="line"><span class="string">    - host: v2.chulinx.com</span></span><br><span class="line"><span class="string">      http:</span></span><br><span class="line"><span class="string">        paths:</span></span><br><span class="line"><span class="string">          - path: /</span></span><br><span class="line"><span class="string">            backend:</span></span><br><span class="line"><span class="string">              serviceName: todo-v2-svc</span></span><br><span class="line"><span class="string">              servicePort: 80</span></span><br><span class="line"><span class="string">---</span></span><br><span class="line"><span class="string">kind: Service</span></span><br><span class="line"><span class="string">apiVersion: v1</span></span><br><span class="line"><span class="string">metadata:</span></span><br><span class="line"><span class="string">  name: todo-v2-svc</span></span><br><span class="line"><span class="string">  namespace: zlx</span></span><br><span class="line"><span class="string">spec:</span></span><br><span class="line"><span class="string">  selector:</span></span><br><span class="line"><span class="string">    name: todo-v2</span></span><br><span class="line"><span class="string">  type: ClusterIP</span></span><br><span class="line"><span class="string">  ports:</span></span><br><span class="line"><span class="string">    - name: todo-v2-http</span></span><br><span class="line"><span class="string">      port: 80</span></span><br><span class="line"><span class="string">      targetPort: 80</span></span><br><span class="line"><span class="string">---</span></span><br><span class="line"><span class="string">apiVersion: apps/v1</span></span><br><span class="line"><span class="string">kind: Deployment</span></span><br><span class="line"><span class="string">metadata:</span></span><br><span class="line"><span class="string">  name: todo-v2</span></span><br><span class="line"><span class="string">  namespace: zlx</span></span><br><span class="line"><span class="string">  labels:</span></span><br><span class="line"><span class="string">    name: todo-v2</span></span><br><span class="line"><span class="string">spec:</span></span><br><span class="line"><span class="string">  strategy:</span></span><br><span class="line"><span class="string">    rollingUpdate:</span></span><br><span class="line"><span class="string">      maxSurge: 1</span></span><br><span class="line"><span class="string">      maxUnavailable: 1</span></span><br><span class="line"><span class="string">    type: RollingUpdate</span></span><br><span class="line"><span class="string">  selector:</span></span><br><span class="line"><span class="string">    matchLabels:</span></span><br><span class="line"><span class="string">      name: todo-v2</span></span><br><span class="line"><span class="string">  template:</span></span><br><span class="line"><span class="string">    metadata:</span></span><br><span class="line"><span class="string">      labels:</span></span><br><span class="line"><span class="string">        name: todo-v2</span></span><br><span class="line"><span class="string">    spec:</span></span><br><span class="line"><span class="string">      containers:</span></span><br><span class="line"><span class="string">        - image: registry.chulinx.cn/docker/public-images/todo:v0.2</span></span><br><span class="line"><span class="string">          name: todo-v2</span></span><br><span class="line"><span class="string">          resources:</span></span><br><span class="line"><span class="string">            requests:</span></span><br><span class="line"><span class="string">              cpu: "20m"</span></span><br><span class="line"><span class="string">              memory: "55M"</span></span><br><span class="line"><span class="string">          env:</span></span><br><span class="line"><span class="string">            - name: ENVVARNAME</span></span><br><span class="line"><span class="string">              value: ENVVARVALUE</span></span><br><span class="line"><span class="string">          ports:</span></span><br><span class="line"><span class="string">            - containerPort: 80</span></span><br><span class="line"><span class="string">              name: todo-v2</span></span><br><span class="line"><span class="string">      restartPolicy: Always'</span><span class="string">|kubectl</span> <span class="string">create</span> <span class="bullet">-f</span> <span class="bullet">-</span></span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li><p>访问v2应用<br><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20191219150458.png" alt></p>
-</li>
-<li><p>部署v3测试应用</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">echo</span> <span class="string">'</span></span><br><span class="line"><span class="string">apiVersion: extensions/v1beta1</span></span><br><span class="line"><span class="string">kind: Ingress</span></span><br><span class="line"><span class="string">metadata:</span></span><br><span class="line"><span class="string">  name: todo-v3-ingress</span></span><br><span class="line"><span class="string">  namespace: zlx</span></span><br><span class="line"><span class="string">  annotations:</span></span><br><span class="line"><span class="string">    kubernetes.io/ingress.class: "public-nginx"</span></span><br><span class="line"><span class="string">spec:</span></span><br><span class="line"><span class="string">  rules:</span></span><br><span class="line"><span class="string">    - host: v3.chulinx.com</span></span><br><span class="line"><span class="string">      http:</span></span><br><span class="line"><span class="string">        paths:</span></span><br><span class="line"><span class="string">          - path: /</span></span><br><span class="line"><span class="string">            backend:</span></span><br><span class="line"><span class="string">              serviceName: todo-v3-svc</span></span><br><span class="line"><span class="string">              servicePort: 80</span></span><br><span class="line"><span class="string">---</span></span><br><span class="line"><span class="string">kind: Service</span></span><br><span class="line"><span class="string">apiVersion: v1</span></span><br><span class="line"><span class="string">metadata:</span></span><br><span class="line"><span class="string">  name: todo-v3-svc</span></span><br><span class="line"><span class="string">  namespace: zlx</span></span><br><span class="line"><span class="string">spec:</span></span><br><span class="line"><span class="string">  selector:</span></span><br><span class="line"><span class="string">    name: todo-v3</span></span><br><span class="line"><span class="string">  type: ClusterIP</span></span><br><span class="line"><span class="string">  ports:</span></span><br><span class="line"><span class="string">    - name: todo-v3-http</span></span><br><span class="line"><span class="string">      port: 80</span></span><br><span class="line"><span class="string">      targetPort: 80</span></span><br><span class="line"><span class="string">---</span></span><br><span class="line"><span class="string">apiVersion: apps/v1</span></span><br><span class="line"><span class="string">kind: Deployment</span></span><br><span class="line"><span class="string">metadata:</span></span><br><span class="line"><span class="string">  name: todo-v3</span></span><br><span class="line"><span class="string">  namespace: zlx</span></span><br><span class="line"><span class="string">  labels:</span></span><br><span class="line"><span class="string">    name: todo-v3</span></span><br><span class="line"><span class="string">spec:</span></span><br><span class="line"><span class="string">  strategy:</span></span><br><span class="line"><span class="string">    rollingUpdate:</span></span><br><span class="line"><span class="string">      maxSurge: 1</span></span><br><span class="line"><span class="string">      maxUnavailable: 1</span></span><br><span class="line"><span class="string">    type: RollingUpdate</span></span><br><span class="line"><span class="string">  selector:</span></span><br><span class="line"><span class="string">    matchLabels:</span></span><br><span class="line"><span class="string">      name: todo-v3</span></span><br><span class="line"><span class="string">  template:</span></span><br><span class="line"><span class="string">    metadata:</span></span><br><span class="line"><span class="string">      labels:</span></span><br><span class="line"><span class="string">        name: todo-v3</span></span><br><span class="line"><span class="string">    spec:</span></span><br><span class="line"><span class="string">      containers:</span></span><br><span class="line"><span class="string">        - image: registry.chulinx.cn/docker/public-images/todo:v0.3</span></span><br><span class="line"><span class="string">          name: todo-v3</span></span><br><span class="line"><span class="string">          resources:</span></span><br><span class="line"><span class="string">            requests:</span></span><br><span class="line"><span class="string">              cpu: "20m"</span></span><br><span class="line"><span class="string">              memory: "55M"</span></span><br><span class="line"><span class="string">          env:</span></span><br><span class="line"><span class="string">            - name: ENVVARNAME</span></span><br><span class="line"><span class="string">              value: ENVVARVALUE</span></span><br><span class="line"><span class="string">          ports:</span></span><br><span class="line"><span class="string">            - containerPort: 80</span></span><br><span class="line"><span class="string">              name: todo-v3</span></span><br><span class="line"><span class="string">      restartPolicy: Always'</span><span class="string">|kubectl</span> <span class="string">create</span> <span class="bullet">-f</span> <span class="bullet">-</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看部署的应用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ [K8sDev] kubectl get all -n zlx</span><br><span class="line">NAME                           READY   STATUS    RESTARTS   AGE</span><br><span class="line">pod/todo-v2-8599bb87fc-hm8mk   1/1     Running   0          8m22s</span><br><span class="line">pod/todo-v3-7b65c96879-9tngw   1/1     Running   0          11s</span><br><span class="line"></span><br><span class="line">NAME                  TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE</span><br><span class="line">service/todo-v2-svc   ClusterIP   10.96.75.231   &lt;none&gt;        80/TCP    10m</span><br><span class="line">service/todo-v3-svc   ClusterIP   10.97.76.114   &lt;none&gt;        80/TCP    11s</span><br><span class="line"></span><br><span class="line">NAME                      READY   UP-TO-DATE   AVAILABLE   AGE</span><br><span class="line">deployment.apps/todo-v2   1/1     1            1           10m</span><br><span class="line">deployment.apps/todo-v3   1/1     1            1           11s</span><br><span class="line"></span><br><span class="line">NAME                                 DESIRED   CURRENT   READY   AGE</span><br><span class="line">replicaset.apps/todo-v2-69f5b79459   0         0         0       10m</span><br><span class="line">replicaset.apps/todo-v2-6bf5fd9cf4   0         0         0       9m19s</span><br><span class="line">replicaset.apps/todo-v2-8599bb87fc   1         1         1       8m22s</span><br><span class="line">replicaset.apps/todo-v3-7b65c96879   1         1         1       11s</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>访问测试v3应用<br><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20191219151557.png" alt></p>
-</li>
-</ol>
-<p>二、基于path的虚拟主机(同一域名指定不同的path访问不同的应用)</p>
-<ol>
-<li><p>更改v2/v3的ingress</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">extensions/v1beta1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">todo-v2-ingress</span></span><br><span class="line"><span class="attr">  namespace:</span> <span class="string">zlx</span></span><br><span class="line"><span class="attr">  annotations:</span></span><br><span class="line">    <span class="string">kubernetes.io/ingress.class:</span> <span class="string">"public-nginx"</span></span><br><span class="line">    <span class="string">nginx.ingress.kubernetes.io/rewrite-target:</span> <span class="string">/$2</span></span><br><span class="line">    <span class="string">nginx.ingress.kubernetes.io/configuration-snippet:</span> <span class="string">|</span></span><br><span class="line"><span class="string">      rewrite ^/static/(.*)$ http://$host:8080/v2/static/$1 redirect;</span></span><br><span class="line"><span class="string"></span><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  rules:</span></span><br><span class="line"><span class="attr">    - host:</span> <span class="string">www.chulinx.com</span></span><br><span class="line"><span class="attr">      http:</span></span><br><span class="line"><span class="attr">        paths:</span></span><br><span class="line"><span class="attr">          - path:</span> <span class="string">/v2(/|$)(.*)</span></span><br><span class="line"><span class="attr">            backend:</span></span><br><span class="line"><span class="attr">              serviceName:</span> <span class="string">todo-v2-svc</span></span><br><span class="line"><span class="attr">              servicePort:</span> <span class="number">80</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">extensions/v1beta1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">todo-v3-ingress</span></span><br><span class="line"><span class="attr">  namespace:</span> <span class="string">zlx</span></span><br><span class="line"><span class="attr">  annotations:</span></span><br><span class="line">    <span class="string">kubernetes.io/ingress.class:</span> <span class="string">"public-nginx"</span></span><br><span class="line">    <span class="string">nginx.ingress.kubernetes.io/rewrite-target:</span> <span class="string">/$2</span></span><br><span class="line">    <span class="string">nginx.ingress.kubernetes.io/configuration-snippet:</span> <span class="string">|</span></span><br><span class="line"><span class="string">      rewrite ^/static/(.*)$ http://$host:8080/v3/static/$1 redirect;</span></span><br><span class="line"><span class="string"></span><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  rules:</span></span><br><span class="line"><span class="attr">    - host:</span> <span class="string">www.chulinx.com</span></span><br><span class="line"><span class="attr">      http:</span></span><br><span class="line"><span class="attr">        paths:</span></span><br><span class="line"><span class="attr">          - path:</span> <span class="string">/v3(/|$)(.*)</span></span><br><span class="line"><span class="attr">            backend:</span></span><br><span class="line"><span class="attr">              serviceName:</span> <span class="string">todo-v3-svc</span></span><br><span class="line"><span class="attr">              servicePort:</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>访问测试<br><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20191219154128.png" alt><br><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20191219154239.png" alt></p>
-</li>
-</ol>
-<blockquote>
-<p>发现v2可以正常访问，但是v3却不行，查看chrome调试信息，发现js静态资源全部redirect到v2，这是为什么呢？原因是因为我们在配置v3的redirect之前已经配置了v2的redirect，所以遇到以^/static/开头的所有uri都被redirect到v2/static/$1了，这也证实了nginx-ingress不能通过/path路由到不同的应用</p>
-</blockquote>
-<h3 id="三、-通过ip访问v2应用"><a href="#三、-通过ip访问v2应用" class="headerlink" title="三、 通过ip访问v2应用"></a>三、 通过ip访问v2应用</h3><ol>
-<li>更改v2的ingress<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">extensions/v1beta1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">todo-v2-ingress</span></span><br><span class="line"><span class="attr">  namespace:</span> <span class="string">zlx</span></span><br><span class="line"><span class="attr">  annotations:</span></span><br><span class="line">    <span class="string">kubernetes.io/ingress.class:</span> <span class="string">"public-nginx"</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  rules:</span></span><br><span class="line"><span class="attr">    - http:</span></span><br><span class="line"><span class="attr">        paths:</span></span><br><span class="line"><span class="attr">          - path:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">            backend:</span></span><br><span class="line"><span class="attr">              serviceName:</span> <span class="string">todo-v2-svc</span></span><br><span class="line"><span class="attr">              servicePort:</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20191219155357.png" alt></p>
-<blockquote>
-<p>发现是可以访问的，如法炮制v3ingress，访问测试依旧是v2,但是删除v2，再次访问就变成v3，这个过程证明，如果不指定hostname，那应同一个ingress通过ip路由应用只能路由一个应用。</p>
-</blockquote>
-
+        <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20200514091648.png" alt><br>
+        
+          <a class="article-more-a" href="/2019/12/19/Kubernetes Nginx-Ingress 常见配置用法介绍/#more">more >></a>
+        
       
 
       
@@ -577,15 +542,15 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Go语言复习笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">切片</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Go语言复习笔记</a>
         		</li>
       		
 		</ul>
@@ -973,15 +938,15 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Go语言复习笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">变量</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据类型</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Go语言复习笔记</a>
         		</li>
       		
 		</ul>
@@ -1305,22 +1270,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">golang</a>
               </li>
              
@@ -1333,19 +1282,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">go</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">切片</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Go语言复习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1357,11 +1302,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">常量</a>
+                <a href="javascript:void(0)" class="js-tag color4">Go语言复习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">指针，类型别名</a>
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1373,6 +1322,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">切片</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
@@ -1381,11 +1338,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">coredns</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
+                <a href="javascript:void(0)" class="js-tag color3">ingress</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1397,7 +1350,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ingress</a>
+                <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">coredns</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1406,14 +1363,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">parted</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1426,22 +1375,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">bind9</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Node Allocatable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">kubelet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1465,11 +1398,47 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">常量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">指针，类型别名</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Node Allocatable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">kubelet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pod</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">metric</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1497,10 +1466,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mongo</a>
               </li>
              
@@ -1513,11 +1478,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
+                <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1549,27 +1514,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">service</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
+                <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1590,6 +1539,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">zabbix触发器创建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">微信报警</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">service</a>
               </li>
             
             <div class="clearfix"></div>
