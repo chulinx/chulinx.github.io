@@ -215,6 +215,120 @@
             
 
   
+    <article id="post-GO-Promethues-Node_exporter二次开发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/11/30/GO-Promethues-Node_exporter二次开发/" target="_blank">Golang 基于Prometheus Node_Exporter 开发自定义脚本监控</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/11/30/GO-Promethues-Node_exporter二次开发/" class="archive-article-date">
+        <time datetime="2019-11-30T12:04:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>公司是今年决定将一些传统应用从虚拟机上迁移到Kubernetes上的，项目多而乱，所以迁移工作进展缓慢，为了建立统一的监控平台，我们使用的是在Kubernetes集群内部署Prometheus-operator，不得不说Prometheus-operator对k8s的监控支持的非常好，helm安装后会把Prometheus、Alertmanger、Grafana、以及NodeExporter都给安装完成，打开Grafana k8s中所有监控指标和图标都已经创建好，大大降低监控部署的复杂性。但是对于我们项目迁移较慢的环境，Promethues只监控k8s集群当然是不行的，所以我们选择使用在虚拟机上部署Node_Exporter来监控虚拟机的各项指标，但是Node_Exporter只能监控系统指标，我们可能想要业务的一些监控，比如(文件状态监控，业务日志监控…都是一些传统软件留下来的坑)，这样Node_Exporter就显得力不从心了，而且每个项目监控的一些指标并不相同，所以开发统一Exporter不但耗时还会出现一些兼容性和运维复杂性的问题，所以根据原来zabbix自定义监控项的思路考虑对Node_Exporter进行二次开发，增加一个自定义脚本监控项</p>
+</blockquote>
+<blockquote>
+<p>Node_Exporter源码目录结构</p>
+</blockquote>
+<p>通过collector目录下源码文件名可以看到具体监控项通过单独的代码文件去采集</p>
+<p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20190821111902.png" alt></p>
+    
+    <a class="article-more-a" href="/2019/11/30/GO-Promethues-Node_exporter二次开发/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">node_exporter</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">prometheus</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/kubernetes//" class="article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/11/30/GO-Promethues-Node_exporter二次开发/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-bind9-DNS配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1239,84 +1353,6 @@
 
 
   
-    <article id="post-Gaping-测试远程主机端口稳定性的工具" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/10/07/Gaping-测试远程主机端口稳定性的工具/" target="_blank">Gaping --- 一个golang实现的测试远程主机端口稳定性的工具</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/10/07/Gaping-测试远程主机端口稳定性的工具/" class="archive-article-date">
-        <time datetime="2019-10-07T08:36:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><a href="https://github.com/tianyazc/gaping" target="_blank" rel="noopener"><img src="https://travis-ci.org/tianyazc/gaping.svg?branch=master" alt="Build Status"></a><br><a href="https://github.com/tianyazc/gaping" target="_blank" rel="noopener">项目地址</a> <a href="https://github.com/tianyazc/gaping/blob/master/README-CN.md" target="_blank" rel="noopener">中文</a></p>
-<p><img src="http://img.chulinx.xyz/termtosvg_wvabfoi8.svg" alt></p>
-    
-    <a class="article-more-a" href="/2019/10/07/Gaping-测试远程主机端口稳定性的工具/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/10/07/Gaping-测试远程主机端口稳定性的工具/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -1494,19 +1530,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">常量</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">指针，类型别名</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">堆栈</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">常量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">指针，类型别名</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1534,7 +1570,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">velero</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">istio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">coredns</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">污点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1558,14 +1610,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">污点</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Node Allocatable</a>
               </li>
              
@@ -1574,11 +1618,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">istio</a>
+                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
+                <a href="javascript:void(0)" class="js-tag color2">parted</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1594,18 +1638,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">parted</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">swarm</a>
               </li>
              
@@ -1614,11 +1646,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pod</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">metric</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1686,10 +1726,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zabbix安装,zabbix_3.4</a>
               </li>
              
@@ -1739,6 +1775,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Option</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
             
             <div class="clearfix"></div>
