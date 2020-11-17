@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="天涯咫尺">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/golangBuilder&Option设计模式.png">
-<meta property="og:updated_time" content="2019-12-09T06:32:34.692Z">
+<meta property="og:updated_time" content="2019-12-09T06:32:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实例浅谈利用Golang的Builder&amp;Option设计模式来传递初始化参数">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/golangBuilder&Option设计模式.png">
@@ -232,7 +232,7 @@
         </span>
 
 <a href="/2019/12/09/浅谈利用Golang的Builder&Option设计模式来传递初始化参数/" class="archive-article-date">
-        <time datetime="2019-12-09T01:37:21.483Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
+        <time datetime="2019-12-09T06:32:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
 </a>
 
   
@@ -276,7 +276,7 @@
 <li>创建每个默认参数修改的函数SetAddr，SetDb，SetPass</li>
 <li>构建初始化函数NewOptionRedis，指定默认参数的默认值，遍历加载修改默认参数的函数，以接受调用者更改后的参数，返回OptionRedis结构体</li>
 </ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> redis</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> OptionRedis <span class="keyword">struct</span> &#123;</span><br><span class="line">	Id     <span class="keyword">int</span></span><br><span class="line">	Option Option</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> Option <span class="keyword">struct</span> &#123;</span><br><span class="line">	Addr     <span class="keyword">string</span></span><br><span class="line">	Db       <span class="keyword">int</span></span><br><span class="line">	Password <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> ModOption <span class="function"><span class="keyword">func</span><span class="params">(option *Option)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">func</span> <span class="title">SetAddr</span><span class="params">(addr <span class="keyword">string</span>)</span> <span class="title">ModOption</span></span>   &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(option *Option)</span></span> &#123;</span><br><span class="line">		option.Addr=addr</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SetDb</span><span class="params">(db <span class="keyword">int</span>)</span> <span class="title">ModOption</span></span>  &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(option *Option)</span></span> &#123;</span><br><span class="line">		option.Db=db</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SetPass</span><span class="params">(pwd <span class="keyword">string</span>)</span> <span class="title">ModOption</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(option *Option)</span></span> &#123;</span><br><span class="line">		option.Password=pwd</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewOptionRedis</span><span class="params">(id <span class="keyword">int</span>,modoption ...ModOption)</span> *<span class="title">OptionRedis</span></span>  &#123;</span><br><span class="line">	option := Option&#123;</span><br><span class="line">		Addr:<span class="string">"127.0.0.1:6379"</span>,</span><br><span class="line">		Db:<span class="number">0</span>,</span><br><span class="line">		Password:<span class="string">""</span>,</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> _,fn :=<span class="keyword">range</span> modoption&#123;</span><br><span class="line">		fn(&amp;option)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> &amp;OptionRedis&#123;</span><br><span class="line">		Id:id,</span><br><span class="line">		Option:option,</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(optionR *OptionRedis)</span><span class="title">ConnectInfo</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	fmt.Printf(<span class="string">"addr:%s,db:%d,pass:%s\n"</span>, optionR.Option.Addr,optionR.Option.Db,optionR.Option.Password)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> redis</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> OptionRedis <span class="keyword">struct</span> &#123;</span><br><span class="line">	Id     <span class="keyword">int</span></span><br><span class="line">	Option Option</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> Option <span class="keyword">struct</span> &#123;</span><br><span class="line">	Addr     <span class="keyword">string</span></span><br><span class="line">	Db       <span class="keyword">int</span></span><br><span class="line">	Password <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> ModOption <span class="function"><span class="keyword">func</span><span class="params">(option *Option)</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SetAddr</span><span class="params">(addr <span class="keyword">string</span>)</span> <span class="title">ModOption</span></span>   &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(option *Option)</span></span> &#123;</span><br><span class="line">		option.Addr=addr</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SetDb</span><span class="params">(db <span class="keyword">int</span>)</span> <span class="title">ModOption</span></span>  &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(option *Option)</span></span> &#123;</span><br><span class="line">		option.Db=db</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SetPass</span><span class="params">(pwd <span class="keyword">string</span>)</span> <span class="title">ModOption</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(option *Option)</span></span> &#123;</span><br><span class="line">		option.Password=pwd</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewOptionRedis</span><span class="params">(id <span class="keyword">int</span>,modoption ...ModOption)</span> *<span class="title">OptionRedis</span></span>  &#123;</span><br><span class="line">	option := Option&#123;</span><br><span class="line">		Addr:<span class="string">"127.0.0.1:6379"</span>,</span><br><span class="line">		Db:<span class="number">0</span>,</span><br><span class="line">		Password:<span class="string">""</span>,</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> _,fn :=<span class="keyword">range</span> modoption&#123;</span><br><span class="line">		fn(&amp;option)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> &amp;OptionRedis&#123;</span><br><span class="line">		Id:id,</span><br><span class="line">		Option:option,</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(optionR *OptionRedis)</span><span class="title">ConnectInfo</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	fmt.Printf(<span class="string">"addr:%s,db:%d,pass:%s\n"</span>, optionR.Option.Addr,optionR.Option.Db,optionR.Option.Password)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="创建型Builder模式"><a href="#创建型Builder模式" class="headerlink" title="创建型Builder模式"></a>创建型Builder模式</h2><ul>
 <li>创建BuilderRedis结构体</li>
 <li>初始化BuilderRedis结构体NewBuilderRedis</li>
@@ -417,18 +417,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/12/10/Go语言复习笔记——容器之数组和切片/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/12/10/Go语言复习笔记——基本语法一之变量数据类型/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Go语言复习笔记——容器之数组和切片
+          Go语言复习笔记——基本语法（一）之变量数据类型
         
       </div>
     </a>
   
   
-    <a href="/2019/12/03/Go语言复习笔记——基本语法三之堆栈与字符串应用/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Go语言复习笔记——基本语法（三）之堆栈与字符串应用</div>
+    <a href="/2019/11/30/zabbix自定义模板应用触发器创建/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">zabbix自定义模板应用监控项创建</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -484,7 +484,7 @@
   <script>
     <!-- id: "实例浅谈利用Golang的Builder&amp;Option设计模式来传递初始化参数" -->
     var gitment = new Gitment({
-      id: "20191209093721",
+      id: "20191209143236",
       owner: 'chulinx',
       repo: 'chulinx.github.io',
       oauth: {
@@ -626,6 +626,14 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">centos7</a>
               </li>
              
@@ -662,6 +670,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">堆栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">常量</a>
               </li>
              
@@ -678,11 +694,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color1">istio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -694,6 +714,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">coredns</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">污点</a>
               </li>
              
@@ -702,7 +726,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">coredns</a>
+                <a href="javascript:void(0)" class="js-tag color4">efk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">fluentd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logstash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -742,6 +782,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pod</a>
               </li>
              
@@ -754,15 +802,43 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pvc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">rook</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ceph</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shard</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">replicas</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -814,6 +890,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
@@ -831,86 +915,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Option</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">堆栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shard</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">replicas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">efk</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">fluentd</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logstash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pvc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rook</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ceph</a>
               </li>
             
             <div class="clearfix"></div>

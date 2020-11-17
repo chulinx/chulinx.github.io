@@ -215,6 +215,676 @@
             
 
   
+    <article id="post-探究kubernetes Pod的delete机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/09/23/探究kubernetes Pod的delete机制/" target="_blank">探究kubernetes Pod的delete机制</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/09/23/探究kubernetes Pod的delete机制/" class="archive-article-date">
+        <time datetime="2020-09-23T09:56:32.112Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><blockquote>
+<p>容器的大肆流行让环境部署变得简单起来，但是技术人员还是不满足与部署简单，还行在大规模集群应用中，应用可以很好的在集群中自动伸缩和故障自动调度，在这一块，容器的调度和伸缩是通过启动新容器和删除旧容器实现的，但是对于自动伸缩而言，容器中的服务完全有可能在一些请求没有处理完的时候被回收掉,那作为软件开发者应该怎么去避免这种情况呢？这篇文章，我们从实战出发，探究kubernetes的pod回收机制。</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/2020/09/23/探究kubernetes Pod的delete机制/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pod</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/kubernetes//" class="article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/09/23/探究kubernetes Pod的delete机制/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ingress-Nginx如何自定义错误页面" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/09/18/ingress-Nginx如何自定义错误页面/" target="_blank">Kubernetes Ingress-Nginx 自定义错误页面</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/09/18/ingress-Nginx如何自定义错误页面/" class="archive-article-date">
+        <time datetime="2020-09-18T05:58:12.926Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-18</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>有些时候我们不想使用Nginx-ingress的默认的404错误页面，或者我们想在后端service不可用的时候不暴露给客户端nginx 503 Service Temporarily Unavailable 的页面，那怎么办？Nginx-ingress 提供了<a href="https://kubernetes.github.io/ingress-nginx/user-guide/custom-errors/" target="_blank" rel="noopener">Custom errors</a>来帮我们解决.</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20201117150215.png" alt></p>
+    
+    <a class="article-more-a" href="/2020/09/18/ingress-Nginx如何自定义错误页面/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ingress</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/kubernetes//" class="article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/09/18/ingress-Nginx如何自定义错误页面/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Istio步步来" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/09/04/Istio步步来/" target="_blank">Kubernetes Istio 步步来</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/09/04/Istio步步来/" class="archive-article-date">
+        <time datetime="2020-09-04T02:55:48.604Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-04</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="Kubernetes-Istio-步步来"><a href="#Kubernetes-Istio-步步来" class="headerlink" title="Kubernetes Istio 步步来"></a>Kubernetes Istio 步步来</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li>服务网格<blockquote>
+<p>服务网格是描述微服务网络以及它们之间的交互，一个Pod是否处于服务网格内，要看这个Pod是否被注入</p>
+</blockquote>
+</li>
+<li>Istio<blockquote>
+<p>随着服务网格规模的和复杂度不断增长，服务网格变得越难越理解和管理，Istio就是来管理服务网格的，它的功能包含：解决服务发现，负载均衡，故障恢复，度量和监控，以及更为复杂的运维需求，比如A/B测试，金丝雀发布，速率限制、访问控制和端对端认证</p>
+</blockquote>
+</li>
+<li>Istio优势<blockquote>
+<p>Istio 可以轻松为一个已经部署的服务创建网格，而服务的代码只需很少甚至不用更改，其使用sidecar代理为服务添加Istio的支持，而代理会拦截微服务之间的所有网络通信</p>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>为 HTTP、gRPC、WebSocket 和 TCP 流量自动负载均衡。</li>
+<li>通过丰富的路由规则、重试、故障转移和故障注入对流量行为进行细粒度控制。</li>
+<li>可插拔的策略层和配置 API，支持访问控制、速率限制和配额。</li>
+<li>集群内（包括集群的入口和出口）所有流量的自动化度量、日志记录和追踪。</li>
+<li>在具有强大的基于身份验证和授权的集群中实现安全的服务间通信。</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20201117143934.png" alt></p>
+    
+    <a class="article-more-a" href="/2020/09/04/Istio步步来/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">istio</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/kubernetes//" class="article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/09/04/Istio步步来/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-一文总结nginx常见用法及故障" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/06/19/一文总结nginx常见用法及故障/" target="_blank">一文总结nginx常见用法</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/06/19/一文总结nginx常见用法及故障/" class="archive-article-date">
+        <time datetime="2020-06-19T09:24:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><img src="https://i.loli.net/2017/11/09/5a03ff6be381b.png" alt="552c6e260471e4823810e8811a8aa75b.png"></p>
+<ul>
+<li>nginx优化–系统内核</li>
+</ul>
+    
+    <a class="article-more-a" href="/2020/06/19/一文总结nginx常见用法及故障/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">proxy</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/nginx//" class="article-tag-list-link color1">nginx</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/06/19/一文总结nginx常见用法及故障/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-kubernetes_rook-ceph-rbd_搭建与扩容" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/06/18/kubernetes_rook-ceph-rbd_搭建与扩容/" target="_blank">Kubernetes rook-ceph_搭建与扩容</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/06/18/kubernetes_rook-ceph-rbd_搭建与扩容/" class="archive-article-date">
+        <time datetime="2020-06-18T00:53:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-18</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>容器的持久化存储<br>容器的持久化存储是保存容器存储状态的重要手段，存储插件会在容器里挂载一个基于网络或者其他机制的远程数据卷，使得在容器里创建的文件，实际上是保存在远程存储服务器上，或者以分布式的方式保存在多个节点上，而与当前宿主机没有任何绑定关系。这样，无论你在其他哪个宿主机上启动新的容器，都可以请求挂载指定的持久化存储卷，从而访问到数据卷里保存的内容。<br>由于 Kubernetes 本身的松耦合设计，绝大多数存储项目，比如 Ceph、GlusterFS、NFS 等，都可以为 Kubernetes 提供持久化存储能力。<br>Ceph分布式存储系统<br>Ceph是一种高度可扩展的分布式存储解决方案，提供对象、文件和块存储。在每个存储节点上，您将找到Ceph存储对象的文件系统和Ceph OSD（对象存储守护程序）进程。在Ceph集群上，您还可以找到Ceph MON（监控）守护程序，它们确保Ceph集群保持高可用性。<br>Rook<br>Rook 是一个开源的cloud-native storage编排, 提供平台和框架；为各种存储解决方案提供平台、框架和支持，以便与云原生环境本地集成。<br>Rook 将存储软件转变为自我管理、自我扩展和自我修复的存储服务，它通过自动化部署、引导、配置、置备、扩展、升级、迁移、灾难恢复、监控和资源管理来实现此目的。<br>Rook 使用底层云本机容器管理、调度和编排平台提供的工具来实现它自身的功能。<br>Rook 目前支持Ceph、NFS、Minio Object Store和CockroachDB。<br>Rook使用Kubernetes原语使Ceph存储系统能够在Kubernetes上运行。下图说明了Ceph Rook如何与Kubernetes集成</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/05/14/5cda23b54247c38162.png" alt></p>
+    
+    <a class="article-more-a" href="/2020/06/18/kubernetes_rook-ceph-rbd_搭建与扩容/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pvc</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pv</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">rook</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ceph</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/kubernete//" class="article-tag-list-link color5">kubernete</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/06/18/kubernetes_rook-ceph-rbd_搭建与扩容/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Kubernetes Nginx-Ingress 常见配置用法介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/05/14/Kubernetes Nginx-Ingress 常见配置用法介绍/" target="_blank">Kubernetes Nginx-Ingress 常见配置用法介绍</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/05/14/Kubernetes Nginx-Ingress 常见配置用法介绍/" class="archive-article-date">
+        <time datetime="2020-05-14T01:17:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20200514091648.png" alt><br>
+    
+    <a class="article-more-a" href="/2020/05/14/Kubernetes Nginx-Ingress 常见配置用法介绍/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ingress</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/kubernetes//" class="article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/05/14/Kubernetes Nginx-Ingress 常见配置用法介绍/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-实战探究Kubernetes负载均衡Service网络原理（IPVS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -232,7 +902,7 @@
   
   
 <a href="/2020/01/08/实战探究Kubernetes负载均衡Service网络原理（IPVS/" class="archive-article-date">
-        <time datetime="2020-01-08T09:03:56.197Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-08</time>
+        <time datetime="2020-01-08T09:10:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-08</time>
 </a>
 
   
@@ -266,11 +936,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -329,7 +999,7 @@
 
 
   
-    <article id="post-Kubernetes Nginx-Ingress 常见配置用法介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Kubernetes 日志收集方案部署实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -337,7 +1007,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2019/12/19/Kubernetes Nginx-Ingress 常见配置用法介绍/" target="_blank">Kubernetes Nginx-Ingress 常见配置用法介绍</a>
+	  <a class="article-title" href="/2019/12/26/Kubernetes 日志收集方案部署实践/" target="_blank">Kubernetes 日志收集方案部署实践</a>
   
     </h1>
   
@@ -345,8 +1015,8 @@
 
   
   
-<a href="/2019/12/19/Kubernetes Nginx-Ingress 常见配置用法介绍/" class="archive-article-date">
-        <time datetime="2019-12-19T06:07:47.978Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-19</time>
+<a href="/2019/12/26/Kubernetes 日志收集方案部署实践/" class="archive-article-date">
+        <time datetime="2019-12-26T00:56:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-26</time>
 </a>
 
   
@@ -358,9 +1028,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20200514091648.png" alt><br>
+    <h3 id="一、架构流程图"><a href="#一、架构流程图" class="headerlink" title="一、架构流程图"></a>一、架构流程图</h3><p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20191121173753.png" alt></p>
+<h2 id="声明"><a href="#声明" class="headerlink" title="声明:"></a>声明:</h2><p><strong><em>kafka底层存储使用的是rook-ceph，也可以指定其他存储的storageclass</em></strong></p>
     
-    <a class="article-more-a" href="/2019/12/19/Kubernetes Nginx-Ingress 常见配置用法介绍/#more">more >></a>
+    <a class="article-more-a" href="/2019/12/26/Kubernetes 日志收集方案部署实践/#more">more >></a>
     
     
 
@@ -377,15 +1048,31 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ingress</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">efk</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">elasticsearch</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">fluentd</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">logstash</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kafka</a>
         		</li>
       		
 		</ul>
@@ -406,121 +1093,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2019/12/19/Kubernetes Nginx-Ingress 常见配置用法介绍/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Kubernetes1.16配置节点资源预留" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/12/11/Kubernetes1.16配置节点资源预留/" target="_blank">Kubernetes1.16配置节点资源预留</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/12/11/Kubernetes1.16配置节点资源预留/" class="archive-article-date">
-        <time datetime="2019-12-11T08:57:09.074Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
-<p>默认kubelet没配置资源预留应用没做应用资源限制情况下，那host上所有资源都是可以给pod调配使用的，这样很容易引起集群雪崩效应，比如集群内有一台上跑的pod没做resource limt导致占用资源过大导致将宿主机压死了，此时这个节点在kubernetes内就是一个no ready的状态了，kubernetes会将这台host上所有的pod在其他节点上重建，也就意味着那个有问题的pod重新跑在其他正常的节点上，将另外正常的节点压跨。循怀下去直到集群内所有主机都挂了，这就是集群雪崩效应。</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20191213100124.png" alt></p>
-    
-    <a class="article-more-a" href="/2019/12/11/Kubernetes1.16配置节点资源预留/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Node Allocatable</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">kubelet</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/kubernetes//" class="article-tag-list-link color1">kubernetes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/12/11/Kubernetes1.16配置节点资源预留/">展开全文 >></a>
+      <a class="article-more-a" href="/2019/12/26/Kubernetes 日志收集方案部署实践/">展开全文 >></a>
     </p>
     
 
@@ -558,7 +1131,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2019/12/10/Go语言复习笔记——容器之数组和切片/" target="_blank">Go语言复习笔记——容器之数组和切片</a>
+	  <a class="article-title" href="/2019/12/19/Go语言复习笔记——容器之数组和切片/" target="_blank">Go语言复习笔记——容器之数组和切片</a>
   
     </h1>
   
@@ -566,8 +1139,8 @@
 
   
   
-<a href="/2019/12/10/Go语言复习笔记——容器之数组和切片/" class="archive-article-date">
-        <time datetime="2019-12-10T07:25:55.455Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-10</time>
+<a href="/2019/12/19/Go语言复习笔记——容器之数组和切片/" class="archive-article-date">
+        <time datetime="2019-12-19T06:05:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-19</time>
 </a>
 
   
@@ -653,7 +1226,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2019/12/10/Go语言复习笔记——容器之数组和切片/">展开全文 >></a>
+      <a class="article-more-a" href="/2019/12/19/Go语言复习笔记——容器之数组和切片/">展开全文 >></a>
     </p>
     
 
@@ -683,7 +1256,7 @@
 
 
   
-    <article id="post-浅谈利用Golang的Builder&amp;Option设计模式来传递初始化参数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Kubernetes1.16配置节点资源预留" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -691,7 +1264,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2019/12/09/浅谈利用Golang的Builder&Option设计模式来传递初始化参数/" target="_blank">实例浅谈利用Golang的Builder&amp;Option设计模式来传递初始化参数</a>
+	  <a class="article-title" href="/2019/12/15/Kubernetes1.16配置节点资源预留/" target="_blank">Kubernetes1.16配置节点资源预留</a>
   
     </h1>
   
@@ -699,8 +1272,8 @@
 
   
   
-<a href="/2019/12/09/浅谈利用Golang的Builder&Option设计模式来传递初始化参数/" class="archive-article-date">
-        <time datetime="2019-12-09T01:37:21.483Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
+<a href="/2019/12/15/Kubernetes1.16配置节点资源预留/" class="archive-article-date">
+        <time datetime="2019-12-15T08:04:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-15</time>
 </a>
 
   
@@ -712,9 +1285,12 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/golangBuilder&amp;Option设计模式.png" alt></p>
+    <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
+<p>默认kubelet没配置资源预留应用没做应用资源限制情况下，那host上所有资源都是可以给pod调配使用的，这样很容易引起集群雪崩效应，比如集群内有一台上跑的pod没做resource limt导致占用资源过大导致将宿主机压死了，此时这个节点在kubernetes内就是一个no ready的状态了，kubernetes会将这台host上所有的pod在其他节点上重建，也就意味着那个有问题的pod重新跑在其他正常的节点上，将另外正常的节点压跨。循怀下去直到集群内所有主机都挂了，这就是集群雪崩效应。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20191213100124.png" alt></p>
     
-    <a class="article-more-a" href="/2019/12/09/浅谈利用Golang的Builder&Option设计模式来传递初始化参数/#more">more >></a>
+    <a class="article-more-a" href="/2019/12/15/Kubernetes1.16配置节点资源预留/#more">more >></a>
     
     
 
@@ -730,477 +1306,20 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Builder</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Option</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Go-语言//" class="article-tag-list-link color1">Go 语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/12/09/浅谈利用Golang的Builder&Option设计模式来传递初始化参数/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Go语言复习笔记——基本语法三之堆栈与字符串应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/12/03/Go语言复习笔记——基本语法三之堆栈与字符串应用/" target="_blank">Go语言复习笔记——基本语法（三）之堆栈与字符串应用</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/12/03/Go语言复习笔记——基本语法三之堆栈与字符串应用/" class="archive-article-date">
-        <time datetime="2019-12-03T02:11:14.066Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-03</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/golang堆栈与字符串应用.png" alt></p>
-    
-    <a class="article-more-a" href="/2019/12/03/Go语言复习笔记——基本语法三之堆栈与字符串应用/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Go语言复习笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">堆栈</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Go-语言//" class="article-tag-list-link color1">Go 语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/12/03/Go语言复习笔记——基本语法三之堆栈与字符串应用/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Go语言复习笔记——基本语法二之常量指针与类型别名" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/11/30/Go语言复习笔记——基本语法二之常量指针与类型别名/" target="_blank">Go语言复习笔记——基本语法（二）之常量指针与类型别名</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/11/30/Go语言复习笔记——基本语法二之常量指针与类型别名/" class="archive-article-date">
-        <time datetime="2019-11-30T12:18:33.502Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/golang指针常量类型别名.png" alt></p>
-    
-    <a class="article-more-a" href="/2019/11/30/Go语言复习笔记——基本语法二之常量指针与类型别名/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Go语言复习笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">常量</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针，类型别名</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Go-语言//" class="article-tag-list-link color1">Go 语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/11/30/Go语言复习笔记——基本语法二之常量指针与类型别名/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Go语言复习笔记——基本语法一之变量数据类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/11/27/Go语言复习笔记——基本语法一之变量数据类型/" target="_blank">Go语言复习笔记——基本语法（一）之变量数据类型</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/11/27/Go语言复习笔记——基本语法一之变量数据类型/" class="archive-article-date">
-        <time datetime="2019-11-27T06:01:00.451Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-27</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/golang变量与数据类型.png" alt></p>
-    
-    <a class="article-more-a" href="/2019/11/27/Go语言复习笔记——基本语法一之变量数据类型/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">变量</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据类型</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Go语言复习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Go-语言//" class="article-tag-list-link color1">Go 语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/11/27/Go语言复习笔记——基本语法一之变量数据类型/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Kubernetes 日志收集方案部署实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/11/15/Kubernetes 日志收集方案部署实践/" target="_blank">Kubernetes 日志收集方案部署实践</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/11/15/Kubernetes 日志收集方案部署实践/" class="archive-article-date">
-        <time datetime="2019-11-15T09:30:29.827Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-15</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="一、架构流程图"><a href="#一、架构流程图" class="headerlink" title="一、架构流程图"></a>一、架构流程图</h3><p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20191121173753.png" alt></p>
-<h2 id="声明"><a href="#声明" class="headerlink" title="声明:"></a>声明:</h2><p><strong><em>kafka底层存储使用的是rook-ceph，也可以指定其他存储的storageclass</em></strong></p>
-    
-    <a class="article-more-a" href="/2019/11/15/Kubernetes 日志收集方案部署实践/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">efk</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">elasticsearch</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Node Allocatable</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">fluentd</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">logstash</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kafka</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">kubelet</a>
         		</li>
       		
 		</ul>
@@ -1221,86 +1340,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2019/11/15/Kubernetes 日志收集方案部署实践/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vttbale V语言终端table" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/10/07/vttbale V语言终端table/" target="_blank">Vttbale V语言终端Table</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/10/07/vttbale V语言终端table/" class="archive-article-date">
-        <time datetime="2019-10-07T09:17:42.329Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><a href="https://github.com/tianyazc/vttable/" target="_blank" rel="noopener">项目地址</a></p>
-<h3 id="How-to-install"><a href="#How-to-install" class="headerlink" title="How to install"></a>How to install</h3><h4 id="use-vpm"><a href="#use-vpm" class="headerlink" title="use vpm"></a>use vpm</h4><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v install tianyazc.vttable</span><br></pre></td></tr></table></figure>
-<h4 id="use-vpkg"><a href="#use-vpkg" class="headerlink" title="use vpkg"></a>use vpkg</h4><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vpkg get github.com/tianyazc/vttable</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2019/10/07/vttbale V语言终端table/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/10/07/vttbale V语言终端table/">展开全文 >></a>
+      <a class="article-more-a" href="/2019/12/15/Kubernetes1.16配置节点资源预留/">展开全文 >></a>
     </p>
     
 
@@ -1463,6 +1503,14 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">centos7</a>
               </li>
              
@@ -1499,6 +1547,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">堆栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">常量</a>
               </li>
              
@@ -1515,11 +1571,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color1">istio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1531,6 +1591,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">coredns</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">污点</a>
               </li>
              
@@ -1539,7 +1603,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">coredns</a>
+                <a href="javascript:void(0)" class="js-tag color4">efk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">fluentd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logstash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1579,6 +1659,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pod</a>
               </li>
              
@@ -1591,15 +1679,43 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pvc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">rook</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ceph</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shard</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">replicas</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1651,6 +1767,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
@@ -1668,86 +1792,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Option</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">堆栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shard</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">replicas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">efk</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">fluentd</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logstash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pvc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rook</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ceph</a>
               </li>
             
             <div class="clearfix"></div>

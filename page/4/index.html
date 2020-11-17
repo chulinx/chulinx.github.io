@@ -215,7 +215,7 @@
             
 
   
-    <article id="post-Proxmox VE虚拟化服务器添加硬盘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-bind9-DNS配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -223,7 +223,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/" target="_blank">Proxmox VE虚拟化服务器添加硬盘</a>
+	  <a class="article-title" href="/2019/11/30/bind9-DNS配置/" target="_blank">ubuntu bind9 Dns配置</a>
   
     </h1>
   
@@ -231,8 +231,8 @@
 
   
   
-<a href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/" class="archive-article-date">
-        <time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
+<a href="/2019/11/30/bind9-DNS配置/" class="archive-article-date">
+        <time datetime="2019-11-30T12:04:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
 </a>
 
   
@@ -244,12 +244,14 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="Proxmox-VE虚拟化服务器添加硬盘"><a href="#Proxmox-VE虚拟化服务器添加硬盘" class="headerlink" title="Proxmox VE虚拟化服务器添加硬盘"></a>Proxmox VE虚拟化服务器添加硬盘</h3><p><img src="https://i.imgur.com/KVWBIgf.png" alt="0IBJ6%ZTZ(MLK~9DGXSI8J2"></p>
-<blockquote>
-<p>公司业务需求需要在虚拟化服务器上添加4T的硬盘，特记录一下，以供备用</p>
+    <blockquote>
+<p>最近在搞kubernetes的CICD，是基于gitlab Autocicd 来做的，Autocicd 有个要求就是要配置一个dns泛解析，所以自己就搭建一个，故记录一下</p>
 </blockquote>
+<h3 id="安装bind9"><a href="#安装bind9" class="headerlink" title="安装bind9"></a>安装bind9</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install bind9</span><br></pre></td></tr></table></figure>
+<h3 id="配置主配置文件name-conf-local-增加以下内容"><a href="#配置主配置文件name-conf-local-增加以下内容" class="headerlink" title="配置主配置文件name.conf.local,增加以下内容"></a>配置主配置文件name.conf.local,增加以下内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zone &quot;testk8s.cn&quot;  &#123; type master; file &quot;/var/cache/bind/db.test8s.cn&quot;; &#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="新增db-test8s-cn解析文件-var-cache-bind-db-test8s-cn"><a href="#新增db-test8s-cn解析文件-var-cache-bind-db-test8s-cn" class="headerlink" title="新增db.test8s.cn解析文件/var/cache/bind/db.test8s.cn"></a>新增db.test8s.cn解析文件/var/cache/bind/db.test8s.cn</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$TTL	86400</span><br><span class="line">@	IN	SOA	localhost. root.localhost. (</span><br><span class="line">			      1		; Serial</span><br><span class="line">			 604800		; Refresh</span><br><span class="line">			  86400		; Retry</span><br><span class="line">			2419200		; Expire</span><br><span class="line">			  86400 )	; Negative Cache TTL</span><br><span class="line">;</span><br><span class="line">@	IN	NS	localhost.</span><br><span class="line">*.testk8s.cn.	IN A	192.168.137.102</span><br></pre></td></tr></table></figure>
     
-    <a class="article-more-a" href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/#more">more >></a>
+    <a class="article-more-a" href="/2019/11/30/bind9-DNS配置/#more">more >></a>
     
     
 
@@ -266,11 +268,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Proxmox</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ubuntu</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">parted</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">dns</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bind9</a>
         		</li>
       		
 		</ul>
@@ -282,7 +288,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Proxmox//" class="article-tag-list-link color3">Proxmox</a>
+        			<a href="/categories/kubernetes//" class="article-tag-list-link color1">kubernetes</a>
         		</li>
       		
 		</ul>
@@ -291,7 +297,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2019/01/22/Proxmox VE虚拟化服务器添加硬盘/">展开全文 >></a>
+      <a class="article-more-a" href="/2019/11/30/bind9-DNS配置/">展开全文 >></a>
     </p>
     
 
@@ -321,7 +327,7 @@
 
 
   
-    <article id="post-RpmBuild打包总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-docker之dockerfile基础详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -329,7 +335,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2019/01/22/RpmBuild打包总结/" target="_blank">RPMBUILD 打包总结</a>
+	  <a class="article-title" href="/2019/11/30/docker之dockerfile基础详解/" target="_blank">docker之dockerfile详解</a>
   
     </h1>
   
@@ -337,8 +343,8 @@
 
   
   
-<a href="/2019/01/22/RpmBuild打包总结/" class="archive-article-date">
-        <time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
+<a href="/2019/11/30/docker之dockerfile基础详解/" class="archive-article-date">
+        <time datetime="2019-11-30T12:04:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
 </a>
 
   
@@ -350,11 +356,19 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="1-打包准备"><a href="#1-打包准备" class="headerlink" title="1.打包准备"></a>1.打包准备</h3><p><img src="http://upload-images.jianshu.io/upload_images/3020508-8e753b4f20ec10fd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="制作原理图"></p>
+    <ul>
+<li>FROM 指定基础镜像<blockquote>
+<p>对于这条指令的理解大概可以这样理解，比如，我们搭建mysql服务时会说基于centos搭建mysql服务，这个基于的centos实际上就是dockerfile中的基础镜像。</p>
+</blockquote>
+</li>
+</ul>
+<p>指令基本格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FROM scratch</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FROM centos</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>有时候为了方便源码包的安装，和我们自己订制软件包的需求，我们会把一些源码包按照我们的需求来做成rpm包，当有了源码包就可以直接编译得到二进制安装包和其他任意包。spec file是制作rpm包最核心的部分，rpm包的制作就是根据spec file来实现的。在制作自定义rpm包的时候最好不要使用管理员进行,因为管理员权限过大，如果一个命令写错了，结果可能是灾难性的，而制件一个rpm包普通用户完全可以实现<br>
+<p>当然也有一部分应用不依赖于操作系统，那样构建dockerfile时就指定一个空镜像FROM scratch<br>
     
-    <a class="article-more-a" href="/2019/01/22/RpmBuild打包总结/#more">more >></a>
+    <a class="article-more-a" href="/2019/11/30/docker之dockerfile基础详解/#more">more >></a>
     
     
 
@@ -371,7 +385,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">rpm打包</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">docker，dockerfile</a>
         		</li>
       		
 		</ul>
@@ -383,7 +397,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/linux运维//" class="article-tag-list-link color3">linux运维</a>
+        			<a href="/categories/docker//" class="article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
@@ -392,7 +406,114 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2019/01/22/RpmBuild打包总结/">展开全文 >></a>
+      <a class="article-more-a" href="/2019/11/30/docker之dockerfile基础详解/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-docker三剑客之docker-machine" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/11/30/docker三剑客之docker-machine/" target="_blank">docker三剑客之docker-machine</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/11/30/docker三剑客之docker-machine/" class="archive-article-date">
+        <time datetime="2019-11-30T12:03:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><img src="https://i.loli.net/2017/09/11/59b63b5247ca0.jpg" alt="dockermachine"></p>
+<h3 id="docker-machine-介绍"><a href="#docker-machine-介绍" class="headerlink" title="docker-machine 介绍"></a>docker-machine 介绍</h3><blockquote>
+<p>Docker Machine is a tool that lets you install Docker Engine on virtual hosts, and manage the hosts with docker-machine commands. You can use Machine to create Docker hosts on your local Mac or Windows box, on your company network, in your data center, or on cloud providers like Azure, AWS, or Digital Ocean.</p>
+</blockquote>
+<p>上面引用docker官方文档来对docker-machine做了大概介绍。大致意思：docker-machine是一个可以让你管理已经安装docker引擎机器的虚拟主机工具，你可以利用docker-machine在本机、局域网、数据中心、甚至公有云上创建docker主机！<br>
+    
+    <a class="article-more-a" href="/2019/11/30/docker三剑客之docker-machine/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">machine</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/docker//" class="article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/11/30/docker三剑客之docker-machine/">展开全文 >></a>
     </p>
     
 
@@ -430,7 +551,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2019/01/22/docker三剑客之docekr-swarm/" target="_blank">docker三剑客之docker-swarm</a>
+	  <a class="article-title" href="/2019/11/30/docker三剑客之docekr-swarm/" target="_blank">docker三剑客之docker-swarm</a>
   
     </h1>
   
@@ -438,8 +559,8 @@
 
   
   
-<a href="/2019/01/22/docker三剑客之docekr-swarm/" class="archive-article-date">
-        <time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
+<a href="/2019/11/30/docker三剑客之docekr-swarm/" class="archive-article-date">
+        <time datetime="2019-11-30T12:03:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
 </a>
 
   
@@ -462,7 +583,7 @@
 </li>
 </ol>
     
-    <a class="article-more-a" href="/2019/01/22/docker三剑客之docekr-swarm/#more">more >></a>
+    <a class="article-more-a" href="/2019/11/30/docker三剑客之docekr-swarm/#more">more >></a>
     
     
 
@@ -504,7 +625,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2019/01/22/docker三剑客之docekr-swarm/">展开全文 >></a>
+      <a class="article-more-a" href="/2019/11/30/docker三剑客之docekr-swarm/">展开全文 >></a>
     </p>
     
 
@@ -534,7 +655,7 @@
 
 
   
-    <article id="post-docker进阶用法总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-kubernetes Prometheus 监控Ingress-controller" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -542,7 +663,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2019/01/22/docker进阶用法总结/" target="_blank">docker进阶用法总结</a>
+	  <a class="article-title" href="/2019/11/30/kubernetes Prometheus 监控Ingress-controller/" target="_blank">kubernetes Prometheus 监控Ingress-controller</a>
   
     </h1>
   
@@ -550,8 +671,8 @@
 
   
   
-<a href="/2019/01/22/docker进阶用法总结/" class="archive-article-date">
-        <time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
+<a href="/2019/11/30/kubernetes Prometheus 监控Ingress-controller/" class="archive-article-date">
+        <time datetime="2019-11-30T12:03:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
 </a>
 
   
@@ -563,17 +684,9 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="docker-搭建私有仓库"><a href="#docker-搭建私有仓库" class="headerlink" title="docker 搭建私有仓库"></a>docker 搭建私有仓库</h3><h4 id="搭建私有仓库"><a href="#搭建私有仓库" class="headerlink" title="搭建私有仓库"></a>搭建私有仓库</h4><ul>
-<li><p>创建registry容器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 5000:5000 -v /data/docker/image/:/var/lib/registry --restart=always registry:2</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看registry端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@registry ~]# netstat -nplt |grep 5000</span><br><span class="line">tcp        0      0 :::5000                     :::*                        LISTEN      20701/docker-proxy</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="配置docker-确保从私有仓库pull镜像时不会报错"><a href="#配置docker-确保从私有仓库pull镜像时不会报错" class="headerlink" title="配置docker 确保从私有仓库pull镜像时不会报错"></a>配置docker 确保从私有仓库pull镜像时不会报错</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/docker/daemon.json</span><br><span class="line">&#123; <span class="string">"insecure-registries"</span>:[<span class="string">"172.16.1.9:5000"</span>] &#125;</span><br></pre></td></tr></table></figure>
+    <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20190730111502.png" alt><br>
     
-    <a class="article-more-a" href="/2019/01/22/docker进阶用法总结/#more">more >></a>
+    <a class="article-more-a" href="/2019/11/30/kubernetes Prometheus 监控Ingress-controller/#more">more >></a>
     
     
 
@@ -590,7 +703,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ingress</a>
         		</li>
       		
 		</ul>
@@ -602,7 +723,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/docker//" class="article-tag-list-link color2">docker</a>
+        			<a href="/categories/kubernetes//" class="article-tag-list-link color1">kubernetes</a>
         		</li>
       		
 		</ul>
@@ -611,7 +732,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2019/01/22/docker进阶用法总结/">展开全文 >></a>
+      <a class="article-more-a" href="/2019/11/30/kubernetes Prometheus 监控Ingress-controller/">展开全文 >></a>
     </p>
     
 
@@ -641,7 +762,7 @@
 
 
   
-    <article id="post-kubernetes集群搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Kubernetes 搞懂污点和亲和性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -649,7 +770,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2019/01/22/kubernetes集群搭建/" target="_blank">Kubernetes集群搭建</a>
+	  <a class="article-title" href="/2019/11/30/Kubernetes 搞懂污点和亲和性/" target="_blank">Kubernetes 节点调度之搞懂污点和亲和性</a>
   
     </h1>
   
@@ -657,8 +778,8 @@
 
   
   
-<a href="/2019/01/22/kubernetes集群搭建/" class="archive-article-date">
-        <time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
+<a href="/2019/11/30/Kubernetes 搞懂污点和亲和性/" class="archive-article-date">
+        <time datetime="2019-11-30T12:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
 </a>
 
   
@@ -670,18 +791,12 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="一，基础理论"><a href="#一，基础理论" class="headerlink" title="一，基础理论"></a>一，基础理论</h3><blockquote>
-<p>Kubernetes是开源的自动化容器操作平台，包括部署，调度和节点集群间的拓展。在kubernetes中，docker是做为一种组件存在的，k8s不仅支持docker,<br>还支持Rocket虚拟化技术。</p>
-</blockquote>
+    <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20191130195700.png" alt>                                          </p>
 <blockquote>
-<p>Kubernetes的特点：<br>自动化容器的部署与复制<br>随时扩展或收缩容器规模<br>将容器组织成组，并且能够提供容器间的负载均衡<br>对于容器的升级很方便<br>容器的健康检查与自动修复<br>…</p>
-</blockquote>
-<h4 id="Kubernetes-架构图"><a href="#Kubernetes-架构图" class="headerlink" title="Kubernetes 架构图"></a>Kubernetes 架构图</h4><p><img src="https://i.loli.net/2017/09/12/59b7512ad4cbd.png" alt="kubernetes"></p>
-<h4 id="Kubernetes-各组件介绍"><a href="#Kubernetes-各组件介绍" class="headerlink" title="Kubernetes 各组件介绍"></a>Kubernetes 各组件介绍</h4><blockquote>
-<p>Pod :一组容器和卷的组合<br>Label:pod的标签，以键值对存储<br>作用：区分前端后台Pod/Service RC的指定应用<br>Replication Controller: 指定Pod的副本数，持续监控Pod数量，保证一定个数的Pod正常运行，创建Pod时需要指定pod模板和Label（Pod的标签）<br>Service: 是定义一系列Pod以及访问这些Pods的策略的一层抽象,通过Lable找到Pod组。<br>Node 节点，是物理机或者虚拟机，运行以下组件<br>Kubelet kube-proxy docker/Rockt<br>Master 提供Api server 用来创建Pod和RC</p>
+<p>kubernetes集群在生产过程中，不同类型的应用对资源的需求是不一样的，比如数据库需要高IO缓存的节点，CPU密集型的需要cpu处理性能更强的节点，内存密集型的需要更高效的内存节点，所以我们在一个生产kubernetes集群中会包含多种与应用需求不同资源的节点类型，得以让硬件资源更充分的利用，解决这一需求，第一,我们可以给节点打label，让同类型的应用被调度到同类型的节点中去，这种方式需要再每个控制器的Pod中使用selector配置node的label，让该控制器的pod调度到匹配到的节点中；第二,为node设置污点，让应用不可调度，再给想要调度到这些污点的应用设置亲和性，允许设置亲和性的pod被调度到污点node，下面篇幅主要讲改方法的配置过程</p>
 </blockquote>
     
-    <a class="article-more-a" href="/2019/01/22/kubernetes集群搭建/#more">more >></a>
+    <a class="article-more-a" href="/2019/11/30/Kubernetes 搞懂污点和亲和性/#more">more >></a>
     
     
 
@@ -697,12 +812,20 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kuberneetes</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">污点</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">亲和性</a>
         		</li>
       		
 		</ul>
@@ -714,7 +837,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/docker//" class="article-tag-list-link color2">docker</a>
+        			<a href="/categories/kubernetes//" class="article-tag-list-link color1">kubernetes</a>
         		</li>
       		
 		</ul>
@@ -723,7 +846,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2019/01/22/kubernetes集群搭建/">展开全文 >></a>
+      <a class="article-more-a" href="/2019/11/30/Kubernetes 搞懂污点和亲和性/">展开全文 >></a>
     </p>
     
 
@@ -753,7 +876,7 @@
 
 
   
-    <article id="post-python的基础环境及工具安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Kubernetes 使用Nginx-Ingress实现蓝绿发布,AB测试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -761,7 +884,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2019/01/22/python的基础环境及工具安装/" target="_blank">python的基础环境及工具安装</a>
+	  <a class="article-title" href="/2019/11/30/Kubernetes 使用Nginx-Ingress实现蓝绿发布,AB测试/" target="_blank">Kubernetes 使用Nginx-Ingress实现蓝绿发布,AB测试</a>
   
     </h1>
   
@@ -769,8 +892,8 @@
 
   
   
-<a href="/2019/01/22/python的基础环境及工具安装/" class="archive-article-date">
-        <time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
+<a href="/2019/11/30/Kubernetes 使用Nginx-Ingress实现蓝绿发布,AB测试/" class="archive-article-date">
+        <time datetime="2019-11-30T12:02:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
 </a>
 
   
@@ -782,17 +905,12 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <blockquote>
-<p>   学习python也有一段时间了，总觉得有的东西，你不总结，在你忽略它的时候就会忘掉，而自己又不是一个很没毅力的人，所以中和二者，我想自己不如先给自己定个小目标，比如“先挣他一个亿！”，哈哈，当然这句是玩笑话，我的目标是每天抽半小时到一小时，对自己的所学去做总结，归纳！</p>
-<ul>
-<li>本系列总结在docker的centos环境下运行，所以，会涉及到docker安装，容器的创建</li>
-<li>pip加速配置</li>
-<li>virtualenv虚拟环境工具使用</li>
-</ul>
+    <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20191130194311.png" alt></p>
+<h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><blockquote>
+<p>某些情况下，我们在使用Kubernetes作为业务应用的云平台，想要实现应用的蓝绿部署用来迭代应用版本，用lstio太重太复杂，而且它本身定位于流控和网格治理；Ingress-Nginx在0.21版本引入了Canary功能，可以为网关入口配置多个版本的应用程序，使用annotation来控制多个后端服务的流量分配</p>
 </blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/3020508-162b90e38a4219ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"><br>
     
-    <a class="article-more-a" href="/2019/01/22/python的基础环境及工具安装/#more">more >></a>
+    <a class="article-more-a" href="/2019/11/30/Kubernetes 使用Nginx-Ingress实现蓝绿发布,AB测试/#more">more >></a>
     
     
 
@@ -809,11 +927,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">virtualenv</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ingress</a>
         		</li>
       		
 		</ul>
@@ -825,7 +947,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/python学习//" class="article-tag-list-link color4">python学习</a>
+        			<a href="/categories/kubernetes//" class="article-tag-list-link color1">kubernetes</a>
         		</li>
       		
 		</ul>
@@ -834,7 +956,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2019/01/22/python的基础环境及工具安装/">展开全文 >></a>
+      <a class="article-more-a" href="/2019/11/30/Kubernetes 使用Nginx-Ingress实现蓝绿发布,AB测试/">展开全文 >></a>
     </p>
     
 
@@ -864,7 +986,7 @@
 
 
   
-    <article id="post-zabbix自定义模板应用触发器创建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-mongo 分片副本集配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -872,7 +994,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2019/01/22/zabbix自定义模板应用触发器创建/" target="_blank">zabbix自定义模板应用监控项创建</a>
+	  <a class="article-title" href="/2019/11/21/mongo 分片副本集配置/" target="_blank">mongo 分片副本集配置</a>
   
     </h1>
   
@@ -880,349 +1002,8 @@
 
   
   
-<a href="/2019/01/22/zabbix自定义模板应用触发器创建/" class="archive-article-date">
-        <time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><img src="https://i.loli.net/2017/09/14/59ba0b372f156.png" alt="0"></p>
-<h3 id="1-修改zabbix-agent配置文件-开启自定义脚本功能"><a href="#1-修改zabbix-agent配置文件-开启自定义脚本功能" class="headerlink" title="1.修改zabbix-agent配置文件,开启自定义脚本功能"></a>1.修改zabbix-agent配置文件,开启自定义脚本功能</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost zabbix]# cd /etc/zabbix/ &amp;&amp; vim zabbix_agentd.conf</span><br><span class="line">Include=/etc/zabbix/zabbix_agentd.d/*.conf</span><br><span class="line">UnsafeUserParameters=1</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2019/01/22/zabbix自定义模板应用触发器创建/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">zabbix</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">自定义监控</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">zabbix监控图界面中文乱码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/zabbix监控//" class="article-tag-list-link color4">zabbix监控</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/01/22/zabbix自定义模板应用触发器创建/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-zabbix触发器和微信企业号报警设置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/01/22/zabbix触发器和微信企业号报警设置/" target="_blank">zabbix触发器和微信企业号报警设置</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/01/22/zabbix触发器和微信企业号报警设置/" class="archive-article-date">
-        <time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="一-添加触发器"><a href="#一-添加触发器" class="headerlink" title="一. 添加触发器"></a>一. 添加触发器</h3><ol>
-<li>点击触发器打开新增触发器页<br><img src="https://i.loli.net/2017/09/15/59bb9ba8ccbfe.png" alt="CFQ1"></li>
-<li>新建触发器<br><img src="https://i.loli.net/2017/09/15/59bb9bc3937c0.png" alt="CFQ2"></li>
-<li>配置触发器<br><img src="https://i.loli.net/2017/09/15/59bb9bd8620df.png" alt="CFQ3">
-    
-    <a class="article-more-a" href="/2019/01/22/zabbix触发器和微信企业号报警设置/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">zabbix触发器创建</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">微信报警</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/zabbix监控//" class="article-tag-list-link color4">zabbix监控</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/01/22/zabbix触发器和微信企业号报警设置/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CDH Hadoop部署安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/01/22/CDH Hadoop部署安装/" target="_blank">CDH Hadoop 集群安装部署</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/01/22/CDH Hadoop部署安装/" class="archive-article-date">
-        <time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="CDH-Hadoop-安装部署"><a href="#CDH-Hadoop-安装部署" class="headerlink" title="CDH Hadoop 安装部署"></a>CDH Hadoop 安装部署</h2><p><img src="https://i.loli.net/2017/11/09/5a03ff6c04399.png" alt="546891eee95f6d7df33ed04630d0c7ca.png"></p>
-<h4 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h4><table>
-<thead>
-<tr>
-<th style="text-align:left">Hosts</th>
-<th style="text-align:left">Role</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">172.16.1.190</td>
-<td style="text-align:left">Hbase-Master</td>
-</tr>
-<tr>
-<td style="text-align:left">172.16.1.103</td>
-<td style="text-align:left">Hbase-slave01</td>
-</tr>
-<tr>
-<td style="text-align:left">172.16.1.104</td>
-<td style="text-align:left">Hbase-slave02</td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li><p>关闭防火墙和iptables 配置ssh 免密登录</p>
-    
-    <a class="article-more-a" href="/2019/01/22/CDH Hadoop部署安装/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cdh</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hadoop集群</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hadoop//" class="article-tag-list-link color2">hadoop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/01/22/CDH Hadoop部署安装/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-docker之dockerfile基础详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/01/22/docker之dockerfile基础详解/" target="_blank">docker之dockerfile详解</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/01/22/docker之dockerfile基础详解/" class="archive-article-date">
-        <time datetime="2019-01-22T01:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
+<a href="/2019/11/21/mongo 分片副本集配置/" class="archive-article-date">
+        <time datetime="2019-11-21T09:43:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
 </a>
 
   
@@ -1235,18 +1016,75 @@
   <div class="article-entry" itemprop="articleBody">
     
     <ul>
-<li>FROM 指定基础镜像<blockquote>
-<p>对于这条指令的理解大概可以这样理解，比如，我们搭建mysql服务时会说基于centos搭建mysql服务，这个基于的centos实际上就是dockerfile中的基础镜像。</p>
-</blockquote>
-</li>
+<li>服务分配</li>
 </ul>
-<p>指令基本格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FROM scratch</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FROM centos</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>当然也有一部分应用不依赖于操作系统，那样构建dockerfile时就指定一个空镜像FROM scratch<br>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">服务器110</th>
+<th style="text-align:left">服务器120</th>
+<th style="text-align:left">服务器130</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">mongos</td>
+<td style="text-align:left">mongos</td>
+<td style="text-align:left">mongos</td>
+</tr>
+<tr>
+<td style="text-align:left">config</td>
+<td style="text-align:left">config</td>
+<td style="text-align:left">config</td>
+</tr>
+<tr>
+<td style="text-align:left">shard 1 主节点</td>
+<td style="text-align:left">shard1 副节点</td>
+<td style="text-align:left">shard1 仲裁</td>
+</tr>
+<tr>
+<td style="text-align:left">shard 1 仲裁</td>
+<td style="text-align:left">shard1 主节点</td>
+<td style="text-align:left">shard1 副节点</td>
+</tr>
+<tr>
+<td style="text-align:left">shard 1 副节点</td>
+<td style="text-align:left">shard1 仲裁</td>
+<td style="text-align:left">shard1 主节点</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>端口分配</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">mongos</th>
+<th style="text-align:left">20000</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">config</td>
+<td style="text-align:left">21000</td>
+</tr>
+<tr>
+<td style="text-align:left">shard1</td>
+<td style="text-align:left">27001</td>
+</tr>
+<tr>
+<td style="text-align:left">shard2</td>
+<td style="text-align:left">27002</td>
+</tr>
+<tr>
+<td style="text-align:left">shard3</td>
+<td style="text-align:left">27003</td>
+</tr>
+</tbody>
+</table>
     
-    <a class="article-more-a" href="/2019/01/22/docker之dockerfile基础详解/#more">more >></a>
+    <a class="article-more-a" href="/2019/11/21/mongo 分片副本集配置/#more">more >></a>
     
     
 
@@ -1263,7 +1101,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">docker，dockerfile</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mongo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shard</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">replicas</a>
         		</li>
       		
 		</ul>
@@ -1275,7 +1121,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/docker//" class="article-tag-list-link color2">docker</a>
+        			<a href="/categories/mongo//" class="article-tag-list-link color1">mongo</a>
         		</li>
       		
 		</ul>
@@ -1284,7 +1130,164 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2019/01/22/docker之dockerfile基础详解/">展开全文 >></a>
+      <a class="article-more-a" href="/2019/11/21/mongo 分片副本集配置/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-vttbale V语言终端table" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/10/08/vttbale V语言终端table/" target="_blank">Vttbale V语言终端Table</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/10/08/vttbale V语言终端table/" class="archive-article-date">
+        <time datetime="2019-10-08T03:31:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-08</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><a href="https://github.com/tianyazc/vttable/" target="_blank" rel="noopener">项目地址</a></p>
+<h3 id="How-to-install"><a href="#How-to-install" class="headerlink" title="How to install"></a>How to install</h3><h4 id="use-vpm"><a href="#use-vpm" class="headerlink" title="use vpm"></a>use vpm</h4><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v install tianyazc.vttable</span><br></pre></td></tr></table></figure>
+<h4 id="use-vpkg"><a href="#use-vpkg" class="headerlink" title="use vpkg"></a>use vpkg</h4><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vpkg get github.com/tianyazc/vttable</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2019/10/08/vttbale V语言终端table/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/10/08/vttbale V语言终端table/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Gaping-测试远程主机端口稳定性的工具" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/10/07/Gaping-测试远程主机端口稳定性的工具/" target="_blank">Gaping --- 一个golang实现的测试远程主机端口稳定性的工具</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/10/07/Gaping-测试远程主机端口稳定性的工具/" class="archive-article-date">
+        <time datetime="2019-10-07T08:36:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><a href="https://github.com/tianyazc/gaping" target="_blank" rel="noopener"><img src="https://travis-ci.org/tianyazc/gaping.svg?branch=master" alt="Build Status"></a><br><a href="https://github.com/tianyazc/gaping" target="_blank" rel="noopener">项目地址</a> <a href="https://github.com/tianyazc/gaping/blob/master/README-CN.md" target="_blank" rel="noopener">中文</a></p>
+<p><img src="http://img.chulinx.xyz/termtosvg_wvabfoi8.svg" alt></p>
+    
+    <a class="article-more-a" href="/2019/10/07/Gaping-测试远程主机端口稳定性的工具/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/10/07/Gaping-测试远程主机端口稳定性的工具/">展开全文 >></a>
     </p>
     
 
@@ -1447,6 +1450,14 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">centos7</a>
               </li>
              
@@ -1483,6 +1494,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">堆栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">常量</a>
               </li>
              
@@ -1499,11 +1518,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color1">istio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1515,6 +1538,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">coredns</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">污点</a>
               </li>
              
@@ -1523,7 +1550,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">coredns</a>
+                <a href="javascript:void(0)" class="js-tag color4">efk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">fluentd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logstash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1563,6 +1606,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pod</a>
               </li>
              
@@ -1575,15 +1626,43 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Ingress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pvc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">rook</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ceph</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kuberneetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shard</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">replicas</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1635,6 +1714,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
@@ -1652,86 +1739,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Option</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cdh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hadoop集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">堆栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docker，dockerfile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shard</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">replicas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">efk</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">fluentd</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logstash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pvc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rook</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ceph</a>
               </li>
             
             <div class="clearfix"></div>
