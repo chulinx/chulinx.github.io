@@ -20,7 +20,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/20201117174142.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/chulinx/imgs/master/20201116174114.png">
-<meta property="og:updated_time" content="2020-11-17T09:43:46.044Z">
+<meta property="og:updated_time" content="2020-11-17T11:02:37.840Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes Velero 集群资源备份恢复">
 <meta name="twitter:description" content="一、Velero 简介 Velero 是开源的Kubernetes集群备份迁移工具，使用对象存储保存集群资源，默认支持的存储有aws,azure,gcp 兼容S3协议。  二、Velero 安装 macos 1brew install velero  linux   下载对应平台的release 解压安装   windows   1choco install velero">
@@ -269,7 +269,8 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="一、Velero-简介"><a href="#一、Velero-简介" class="headerlink" title="一、Velero 简介"></a>一、Velero 简介</h2><blockquote>
+    <p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20201117174142.png" alt></p>
+<h2 id="一、Velero-简介"><a href="#一、Velero-简介" class="headerlink" title="一、Velero 简介"></a>一、Velero 简介</h2><blockquote>
 <p>Velero 是开源的Kubernetes集群备份迁移工具，使用对象存储保存集群资源，默认支持的存储有aws,azure,gcp 兼容S3协议。</p>
 </blockquote>
 <h2 id="二、Velero-安装"><a href="#二、Velero-安装" class="headerlink" title="二、Velero 安装"></a>二、Velero 安装</h2><ul>
@@ -285,7 +286,6 @@
 </li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install velero</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/chulinx/imgs/master/20201117174142.png" alt></p>
 <a id="more"></a>
 <h2 id="三、使用minio-operator-部署"><a href="#三、使用minio-operator-部署" class="headerlink" title="三、使用minio-operator 部署"></a>三、使用minio-operator 部署</h2><h3 id="1-minio-operator-安装"><a href="#1-minio-operator-安装" class="headerlink" title="1. minio-operator 安装"></a>1. minio-operator 安装</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">echo</span> <span class="string">'apiVersion: apiextensions.k8s.io/v1</span></span><br><span class="line"><span class="string">kind: CustomResourceDefinition</span></span><br><span class="line"><span class="string">metadata:</span></span><br><span class="line"><span class="string">  name: minioinstances.operator.min.io</span></span><br><span class="line"><span class="string">spec:</span></span><br><span class="line"><span class="string">  group: operator.min.io</span></span><br><span class="line"><span class="string">  scope: Namespaced</span></span><br><span class="line"><span class="string">  names:</span></span><br><span class="line"><span class="string">    kind: MinIOInstance</span></span><br><span class="line"><span class="string">    singular: minioinstance</span></span><br><span class="line"><span class="string">    plural: minioinstances</span></span><br><span class="line"><span class="string">  versions:</span></span><br><span class="line"><span class="string">    - name: v1</span></span><br><span class="line"><span class="string">      served: true</span></span><br><span class="line"><span class="string">      storage: true</span></span><br><span class="line"><span class="string">      schema:</span></span><br><span class="line"><span class="string">      # openAPIV3Schema is the schema for validating custom objects.</span></span><br><span class="line"><span class="string">      # Refer https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#specifying-a-structural-schema</span></span><br><span class="line"><span class="string">      # for more details</span></span><br><span class="line"><span class="string">        openAPIV3Schema:</span></span><br><span class="line"><span class="string">          type: object</span></span><br><span class="line"><span class="string">          properties:</span></span><br><span class="line"><span class="string">            spec:</span></span><br><span class="line"><span class="string">              type: object</span></span><br><span class="line"><span class="string">              x-kubernetes-preserve-unknown-fields: true</span></span><br><span class="line"><span class="string">              properties:</span></span><br><span class="line"><span class="string">                replicas:</span></span><br><span class="line"><span class="string">                  type: integer</span></span><br><span class="line"><span class="string">                  minimum: 1</span></span><br><span class="line"><span class="string">                  maximum: 32</span></span><br><span class="line"><span class="string">                image:</span></span><br><span class="line"><span class="string">                  type: string</span></span><br><span class="line"><span class="string">                serviceName:</span></span><br><span class="line"><span class="string">                  type: string</span></span><br><span class="line"><span class="string">                volumesPerServer:</span></span><br><span class="line"><span class="string">                  type: integer</span></span><br><span class="line"><span class="string">                mountPath:</span></span><br><span class="line"><span class="string">                  type: string</span></span><br><span class="line"><span class="string">                podManagementPolicy:</span></span><br><span class="line"><span class="string">                  type: string</span></span><br><span class="line"><span class="string">                  enum: [Parallel,OrderedReady]</span></span><br><span class="line"><span class="string">                  default: Parallel</span></span><br><span class="line"><span class="string">                requestAutoCert:</span></span><br><span class="line"><span class="string">                  type: boolean</span></span><br><span class="line"><span class="string">                  default: false</span></span><br><span class="line"><span class="string">                version:</span></span><br><span class="line"><span class="string">                  type: string</span></span><br><span class="line"><span class="string">                mountpath:</span></span><br><span class="line"><span class="string">                  type: string</span></span><br><span class="line"><span class="string">                subpath:</span></span><br><span class="line"><span class="string">                  type: string</span></span><br><span class="line"><span class="string">                mcs:</span></span><br><span class="line"><span class="string">                  type: object</span></span><br><span class="line"><span class="string">                  x-kubernetes-preserve-unknown-fields: true</span></span><br><span class="line"><span class="string">                  properties:</span></span><br><span class="line"><span class="string">                    image:</span></span><br><span class="line"><span class="string">                      type: string</span></span><br><span class="line"><span class="string">                    replicas:</span></span><br><span class="line"><span class="string">                      type: integer</span></span><br><span class="line"><span class="string">                      default: 2</span></span><br><span class="line"><span class="string">                    mcsSecret:</span></span><br><span class="line"><span class="string">                      type: object</span></span><br><span class="line"><span class="string">                      properties:</span></span><br><span class="line"><span class="string">                        name:</span></span><br><span class="line"><span class="string">                          type: string</span></span><br><span class="line"><span class="string">                kes:</span></span><br><span class="line"><span class="string">                  type: object</span></span><br><span class="line"><span class="string">                  x-kubernetes-preserve-unknown-fields: true</span></span><br><span class="line"><span class="string">                  properties:</span></span><br><span class="line"><span class="string">                    image:</span></span><br><span class="line"><span class="string">                      type: string</span></span><br><span class="line"><span class="string">                    replicas:</span></span><br><span class="line"><span class="string">                      type: integer</span></span><br><span class="line"><span class="string">                      default: 2</span></span><br><span class="line"><span class="string">                    kesSecret:</span></span><br><span class="line"><span class="string">                      type: object</span></span><br><span class="line"><span class="string">                      properties:</span></span><br><span class="line"><span class="string">                        name:</span></span><br><span class="line"><span class="string">                          type: string</span></span><br><span class="line"><span class="string">            status:</span></span><br><span class="line"><span class="string">              type: object</span></span><br><span class="line"><span class="string">              properties:</span></span><br><span class="line"><span class="string">                currentState:</span></span><br><span class="line"><span class="string">                  type: string</span></span><br><span class="line"><span class="string">      subresources:</span></span><br><span class="line"><span class="string">        # status enables the status subresource.</span></span><br><span class="line"><span class="string">        status: &#123;&#125;</span></span><br><span class="line"><span class="string">      additionalPrinterColumns:</span></span><br><span class="line"><span class="string">        - name: Current State</span></span><br><span class="line"><span class="string">          type: string</span></span><br><span class="line"><span class="string">          jsonPath: ".status.currentState"</span></span><br><span class="line"><span class="string">---</span></span><br><span class="line"><span class="string">apiVersion: rbac.authorization.k8s.io/v1beta1</span></span><br><span class="line"><span class="string">kind: ClusterRole</span></span><br><span class="line"><span class="string">metadata:</span></span><br><span class="line"><span class="string">  name: minio-operator-role</span></span><br><span class="line"><span class="string">rules:</span></span><br><span class="line"><span class="string">- apiGroups:</span></span><br><span class="line"><span class="string">  - ""</span></span><br><span class="line"><span class="string">  resources:</span></span><br><span class="line"><span class="string">  - namespaces</span></span><br><span class="line"><span class="string">  - secrets</span></span><br><span class="line"><span class="string">  - pods</span></span><br><span class="line"><span class="string">  - services</span></span><br><span class="line"><span class="string">  - events</span></span><br><span class="line"><span class="string">  verbs:</span></span><br><span class="line"><span class="string">  - get</span></span><br><span class="line"><span class="string">  - watch</span></span><br><span class="line"><span class="string">  - create</span></span><br><span class="line"><span class="string">  - list</span></span><br><span class="line"><span class="string">  - delete</span></span><br><span class="line"><span class="string">- apiGroups:</span></span><br><span class="line"><span class="string">  - apps</span></span><br><span class="line"><span class="string">  resources:</span></span><br><span class="line"><span class="string">  - statefulsets</span></span><br><span class="line"><span class="string">  - deployments</span></span><br><span class="line"><span class="string">  verbs:</span></span><br><span class="line"><span class="string">  - get</span></span><br><span class="line"><span class="string">  - create</span></span><br><span class="line"><span class="string">  - list</span></span><br><span class="line"><span class="string">  - patch</span></span><br><span class="line"><span class="string">  - watch</span></span><br><span class="line"><span class="string">  - update</span></span><br><span class="line"><span class="string">  - delete</span></span><br><span class="line"><span class="string">- apiGroups:</span></span><br><span class="line"><span class="string">  - batch</span></span><br><span class="line"><span class="string">  resources:</span></span><br><span class="line"><span class="string">  - jobs</span></span><br><span class="line"><span class="string">  verbs:</span></span><br><span class="line"><span class="string">  - get</span></span><br><span class="line"><span class="string">  - create</span></span><br><span class="line"><span class="string">  - list</span></span><br><span class="line"><span class="string">  - patch</span></span><br><span class="line"><span class="string">  - watch</span></span><br><span class="line"><span class="string">  - update</span></span><br><span class="line"><span class="string">  - delete</span></span><br><span class="line"><span class="string">- apiGroups:</span></span><br><span class="line"><span class="string">  - "certificates.k8s.io"</span></span><br><span class="line"><span class="string">  resources:</span></span><br><span class="line"><span class="string">  - "certificatesigningrequests"</span></span><br><span class="line"><span class="string">  - "certificatesigningrequests/approval"</span></span><br><span class="line"><span class="string">  - "certificatesigningrequests/status"</span></span><br><span class="line"><span class="string">  verbs:</span></span><br><span class="line"><span class="string">  - update</span></span><br><span class="line"><span class="string">  - create</span></span><br><span class="line"><span class="string">  - get</span></span><br><span class="line"><span class="string">  - delete</span></span><br><span class="line"><span class="string">- apiGroups:</span></span><br><span class="line"><span class="string">  - operator.min.io</span></span><br><span class="line"><span class="string">  resources:</span></span><br><span class="line"><span class="string">  - "*"</span></span><br><span class="line"><span class="string">  verbs:</span></span><br><span class="line"><span class="string">  - "*"</span></span><br><span class="line"><span class="string">- apiGroups:</span></span><br><span class="line"><span class="string">  - min.io</span></span><br><span class="line"><span class="string">  resources:</span></span><br><span class="line"><span class="string">  - "*"</span></span><br><span class="line"><span class="string">  verbs:</span></span><br><span class="line"><span class="string">  - "*"</span></span><br><span class="line"><span class="string">---</span></span><br><span class="line"><span class="string">apiVersion: v1</span></span><br><span class="line"><span class="string">kind: ServiceAccount</span></span><br><span class="line"><span class="string">metadata:</span></span><br><span class="line"><span class="string">  name: minio-operator</span></span><br><span class="line"><span class="string">  namespace: velero</span></span><br><span class="line"><span class="string">---</span></span><br><span class="line"><span class="string">kind: ClusterRoleBinding</span></span><br><span class="line"><span class="string">apiVersion: rbac.authorization.k8s.io/v1beta1</span></span><br><span class="line"><span class="string">metadata:</span></span><br><span class="line"><span class="string">  name: minio-operator-binding</span></span><br><span class="line"><span class="string">  namespace: velero</span></span><br><span class="line"><span class="string">roleRef:</span></span><br><span class="line"><span class="string">  apiGroup: rbac.authorization.k8s.io</span></span><br><span class="line"><span class="string">  kind: ClusterRole</span></span><br><span class="line"><span class="string">  name: minio-operator-role</span></span><br><span class="line"><span class="string">subjects:</span></span><br><span class="line"><span class="string">- kind: ServiceAccount</span></span><br><span class="line"><span class="string">  name: minio-operator</span></span><br><span class="line"><span class="string">  namespace: velero</span></span><br><span class="line"><span class="string">---</span></span><br><span class="line"><span class="string">apiVersion: apps/v1</span></span><br><span class="line"><span class="string">kind: Deployment</span></span><br><span class="line"><span class="string">metadata:</span></span><br><span class="line"><span class="string">  name: minio-operator</span></span><br><span class="line"><span class="string">spec:</span></span><br><span class="line"><span class="string">  replicas: 1</span></span><br><span class="line"><span class="string">  selector:</span></span><br><span class="line"><span class="string">    matchLabels:</span></span><br><span class="line"><span class="string">      name: minio-operator</span></span><br><span class="line"><span class="string">  template:</span></span><br><span class="line"><span class="string">    metadata:</span></span><br><span class="line"><span class="string">      labels:</span></span><br><span class="line"><span class="string">        name: minio-operator</span></span><br><span class="line"><span class="string">    spec:</span></span><br><span class="line"><span class="string">      serviceAccountName: minio-operator</span></span><br><span class="line"><span class="string">      containers:</span></span><br><span class="line"><span class="string">        - name: minio-operator</span></span><br><span class="line"><span class="string">          image: minio/k8s-operator:2.0.6</span></span><br><span class="line"><span class="string">          imagePullPolicy: IfNotPresent'</span><span class="string">|kubectl</span> <span class="string">create</span> <span class="string">-f</span> <span class="bullet">-</span></span><br></pre></td></tr></table></figure>
 <h3 id="2-minio-instance-安装"><a href="#2-minio-instance-安装" class="headerlink" title="2. minio-instance 安装"></a>2. minio-instance 安装</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">echo</span> <span class="string">'</span></span><br><span class="line"><span class="string">apiVersion: v1</span></span><br><span class="line"><span class="string">kind: Secret</span></span><br><span class="line"><span class="string">metadata:</span></span><br><span class="line"><span class="string">  name: minio-creds-secret</span></span><br><span class="line"><span class="string">type: Opaque</span></span><br><span class="line"><span class="string">data:</span></span><br><span class="line"><span class="string">  accesskey: aGV4Y2xvdWQ= # base 64 encoded "minio" (echo -n '</span><span class="string">minio'</span> <span class="string">|</span> <span class="string">base64)</span></span><br><span class="line">  <span class="attr">secretkey:</span> <span class="string">aGV4Y2xvdWRAMjAyMDExMTY=</span> <span class="comment"># based 64 encoded "minio123" (echo -n 'minio123' | base64)</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">minio-service</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">ClusterIP</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">9000</span></span><br><span class="line">      <span class="attr">targetPort:</span> <span class="number">9000</span></span><br><span class="line">      <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">minio</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">operator.min.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">MinIOInstance</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">minio</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">metadata:</span></span><br><span class="line">    <span class="attr">labels:</span></span><br><span class="line">      <span class="attr">app:</span> <span class="string">minio</span></span><br><span class="line">    <span class="attr">annotations:</span></span><br><span class="line">      <span class="attr">prometheus.io/path:</span> <span class="string">/minio/prometheus/metrics</span></span><br><span class="line">      <span class="attr">prometheus.io/port:</span> <span class="string">"9000"</span></span><br><span class="line">      <span class="attr">prometheus.io/scrape:</span> <span class="string">"true"</span></span><br><span class="line">  <span class="comment">## Registry location and Tag to download MinIO Server image</span></span><br><span class="line">  <span class="attr">image:</span> <span class="string">minio/minio:RELEASE.2020-07-13T18-09-56Z</span></span><br><span class="line">  <span class="comment">## A ClusterIP Service will be created with the given name</span></span><br><span class="line">  <span class="attr">serviceName:</span> <span class="string">minio-internal-service</span></span><br><span class="line">  <span class="attr">zones:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">"zone-0"</span></span><br><span class="line">      <span class="attr">servers:</span> <span class="number">4</span></span><br><span class="line">  <span class="attr">volumesPerServer:</span> <span class="number">4</span></span><br><span class="line">  <span class="attr">mountPath:</span> <span class="string">/export</span></span><br><span class="line">  <span class="attr">volumeClaimTemplate:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">data</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">accessModes:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">ReadWriteOnce</span></span><br><span class="line">      <span class="attr">resources:</span></span><br><span class="line">        <span class="attr">requests:</span></span><br><span class="line">          <span class="attr">storage:</span> <span class="string">5Gi</span></span><br><span class="line">  <span class="comment">## Secret with credentials to be used by MinIO instance.</span></span><br><span class="line">  <span class="attr">credsSecret:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">minio-creds-secret</span></span><br><span class="line">  <span class="attr">podManagementPolicy:</span> <span class="string">Parallel</span></span><br><span class="line">  <span class="attr">requestAutoCert:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">certConfig:</span></span><br><span class="line">    <span class="attr">commonName:</span> <span class="string">""</span></span><br><span class="line">    <span class="attr">organizationName:</span> <span class="string">[]</span></span><br><span class="line">    <span class="attr">dnsNames:</span> <span class="string">[]</span></span><br><span class="line">  <span class="attr">liveness:</span></span><br><span class="line">    <span class="attr">initialDelaySeconds:</span> <span class="number">10</span></span><br><span class="line">    <span class="attr">periodSeconds:</span> <span class="number">1</span></span><br><span class="line">    <span class="attr">timeoutSeconds:</span> <span class="number">1</span> <span class="string">'|kubectl create -f -</span></span><br></pre></td></tr></table></figure>
@@ -622,6 +622,14 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cdh</a>
               </li>
              
@@ -642,14 +650,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">oprnvpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">go</a>
               </li>
              
@@ -666,19 +666,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">堆栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">常量</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">指针，类型别名</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">堆栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -702,19 +702,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">velero</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">istio</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">coredns</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -723,6 +711,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">亲和性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">RBAC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -746,19 +738,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Node Allocatable</a>
+                <a href="javascript:void(0)" class="js-tag color3">coredns</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">kubelet</a>
+                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
+                <a href="javascript:void(0)" class="js-tag color3">machine</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">parted</a>
+                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -774,11 +766,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
+                <a href="javascript:void(0)" class="js-tag color3">Proxmox</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">machine</a>
+                <a href="javascript:void(0)" class="js-tag color2">parted</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Node Allocatable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">kubelet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -794,15 +794,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">rpm打包</a>
+                <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">PodPreset</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">metrics-server</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -842,6 +838,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">istio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
@@ -859,6 +859,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -911,10 +915,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Option</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
             
             <div class="clearfix"></div>
